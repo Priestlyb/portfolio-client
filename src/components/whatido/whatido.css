@@ -1,0 +1,55 @@
+.whatido {
+    padding-top: 50px;
+}
+
+.edu-title {
+    width: 50%;
+    margin-bottom: 50px;
+    letter-spacing: 5px;
+}
+
+.whatido_img {
+    width: 40%;
+    font-size: 5rem;
+}
+
+.edu_title_row {
+    gap: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.edu_title_col {
+    width: 45%;
+    margin: 5px;
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-color: #333340;
+}
+
+.edu_title_col:hover {
+    color: #333340;
+    background-color: #9999bf;
+}
+
+@media (max-width: 1028px) {
+
+    .whatido {
+        padding: 15px;
+    }
+
+    .whatido_img {
+        width: 100%;
+        font-size: 3rem;
+        margin-bottom: 15px;
+    }
+
+    .edu_title_col {
+        width: 45%;
+        padding: 10px 0;
+        text-align: center;
+    }
+}

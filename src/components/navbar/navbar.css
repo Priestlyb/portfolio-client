@@ -1,0 +1,244 @@
+.col_left {
+  padding: 0;
+}
+
+.row {
+  margin: 0;
+}
+
+.sidebar {
+    width: 20vw;
+    height: 100vh;
+    position: fixed;
+}
+
+.navbar_cover {
+  display: flex;
+  top: 100px;
+  flex-direction: column;
+}
+
+.nav-link {
+    color: black;
+}
+
+.nav-link:hover {
+  color: var(--yellow);
+}
+
+.my-face {
+    width: 125px;
+    margin: 50px;
+    background-color: #B8B8E6;
+    border-radius: 50%;
+}
+
+.my-bg {
+    top: -160px;
+    left: -50px;
+    width: 300px;
+    height: 300px;
+    z-index: -1;
+    border-radius: 50%;
+    position: absolute;
+    background-color: #333340;
+}
+
+/* Social Icon */
+
+.social_icon {
+  color: #333340;
+}
+
+.social_icon:hover {
+  color: #fff;
+}
+
+.wrapper {
+    display: inline-flex;
+    list-style: none;
+    margin-top: 60px;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .wrapper .icon {
+    position: relative;
+    background: #fff;
+    border-radius: 50%;
+    margin: 10px;
+    width: 25px;
+    height: 25px;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  .wrapper .tooltip {
+    position: absolute;
+    top: 0;
+    font-size: 14px;
+    background: #fff;
+    padding: 5px 8px;
+    border-radius: 5px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  .wrapper .tooltip::before {
+    position: absolute;
+    content: "";
+    height: 8px;
+    width: 8px;
+    background: #fff;
+    bottom: -3px;
+    left: 50%;
+    transform: translate(-50%) rotate(45deg);
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  .wrapper .icon:hover .tooltip {
+    top: -45px;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+  
+  .wrapper .icon:hover span,
+  .wrapper .icon:hover .tooltip {
+    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+  }
+  
+  .wrapper .facebook:hover,
+  .wrapper .facebook:hover .tooltip,
+  .wrapper .facebook:hover .tooltip::before {
+    background: #1877F2;
+    color: #fff;
+  }
+  
+  .wrapper .github:hover,
+  .wrapper .github:hover .tooltip,
+  .wrapper .github:hover .tooltip::before {
+    background: var(--black);
+    color: #fff;
+  }
+  
+  .wrapper .twitter:hover,
+  .wrapper .twitter:hover .tooltip,
+  .wrapper .twitter:hover .tooltip::before {
+    background: #1DA1F2;
+    color: #fff;
+  }
+  
+  .wrapper .instagram:hover,
+  .wrapper .instagram:hover .tooltip,
+  .wrapper .instagram:hover .tooltip::before {
+    background: #E4405F;
+    color: #fff;
+  }
+
+  /* Nav bn */
+
+  .switch {
+    display: none;
+    position: relative;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(45deg,
+    #333340 20%,
+    #B8B8E6 100%);
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.363);
+    border-radius: 5px;
+  }
+  
+  .switch input {
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    cursor: pointer;
+    position: absolute;
+  }
+  
+  .switch div {
+    width: 80%;
+    height: 80%;
+    margin: 10%;
+    position: absolute;
+  }
+  
+  .switch span {
+    background: #fff;
+    width: 100%;
+    height: 2px;
+    border-radius: 5px;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.5s, width 0.5s;
+  }
+  
+  .switch .line-1 {
+    width: 50%;
+    transform: translate(-100%, -10px);
+    transform-origin: 0 0;
+  }
+  
+  .switch .line-3 {
+    width: 50%;
+    left: auto;
+    right: 0;
+    transform: translate(0, 10px);
+    transform-origin: 100% 0;
+  }
+  
+  input:checked + div span.line-1 {
+    transform: translate(0, 0) rotate(-45deg);
+  }
+  
+  input:checked +  div span.line-3 {
+    transform: translate(-100%, 0) rotate(-45deg);
+  }
+  
+  input:checked + div span.line-2 {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+  
+
+  @media (max-width: 1028px) {
+    .sidebar {
+      width: 50%;
+      padding: 0px;
+      height: 70px;
+      z-index: 1;
+    }
+
+    .switch {
+      display: block;
+    }
+
+    .navbar_cover {
+      z-index: 1;
+      height: 90vh;
+      margin-top: 10px;
+      background-color: var(--white);
+    }
+
+    .my-bg {
+      display: none;
+    }
+
+    .navbar-toggler {
+      margin: 10px 0 20px 0;
+    }
+  }
+  

@@ -1,0 +1,44 @@
+.experience-row {
+    padding: 10px;
+    margin: 10px;
+    background-color: rgb(251, 251, 251);
+}
+
+.job-title {
+    font-size: 1.6rem;
+    text-transform: capitalize;
+}
+
+.imfi-img {
+    width: 100%;
+    padding: 10px;
+    margin: 20px 0;
+}
+
+.job-type {
+    font-size: 0.9rem;
+    padding: 4px;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: #9999bf;
+}
+
+@media (max-width: 1028px) {
+    .experience {
+        padding: 15px;
+        margin-top: 50px;
+    }
+
+    .experience-row {
+        padding: 5px;
+        margin: 25px 0;
+    }
+
+    .imfi-img {
+        width: 50%;
+    }
+
+    .img_col {
+        text-align: center;
+    }
+}

@@ -1,0 +1,20 @@
+.testimonials {
+    padding-top: 50px;
+    margin-bottom: 50px;
+}
+
+.testimonials_row {
+    display: flex;
+}
+
+.testimonail_img {
+    width: 80%;
+    aspect-ratio: 1/1;
+}
+
+@media (max-width: 1028px) {
+    .testimonials {
+        padding: 15px;
+        margin-top: 50px;
+    }
+}

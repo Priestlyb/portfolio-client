@@ -1,0 +1,180 @@
+.education {
+  width: 100%;
+  margin-top: 50px;
+  overflow: hidden;
+}
+
+.edu-title {
+  font-size: 2.2rem;
+  font-weight: 300;
+  padding-bottom: 20px;
+  border-bottom: #000 solid 2px;
+}
+
+.edu_skills_link {
+  color: var(--yellow);
+}
+
+.edu_col:last-child {
+  width: 42%;
+  margin-left: 50px;
+}
+
+.plan-card {
+  background: #fff;
+  width: 25rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  border-radius: 10px;
+  border-bottom: 4px solid #000446;
+  box-shadow: 0 6px 30px rgba(207, 212, 222, 0.3);
+  font-family: "Poppins", sans-serif;
+}
+
+.plan-card h2 {
+  margin-bottom: 15px;
+  font-size: 27px;
+  font-weight: 600;
+}
+
+.plan-card h2 span {
+  margin-top: -4px;
+  color: #4d4d4d;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.course {
+  margin-bottom: 10px;
+}
+
+.etiquet-price {
+  position: relative;
+  background: #fdbd4a;
+  width: 24.46rem;
+  margin-left: -0.65rem;
+  padding: .2rem 1.2rem;
+  border-radius: 5px 0 0 5px;
+}
+
+.etiquet-price p {
+  margin: 0;
+  padding-top: .4rem;
+  display: flex;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.etiquet-price p:before {
+  content: "";
+  margin-right: 5px;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.etiquet-price p:after {
+  content: "";
+  margin-left: 5px;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.etiquet-price div {
+  position: absolute;
+  bottom: -23px;
+  right: 0px;
+  width: 0;
+  height: 0;
+  border-top: 13px solid #c58102;
+  border-bottom: 10px solid transparent;
+  border-right: 13px solid transparent;
+  z-index: -6;
+}
+
+.benefits-list {
+  margin-top: 16px;
+}
+
+.benefits-list ul {
+  padding: 0;
+  font-size: 14px;
+}
+
+.benefits-list ul li {
+  color: #4d4d4d;
+  list-style: none;
+  margin-bottom: .2rem;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.benefits-list ul li svg {
+  width: .9rem;
+  fill: currentColor;
+}
+
+.benefits-list ul li span {
+  font-weight: 300;
+}
+
+
+/* Rate Bar */
+
+
+.skills .box {
+  position: relative;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+}
+.skills .box h4 {
+  text-transform: capitalize;
+  color: #848c99;
+  font-weight: 400;
+  font-size: 1rem;
+}
+.skills .box .percent {
+      position: relative;
+      width: 100%;
+      height: 10px;
+      background: var(--black);
+}
+.skills .box .percent div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-color: #fdbd4a;
+  background: var(--yellow);
+}
+
+@media (max-width: 1028px) {
+  .edu-title {
+    width: 80%;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    
+  }
+
+  .etiquet-price {
+    width: 19.46rem;
+  }
+  
+  .edu_col:last-child {
+    width: 100%;
+    margin-left: 0px;
+  }
+
+  .plan-card {
+    width: 20rem;
+    margin-bottom: 50px;
+  }
+
+  .education {
+    padding: 15px;
+  }
+}
