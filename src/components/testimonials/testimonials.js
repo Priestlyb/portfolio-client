@@ -7,7 +7,7 @@ function Testimonials() {
             <h1 className='edu-title'>TESTIMONAILS.</h1>
             <div id="carouselExampleInterval" className="carousel slide" data-bs-ride="carousel">
                 <div className="carousel-inner">
-                    <div className="carousel-item active" data-bs-interval="3500">
+                    <div className="carousel-item active" data-bs-interval="1000">
 
                         <div className='testimonials_row'>
 

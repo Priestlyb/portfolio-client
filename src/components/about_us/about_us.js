@@ -38,19 +38,6 @@ function Aboutus() {
             <br /><br />
             I am always eager to learn new technologies and stay up-to-date with the latest developments in the web development industry. I am currently working on a project that uses Redux and I'm excited to continue to develop my skills and grow my career as a front-end developer. If you're interested in working together.</p>
 
-
-          <div className="item button_parrot">
-            <button className='about-btn'>
-              <div className="parrot"></div>
-              <div className="parrot"></div>
-              <div className="parrot"></div>
-              <div className="parrot"></div>
-              <div className="parrot"></div>
-              <div className="parrot"></div>
-              Hire Me!
-            </button>
-          </div>
-
         </div>
       </div>
     </div>

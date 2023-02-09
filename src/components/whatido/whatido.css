@@ -1,5 +1,5 @@
 .whatido {
-    padding-top: 50px;
+    padding: 50px 0;
 }
 
 .edu-title {
@@ -38,7 +38,11 @@
 @media (max-width: 1028px) {
 
     .whatido {
-        padding: 15px;
+        padding: 15px 0;
+    }
+
+    .edu_title_row {
+        padding-bottom: 50px;
     }
 
     .whatido_img {

@@ -5,7 +5,6 @@ import Aboutus from './about_us/about_us';
 import Eduskills from './edu_skills/edu_skills';
 import Experience from './experience/experience';
 import Whatido from './whatido/whatido';
-import Testimonials from './testimonials/testimonials';
 import Backtotop from "./back_to_top/back_to_top"
 import Portfolios from './portfolio/portfolios';
 
@@ -39,7 +38,6 @@ function Homepage() {
               <Experience />
               <Portfolios />
               <Whatido />
-              <Testimonials />
               <Backtotop />
             </div>
           </>
