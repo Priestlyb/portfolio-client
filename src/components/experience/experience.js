@@ -50,7 +50,7 @@ database.</li>
     </div>
     <div className='col-lg-8'>
         <h4 className='job-title'>Shopify Developer</h4>
-        <p className='job-sub'>Ministry of Health | Remote | (2021-2022)</p>
+        <p className='job-sub'>Fiverr | Remote | (2021-2022)</p>
 
         <ul>
             <li>I was thought basic skills in designing a website and App with the use of
