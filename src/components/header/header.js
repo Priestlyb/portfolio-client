@@ -45,6 +45,7 @@ function Header() {
       setIndex(prevIndex => prevIndex + 1);
     }
   }
+
   return (
     <div className='container header' id='home'>
 
@@ -55,7 +56,7 @@ function Header() {
           <h4>Hello, I am</h4>
           <h1>{`Priestly Patrick Bassey`} <br />
             <span className="txt-rotate" dataperiod="2000" data-rotate='[ "Web Developer", "Web Designer", "UI/UX Designer" ]'><span className="wrap">{text}</span></span></h1>
-          <p>I design and develop services for customers of all sizes, specializing in creating stylish, modern websites, web services and online stores.</p>\
+          <p>I design and develop services for customers of all sizes, specializing in creating stylish, modern websites, web services and online stores.</p>
 
           
           

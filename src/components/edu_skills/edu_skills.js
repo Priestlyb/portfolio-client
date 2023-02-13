@@ -10,7 +10,7 @@ function Eduskills() {
 
                     <div className="plan-card">
                         <h2>Gregory University, Uturu</h2>
-                        <p className='course'>Computer Science Second className lower division</p>
+                        <p className='course'>Computer Science Second class lower division</p>
                         <div className="etiquet-price">
                             <p>2017-2021</p>
                             <div></div>
