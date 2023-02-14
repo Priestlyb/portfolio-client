@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import "./add_project.css";
 import { useNavigate } from "react-router-dom";
-import axios from 'axios';
+import { axiosInstance } from '../../config';
 
 const AddProject = () => {
     const history = useNavigate();
@@ -26,7 +26,7 @@ const AddProject = () => {
 
 
     const sendRequest = async () => {
-        axios.post("http://localhost:5000/portfolios", {
+        axiosInstance.post("/portfolios", {
             project_img: String(inputs.project_img),
             project_location: String(inputs.project_location),
             project_role: String(inputs.project_role),

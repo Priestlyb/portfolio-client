@@ -35,13 +35,13 @@ const Portfolio = (props) => {
             </button>
             </a>
 
-            <div>
+            {/* <div>
 
-                {/* <button> <a href={`/portfolioUpdate/${_id}`}>Update</a></ button>
+                <button> <a href={`/portfolioUpdate/${_id}`}>Update</a></ button>
                 <br /> <br />
                 
-                <button onClick={deleteHandler}>Delete</button> */}
-            </div>
+                <button onClick={deleteHandler}>Delete</button>
+            </div> */}
         </div>
         </div >
     );
