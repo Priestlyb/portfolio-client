@@ -48,10 +48,10 @@ const PortfolioUpdate = (props) => {
       {inputs &&
         <form className='row col-lg-8' onSubmit={handleSubmit} >
           <div className='col-lg-6'>
-            <input className="input" value={inputs.project_location} onChange={handleChange} name="project_location" />
+            <input placeholder="project_location" className="input" value={inputs.project_location} onChange={handleChange} name="project_location" />
           </div>
           <div className='col-lg-6'>
-            <input className="input" value={inputs.project_role} onChange={handleChange}
+            <input placeholder="project_role" className="input" value={inputs.project_role} onChange={handleChange}
               name="project_role" />
           </div>
           <div className='col-lg-12'>
