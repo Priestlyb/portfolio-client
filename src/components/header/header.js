@@ -1,7 +1,7 @@
 import React from 'react';
 import './header.css';
 import dp from './me-logo.png';
-import img from './myResume.pdf';
+import img from './Priestly`s_Portfolio.pdf';
 import { useState, useEffect } from "react";
 
 function Header() {
