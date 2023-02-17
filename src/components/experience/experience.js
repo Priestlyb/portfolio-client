@@ -31,7 +31,7 @@ function Experience() {
                 </div>
                 <div className='col-lg-8'>
                     <h4 className='job-title'>IT technician</h4>
-                    <p className='job-sub'>Ministry of Health | Physical | (2021-2022)</p>
+                    <p className='job-sub'>Federal Ministry of Health | Physical | (2021-2022)</p>
 
                     <ul>
                         <li>Impacted fellow staff with immediate knowledge of Excel.</li>
