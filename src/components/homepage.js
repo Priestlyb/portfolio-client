@@ -7,6 +7,7 @@ import Experience from './experience/experience';
 import Whatido from './whatido/whatido';
 import Backtotop from "./back_to_top/back_to_top"
 import Portfolios from './portfolio/portfolios';
+import Graphic_portfolio from "./graphic_portfolio/graphic_portfolio";
 
 function Homepage() {
   const [isLoading, setIsLoading] = useState(true);
@@ -36,6 +37,7 @@ function Homepage() {
               <Aboutus />
               <Eduskills />
               <Experience />
+              <Graphic_portfolio />
               <Portfolios />
               <Whatido />
               <Backtotop />
