@@ -31,7 +31,7 @@ const PortfolioUpdate = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(inputs);
-    sendRequest().then(() => history(`/portfolio/${id}`));
+    sendRequest().then(() => history(`/admin`));
   }
 
   const handleChange = (e) => {
@@ -45,6 +45,13 @@ const PortfolioUpdate = (props) => {
 
   return (
     <div className='container portfolio_update'>
+
+    <a href='/admin' className='admin_back'>
+    <button className='back_admin'>
+    Back here
+    </button>
+    </a>
+    
       {inputs &&
         <form className='row col-lg-8' onSubmit={handleSubmit} >
           <div className='col-lg-6'>

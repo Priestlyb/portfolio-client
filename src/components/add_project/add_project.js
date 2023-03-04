@@ -40,7 +40,7 @@ const AddProject = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(inputs,);
-        sendRequest().then(() => history("/"));
+        sendRequest().then(() => history("/admin"));
     }
 
     return (
