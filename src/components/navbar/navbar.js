@@ -1,9 +1,16 @@
-import React, { useEffect} from 'react'
+import React, { useEffect, useContext } from 'react'
 import "./navbar.css"
 import $ from 'jquery';
 import dp from './it-developer.gif'
+import { Context } from "../../context/Context";
 
 function Navbar() {
+
+    const { user, dispatch } = useContext(Context);
+
+    const handleLogout = () => {
+        dispatch({ type: "LOGOUT" });
+    };
     useEffect(() => {
         $('.nav-link').on('click', function(){
           $('.navbar-collapse').collapse('hide');
@@ -27,19 +34,29 @@ function Navbar() {
                 <img src={dp} alt='My Face' className='my-face' />
 
                 <nav className="nav flex-column">
-                    <a className="nav-link animate__animated animate__lightSpeedInLeft animate__delay-0.5s animate__slower active" aria-current="page" href="#home">
+                    <a className="nav-link animate__animated animate__lightSpeedInLeft animate__delay-0.5s animate__slower active" aria-current="page" href="#home" aria-label="Toggle navigation">
                         <i className="fa-solid fa-house-chimney"></i> HOME
                     </a>
 
                     <a className="nav-link animate__animated animate__lightSpeedInLeft animate__delay-1s animate__slower" href="#about">
                         <i className="fa-regular fa-address-card"></i> ABOUT ME
                     </a>
+
                     <a className="nav-link animate__animated animate__lightSpeedInLeft animate__delay-2s animate__slower" href='#portfolios'>
                         <i className="fa-solid fa-folder-tree"></i> PORTFOLIO
                     </a>
+
                     <a className="nav-link animate__animated animate__lightSpeedInLeft animate__delay-3s animate__slower" href="#services"><i className="fa-solid fa-sliders">
                     </i> SERVICES <i className="bi bi-house-door"></i>
                     </a>
+
+<a className="nav-link animate__animated animate__lightSpeedInLeft animate__delay-3s animate__slower" href="/admin"> {user && "ADMIN"}
+</a>
+
+<a className="nav-link animate__animated animate__lightSpeedInLeft animate__delay-3s animate__slower" href="#services" onClick={handleLogout}>
+     {user && "LOGOUT"}
+</a>
+
                     {/* <a className="nav-link animate__animated animate__lightSpeedInLeft animate__delay-4s animate__slower"><i className="fa-brands fa-blogger-b"></i> BLOGS</a>
             <a className="nav-link animate__animated animate__lightSpeedInLeft animate__delay-5s animate__slower" href='#contact'><i className="fa-solid fa-map-location-dot"></i> CONTACT ME</a> */}
 

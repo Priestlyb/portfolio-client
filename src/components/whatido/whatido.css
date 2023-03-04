@@ -21,12 +21,12 @@
     align-items: center;
     justify-content: center;
     color: white;
-    background-color: #333340;
+    background-color: var(--black);
 }
 
 .edu_title_col:hover {
     color: #333340;
-    background-color: #9999bf;
+    background-color: #A3BB98;
 }
 
 @media (max-width: 1028px) {

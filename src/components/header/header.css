@@ -38,6 +38,7 @@
 
 .my-pic {
     width: 100%;
+    object-fit: cover;
 }
 
 /* Button */
@@ -46,7 +47,7 @@
     display: inline-block;
     position: relative;
     padding: 10px 25px;
-    background-color: #000;
+    background-color: var(--black);
     color: white;
     font-family: sans-serif;
     text-decoration: none;
@@ -59,8 +60,8 @@
   }
   
   .buttonDownload:hover {
-    background-color: #B8B8E6;
-    color: black;
+    background-color: var(--gold);
+    color: var(--black);
   }
   
   .buttonDownload:before, .buttonDownload:after {

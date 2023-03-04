@@ -1,8 +1,18 @@
-import React from 'react';
-import './portfolio.css';
+import React from 'react'
+import "./admin.css"
+import { useNavigate } from "react-router-dom";
+import { axiosInstance } from '../config';
 
-const Portfolio = (props) => {
+const Adminsingle = (props) => {
+
+    const history = useNavigate();
     const { _id, project_img, project_location, project_role, project_description } = props.portfolio;
+
+    const deleteHandler = async () => {
+        await axiosInstance.delete(`/portfolios/${_id}`)
+            .then((res) => res.data)
+            .then(() => history("/"));
+    }
 
     return (
 
@@ -24,9 +34,17 @@ const Portfolio = (props) => {
                 </div>
             </button>
             </a>
+
+            <div>
+
+                <button> <a href={`/portfolioUpdate/${_id}`}>Update</a></ button>
+                <br /> <br />
+                
+                <button onClick={deleteHandler}>Delete</button>
+            </div>
         </div>
         </div >
-    );
+    )
 }
 
-export default Portfolio;
+export default Adminsingle

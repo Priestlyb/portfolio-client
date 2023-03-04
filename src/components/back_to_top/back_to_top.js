@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react'
 import "./back_to_top.css"
+import './back_to_top.scss';
 import emailjs from '@emailjs/browser';
 import applause from './applause.gif';
 import mail from './envelope_mail.gif';
@@ -25,15 +26,18 @@ function Backtotop() {
 
             <button className="quick-contact-btn btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom"><i className="fa-solid fa-message"></i></button>
 
-            <div className="offcanvas offcanvas-bottom" tabIndex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
+            <div className="offcanvas offcanvas-bottom offcanvas-vertical-height" tabIndex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
+
                 <div className="offcanvas-header">
                     <h5 className="offcanvas-title btt_btn" id="offcanvasBottomLabel">GET IN TOUCH.</h5>
                     <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
-                <div className="offcanvas-body medium">
 
-                <div className='container contact' id='contact'>
+                <div className="offcanvas-body large">
+
+                <div className='contact' id='contact'>
       <div className='row'>
+        
         <div className='col-lg-4'>
           <h3>What’s your story? <br /> Get in touch</h3>
           <p>Always available for freelancing if the right project comes along, Feel free to contact me.</p>

@@ -45,6 +45,13 @@ const AddProject = () => {
 
     return (
         <div className='container add_project'>
+
+        <a href='/admin' className='admin_back'>
+        <button className='back_admin'>
+        Back here
+        </button>
+        </a>
+        
             <h1 className='edu-title'>ADD NEW PROJECT.</h1>
             <div className='row'>
 

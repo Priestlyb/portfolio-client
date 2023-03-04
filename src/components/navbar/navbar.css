@@ -23,14 +23,15 @@
 }
 
 .nav-link:hover {
-  color: var(--yellow);
+  color: var(--gold);
 }
 
 .my-face {
     width: 125px;
     margin: 50px;
-    background-color: #B8B8E6;
+    background-color: #F0ECCF;
     border-radius: 50%;
+    border: 1px solid #F0ECCF;
 }
 
 .my-bg {
@@ -41,7 +42,7 @@
     z-index: -1;
     border-radius: 50%;
     position: absolute;
-    background-color: #333340;
+    background-color: #FFB100;
 }
 
 /* Social Icon */
@@ -153,7 +154,7 @@
     height: 40px;
     background: linear-gradient(45deg,
     #333340 20%,
-    #B8B8E6 100%);
+    var(--black) 100%);
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.363);
     border-radius: 5px;
   }

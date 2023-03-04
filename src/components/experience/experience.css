@@ -18,9 +18,10 @@
 .job-type {
     font-size: 0.9rem;
     padding: 4px;
+    color: #000;
     text-align: center;
     text-transform: uppercase;
-    background-color: #9999bf;
+    background-color: #F0ECCF;
 }
 
 @media (max-width: 1028px) {

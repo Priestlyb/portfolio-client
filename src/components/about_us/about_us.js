@@ -29,7 +29,7 @@ function Aboutus() {
           </div>
 
         </div> */}
-        <div className='about_col col-lg-6'>
+        <div className='about_col col-lg-10'>
 
           <h1 className='about-title'>ABOUT ME.</h1>
           <p>"As a skilled front-end developer with over 3 years of experience, I specialize in building responsive, user-friendly websites and apps using technologies such as React, HTML, CSS, and JavaScript. My portfolio showcases a range of projects that demonstrate my expertise in web development and my ability to deliver high-quality, visually stunning websites.

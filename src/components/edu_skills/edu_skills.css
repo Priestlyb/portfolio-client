@@ -15,7 +15,7 @@
 }
 
 .edu_skills_link {
-  color: var(--yellow);
+  color: var(--gold);
 }
 
 .edu_col:last-child {
@@ -55,7 +55,7 @@
 
 .etiquet-price {
   position: relative;
-  background: #fdbd4a;
+  background: #FBC252;
   width: 24.46rem;
   margin-left: -0.65rem;
   padding: .2rem 1.2rem;
@@ -90,7 +90,7 @@
   right: 0px;
   width: 0;
   height: 0;
-  border-top: 13px solid #c58102;
+  border-top: 13px solid #FBC252;
   border-bottom: 10px solid transparent;
   border-right: 13px solid transparent;
   z-index: -6;
@@ -136,7 +136,7 @@
 }
 .skills .box h4 {
   text-transform: capitalize;
-  color: #848c99;
+  color: var(--black);
   font-weight: 400;
   font-size: 1rem;
 }
@@ -144,15 +144,14 @@
       position: relative;
       width: 100%;
       height: 10px;
-      background: var(--black);
+      background: #F0ECCF;
 }
 .skills .box .percent div {
   position: absolute;
   top: 0;
   left: 0;
   height: 100%;
-  border-color: #fdbd4a;
-  background: var(--yellow);
+  background: #A3BB98;
 }
 
 @media (max-width: 1028px) {

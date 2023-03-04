@@ -2,7 +2,7 @@ import "./graphic_portfolio.css";
 
 const Graphic_portfolio = () => {
     return (
-        <div className="container">
+        <div className="container" id='portfolios'>
             <h1 className='edu-title'>GRAPHIC DESIGN PORTFOLIO.</h1>
 
             <div class="scroll-div">

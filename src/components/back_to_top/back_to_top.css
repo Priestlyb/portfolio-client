@@ -1,4 +1,3 @@
-
 .btt_btn {
     font-size: 2.2rem;
     font-weight: 300;
@@ -14,9 +13,12 @@
     right: 15px;
     font-size: 14px;
     border-radius: 100%;
-    background: linear-gradient(45deg,
-    #333340 20%,
-    #B8B8E6 100%);
+    background: var(--black);
+}
+
+.quick-contact-btn:hover, .quick-contact-btn i:hover {
+  color: var(--black);
+  background-color: var(--gold);
 }
 
 .quick-contact-btn i {
@@ -59,7 +61,7 @@
     border: 2px solid transparent;
     outline: none;
     border-bottom: 2px solid #3f3f3f;
-    caret-color: #3f3f3f;
+    color: #fff;
     background-color: #212121;
     padding: 5px;
     transition: .5s linear;
@@ -68,17 +70,15 @@
   }
   
   .input:focus {
-    border: 2px solid #9999bf;
-    caret-color: #9999bf;
-    color: #9999bf;
+    border: 2px solid #fff;
+    caret-color: #fff;
+    color: #fff;
     box-shadow: 4px 4px 10px #070707;
   }
   
   .input:focus::placeholder {
-    color: #9999bf;
+    color: #fff;
   }
-
-  
 
 /* textarea */
 
@@ -88,7 +88,7 @@
     border: 2px solid transparent;
     outline: none;
     border-bottom: 2px solid #3f3f3f;
-    caret-color: #3f3f3f;
+    color: #fff;
     background-color: #212121;
     padding: 5px;
     transition: .5s linear;
@@ -97,14 +97,14 @@
   }
   
   .textarea:focus {
-    border: 2px solid #9999bf;
-    caret-color: #9999bf;
-    color: #9999bf;
+    border: 2px solid #fff;
+    caret-color: #fff;
+    color: #fff;
     box-shadow: 4px 4px 10px #070707;
   }
   
   .textarea:focus::placeholder {
-    color: #9999bf;
+    color: #fff;
   }
 
   /* Button */

@@ -7,44 +7,40 @@ import Experience from './experience/experience';
 import Whatido from './whatido/whatido';
 import Backtotop from "./back_to_top/back_to_top"
 import Portfolios from './portfolio/portfolios';
-import Graphic_portfolio from "./graphic_portfolio/graphic_portfolio";
+import "./loader.css"
+import GraphicPortfolio from "./graphic_portfolio/graphic_portfolio";
 
 function Homepage() {
   const [isLoading, setIsLoading] = useState(true);
 
-   useEffect(() => {
-    setTimeout(() => setIsLoading(false), 4000);
-  }, []); 
+  useEffect(() => {
+    setTimeout(() => setIsLoading(false), 2000);
+  }, []);
 
   return (
     <>
-      <div className='row'>
-        {isLoading ? (
-          <div className="loader_container">
-            <div class="typewriter">
-    <div class="slide"><i></i></div>
-    <div class="paper"></div>
-    <div class="keyboard"></div>
-</div>
+
+      {isLoading ? (
+        <div className="home_loader_cover">
+        <div class="home_loader"><strong>Here We GO!</strong></div>
+        </div>
+      ) : (
+        <div className='row'>
+          <div className='col-lg-3'>
+            <Navbar />
           </div>
-        ) : (
-          <>
-            <div className='col-lg-3'>
-              <Navbar />
-            </div>
-            <div className='col-left col-lg-9'>
-              <Header />
-              <Aboutus />
-              <Eduskills />
-              <Experience />
-              <Graphic_portfolio />
-              <Portfolios />
-              <Whatido />
-              <Backtotop />
-            </div>
-          </>
-        )}
-      </div>
+          <div className='col-left col-lg-9'>
+            <Header />
+            <Aboutus />
+            <Eduskills />
+            <Experience />
+            <GraphicPortfolio />
+            <Portfolios />
+            <Whatido />
+            <Backtotop />
+          </div>
+        </div>
+      )}
     </>
   )
 }

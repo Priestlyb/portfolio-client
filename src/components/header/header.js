@@ -66,7 +66,7 @@ function Header() {
 
         </div>
         <div className='col-lg-5'>
-          <img src={dp} alt='My faces' className='my-pic' />
+          {/* <img src={dp} alt='My faces' className='my-pic' /> */}
         </div>
       </div>
     </div>

@@ -1,12 +1,11 @@
 .about {
   display: flex;
-  color: var(--white);
+  color: var(--black);
   position: relative;
   z-index: -1;
   padding-top: 50px;
-  border-bottom: solid 20px var(--yellow);
-  border-bottom-left-radius: 40%;
-  background-color: #333340;
+  border-bottom-left-radius: 30%;
+  background-color: #F0ECCF;
 }
 
 .about_row {
