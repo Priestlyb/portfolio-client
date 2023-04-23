@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import {axiosInstance} from '../../config';
+import { axiosInstance } from '../../config';
 
 const PortfolioPage = () => {
   const id = useParams().id;
@@ -32,7 +32,7 @@ const PortfolioPage = () => {
                   <li className="list-group-item list_header">Technologies:</li>
                 </ul>
                 <div className="card_footer">
-                {portfolio.technologies} 
+                  {portfolio.technologies}
                 </div>
               </div>
               <p>{portfolio.project_description}</p>
@@ -40,9 +40,9 @@ const PortfolioPage = () => {
               {/* Demo Btn */}
 
               <button className="demo_btn">
-              <a href={portfolio.view_link} target="blank" rel="nore
+                <a href={portfolio.view_link} target="blank" rel="nore
 ferrer">
-                <i className="fa-regular fa-eye"></i> View Demo
+                  <i className="fa-regular fa-eye"></i> View Demo
                 </a>
               </button>
 
@@ -59,7 +59,7 @@ ferrer">
             <div className='col-lg-4 portfolio_page_header'>
               <img className='portfolio_page_img' src={portfolio.project_img} alt='' />
             </div>
-            
+
           </div>
         </div>
       }

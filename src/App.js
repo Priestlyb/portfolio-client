@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import Homepage from './components/homepage';
 import { Routes, Route } from 'react-router-dom';
 import PortfolioUpdate from './components/portfolio/portfolioUpdate';
@@ -8,8 +8,17 @@ import PortfolioPage from './page/portfoliopage/portfoliopage';
 import Login from "./page/login/Login";
 import AdminPage from "./admin/admin-page";
 import { Context } from "./context/Context";
+import Aos from "aos"
 
 function App() {
+
+  useEffect(() => {
+    Aos.init({
+      duration: 900,
+      delay: 100,
+    });
+  }, [])
+
   const { user } = useContext(Context);
   return (
     <>

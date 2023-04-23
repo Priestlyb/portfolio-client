@@ -24,9 +24,9 @@ function Backtotop() {
     return (
         <div className="quick-contact">
 
-            <button className="quick-contact-btn btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom"><i className="fa-solid fa-message"></i></button>
+            <button className="quick-contact-btn btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom" data-aos="flip-right" data-aos-delay="100" data-aos-once="false"><i className="fa-solid fa-message"></i></button>
 
-            <div className="offcanvas offcanvas-bottom offcanvas-vertical-height" tabIndex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
+            <div className="offcanvas offcanvas-end" tabIndex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
 
                 <div className="offcanvas-header">
                     <h5 className="offcanvas-title btt_btn" id="offcanvasBottomLabel">GET IN TOUCH.</h5>
@@ -38,7 +38,7 @@ function Backtotop() {
                 <div className='contact' id='contact'>
       <div className='row'>
         
-        <div className='col-lg-4'>
+        <div className='col-12'>
           <h3>What’s your story? <br /> Get in touch</h3>
           <p>Always available for freelancing if the right project comes along, Feel free to contact me.</p>
           <div className='contact_details'>
@@ -51,21 +51,21 @@ function Backtotop() {
           </div>
         </div>
 
-        <form className='row col-lg-8' ref={form} onSubmit={sendEmail}>
-          <h3>Say Something</h3>
-          <div className='col-lg-6'>
+        <form className='col-12' ref={form} onSubmit={sendEmail}>
+          <h3 className='mt-4 mb-4'>Say Something</h3>
+          <div>
             <input placeholder="Name*" className="input" name="user_name" type="text" />
           </div>
-          <div className='col-lg-6'>
+          <div>
             <input placeholder="Email*" className="input" name="user_subject" type="email" />
           </div>
-          <div className='col-lg-12'>
+          <div>
             <input placeholder="Subject*" className="input" name="user_email" type="text" />
           </div>
-          <div className='col-lg-12'>
+          <div>
             <textarea placeholder="Your message" className="textarea" name="message" type="text" />
           </div>
-          <div className='col-lg-12'>
+          <div>
 
             <button className='contact_btn'><span className="text">Send message</span><span>Thank you!</span></button>
             {done && 

@@ -22,7 +22,7 @@ const Portfolios = () => {
 
     return (
         <div className='container portfolio'>
-            <h1 className='edu-title'>WEB DEVELOPMENT PORTFOLIO.</h1>
+            <h1 className='edu-title' data-aos="fade-right" data-aos-anchor-placement="bottom-bottom">WEB DEVELOPMENT PORTFOLIO.</h1>
             <div className='portfolio_item'>
             {portfolios &&
                 portfolios

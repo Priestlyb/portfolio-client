@@ -4,11 +4,11 @@ import "./whatido.css";
 function Whatido() {
     return (
         <div className='container whatido' id='services'>
-            <h1 className='edu-title'>WHAT I DO?</h1>
+            <h1 className='edu-title' data-aos="fade-right" data-aos-anchor-placement="bottom-bottom">WHAT I DO?</h1>
 
             <div className='edu_title_row row'>
 
-                <div className='edu_title_col row col-lg-6'>
+                <div className='edu_title_col row col-lg-6' data-aos="fade-right" data-aos-anchor-placement="bottom-bottom" data-aos-delay="300">
                     <i className="whatido_img fa-solid fa-palette"></i>
 
                     <div className='col-lg-6'>
@@ -19,7 +19,7 @@ function Whatido() {
                     </div>
                 </div>
 
-                <div className='edu_title_col row col-lg-6'>
+                <div className='edu_title_col row col-lg-6' data-aos="fade-left" data-aos-anchor-placement="bottom-bottom" data-aos-delay="300">
                     <i className="whatido_img fa-solid fa-code"></i>
 
                     <div className='col-lg-6'>
@@ -30,7 +30,7 @@ function Whatido() {
                     </div>
                 </div>
 
-                <div className='edu_title_col row col-lg-6'>
+                <div className='edu_title_col row col-lg-6' data-aos="fade-right" data-aos-anchor-placement="bottom-bottom" data-aos-delay="300">
                     <i className="whatido_img fa-solid fa-money-bill-trend-up"></i>
 
                     <div className='col-lg-6'>
@@ -41,7 +41,7 @@ function Whatido() {
                     </div>
                 </div>
 
-                <div className='edu_title_col row col-lg-6'>
+                <div className='edu_title_col row col-lg-6' data-aos="fade-left" data-aos-anchor-placement="bottom-bottom" data-aos-delay="300">
                     <i className="whatido_img fa-solid fa-laptop-code"></i>
 
                     <div className='col-lg-6'>
@@ -52,7 +52,7 @@ function Whatido() {
                     </div>
                 </div>
 
-                <div className='edu_title_col row col-lg-6'>
+                <div className='edu_title_col row col-lg-6' data-aos="fade-right" data-aos-anchor-placement="bottom-bottom" data-aos-delay="300">
                     <i className="whatido_img fa-solid fa-bug-slash"></i>
 
                     <div className='col-lg-6'>
@@ -63,7 +63,7 @@ function Whatido() {
                     </div>
                 </div>
 
-                <div className='edu_title_col row col-lg-6'>
+                <div className='edu_title_col row col-lg-6' data-aos="fade-left" data-aos-anchor-placement="bottom-bottom" data-aos-delay="300">
                     <i className="whatido_img fa-solid fa-atom"></i>
 
                     <div className='col-lg-6'>

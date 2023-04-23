@@ -4,11 +4,11 @@ import './edu_skills.css'
 function Eduskills() {
     return (
         <div className='container education'>
-            <h1 className='edu-title'>EDUCATION & SKILLS.</h1>
+            <h1 className='edu-title' data-aos="fade-right" data-aos-anchor-placement="bottom-bottom">EDUCATION & SKILLS.</h1>
             <div className='row'>
                 <div className='edu_col col-lg-6'>
 
-                    <div className="plan-card">
+                    <div className="plan-card" data-aos="fade-left" data-aos-anchor-placement="bottom-bottom">
                         <h2>Gregory University, Uturu</h2>
                         <p className='course'>Computer Science Second class lower division</p>
                         <div className="etiquet-price">
@@ -28,7 +28,7 @@ function Eduskills() {
 
                 </div>
 
-                <div className='edu_col col-lg-6'>
+                <div className='edu_col col-lg-6' data-aos="fade-up" data-aos-anchor-placement="bottom-up">
                     <h2>My skills</h2>
                     <p>I am always eager to learn new technologies and stay up-to-date with the latest developments in the web development industry. I am currently working on a project that uses Nodejs and I'm excited to continue to develop my skills and grow my career as a front-end developer. If you're interested in working together, please feel free to connect with me on <a href='http://linkedin.com/in/priestly-bassey-486278175' className='edu_skills_link'>[LinkedIn]</a>.</p>
 
