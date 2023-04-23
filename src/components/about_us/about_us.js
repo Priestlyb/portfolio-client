@@ -4,8 +4,8 @@ import me from './me.png'
 
 function Aboutus() {
   return (
-    <div className='container about' id='about' data-aos="fade-up">
-      <div className='row about_row'>
+    <div className='container about' id='about'>
+      <div className='row about_row' data-aos="fade-up">
         {/* <div className='about-col col-lg-6'>
 
           <div className="card">

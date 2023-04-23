@@ -7,7 +7,7 @@ const Graphic_portfolio = () => {
 
             <div class="scroll-div">
                 <div class="cover">
-                    <div class="scroll-images" data-aos="fade-left" data-aos-anchor-placement="bottom-bottom">
+                    <div class="scroll-images">
 
                         <div class="child"><img class="child-img" src="https://i.pinimg.com/564x/79/7d/4b/797d4b3020d1e7d3e066f18226bd79ad.jpg" alt="graphic-pic" /></div>
                         <div class="child"><img class="child-img" src="https://i.pinimg.com/564x/6d/f3/7a/6df37a2c10fd6e62a666a2b73d5c10f6.jpg" alt="graphic-pic" /></div>
