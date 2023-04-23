@@ -36,42 +36,42 @@ function Eduskills() {
                         <div className="box">
                             <h4>UI/UX Design</h4>
                             <div className="percent">
-                                <div Style="width: 95%;"></div>
+                                <div Style="width: 95%;" data-aos="fade-right" data-aos-delay="300" data-aos-offset="200"></div>
                             </div>
                         </div>
 
                         <div className="box">
                             <h4>HTML & CSS</h4>
                             <div className="percent">
-                                <div Style="width: 97%;"></div>
+                                <div Style="width: 97%;" data-aos="fade-right" data-aos-delay="300" data-aos-offset="200"></div>
                             </div>
                         </div>
 
                         <div className="box">
                             <h4>JavaScript Frameworks and Libraries</h4>
                             <div className="percent">
-                                <div Style="width: 90%;"></div>
+                                <div Style="width: 90%;" data-aos="fade-right" data-aos-delay="300" data-aos-offset="200"></div>
                             </div>
                         </div>
 
                         <div className="box">
                             <h4>Responsive Design</h4>
                             <div className="percent">
-                                <div Style="width: 97%;"></div>
+                                <div Style="width: 97%;" data-aos="fade-right" data-aos-delay="300" data-aos-offset="200"></div>
                             </div>
                         </div>
 
                         <div className="box">
                             <h4>Performance Optimization</h4>
                             <div className="percent">
-                                <div Style="width: 93%;"></div>
+                                <div Style="width: 93%;" data-aos="fade-right" data-aos-delay="300" data-aos-offset="200"></div>
                             </div>
                         </div>
 
                         <div className="box">
                             <h4>Version Control</h4>
                             <div className="percent">
-                                <div Style="width: 80%;"></div>
+                                <div Style="width: 80%;" data-aos="fade-right" data-aos-delay="300" data-aos-offset="200"></div>
                             </div>
                         </div>
 
