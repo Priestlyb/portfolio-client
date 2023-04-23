@@ -14,7 +14,7 @@ function Homepage() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => setIsLoading(false), 2000);
+    setTimeout(() => setIsLoading(false), 5000);
   }, []);
 
   return (
@@ -22,7 +22,8 @@ function Homepage() {
 
       {isLoading ? (
         <div className="home_loader_cover">
-        <div class="home_loader"><strong>Here We GO!</strong></div>
+        <div className="home_loader m-3"></div>
+        <div className="home_loader m-3"></div>
         </div>
       ) : (
         <div className='row'>
