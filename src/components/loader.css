@@ -11,13 +11,15 @@
     bottom: 0;
     z-index: 9999;
     background-color: var(--white);
-}.home_loader {
+}
+
+.home_loader {
   position: relative;
   width: 78px;
   height: 78px;
   border-radius: 50%;
   background: #fff;
-  border: 8px solid #131a1d;
+  border: 2px solid #131a1d;
   overflow: hidden;
   box-sizing: border-box;
 }
@@ -31,7 +33,7 @@
   height: 100%;
   background: #263238;
   z-index: 5;
-  border-bottom: 8px solid #131a1d;
+  border-bottom: 2px solid #131a1d;
   box-sizing: border-box;
   animation: eyeShade 3s infinite;
 }
