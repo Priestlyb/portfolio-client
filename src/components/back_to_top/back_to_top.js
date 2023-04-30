@@ -24,7 +24,7 @@ function Backtotop() {
     return (
         <div className="quick-contact">
 
-            <button className="quick-contact-btn btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom" data-aos="flip-right" data-aos-delay="100" data-aos-once="false"><i className="fa-solid fa-message"></i></button>
+            <button className="quick-contact-btn btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom" data-aos="fade-in" data-aos-delay="100" data-aos-once="false"><i className="fa-solid fa-message"></i></button>
 
             <div className="offcanvas offcanvas-end" tabIndex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
 
