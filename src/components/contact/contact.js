@@ -34,7 +34,7 @@ function Contact() {
           </div>
           <div className='contact_details'>
             <img src={phone} alt='' className='mail_icon' />
-            <h5>+234 806 715 6986</h5>
+            <h5>+234 806 715 698</h5>
           </div>
         </div>
 
@@ -43,11 +43,11 @@ function Contact() {
           <div className='col-lg-6'>
             <input placeholder="Name*" className="input" name="user_name" type="text" />
           </div>
-          <div className='col-lg-6'>
-            <input placeholder="Email*" className="input" name="user_subject" type="email" />
+          <div className='col-lg-12'>
+            <input placeholder="Subject*" className="input" name="user_subject" type="text" />
           </div>
           <div className='col-lg-12'>
-            <input placeholder="Subject*" className="input" name="user_email" type="text" />
+            <input placeholder="Email*" className="input" name="user_email" type="email" />
           </div>
           <div className='col-lg-12'>
             <textarea placeholder="Your message" className="textarea" name="message" type="text" />

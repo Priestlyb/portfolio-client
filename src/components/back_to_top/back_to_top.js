@@ -57,10 +57,10 @@ function Backtotop() {
             <input placeholder="Name*" className="input" name="user_name" type="text" />
           </div>
           <div>
-            <input placeholder="Email*" className="input" name="user_subject" type="email" />
+            <input placeholder="Email*" className="input" name="user_email" type="email" />
           </div>
           <div>
-            <input placeholder="Subject*" className="input" name="user_email" type="text" />
+            <input placeholder="Subject*" className="input" name="user_subject" type="text" />
           </div>
           <div>
             <textarea placeholder="Your message" className="textarea" name="message" type="text" />
