@@ -9,8 +9,19 @@ function Eduskills() {
                 <div className='edu_col col-lg-6'>
 
                     <div className="plan-card" data-aos="fade-left" data-aos-anchor-placement="bottom-bottom">
+                        <h2>Baze University, Abuja</h2>
+                        <p className='course'>Computer Science</p>
+                        <div className="etiquet-price">
+                            <p>2023-Present</p>
+                            <div></div>
+                        </div>
+                    </div>
+
+                    <br /> <br />
+
+                    <div className="plan-card" data-aos="fade-left" data-aos-anchor-placement="bottom-bottom">
                         <h2>Gregory University, Uturu</h2>
-                        <p className='course'>Computer Science Second class lower division</p>
+                        <p className='course'>Computer Science Second class</p>
                         <div className="etiquet-price">
                             <p>2017-2021</p>
                             <div></div>
@@ -28,7 +39,7 @@ function Eduskills() {
 
                 </div>
 
-                <div className='edu_col col-lg-6' data-aos="fade-up" data-aos-anchor-placement="bottom-up">
+                <div className='edu_col col-lg-6'>
                     <h2>My skills</h2>
                     <p>I am always eager to learn new technologies and stay up-to-date with the latest developments in the web development industry. I am currently working on a project that uses Nodejs and I'm excited to continue to develop my skills and grow my career as a front-end developer. If you're interested in working together, please feel free to connect with me on <a href='http://linkedin.com/in/priestly-bassey-486278175' className='edu_skills_link'>[LinkedIn]</a>.</p>
 

@@ -6,7 +6,7 @@ const Portfolio = (props) => {
 
     return (
 
-        <div className="portfolio-card" data-aos="fade-up" data-aos-anchor-placement="bottom-up" data-aos-delay="300">
+        <div className="portfolio-card">
             <div className="portfolio-header">
                 <img src={project_img} alt='portfolio_img' className='portfolio_img' />
             </div>

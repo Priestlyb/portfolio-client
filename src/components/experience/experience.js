@@ -6,7 +6,7 @@ function Experience() {
         <div className='container experience'>
             <h1 className='edu-title' data-aos="fade-right" data-aos-anchor-placement="bottom-bottom">EXPERIENCE.</h1>
 
-            <div className='row experience-row'  data-aos="fade" data-aos-offset="200" data-aos-duration="600"s>
+            <div className='row experience-row'>
                 <div className='img_col col-lg-2'>
                     <img className='imfi-img' src='https://scontent-ams4-1.xx.fbcdn.net/v/t39.30808-6/277574054_366220465518703_3263121156935156957_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=N0zCo9Sa37EAX9-bgJ0&_nc_ht=scontent-ams4-1.xx&oh=00_AfAnPMkx6uXUDY2-DJxe72sGH7hTbxkO8Zn959tsB5xWYg&oe=63F3067D' alt='' />
                 </div>
@@ -26,7 +26,7 @@ function Experience() {
                 <div className='col-lg-2'><p className='job-type'>Internship</p></div>
             </div>
 
-            <div className='row experience-row' data-aos="fade-zoom-in" data-aos-offset="200" data-aos-easing="ease-in-sine" data-aos-duration="600">
+            <div className='row experience-row'>
                 <div className='img_col col-lg-2'>
                     <img className='imfi-img' src='https://www.health.gov.ng/images/FMOH-logo-lg.jpg' alt='' />
                 </div>
