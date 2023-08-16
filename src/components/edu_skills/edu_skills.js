@@ -10,7 +10,7 @@ function Eduskills() {
 
                     <div className="plan-card" data-aos="fade-left" data-aos-anchor-placement="bottom-bottom">
                         <h2>Baze University, Abuja</h2>
-                        <p className='course'>Computer Science</p>
+                        <p className='course'><strong>MSC</strong> Computer Science</p>
                         <div className="etiquet-price">
                             <p>2023-Present</p>
                             <div></div>
@@ -21,7 +21,7 @@ function Eduskills() {
 
                     <div className="plan-card" data-aos="fade-left" data-aos-anchor-placement="bottom-bottom">
                         <h2>Gregory University, Uturu</h2>
-                        <p className='course'>Computer Science Second class</p>
+                        <p className='course'><strong>BSC</strong> Computer Science Second class</p>
                         <div className="etiquet-price">
                             <p>2017-2021</p>
                             <div></div>
