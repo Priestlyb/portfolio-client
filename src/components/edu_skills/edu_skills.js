@@ -41,7 +41,7 @@ function Eduskills() {
 
                 <div className='edu_col col-lg-6'>
                     <h2>My skills</h2>
-                    <p>I am always eager to learn new technologies and stay up-to-date with the latest developments in the web development industry. I am currently working on a project that uses Nodejs and I'm excited to continue to develop my skills and grow my career as a front-end developer. If you're interested in working together, please feel free to connect with me on <a href='http://linkedin.com/in/priestly-bassey-486278175' className='edu_skills_link'>[LinkedIn]</a>.</p>
+                    <p>I am always eager to learn new technologies and stay up-to-date with the latest developments in the web development industry. I'm excited to continue to develop my skills and grow my career as a Software Engineer. If you're interested in working together, please feel free to connect with me on <a href='http://linkedin.com/in/priestly-bassey-486278175' className='edu_skills_link'>[LinkedIn]</a>.</p>
 
                     <div className='skills'>
                         <div className="box">

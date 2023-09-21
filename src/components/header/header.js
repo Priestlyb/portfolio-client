@@ -52,12 +52,10 @@ function Header() {
 
       <div className='header-row row'>
         <div className='header_col col-lg-7'>
-          <h4>Hello, I am</h4>
+          <h4>Hi there, I am</h4>
           <h1>{`Priestly Patrick Bassey`} <br />
             <span className="txt-rotate" dataperiod="2000" data-rotate='[ "UI/UX Designer", "WordPress Developer", "Front-end Developer" ]'><span className="wrap">{text}</span></span></h1>
           <p>I design and develop services for customers of all sizes, specializing in creating stylish, modern websites, web services and online stores.</p>
-
-          
           
           <a href={Cv} download='Priestly`s Portfolio' className='download_btn'>
             <button className="buttonDownload">Developer_Resume</button>
