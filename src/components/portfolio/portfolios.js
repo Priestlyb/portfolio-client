@@ -21,7 +21,7 @@ const Portfolios = () => {
 
 
     return (
-        <div className='container portfolio'>
+        <div className='container portfolio' id='portfolios'>
             <h1 className='edu-title' data-aos="fade-right" data-aos-anchor-placement="bottom-bottom">WEB DEVELOPMENT PORTFOLIO.</h1>
             <div className='portfolio_item'>
             {portfolios &&
