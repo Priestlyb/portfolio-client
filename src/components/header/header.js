@@ -1,6 +1,6 @@
 import React from 'react';
 import './header.css';
-import Cv from './Priestly`s_Portfolio.pdf';
+import Cv from './Priestly`s_Curriculum_Vitae.pdf';
 import { useState, useEffect } from "react";
 
 function Header() {
@@ -57,8 +57,8 @@ function Header() {
             <span className="txt-rotate" dataperiod="2000" data-rotate='[ "UI/UX Designer", "WordPress Developer", "Front-end Developer" ]'><span className="wrap">{text}</span></span></h1>
           <p>I design and develop services for customers of all sizes, specializing in creating stylish, modern websites, web services and online stores.</p>
           
-          <a href={Cv} download='Priestly`s Portfolio' className='download_btn'>
-            <button className="buttonDownload">Developer_Resume</button>
+          <a href={Cv} download='Priestly`s Curriculum Vitae' className='download_btn'>
+            <button className="buttonDownload">Curriculum Vitae</button>
             </a>
 
         </div>

@@ -52,13 +52,6 @@ function Eduskills() {
                         </div>
 
                         <div className="box">
-                            <h4>HTML & CSS</h4>
-                            <div className="percent">
-                                <div Style="width: 97%;" data-aos="fade-right" data-aos-delay="300" data-aos-offset="200"></div>
-                            </div>
-                        </div>
-
-                        <div className="box">
                             <h4>JavaScript Frameworks and Libraries</h4>
                             <div className="percent">
                                 <div Style="width: 90%;" data-aos="fade-right" data-aos-delay="300" data-aos-offset="200"></div>
