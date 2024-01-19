@@ -3,6 +3,7 @@
   color: var(--black);
   position: relative;
   z-index: -1;
+  padding-top: 25px;
 }
 
 .about_row {

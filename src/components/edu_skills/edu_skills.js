@@ -8,7 +8,7 @@ function Eduskills() {
             <div className='row'>
                 <div className='edu_col col-lg-6'>
 
-                    <div className="plan-card" data-aos="fade-left" data-aos-anchor-placement="bottom-bottom">
+                    <div className="plan-card">
                         <h2>Baze University, Abuja</h2>
                         <p className='course'><strong>MSC</strong> Computer Science</p>
                         <div className="etiquet-price">
@@ -19,7 +19,7 @@ function Eduskills() {
 
                     <br /> <br />
 
-                    <div className="plan-card" data-aos="fade-left" data-aos-anchor-placement="bottom-bottom">
+                    <div className="plan-card">
                         <h2>Gregory University, Uturu</h2>
                         <p className='course'><strong>BSC</strong> Computer Science Second class</p>
                         <div className="etiquet-price">

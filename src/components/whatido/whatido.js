@@ -8,7 +8,7 @@ function Whatido() {
 
             <div className='edu_title_row row'>
 
-                <div className='edu_title_col row col-lg-6' data-aos="fade-down" data-aos-delay="300">
+                <div className='edu_title_col row col-lg-6'>
                     <i className="whatido_img fa-solid fa-palette"></i>
 
                     <div className='col-lg-6'>
@@ -19,7 +19,7 @@ function Whatido() {
                     </div>
                 </div>
 
-                <div className='edu_title_col row col-lg-6' data-aos="fade-down"  data-aos-delay="300">
+                <div className='edu_title_col row col-lg-6' >
                     <i className="whatido_img fa-solid fa-code"></i>
 
                     <div className='col-lg-6'>
@@ -30,7 +30,7 @@ function Whatido() {
                     </div>
                 </div>
 
-                <div className='edu_title_col row col-lg-6' data-aos="fade-down" data-aos-delay="300">
+                <div className='edu_title_col row col-lg-6'>
                     <i className="whatido_img fa-solid fa-money-bill-trend-up"></i>
 
                     <div className='col-lg-6'>
@@ -41,7 +41,7 @@ function Whatido() {
                     </div>
                 </div>
 
-                <div className='edu_title_col row col-lg-6' data-aos="fade-down"  data-aos-delay="300">
+                <div className='edu_title_col row col-lg-6' >
                     <i className="whatido_img fa-solid fa-laptop-code"></i>
 
                     <div className='col-lg-6'>
@@ -52,7 +52,7 @@ function Whatido() {
                     </div>
                 </div>
 
-                <div className='edu_title_col row col-lg-6' data-aos="fade-down" data-aos-delay="300">
+                <div className='edu_title_col row col-lg-6'>
                     <i className="whatido_img fa-solid fa-bug-slash"></i>
 
                     <div className='col-lg-6'>
@@ -63,7 +63,7 @@ function Whatido() {
                     </div>
                 </div>
 
-                <div className='edu_title_col row col-lg-6' data-aos="fade-down"  data-aos-delay="300">
+                <div className='edu_title_col row col-lg-6' >
                     <i className="whatido_img fa-solid fa-atom"></i>
 
                     <div className='col-lg-6'>

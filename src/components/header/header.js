@@ -48,8 +48,6 @@ function Header() {
   return (
     <div className='container header' id='home'>
 
-      <div className='bg-cover animate__animated animate__fadeInDown animate__slow animate__delay-3s animate__infinite'></div>
-
       <div className='header-row row'>
         <div className='header_col col-lg-7'>
           <h4>Hi there, I am</h4>

@@ -10,21 +10,9 @@ import Portfolios from './portfolio/portfolios';
 import "./loader.css"
 
 function Homepage() {
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    setTimeout(() => setIsLoading(false), 5000);
-  }, []);
 
   return (
     <>
-
-      {isLoading ? (
-        <div className="home_loader_cover">
-        <div className="home_loader m-3"></div>
-        <div className="home_loader m-3"></div>
-        </div>
-      ) : (
         <div className='row'>
           <div className='col-lg-3'>
             <Navbar />
@@ -39,7 +27,6 @@ function Homepage() {
             <Backtotop />
           </div>
         </div>
-      )}
     </>
   )
 }
