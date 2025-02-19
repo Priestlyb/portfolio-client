@@ -1,6 +1,13 @@
-.experience-row {
-    padding: 10px;
-    margin: 10px;
+.experience {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+.experience_row {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 25px;
     background-color: rgb(251, 251, 251);
 }
 
@@ -15,24 +22,23 @@
     margin: 20px 0;
 }
 
-.job-type {
+.job_type {
     font-size: 0.9rem;
-    padding: 4px;
+    padding: 5px  50px;
     color: #000;
     text-align: center;
     text-transform: uppercase;
     background-color: #F0ECCF;
 }
 
-@media (max-width: 1028px) {
+@media screen and (max-width: 768px) {
     .experience {
-        padding: 15px;
-        margin-top: 50px;
+        gap: 25px;
     }
 
-    .experience-row {
-        padding: 5px;
-        margin: 25px 0;
+    .experience_row {
+        padding: 15px;
+        flex-direction: column;
     }
 
     .imfi-img {

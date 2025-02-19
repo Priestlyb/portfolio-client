@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Navbar from './navbar/navbar';
 import Header from './header/header';
 import Aboutus from './about_us/about_us';
@@ -12,12 +12,8 @@ import "./loader.css"
 function Homepage() {
 
   return (
-    <>
-        <div className='row'>
-          <div className='col-lg-3'>
-            <Navbar />
-          </div>
-          <div className='col-left col-lg-9'>
+        <div className='home_wrapper'>
+          <>
             <Header />
             <Aboutus />
             <Eduskills />
@@ -25,9 +21,12 @@ function Homepage() {
             <Portfolios />
             <Whatido />
             <Backtotop />
-          </div>
+          </>
+
+          <>
+            <Navbar />
+          </>
         </div>
-    </>
   )
 }
 

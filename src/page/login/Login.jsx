@@ -68,11 +68,11 @@ export default function Login() {
           Login
         </button>
       </form>
-      {/* <button className="registerButton">
-        <Link className="link" to="/register">
+      <button className="registerButton">
+        <span className="link" to="/register">
           Register
-        </Link>
-      </button> */}
+        </span>
+      </button>
     </div>
   );
 }

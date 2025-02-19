@@ -1,12 +1,13 @@
-.portfolio,
+.portfolio_section,
 .portfolio_update {
   padding-top: 25px;
+  width: 100%;
 }
 
 .portfolio_item {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
+  gap: 20px;
 }
 
 /* portfolio-Card */
@@ -14,8 +15,7 @@
 .portfolio-card {
   width: 400px;
   height: 180px;
-  margin: 10px;
-  transition: all .5s;
+  transition: all 0.5s;
   box-shadow: 15px 15px 30px rgba(25, 25, 25, 0.11),
     -15px -15px 30px rgba(60, 60, 60, 0.082);
   text-align: center;
@@ -51,11 +51,11 @@
 
 .portfolio-card .portfolio-header .portfolio-title {
   font-size: 1.1em;
-  letter-spacing: .1em;
+  letter-spacing: 0.1em;
   font-weight: 500;
   text-transform: uppercase;
   padding: 4px 0 14px 0;
-  transition: all .5s;
+  transition: all 0.5s;
   color: #edededc5;
 }
 
@@ -75,15 +75,15 @@
 }
 
 .portfolio-card .portfolio-content p {
-  transition: all .5s;
+  transition: all 0.5s;
   font-size: 1em;
   margin-bottom: 8px;
 }
 
 .portfolio-card .portfolio-content a {
   cursor: pointer;
-  transition: all .5s;
-  font-size: .8rem;
+  transition: all 0.5s;
+  font-size: 0.8rem;
   font-weight: 500;
   text-transform: uppercase;
 }
@@ -225,7 +225,7 @@
   padding: 1em 2.5em;
   display: inline-block;
   border-radius: 6em;
-  transition: all .2s;
+  transition: all 0.2s;
   border: none;
   font-family: inherit;
   font-weight: 500;
@@ -269,7 +269,7 @@
   top: 0;
   left: 0;
   z-index: -1;
-  transition: all .4s;
+  transition: all 0.4s;
 }
 
 .demo_btn::after {
@@ -305,9 +305,9 @@
   position: relative;
   height: 2.8em;
   padding-right: 3.3em;
- }
- 
- .cssbuttons-io-button .icon {
+}
+
+.cssbuttons-io-button .icon {
   background: white;
   margin-left: 1em;
   position: absolute;
@@ -320,29 +320,29 @@
   box-shadow: 0.1em 0.1em 0.6em 0.2em #000;
   right: 0.3em;
   transition: all 0.3s;
- }
- 
- .cssbuttons-io-button:hover .icon {
+}
+
+.cssbuttons-io-button:hover .icon {
   width: calc(100% - 0.6em);
- }
- 
- .cssbuttons-io-button .icon svg {
+}
+
+.cssbuttons-io-button .icon svg {
   width: 1.1em;
   transition: transform 0.3s;
   color: #000;
- }
- 
- .cssbuttons-io-button:hover .icon svg {
-  transform: translateX(0.1em);
- }
- 
- .cssbuttons-io-button:active .icon {
-  transform: scale(0.95);
- }
- 
+}
 
-@media (max-width: 1028px) {
+.cssbuttons-io-button:hover .icon svg {
+  transform: translateX(0.1em);
+}
+
+.cssbuttons-io-button:active .icon {
+  transform: scale(0.95);
+}
+
+@media screen and (max-width: 1024px) {
   .portfolio {
+    background-color: #1d8122;
     padding: 15px;
     margin-top: 50px;
   }

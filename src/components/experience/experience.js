@@ -5,14 +5,16 @@ import fmoh_logo from "./fmoh_logo.jpg"
 
 function Experience() {
     return (
-        <div className='container experience'>
+        <div className='experience'>
             <h1 className='edu-title' data-aos="fade-right" data-aos-anchor-placement="bottom-bottom">EXPERIENCE.</h1>
 
-            <div className='row experience-row'>
-                <div className='img_col col-lg-2'>
+            <div className='experience_row'>
+
+                <div className='img_col'>
                     <img className='imfi-img' src={fmoh_logo} alt='' />
                 </div>
-                <div className='col-lg-8'>
+
+                <div className=''>
                     <h4 className='job-title'>ICT technician</h4>
                     <p className='job-sub'>Federal Ministry of Health | Physical | (2021-2022)</p>
 
@@ -23,14 +25,16 @@ function Experience() {
                         <li>Collaborated with network administrators (Galaxy Backbone) to ensure a stable and secure network environment.</li>
                     </ul>
                 </div>
-                <div className='col-lg-2'><p className='job-type'>NYSC</p></div>
+
+                <div className=''><p className='job_type'>NYSC</p></div>
+
             </div>
             
-            <div className='row experience-row'>
-                <div className='img_col col-lg-2'>
+            <div className='experience_row'>
+                <div className='img_col'>
                     <img className='imfi-img' src={imfi_logo} alt='' />
                 </div>
-                <div className='col-lg-8'>
+                <div className=''>
                     <h4 className='job-title'>Software Engineer</h4>
                     <p className='job-sub'>IMFI Academy | Part-Remote | (2020)</p>
 
@@ -42,7 +46,7 @@ function Experience() {
                     </ul>
                 </div>
 
-                <div className='col-lg-2'><p className='job-type'>Internship</p></div>
+                <div className=''><p className='job_type'>Internship</p></div>
             </div>
 
         </div>

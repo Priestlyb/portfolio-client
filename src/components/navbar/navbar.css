@@ -1,48 +1,83 @@
-.col_left {
-  padding: 0;
+/* General Navbar Styles */
+a {
+  text-decoration: none;
 }
 
-.row {
-  margin: 0;
-}
-
-.sidebar {
-    width: 20vw;
-    height: 100vh;
-    position: fixed;
-}
-
-.navbar_cover {
+.nav_bar {
   display: flex;
-  top: 100px;
+  flex-direction: column; /* Makes everything stack vertically */
+  align-items: flex-end; /* Aligns navbar to the right */
+  padding: 0px 0px 10px 20px;
+  height: 100vh; /* Makes navbar take full height */
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.nav_bar_links {
+  display: flex;
+  align-items: flex-start;
   flex-direction: column;
 }
 
-.nav-link {
-    color: black;
-}
-
-.nav-link:hover {
-  color: var(--gold);
-}
+/* Display Picture */
 
 .my-face {
-    width: 125px;
-    margin: 50px;
-    background-color: #F0ECCF;
-    border-radius: 50%;
-    border: 1px solid #F0ECCF;
+  width: 100px;
+  margin: 50px;
+  background-color: #f0eccf;
+  border-radius: 50%;
+  border: 1px solid #f0eccf;
 }
 
 .my-bg {
-    top: -160px;
-    left: -50px;
-    width: 300px;
-    height: 300px;
-    z-index: -1;
-    border-radius: 50%;
-    position: absolute;
-    background-color: #FFB100;
+  top: -160px;
+  left: -50px;
+  width: 250px;
+  height: 250px;
+  z-index: -1;
+  border-radius: 50%;
+  position: absolute;
+  background-color: #ffb100;
+}
+
+/* Navbar Buttons - Vertical Layout */
+.nav-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+.nav-btn {
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.nav-btn:hover {
+  color: var(--gold);
+}
+
+.nav-header {
+  display: flex;
+  align-content: center;
+  justify-items: center;
+  background-color: #F0ECCF;
+  margin-top: 20px;
+  border-radius: 50px;
+}
+
+/* Menu Toggle Button (For Mobile) */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  width: 50px;
+  font-size: 1.8rem;
 }
 
 /* Social Icon */
@@ -56,190 +91,126 @@
 }
 
 .wrapper {
-    display: inline-flex;
-    list-style: none;
-    margin-top: 60px;
-    font-family: "Poppins", sans-serif;
-  }
-  
-  .wrapper .icon {
-    position: relative;
-    background: #fff;
-    border-radius: 50%;
-    margin: 10px;
-    width: 25px;
-    height: 25px;
-    font-size: 14px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  }
-  
-  .wrapper .tooltip {
-    position: absolute;
-    top: 0;
-    font-size: 14px;
-    background: #fff;
-    padding: 5px 8px;
-    border-radius: 5px;
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  }
-  
-  .wrapper .tooltip::before {
-    position: absolute;
-    content: "";
-    height: 8px;
-    width: 8px;
-    background: #fff;
-    bottom: -3px;
-    left: 50%;
-    transform: translate(-50%) rotate(45deg);
-    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  }
-  
-  .wrapper .icon:hover .tooltip {
-    top: -45px;
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-  }
-  
-  .wrapper .icon:hover span,
-  .wrapper .icon:hover .tooltip {
-    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
-  }
-  
-  .wrapper .facebook:hover,
-  .wrapper .facebook:hover .tooltip,
-  .wrapper .facebook:hover .tooltip::before {
-    background: #1877F2;
-    color: #fff;
-  }
-  
-  .wrapper .github:hover,
-  .wrapper .github:hover .tooltip,
-  .wrapper .github:hover .tooltip::before {
-    background: var(--black);
-    color: #fff;
-  }
-  
-  .wrapper .twitter:hover,
-  .wrapper .twitter:hover .tooltip,
-  .wrapper .twitter:hover .tooltip::before {
-    background: #1DA1F2;
-    color: #fff;
-  }
-  
-  .wrapper .instagram:hover,
-  .wrapper .instagram:hover .tooltip,
-  .wrapper .instagram:hover .tooltip::before {
-    background: #E4405F;
-    color: #fff;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin-top: 10px;
+  margin-bottom: 25px;
+  margin-left: 10px;
+}
+
+.wrapper .icon {
+  position: relative;
+  background: #fff;
+  border-radius: 50%;
+  margin: 5px;
+  width: 25px;
+  height: 25px;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .tooltip {
+  position: absolute;
+  top: 0;
+  font-size: 14px;
+  background: #fff;
+  padding: 5px 8px;
+  border-radius: 5px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .tooltip::before {
+  position: absolute;
+  content: "";
+  height: 8px;
+  width: 8px;
+  background: #fff;
+  bottom: -3px;
+  left: 15%;
+  transform: translate(-50%) rotate(45deg);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .icon:hover .tooltip {
+  top: -45px;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.wrapper .icon:hover span,
+.wrapper .icon:hover .tooltip {
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper .facebook:hover,
+.wrapper .facebook:hover .tooltip,
+.wrapper .facebook:hover .tooltip::before {
+  background: #1877f2;
+  color: #fff;
+}
+
+.wrapper .github:hover,
+.wrapper .github:hover .tooltip,
+.wrapper .github:hover .tooltip::before {
+  background: var(--black);
+  color: #fff;
+}
+
+.wrapper .twitter:hover,
+.wrapper .twitter:hover .tooltip,
+.wrapper .twitter:hover .tooltip::before {
+  background: #1da1f2;
+  color: #fff;
+}
+
+/* Responsive Styles */
+
+@media screen and (max-width: 1024px) {
+
+  .nav_bar {
+    margin-top: 20px;
   }
 
-  /* Nav bn */
-
-  .switch {
+  .my-bg {
     display: none;
-    position: relative;
-    cursor: pointer;
-    width: 40px;
-    height: 40px;
-    background: linear-gradient(45deg,
-    #333340 20%,
-    var(--black) 100%);
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.363);
-    border-radius: 5px;
   }
-  
-  .switch input {
-    opacity: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    cursor: pointer;
-    position: absolute;
+
+  .nav_bar_links {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
   }
-  
-  .switch div {
-    width: 80%;
-    height: 80%;
-    margin: 10%;
-    position: absolute;
+
+  .my-face {
+    display: none;
   }
-  
-  .switch span {
-    background: #fff;
-    width: 100%;
-    height: 2px;
-    border-radius: 5px;
+
+  .menu-toggle {
+    color: #a3bb98;
     display: block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transition: transform 0.5s, width 0.5s;
   }
-  
-  .switch .line-1 {
-    width: 50%;
-    transform: translate(-100%, -10px);
-    transform-origin: 0 0;
-  }
-  
-  .switch .line-3 {
-    width: 50%;
-    left: auto;
-    right: 0;
-    transform: translate(0, 10px);
-    transform-origin: 100% 0;
-  }
-  
-  input:checked + div span.line-1 {
-    transform: translate(0, 0) rotate(-45deg);
-  }
-  
-  input:checked +  div span.line-3 {
-    transform: translate(-100%, 0) rotate(-45deg);
-  }
-  
-  input:checked + div span.line-2 {
-    transform: translate(-50%, -50%) rotate(45deg);
-  }
-  
 
-  @media (max-width: 1028px) {
-    .sidebar {
-      width: 50%;
-      padding: 0px;
-      height: 70px;
-      z-index: 1;
-    }
-
-    .switch {
-      display: block;
-    }
-
-    .navbar_cover {
-      z-index: 1;
-      height: 90vh;
-      margin-top: 10px;
-      background-color: var(--white);
-    }
-
-    .my-bg {
-      display: none;
-    }
-
-    .navbar-toggler {
-      margin: 10px 0 20px 0;
-    }
+  .nav-menu {
+    display: none;
   }
-  
+
+  .nav-menu.open {
+    display: flex;
+    margin-top: 100px;
+    gap: 20px;
+    background-color: aliceblue;
+    border-radius: 25px;
+  }
+}

@@ -1,98 +1,117 @@
-import React, { useEffect, useContext } from 'react'
-import "./navbar.css"
-import $ from 'jquery';
-import dp from './it-developer.gif'
+import React, { useState, useContext } from "react";
+import dp from "./it-developer.gif";
 import { Context } from "../../context/Context";
+import "./navbar.css";
+import { FaBars, FaTimes } from "react-icons/fa";
 
-function Navbar() {
+const Navbar = () => {
+  const { user, dispatch } = useContext(Context);
 
-    const { user, dispatch } = useContext(Context);
+  const handleLogout = () => {
+    dispatch({ type: "LOGOUT" });
+  };
 
-    const handleLogout = () => {
-        dispatch({ type: "LOGOUT" });
-    };
-    useEffect(() => {
-        $('.nav-link').on('click', function(){
-          $('.navbar-collapse').collapse('hide');
-        });
-      }, []);
-      
-    return (
-        <nav className='sidebar navbar navbar-expand-md' id='navbar'>
+  const [isOpen, setIsOpen] = useState(false);
 
-            <div className="switch" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="true" aria-label="Toggle navigation">
-                <input type="checkbox" />
-                <div>
-                    <span className="line-1"></span>
-                    <span className="line-2"></span>
-                    <span className="line-3"></span>
-                </div>
-            </div>
+  return (
+    <nav className="nav_bar">
+        
+      <div className="nav-header">
+        <button className="menu-toggle" onClick={() => setIsOpen(!isOpen)}>
+          {isOpen ? <FaTimes /> : <FaBars />}
+        </button>
+      </div>
 
-            <div className="navbar_cover collapse navbar-collapse" id="navbarNav">
-                <div className='my-bg'></div>
-                <img src={dp} alt='My Face' className='my-face' />
+      <div className={`nav-menu ${isOpen ? "open" : ""}`}>
+        <div className="my-bg"></div>
+        <img src={dp} alt="My Face" className="my-face" />
 
-                <nav className="nav flex-column">
-                    <a className="nav-link animate__animated animate__lightSpeedInLeft animate__delay-0.5s animate__slower active" aria-current="page" href="#home" aria-label="Toggle navigation">
-                        <i className="fa-solid fa-house-chimney"></i> HOME
-                    </a>
+        <div className="nav_bar_links">
 
-                    <a className="nav-link animate__animated animate__lightSpeedInLeft animate__delay-1s animate__slower" href="#about">
-                        <i className="fa-regular fa-address-card"></i> ABOUT ME
-                    </a>
+        <a
+          className="nav-btn animate__animated animate__lightSpeedInLeft animate__delay-0.5s animate__slower active"
+          aria-current="page"
+          href="#home"
+        >
+          <i className="fa-solid fa-house-chimney"></i> HOME
+        </a>
+        <a
+          className="nav-btn animate__animated animate__lightSpeedInLeft animate__delay-1s animate__slower"
+          href="#about"
+        >
+          <i className="fa-regular fa-address-card"></i> ABOUT
+        </a>
+        <a
+          className="nav-btn animate__animated animate__lightSpeedInLeft animate__delay-2s animate__slower"
+          href="#portfolios"
+        >
+          <i className="fa-solid fa-folder-tree"></i> PORTFOLIO
+        </a>
+        <a
+          className="nav-btn animate__animated animate__lightSpeedInLeft animate__delay-3s animate__slower"
+          href="#services"
+        >
+          <i className="fa-solid fa-sliders"></i> SERVICES
+        </a>
+        <a
+          className="nav-btn animate__animated animate__lightSpeedInLeft animate__delay-3s animate__slower"
+          href="/admin"
+        >
+          {user && "ADMIN"}
+        </a>
+        <a
+          className="nav-btn animate__animated animate__lightSpeedInLeft animate__delay-3s animate__slower"
+          href="#services"
+          onClick={handleLogout}
+        >
+          {" "}
+          {user && "LOGOUT"}
+        </a>
 
-                    <a className="nav-link animate__animated animate__lightSpeedInLeft animate__delay-2s animate__slower" href='#portfolios'>
-                        <i className="fa-solid fa-folder-tree"></i> PORTFOLIO
-                    </a>
+        </div>
 
-                    <a className="nav-link animate__animated animate__lightSpeedInLeft animate__delay-3s animate__slower" href="#services"><i className="fa-solid fa-sliders">
-                    </i> SERVICES <i className="bi bi-house-door"></i>
-                    </a>
+        <div className="wrapper">
+          <div className="icon facebook">
+            <a
+              href="http://linkedin.com/in/priestly-bassey-486278175"
+              className="social_icon"
+              target="blank"
+            >
+              <span className="tooltip">Linkedin</span>
+              <span>
+                <i className="animate__animated animate__slow animate__rotateIn animate__infinite fa-brands fa-linkedin-in"></i>
+              </span>
+            </a>
+          </div>
+          <div className="icon twitter">
+            <a
+              href="https://twitter.com/priestlythedon"
+              className="social_icon"
+              target="blank"
+            >
+              <span className="tooltip">Twitter</span>
+              <span>
+                <i className="fab fa-twitter"></i>
+              </span>
+            </a>
+          </div>
+          <div className="icon github">
+            <a
+              href="https://github.com/Priestlyb"
+              className="social_icon"
+              target="blank"
+            >
+              <span className="tooltip">Github</span>
+              <span>
+                <i className="animate__animated animate__slow animate__rotateIn animate__infinite fa-brands fa-github"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
 
-<a className="nav-link animate__animated animate__lightSpeedInLeft animate__delay-3s animate__slower" href="/admin"> {user && "ADMIN"}
-</a>
-
-<a className="nav-link animate__animated animate__lightSpeedInLeft animate__delay-3s animate__slower" href="#services" onClick={handleLogout}>
-     {user && "LOGOUT"}
-</a>
-
-                    {/* <a className="nav-link animate__animated animate__lightSpeedInLeft animate__delay-4s animate__slower"><i className="fa-brands fa-blogger-b"></i> BLOGS</a>
-            <a className="nav-link animate__animated animate__lightSpeedInLeft animate__delay-5s animate__slower" href='#contact'><i className="fa-solid fa-map-location-dot"></i> CONTACT ME</a> */}
-
-                </nav>
-
-                <ul className="wrapper">
-                    <li className="icon facebook">
-                        <a href='http://linkedin.com/in/priestly-bassey-486278175' className='social_icon' target='blank'>
-                            <span className="tooltip">Linkedin</span>
-                            <span><i className="animate__animated animate__slow animate__rotateIn animate__infinite fa-brands fa-linkedin-in"></i></span>
-                        </a>
-                    </li>
-                    <li className="icon twitter">
-                        <a href='https://twitter.com/priestlythedon' className='social_icon' target='blank'>
-                            <span className="tooltip">Twitter</span>
-                            <span><i className="fab fa-twitter"></i></span>
-                        </a>
-                    </li>
-                    <li className="icon github">
-                        <a href='https://github.com/Priestlyb' className='social_icon' target='blank'>
-                            <span className="tooltip">Github</span>
-                            <span>
-                                <i className="animate__animated animate__slow animate__rotateIn animate__infinite fa-brands fa-github"></i></span>
-                        </a>
-                    </li>
-                    <li className="icon instagram">
-                        <a href='https://www.instagram.com/gemini_loner/' className='social_icon' target='blank'>
-                            <span className="tooltip">Instagram</span>
-                            <span><i className="fab fa-instagram"></i></span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-
-        </nav>
-    )
-}
+    </nav>
+  );
+};
 
 export default Navbar;

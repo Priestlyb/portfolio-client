@@ -1,44 +1,22 @@
 .header {
     display: flex;
-    position: relative;
+    padding: 25px;
     height: 100vh;
-    overflow: hidden;
+    margin: 0;
+    gap: 25px;
+    color: var(--black);
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
     /* EEEEEE */
 }
 
-.header-row {
-    color: var(--black);
-    justify-content: center;
-    align-items: center;
-    position: relative;
-}
-
-.header_col h1 {
+.header h1 {
     font-weight: 800;
 }
 
-.bg-cover {
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    position: absolute;
-    z-index: -1;
-    background-image: url(./Circuit-Board.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 50%;
-    --animate-duration: 4s;
-}
-
-.wc {
+.header p {
     font-family: 'Roboto Mono', monospace;
-}
-
-.my-pic {
-    width: 100%;
-    object-fit: contain;
 }
 
 /* Button */
@@ -126,22 +104,21 @@
 /*end of Button */
 
 
-@media (max-width: 1028px) {
+@media screen and (max-width: 1024px) {
     .header {
-      height: 50vh;
         margin-top: 50px;
-    }
-
-    .header_col h1 {
-        font-size: 20px;
-    }
-
-    .header_col p {
-        width: 90%;
-        font-size: 11px;
+        height: 50vh;
     }
 
     .download-button {
         z-index: -1;
     }
+}
+
+
+@media screen and (max-width: 400px) {
+  .header {
+      margin-top: 50px;
+      height: 75vh;
+  }
 }
