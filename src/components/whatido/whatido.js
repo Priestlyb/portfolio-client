@@ -64,7 +64,7 @@ function Whatido() {
         <div className="edu_title_col">
           <i className="whatido_img fa-solid fa-bug-slash"></i>
 
-          <div className="">
+          <div className="edu_title_item">
             <h3>Testing and Debugging</h3>
             <p>
               Using tools to test and debug code, ensuring that it works as
