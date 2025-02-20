@@ -30,7 +30,7 @@ function Adminpage() {
 
   return (
     <>
-      <div className="portfolio">
+      <div className="admin_page">
         <h1 className="edu-title">WEB DEVELOPMENT DATA.</h1>
 
         <a href="/para32satalaya" className="admin_add_btn">

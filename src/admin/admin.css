@@ -12,7 +12,7 @@
 
 /* Navbar End */
 
-.portfolio {
+.admin_page {
   margin: 0px 0px 50px 200px;
 }
 
@@ -204,8 +204,8 @@
 }
 
 
-@media screen and (max-width: 768px) {
-  .portfolio {
-    margin: 0px 0px 50px 50px;
+@media screen and (max-width: 1024px) {
+  .admin_page {
+    margin: 100px 25px 25px 25px;
   }
 }
