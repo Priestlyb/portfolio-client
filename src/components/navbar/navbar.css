@@ -68,7 +68,7 @@ a {
   justify-items: center;
   background-color: #F0ECCF;
   margin-top: 20px;
-  border-radius: 50px;
+  border-radius: 25px;
 }
 
 /* Menu Toggle Button (For Mobile) */
@@ -76,8 +76,7 @@ a {
   display: none;
   background: none;
   border: none;
-  width: 50px;
-  font-size: 1.8rem;
+  font-size: 2.5rem;
 }
 
 /* Social Icon */
@@ -200,6 +199,7 @@ a {
   .menu-toggle {
     color: #a3bb98;
     display: block;
+    margin-bottom: 10px;
   }
 
   .nav-menu {
@@ -212,5 +212,11 @@ a {
     gap: 20px;
     background-color: aliceblue;
     border-radius: 25px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .menu-toggle {
+    font-size: 1rem;
   }
 }
