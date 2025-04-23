@@ -3,28 +3,52 @@ a {
   text-decoration: none;
 }
 
-.nav_bar {
-  display: flex;
-  flex-direction: column; /* Makes everything stack vertically */
-  align-items: flex-end; /* Aligns navbar to the right */
-  padding: 0px 0px 10px 20px;
-  height: 100vh; /* Makes navbar take full height */
-  position: fixed;
-  left: 0;
-  top: 0;
+.navbar-btn {
+    z-index: 1;
+    position: fixed;
+    bottom: 90%;
+    left: 20px;
+    font-size: 1rem;
+    border-radius: 100%;
+    background: var(--black);
+    color: #D8D8D8;
 }
 
 .nav_bar_links {
   display: flex;
   align-items: flex-start;
   flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+}
+
+.nav_bar_links a {
+  font-size: 1rem;
+  color: var(--black);
+  font-weight: 500;
+  padding: 5px 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.nav-btn:hover {
+  color: var(--gold);
+}
+
+.offcanvascustom-width {
+  width: 20% !important;
 }
 
 /* Display Picture */
 
 .my-face {
   width: 100px;
-  margin: 50px;
+  margin-left: 10%;
   background-color: #f0eccf;
   border-radius: 50%;
   border: 1px solid #f0eccf;
@@ -39,44 +63,6 @@ a {
   border-radius: 50%;
   position: absolute;
   background-color: #ffb100;
-}
-
-/* Navbar Buttons - Vertical Layout */
-.nav-menu {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 5px;
-}
-
-.nav-btn {
-  color: #000;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  text-align: center;
-  transition: 0.1s;
-}
-
-.nav-btn:hover {
-  color: var(--gold);
-}
-
-.nav-header {
-  display: flex;
-  align-content: center;
-  justify-items: center;
-  background-color: #F0ECCF;
-  margin-top: 20px;
-  border-radius: 25px;
-}
-
-/* Menu Toggle Button (For Mobile) */
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
 }
 
 /* Social Icon */
@@ -105,7 +91,7 @@ a {
   margin: 5px;
   width: 25px;
   height: 25px;
-  font-size: 14px;
+  font-size: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -176,47 +162,7 @@ a {
 
 @media screen and (max-width: 1024px) {
 
-  .nav_bar {
-    margin-top: 20px;
-  }
-
-  .my-bg {
-    display: none;
-  }
-
-  .nav_bar_links {
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 20px;
-    padding: 10px;
-  }
-
-  .my-face {
-    display: none;
-  }
-
-  .menu-toggle {
-    color: #a3bb98;
-    display: block;
-    margin-bottom: 10px;
-  }
-
-  .nav-menu {
-    display: none;
-  }
-
-  .nav-menu.open {
-    display: flex;
-    margin-top: 100px;
-    gap: 20px;
-    background-color: aliceblue;
-    border-radius: 25px;
-  }
-}
-
-@media screen and (max-width: 400px) {
-  .menu-toggle {
-    font-size: 1rem;
+  .offcanvascustom-width {
+    width: 70% !important;
   }
 }

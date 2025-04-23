@@ -1,7 +1,8 @@
-.portfolio_section,
+.portfolio_section {
+  width: 100%;
+}
 .portfolio_update {
   padding-top: 25px;
-  width: 100%;
 }
 
 .portfolio_item {
@@ -41,7 +42,7 @@
 
 .portfolio-header img {
   object-fit: contain;
-  transition: all 2s ease;
+  transition: all 3s ease;
 }
 
 .portfolio_img:hover {
@@ -60,7 +61,7 @@
 }
 
 .portfolio-card:hover .portfolio-header {
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 96%);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
 
 .portfolio-card:hover .portfolio-card .portfolio-header .portfolio-title {
@@ -75,7 +76,7 @@
 }
 
 .portfolio-card .portfolio-content p {
-  transition: all 0.5s;
+  transition: all 0.8s;
   font-size: 1em;
   margin-bottom: 8px;
 }
@@ -342,18 +343,18 @@
 
 @media screen and (max-width: 1024px) {
   .portfolio {
-    padding: 15px;
-    margin-top: 50px;
+    padding: 5px;
+    margin: 0px;
   }
 
   .portfolio-card {
     width: 100%;
     height: 145px;
-    margin: 20px 0;
   }
 
   .portfolio_item {
-    display: block;
+    display: flex;
+    flex-direction: column;
   }
 
   .portfolio_body {

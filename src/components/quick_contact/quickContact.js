@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react'
-import "./back_to_top.css"
-import './back_to_top.scss';
+import "./quickContact.css"
+import './quickContact.scss';
 import emailjs from '@emailjs/browser';
 import applause from './applause.gif';
 import mail from './envelope_mail.gif';

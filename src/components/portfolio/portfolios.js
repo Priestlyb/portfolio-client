@@ -26,7 +26,7 @@ const Portfolios = () => {
       >
         WEB DEVELOPMENT PORTFOLIO.
       </h1>
-      <div className="portfolio_item">
+        <div className="portfolio_item">
         {portfolios &&
           portfolios
             .filter((portfolio) => {
@@ -40,7 +40,7 @@ const Portfolios = () => {
               </div>
             ))}
       </div>
-    </div>
+      </div>
   );
 };
 

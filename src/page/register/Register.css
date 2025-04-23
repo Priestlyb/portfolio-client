@@ -1,0 +1,31 @@
+/* Register.css */
+.register {
+    width: 100%;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: #fff;
+  }
+  
+  .registerForm {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .registerInput {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .error-message {
+    color: red;
+    margin: 10px;
+    font-weight: bold;
+    background-color: #fff;
+    padding: 8px;
+  }
+  

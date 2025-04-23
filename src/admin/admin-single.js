@@ -17,7 +17,7 @@ const Adminsingle = (props) => {
     await axiosInstance
       .delete(`/portfolios/${_id}`)
       .then((res) => res.data)
-      .then(() => history("/"));
+      .then(() => history("/admin"));
   };
 
   return (
@@ -32,10 +32,10 @@ const Adminsingle = (props) => {
         <p>{project_description}</p>
 
         <a className="css_buttons" href={`/portfolio/${_id}`}>
-          <button class="cssbuttons-io-button">
+          <button className="cssbuttons-io-button">
             {" "}
             View more!
-            <div class="icon">
+            <div className="icon">
               <svg
                 height="24"
                 width="24"

@@ -6,3 +6,6 @@ build/
 
 # Ignore log files
 *.log
+
+#.env
+.env

@@ -1,13 +1,26 @@
 /* Navbar */
 
 .admin_nav_bar {
+  color: black;
+}
+
+.offcanvascustom-width {
+  width: 20% !important;
   display: flex;
-  flex-direction: column; /* Makes everything stack vertically */
-  align-items: flex-end; /* Aligns navbar to the right */
-  padding: 0px 20px 10px 20px;
-  position: fixed;
-  left: 0;
-  top: 0px;
+  flex-direction: column;
+}
+
+.offcanvas-body {
+  gap: 20px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-decoration: none;
+}
+
+.offcanvas-body a {
+  color: black;
 }
 
 /* Navbar End */

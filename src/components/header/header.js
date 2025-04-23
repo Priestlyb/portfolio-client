@@ -9,7 +9,7 @@ function Header() {
   const [text, setText] = useState('');
   const [delta, setDelta] = useState(300 - Math.random() * 100);
   const [, setIndex] = useState(1);
-  const toRotate = ["UI/UX Designer", "WordPress Developer", "Front-end Developer" ];
+  const toRotate = ["UI/UX Designer", "WordPress Developer", "Full-Stack Developer" ];
   const period = 2000;
 
   useEffect(() => {
@@ -50,7 +50,7 @@ function Header() {
     <div className='header' id='home'>
           <h4>Hi there, I am</h4>
           <h1>{`Priestly Patrick Bassey`} <br />
-            <span className="txt-rotate" dataperiod="2000" data-rotate='[ "UI/UX Designer", "WordPress Developer", "Front-end Developer" ]'><span className="wrap">{text}</span></span>
+            <span className="txt-rotate" dataperiod="2000" data-rotate='[ "UI/UX Designer", "WordPress Developer", "Full-Stack Developer" ]'><span className="wrap">{text}</span></span>
           </h1>
           <p>I design and develop services for customers of all sizes, specializing in creating stylish, modern websites, web services and online stores.</p>
           

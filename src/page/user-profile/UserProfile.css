@@ -1,0 +1,63 @@
+.UserProfileWrapper {
+    max-width: 500px;
+    margin: auto;
+    padding: 1rem;
+    font-family: sans-serif;
+  }
+  
+  .UserProfileDisplay {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: #f6f6f6;
+    border-radius: 10px;
+  }
+  
+  .UserProfileDisplay p {
+    margin: 0.5rem 0;
+  }
+  
+  .UserProfileForm {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+  }
+  
+  .password-input-wrapper {
+    position: relative;
+  }
+  
+  .toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #333;
+  }
+  
+  button[type="submit"] {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  
