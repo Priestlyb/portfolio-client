@@ -221,4 +221,8 @@
   .admin_page {
     margin: 100px 25px 25px 25px;
   }
+
+  .offcanvascustom-width {
+    width: 50% !important;
+  }
 }
