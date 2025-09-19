@@ -75,7 +75,7 @@ export default function Adminpage() {
           data-aos-delay="100"
           data-aos-once="false"
         >
-          <i class="fa-solid fa-bars-staggered"></i>
+          <i className="fa-solid fa-bars-staggered"></i>
         </button>
 
         <div

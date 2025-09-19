@@ -6,6 +6,7 @@
 
 .offcanvascustom-width {
   width: 20% !important;
+  height: 100vh;
   display: flex;
   flex-direction: column;
 }
@@ -27,6 +28,7 @@
 
 .admin_page {
   margin: 0px 0px 50px 200px;
+  padding-top: 10px;
 }
 
 .db_header {
