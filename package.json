@@ -2,7 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3005",
+  "proxy": "https://portfolio-api-yey0.onrender.com/",
   "dependencies": {
     "@emailjs/browser": "^3.10.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
@@ -49,5 +49,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "engines": {
+    "node": "22.x",
+    "npm": "11.x"
   }
 }
