@@ -1,7 +1,7 @@
 import axios from "axios"
 
 export const axiosInstance = axios.create({
-    baseURL: "https://portfolio-api-yey0.onrender.com/",
+    baseURL: "http://localhost:3005",
     withCredentials: true,
 })
 
