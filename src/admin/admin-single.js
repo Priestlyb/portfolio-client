@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import "../constants/styles/Adminsingle.css";
-import { useNavigate } from "react-router-dom";
 import { axiosInstance } from "../config";
 import FeedbackModal from "../components/FeedbackModal/FeedbackModal";
 
 const Adminsingle = (props) => {
-  const history = useNavigate();
 
   const {
     _id,
