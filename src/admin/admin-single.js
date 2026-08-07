@@ -1,24 +1,99 @@
-import React from "react";
-import "./admin.css";
+import React, { useState } from "react";
+import "../constants/styles/Adminsingle.css";
 import { useNavigate } from "react-router-dom";
 import { axiosInstance } from "../config";
+import FeedbackModal from "../components/FeedbackModal/FeedbackModal";
 
 const Adminsingle = (props) => {
   const history = useNavigate();
+
   const {
     _id,
     project_img,
     project_location,
     project_role,
     project_description,
+    isDeleted,
   } = props.portfolio;
 
-  const deleteHandler = async () => {
-    await axiosInstance
-      .delete(`/portfolios/${_id}`)
-      .then((res) => res.data)
-      .then(() => history("/admin"));
+  const [feedback, setFeedback] = useState({
+    isOpen: false,
+    message: "",
+    type: "success",
+  });
+
+  const closeFeedback = () => {
+    setFeedback({
+      isOpen: false,
+      message: "",
+      type: "success",
+    });
   };
+
+  const deleteHandler = async () => {
+    try {
+      await axiosInstance.delete(`/portfolios/${_id}`);
+
+      setFeedback({
+        isOpen: true,
+        message: "Portfolio permanently deleted successfully.",
+        type: "success",
+      });
+    } catch (err) {
+      console.error(err);
+
+      setFeedback({
+        isOpen: true,
+        message: "Unable to delete portfolio.",
+        type: "error",
+      });
+    }
+  };
+
+  const softDeleteHandler = async () => {
+    try {
+      await axiosInstance.patch(`/portfolios/${_id}/soft-delete`);
+
+      setFeedback({
+        isOpen: true,
+        message: "Portfolio successfully hidden.",
+        type: "success",
+      });
+    } catch (err) {
+      console.error(err);
+
+      setFeedback({
+        isOpen: true,
+        message: "Unable to hide portfolio.",
+        type: "error",
+      });
+    }
+  };
+
+  const restoreHandler = async () => {
+    try {
+      await axiosInstance.patch(`/portfolios/${_id}/restore`);
+
+      setFeedback({
+        isOpen: true,
+        message: "Portfolio successfully restored.",
+        type: "success",
+      });
+    } catch (err) {
+      console.error(err);
+
+      setFeedback({
+        isOpen: true,
+        message: "Unable to restore portfolio.",
+        type: "error",
+      });
+    }
+  };
+
+  const trimmedDescription =
+    project_description?.length > 175
+      ? project_description.substring(0, 175) + "..."
+      : project_description;
 
   return (
     <div className="portfolio-card">
@@ -29,7 +104,7 @@ const Adminsingle = (props) => {
       <div className="portfolio-content">
         <h4>{project_location}</h4>
         <p>{project_role}</p>
-        <p>{project_description}</p>
+        <p>{trimmedDescription}</p>
 
         <a className="css_buttons" href={`/portfolio/${_id}`}>
           <button className="cssbuttons-io-button">
@@ -52,15 +127,37 @@ const Adminsingle = (props) => {
           </button>
         </a>
 
-        <div>
-          <button>
-            {" "}
+        <div className="admin-action-buttons">
+          {isDeleted && <p className="admin-deleted-status">Soft Deleted</p>}
+
+          <button className="admin-update-btn">
             <a href={`/portfolioUpdate/${_id}`}>Update</a>
           </button>
-          <br /> <br />
-          <button onClick={deleteHandler}>Delete</button>
+
+          {isDeleted ? (
+            <button onClick={restoreHandler} className="admin-restore-btn">
+              Restore
+            </button>
+          ) : (
+            <button
+              onClick={softDeleteHandler}
+              className="admin-soft-delete-btn"
+            >
+              Soft Delete
+            </button>
+          )}
+
+          <button onClick={deleteHandler} className="admin-delete-btn">
+            Delete
+          </button>
         </div>
       </div>
+      <FeedbackModal
+        isOpen={feedback.isOpen}
+        message={feedback.message}
+        type={feedback.type}
+        onClose={closeFeedback}
+      />
     </div>
   );
 };

@@ -10,6 +10,11 @@ const Portfolio = (props) => {
     project_description,
   } = props.portfolio;
 
+  const trimmedDescription =
+    project_description?.length > 175
+      ? project_description.substring(0, 175) + "..."
+      : project_description;
+
   return (
     <div className="portfolio-card">
       <div className="portfolio-header">
@@ -18,25 +23,27 @@ const Portfolio = (props) => {
 
       <div className="portfolio-content">
         <h4>{project_location}</h4>
+
         <p>{project_role}</p>
-        <p>{project_description}</p>
+
+        <p>{trimmedDescription}</p>
 
         <a className="css_buttons" href={`/portfolio/${_id}`}>
-          <button class="cssbuttons-io-button">
-            {" "}
+          <button className="cssbuttons-io-button">
             View more!
-            <div class="icon">
+            <div className="icon">
               <svg
                 height="24"
                 width="24"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <path d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M0 0h24v24H0z" fill="none" />
+
                 <path
                   d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
                   fill="currentColor"
-                ></path>
+                />
               </svg>
             </div>
           </button>

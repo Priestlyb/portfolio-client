@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import "./admin.css";
+import "../constants/styles/admin.css";
 import Adminsingle from "./admin-single";
 import { axiosInstance } from "../config";
 import { Context } from "../context/Context";
@@ -15,13 +15,14 @@ export default function Adminpage() {
 
   const fetchHandler = async () => {
     try {
-      const res = await axiosInstance.get("/portfolios", {
+      const res = await axiosInstance.get("/portfolios/admin", {
         withCredentials: true,
       });
+
       setPortfolios(res.data.portfolios);
     } catch (err) {
       console.error("Failed to fetch portfolios:", err);
-    }
+    } 
   };
 
   useEffect(() => {
@@ -54,7 +55,7 @@ export default function Adminpage() {
               .filter((portfolio) =>
                 search.toLowerCase() === ""
                   ? portfolio
-                  : portfolio.name.toLowerCase().includes(search)
+                  : portfolio.name.toLowerCase().includes(search),
               )
               .map((portfolio, id) => (
                 <div key={id}>
@@ -112,7 +113,8 @@ export default function Adminpage() {
               href="#services"
               onClick={handleLogout}
             >
-              <i className="fa-solid fa-right-from-bracket"></i> {user && "LOGOUT"}
+              <i className="fa-solid fa-right-from-bracket"></i>{" "}
+              {user && "LOGOUT"}
             </a>
           </div>
         </div>

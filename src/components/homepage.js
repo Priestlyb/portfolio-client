@@ -7,7 +7,7 @@ import Experience from './experience/experience';
 import Whatido from './whatido/whatido';
 import QuickContact from "./quick_contact/quickContact"
 import Portfolios from './portfolio/portfolios';
-import "./loader.css"
+import "../constants/styles/loader.css";
 
 function Homepage() {
 

@@ -1,33 +1,141 @@
 .portfolio_section {
   width: 100%;
 }
+
 .portfolio_update {
-  padding-top: 25px;
+  padding: 50px 0;
 }
+
+/* =========================================
+   PORTFOLIO GRID
+========================================= */
 
 .portfolio_item {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 20px;
+
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 30px;
+
+  box-sizing: border-box;
 }
 
-/* portfolio-Card */
+.the_protfolio_item {
+  width: 100%;
+  min-width: 0;
+
+  display: flex;
+  justify-content: center;
+
+  box-sizing: border-box;
+}
+
+/* =========================================
+   SKELETON LOADING
+========================================= */
+
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background: #e5e7eb;
+  border-radius: 8px;
+}
+
+.skeleton::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  transform: translateX(-100%);
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.6),
+    transparent
+  );
+
+  animation: shimmer 1.3s infinite;
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.skeleton-image {
+  width: 100%;
+  height: 220px;
+}
+
+.skeleton-title {
+  width: 70%;
+  height: 24px;
+
+  margin: 20px 0 15px;
+}
+
+.skeleton-text {
+  width: 100%;
+  height: 14px;
+
+  margin-bottom: 12px;
+}
+
+.skeleton-text.short {
+  width: 75%;
+}
+
+.skeleton-button {
+  width: 150px;
+  height: 45px;
+
+  margin-top: 20px;
+
+  border-radius: 30px;
+}
+
+/* =========================================
+   PORTFOLIO CARD
+========================================= */
 
 .portfolio-card {
-  width: 400px;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 30px;
   height: 180px;
+
   transition: all 0.5s;
-  box-shadow: 15px 15px 30px #A3BB98, -15px -15px 30px #FBC252;
+
+  box-shadow:
+    15px 15px 30px #a3bb98,
+    -15px -15px 30px #fbc252;
+
   text-align: center;
+
   overflow: hidden;
+
   border: #212121 2px solid;
+
   border-radius: 15px;
+
+  box-sizing: border-box;
 }
 
 .portfolio-card:hover {
   height: 100%;
   max-width: 100%;
-  background: linear-gradient(360deg, #edededc5 60%, hsla(0, 0%, 13%, 1) 70%);
+
+  background: linear-gradient(
+    360deg,
+    #edededc5 60%,
+    hsla(0, 0%, 13%, 1) 70%
+  );
 }
 
 .portfolio-header {
@@ -37,56 +145,94 @@
 .portfolio-card .portfolio-header {
   display: flex;
   flex-direction: column;
+
   background: #212121;
+
   margin-bottom: 16px;
 }
 
+/* =========================================
+   IMAGE
+   KEEPING YOUR ORIGINAL BEHAVIOR
+========================================= */
+
 .portfolio-header img {
   object-fit: contain;
+
   transition: all 3s ease;
 }
 
 .portfolio_img:hover {
   object-fit: contain;
+
   transform: translateY(-40%);
 }
 
 .portfolio-card .portfolio-header .portfolio-title {
   font-size: 1.1em;
+
   letter-spacing: 0.1em;
+
   font-weight: 500;
+
   text-transform: uppercase;
+
   padding: 4px 0 14px 0;
+
   transition: all 0.5s;
+
   color: #edededc5;
 }
 
 .portfolio-card:hover .portfolio-header {
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 100%,
+    0 100%
+  );
 }
 
 .portfolio-card:hover .portfolio-card .portfolio-header .portfolio-title {
   padding: 0;
 }
 
+/* =========================================
+   PORTFOLIO CONTENT
+========================================= */
+
 .portfolio-card .portfolio-content {
   display: block;
+
   text-align: left;
+
   color: #212121;
+
   margin: 0 18px;
+}
+
+.portfolio-card .portfolio-content h4 {
+  margin-top: 10px;
+  margin-bottom: 8px;
 }
 
 .portfolio-card .portfolio-content p {
   transition: all 0.8s;
+
   font-size: 1em;
+
   margin-bottom: 8px;
 }
 
 .portfolio-card .portfolio-content a {
   cursor: pointer;
+
   transition: all 0.5s;
+
   font-size: 0.8rem;
+
   font-weight: 500;
+
   text-transform: uppercase;
 }
 
@@ -94,12 +240,17 @@
   border-bottom: 1px solid #1d8122;
 }
 
-/* portfolio_update */
+/* =========================================
+   PORTFOLIO UPDATE
+========================================= */
 
 .portfolio_page {
   margin: 0;
+
   height: 100vh;
+
   display: flex;
+
   align-items: center;
   justify-content: center;
 }
@@ -107,7 +258,10 @@
 .portfolio_body {
   width: 80%;
   height: 95%;
+  padding: 50px 0;
+
   display: flex;
+
   align-items: center;
   justify-content: center;
 }
@@ -115,18 +269,27 @@
 .portfolio_page_header {
   margin: 0;
   padding: 0;
+
   height: 150px;
+
   overflow: hidden;
+
   border-radius: 2%;
-  box-shadow: 15px 15px 30px rgba(25, 25, 25, 0.11),
+
+  box-shadow:
+    15px 15px 30px rgba(25, 25, 25, 0.11),
     -15px -15px 30px rgba(60, 60, 60, 0.082);
 }
 
 .portfolio_page_img {
   object-fit: contain;
+
   width: 100%;
+
   background: none;
+
   overflow: hidden;
+
   transition: all 2s ease;
 }
 
@@ -136,11 +299,13 @@
 
 .portfolio_page_card {
   margin-bottom: 30px;
+
   text-transform: uppercase;
 }
 
 .left_col h1 {
   font-weight: 800;
+
   text-transform: uppercase;
 }
 
@@ -150,38 +315,51 @@
 
 .card_footer {
   margin: 10px 0;
+
   font-weight: 500;
+
   font-style: italic;
 }
 
 .list_header {
   font-weight: 800;
+
   letter-spacing: 0.5rem;
 }
 
-/* Go_back_icon */
+/* =========================================
+   GO BACK ICON
+========================================= */
 
 .cta {
   border: none;
+
   margin-bottom: 50px;
+
   background: none;
 }
 
 .cta a {
   color: black;
+
   text-decoration: none;
 }
 
 .cta span {
   padding-bottom: 7px;
+
   letter-spacing: 4px;
+
   font-size: 14px;
+
   padding-right: 15px;
+
   text-transform: uppercase;
 }
 
 .cta svg {
   transform: translateX(-8px);
+
   transition: all 0.3s ease;
 }
 
@@ -195,55 +373,85 @@
 
 .hover-underline-animation {
   position: relative;
+
   color: black;
+
   padding-bottom: 20px;
 }
 
 .hover-underline-animation:after {
   content: "";
+
   position: absolute;
+
   width: 100%;
+
   transform: scaleX(0);
+
   height: 2px;
+
   bottom: 0;
   left: 0;
+
   background-color: #000000;
+
   transform-origin: bottom right;
+
   transition: transform 0.25s ease-out;
 }
 
 .cta:hover .hover-underline-animation:after {
   transform: scaleX(1);
+
   transform-origin: bottom left;
 }
 
-/* Demo Btn */
+/* =========================================
+   DEMO BUTTON
+========================================= */
 
 .demo_btn {
   position: relative;
+
   font-size: 17px;
+
   text-transform: uppercase;
+
   text-decoration: none;
+
   padding: 1em 2.5em;
+
+  margin-bottom: 50px;
+
   display: inline-block;
+
   border-radius: 6em;
+
   transition: all 0.2s;
+
   border: none;
+
   font-family: inherit;
+
   font-weight: 500;
+
   color: black;
+
   margin-right: 50px;
+
   background-color: white;
 }
 
 .demo_btn a {
   color: #000;
+
   text-decoration: none;
 }
 
 .demo_btn svg {
   width: 1.2em;
   height: 1.2em;
+
   margin-right: 0.5em;
 }
 
@@ -253,37 +461,49 @@
 
 .demo_btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+  box-shadow:
+    0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .demo_btn:active {
   transform: translateY(-1px);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+
+  box-shadow:
+    0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 .demo_btn::after {
   content: "";
+
   display: inline-block;
+
   height: 100%;
   width: 100%;
+
   border-radius: 100px;
+
   position: absolute;
+
   top: 0;
   left: 0;
-  z-index: -1;
-  transition: all 0.4s;
-}
 
-.demo_btn::after {
+  z-index: -1;
+
+  transition: all 0.4s;
+
   background-color: #fff;
 }
 
 .demo_btn:hover::after {
   transform: scaleX(1.4) scaleY(1.6);
+
   opacity: 0;
 }
 
-/* Portfolio btn */
+/* =========================================
+   PORTFOLIO BUTTON
+========================================= */
 
 .css_buttons {
   text-decoration: none;
@@ -291,36 +511,63 @@
 
 .cssbuttons-io-button {
   background: #000;
+
   color: white;
+
   font-family: inherit;
+
   padding-left: 1.2em;
+
   font-size: 11px;
+
   margin: 10px 0;
+
   font-weight: 500;
+
   border-radius: 0.9em;
+
   border: none;
+
   letter-spacing: 0.05em;
+
   display: flex;
+
   align-items: center;
-  box-shadow: inset 0 0 1.6em -0.6em #000;
+
+  box-shadow:
+    inset 0 0 1.6em -0.6em #000;
+
   overflow: hidden;
+
   position: relative;
+
   height: 2.8em;
+
   padding-right: 3.3em;
 }
 
 .cssbuttons-io-button .icon {
   background: white;
+
   margin-left: 1em;
+
   position: absolute;
+
   display: flex;
+
   align-items: center;
   justify-content: center;
+
   height: 2.2em;
   width: 2.2em;
+
   border-radius: 0.7em;
-  box-shadow: 0.1em 0.1em 0.6em 0.2em #000;
+
+  box-shadow:
+    0.1em 0.1em 0.6em 0.2em #000;
+
   right: 0.3em;
+
   transition: all 0.3s;
 }
 
@@ -330,7 +577,9 @@
 
 .cssbuttons-io-button .icon svg {
   width: 1.1em;
+
   transition: transform 0.3s;
+
   color: #000;
 }
 
@@ -342,24 +591,39 @@
   transform: scale(0.95);
 }
 
+/* =========================================
+   TABLET
+========================================= */
+
 @media screen and (max-width: 1024px) {
   .portfolio {
     padding: 5px;
-    margin: 0px;
+
+    margin: 0;
+  }
+
+  .portfolio_item {
+    grid-template-columns: repeat(
+      2,
+      minmax(0, 1fr)
+    );
+
+    gap: 20px;
+
+    padding: 20px 15px;
   }
 
   .portfolio-card {
     width: 100%;
-    height: 145px;
-  }
 
-  .portfolio_item {
-    display: flex;
-    flex-direction: column;
+    max-width: 100%;
+
+    height: 145px;
   }
 
   .portfolio_body {
     display: flex;
+
     flex-direction: row-reverse;
   }
 
@@ -369,8 +633,35 @@
 
   .demo_btn {
     font-size: 12px;
+
     margin-right: 5px;
+
     margin-bottom: 50px;
+
     padding: 0.5em 1.5em;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media screen and (max-width: 600px) {
+  .portfolio_item {
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+
+    padding: 20px 15px;
+  }
+
+  .the_protfolio_item {
+    width: 100%;
+  }
+
+  .portfolio-card {
+    width: 100%;
+
+    max-width: 100%;
   }
 }

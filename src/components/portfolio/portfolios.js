@@ -1,21 +1,35 @@
 import React, { useState, useEffect } from "react";
 import Portfolio from "./portfolio";
+import PortfolioSkeleton from "./PortfolioSkeleton";
 
-//Axios Request
 import { axiosInstance } from "../../config";
+
 const URL = "/portfolios";
+
 const fetchHandler = async () => {
   return await axiosInstance.get(URL).then((res) => res.data);
 };
 
 const Portfolios = () => {
-  const [portfolios, setPortfolios] = useState();
-  useEffect(() => {
-    fetchHandler().then((data) => setPortfolios(data.portfolios));
-  }, []);
-
+  const [portfolios, setPortfolios] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [search] = useState("");
-  console.log(search);
+
+  useEffect(() => {
+    fetchHandler()
+      .then((data) => {
+        console.log("API Response:", data);
+        console.log("Portfolios:", data.portfolios);
+
+        setPortfolios(data.portfolios);
+      })
+      .catch((err) => {
+        console.error("Fetch Error:", err);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }, []);
 
   return (
     <div className="portfolio_section" id="portfolios">
@@ -26,21 +40,27 @@ const Portfolios = () => {
       >
         WEB DEVELOPMENT PORTFOLIO.
       </h1>
-        <div className="portfolio_item">
-        {portfolios &&
-          portfolios
-            .filter((portfolio) => {
-              return search.toLowerCase() === ""
-                ? portfolio
-                : portfolio.name.toLowerCase().includes(search);
-            })
-            .map((portfolio, id) => (
-              <div className="the_protfolio_item" key={id}>
-                <Portfolio portfolio={portfolio} />
+
+      <div className="portfolio_item">
+        {loading
+          ? [...Array(6)].map((_, index) => (
+              <div className="the_protfolio_item" key={index}>
+                <PortfolioSkeleton />
               </div>
-            ))}
+            ))
+          : portfolios
+              .filter((portfolio) =>
+                search === ""
+                  ? true
+                  : portfolio.name.toLowerCase().includes(search.toLowerCase()),
+              )
+              .map((portfolio) => (
+                <div className="the_protfolio_item" key={portfolio._id}>
+                  <Portfolio portfolio={portfolio} />
+                </div>
+              ))}
       </div>
-      </div>
+    </div>
   );
 };
 

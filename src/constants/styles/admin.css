@@ -1,0 +1,88 @@
+/* =========================================
+   ADMIN PAGE
+========================================= */
+
+.admin_page {
+  margin: 0 0 50px 200px;
+  padding-top: 10px;
+}
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.admin_nav_bar {
+  color: black;
+}
+
+.offcanvascustom-width {
+  width: 20% !important;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.offcanvas-body {
+  gap: 20px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-decoration: none;
+}
+
+.offcanvas-body a {
+  color: black;
+}
+
+/* =========================================
+   ADD BUTTON
+========================================= */
+
+.admin_add_btn {
+  text-decoration: none;
+}
+
+.admin_btn {
+  margin: 50px 0;
+  display: flex;
+  align-items: center;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 0.7em 1.4em 0.7em 1.1em;
+  color: white;
+  background: #ad5389;
+  background: linear-gradient(0deg, #a3bb98 0%, #a3bb98 100%);
+  border: none;
+  box-shadow: 0 0.7em 1.5em -0.5em #a3bb9898;
+  letter-spacing: 0.05em;
+  border-radius: 20em;
+  cursor: pointer;
+}
+
+.admin_btn svg {
+  margin-right: 6px;
+}
+
+.admin_btn:hover {
+  box-shadow: 0 0.5em 1.5em -0.5em #14a73e98;
+}
+
+.admin_btn:active {
+  box-shadow: 0 0.3em 1em -0.5em #14a73e98;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media screen and (max-width: 1024px) {
+  .admin_page {
+    margin: 100px 25px 25px 25px;
+  }
+
+  .offcanvascustom-width {
+    width: 50% !important;
+  }
+}
