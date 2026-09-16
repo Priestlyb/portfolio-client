@@ -1,0 +1,529 @@
+/* =========================================================
+   EXPERIENCE MANAGEMENT — FORM
+========================================================= */
+
+.admin_experience_form {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 0 80px;
+}
+
+/* =========================================================
+   FORM MESSAGES
+========================================================= */
+
+.admin_experience_form .admin_form_message {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  margin-bottom: 28px;
+  padding: 16px 20px;
+  border: 1px solid var(--admin-border, #e5e7eb);
+  background: var(--admin-surface, #ffffff);
+}
+
+.admin_experience_form .admin_form_message span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 30px;
+  width: 30px;
+  height: 30px;
+  border: 1px solid currentColor;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.admin_experience_form .admin_form_message p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--admin-text, #111827);
+}
+
+.admin_experience_form .admin_form_error {
+  color: var(--admin-danger, #dc2626);
+  border-color: rgba(220, 38, 38, 0.25);
+}
+
+.admin_experience_form .admin_form_success {
+  color: var(--admin-success, #16a34a);
+  border-color: rgba(22, 163, 74, 0.25);
+}
+
+/* =========================================================
+   FORM SECTIONS
+========================================================= */
+
+.admin_experience_form .admin_form_section {
+  width: 100%;
+  margin-bottom: 34px;
+  padding: 30px;
+  border: 1px solid var(--admin-border, #e5e7eb);
+  background: var(--admin-surface, #ffffff);
+}
+
+.admin_experience_form .admin_form_section_header {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding-bottom: 24px;
+  margin-bottom: 28px;
+  border-bottom: 1px solid var(--admin-border, #e5e7eb);
+}
+
+.admin_experience_form .admin_form_section_header > span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 42px;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--admin-border, #e5e7eb);
+  color: var(--admin-text-secondary, #64748b);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.admin_experience_form .admin_form_section_header p {
+  margin: 0 0 5px;
+  color: var(--admin-text-secondary, #64748b);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.admin_experience_form .admin_form_section_header h3 {
+  margin: 0;
+  color: var(--admin-text, #111827);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   FORM GRID
+========================================================= */
+
+.admin_experience_form .admin_form_grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.admin_experience_form .admin_form_full {
+  grid-column: 1 / -1;
+}
+
+/* =========================================================
+   FORM GROUP
+========================================================= */
+
+.admin_experience_form .admin_form_group {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.admin_experience_form .admin_form_group label {
+  display: block;
+  margin-bottom: 9px;
+  color: var(--admin-text, #111827);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.admin_experience_form .admin_form_group label span {
+  color: var(--admin-danger, #dc2626);
+}
+
+.admin_experience_form .admin_form_group input {
+  width: 100%;
+  min-height: 52px;
+  padding: 0 15px;
+  border: 1px solid var(--admin-border, #d1d5db);
+  outline: none;
+  border-radius: 0;
+  background: var(--admin-light, #ffffff);
+  color: var(--admin-text, #111827);
+  font-family: inherit;
+  font-size: 14px;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.admin_experience_form .admin_form_group input::placeholder {
+  color: var(--admin-muted, #94a3b8);
+}
+
+.admin_experience_form .admin_form_group input:hover {
+  border-color: var(--admin-muted-dark, #94a3b8);
+}
+
+.admin_experience_form .admin_form_group input:focus {
+  border-color: var(--admin-text, #111827);
+  box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.06);
+}
+
+.admin_experience_form .admin_form_group input[type="number"] {
+  appearance: textfield;
+}
+
+.admin_experience_form
+  .admin_form_group
+  input[type="number"]::-webkit-inner-spin-button,
+.admin_experience_form
+  .admin_form_group
+  input[type="number"]::-webkit-outer-spin-button {
+  margin: 0;
+}
+
+.admin_experience_form .admin_form_group small {
+  display: block;
+  margin-top: 8px;
+  color: var(--admin-text-secondary, #64748b);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   DUTIES
+========================================================= */
+
+.admin_experience_form .admin_duties {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.admin_experience_form .admin_duty_row {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr) 44px;
+  align-items: stretch;
+  min-height: 52px;
+}
+
+.admin_experience_form .admin_duty_number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--admin-border, #e5e7eb);
+  border-right: 0;
+  background: var(--admin-surface, #ffffff);
+  color: var(--admin-text-secondary, #64748b);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.admin_experience_form .admin_duty_row input {
+  width: 100%;
+  min-width: 0;
+  padding: 0 15px;
+  border: 1px solid var(--admin-border, #d1d5db);
+  outline: none;
+  border-radius: 0;
+  background: var(--admin-light, #ffffff);
+  color: var(--admin-text, #111827);
+  font-family: inherit;
+  font-size: 14px;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.admin_experience_form .admin_duty_row input::placeholder {
+  color: var(--admin-muted, #94a3b8);
+}
+
+.admin_experience_form .admin_duty_row input:focus {
+  position: relative;
+  z-index: 1;
+  border-color: var(--admin-text, #111827);
+  box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.06);
+}
+
+.admin_experience_form .admin_duty_remove {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--admin-border, #e5e7eb);
+  border-left: 0;
+  background: var(--admin-surface, #ffffff);
+  color: var(--admin-text-secondary, #64748b);
+  cursor: pointer;
+  font-size: 22px;
+  font-weight: 300;
+  transition:
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+.admin_experience_form .admin_duty_remove:hover {
+  background: var(--admin-surface-hover, #f8fafc);
+  color: var(--admin-danger, #dc2626);
+}
+
+/* =========================================================
+   ADD CONTRIBUTION
+========================================================= */
+
+.admin_experience_form .admin_add_duty {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr) 48px;
+  align-items: center;
+  width: 100%;
+  min-height: 52px;
+  margin-top: 8px;
+  padding: 0;
+  border: 1px dashed var(--admin-border, #d1d5db);
+  background: transparent;
+  color: var(--admin-text, #111827);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-align: left;
+  text-transform: uppercase;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.admin_experience_form .admin_add_duty span:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  border-right: 1px dashed var(--admin-border, #d1d5db);
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.admin_experience_form .admin_add_duty span:nth-child(2) {
+  padding: 0 15px;
+}
+
+.admin_experience_form .admin_add_duty span:last-child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  border-left: 1px dashed var(--admin-border, #d1d5db);
+  font-size: 14px;
+}
+
+.admin_experience_form .admin_add_duty:hover {
+  border-color: var(--admin-text-secondary, #64748b);
+  background: var(--admin-surface-hover, #f8fafc);
+}
+
+/* =========================================================
+   FORM ACTIONS
+========================================================= */
+
+.admin_experience_form .admin_form_actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 8px;
+}
+
+.admin_experience_form .admin_form_cancel,
+.admin_experience_form .admin_form_submit {
+  min-height: 54px;
+  border-radius: 0;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.admin_experience_form .admin_form_cancel {
+  min-width: 140px;
+  padding: 0 24px;
+  border: 1px solid var(--admin-border, #d1d5db);
+  background: transparent;
+  color: var(--admin-text-secondary, #64748b);
+}
+
+.admin_experience_form .admin_form_cancel:hover:not(:disabled) {
+  border-color: var(--admin-text, #111827);
+  color: var(--admin-text, #111827);
+}
+
+.admin_experience_form .admin_form_submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  min-width: 230px;
+  padding: 0 20px;
+  border: 1px solid var(--admin-text, #111827);
+  background: var(--admin-text, #111827);
+  color: #ffffff;
+}
+
+.admin_experience_form .admin_form_submit:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.admin_experience_form .admin_form_cancel:disabled,
+.admin_experience_form .admin_form_submit:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* =========================================================
+   SUBMIT SPINNER
+========================================================= */
+
+.admin_experience_form .admin_submit_spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: experienceSpinner 0.7s linear infinite;
+}
+
+@keyframes experienceSpinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================================================
+   RESPONSIVE — TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+  .admin_experience_form {
+    padding-top: 10px;
+  }
+
+  .admin_experience_form .admin_form_section {
+    padding: 24px;
+  }
+
+  .admin_experience_form .admin_form_grid {
+    gap: 20px;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+  .admin_experience_form {
+    padding: 10px 0 60px;
+  }
+
+  .admin_experience_form .admin_form_section {
+    padding: 20px;
+    margin-bottom: 24px;
+  }
+
+  .admin_experience_form .admin_form_section_header {
+    gap: 12px;
+    margin-bottom: 22px;
+    padding-bottom: 20px;
+  }
+
+  .admin_experience_form .admin_form_section_header > span {
+    flex-basis: 36px;
+    width: 36px;
+    height: 36px;
+  }
+
+  .admin_experience_form .admin_form_section_header h3 {
+    font-size: 17px;
+  }
+
+  .admin_experience_form .admin_form_grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .admin_experience_form .admin_form_full {
+    grid-column: auto;
+  }
+
+  .admin_experience_form .admin_duty_row {
+    grid-template-columns: 40px minmax(0, 1fr) 40px;
+  }
+
+  .admin_experience_form .admin_form_actions {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .admin_experience_form .admin_form_cancel,
+  .admin_experience_form .admin_form_submit {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE — SMALL MOBILE
+========================================================= */
+
+@media (max-width: 450px) {
+  .admin_experience_form .admin_form_section {
+    padding: 16px;
+  }
+
+  .admin_experience_form .admin_form_section_header {
+    align-items: center;
+  }
+
+  .admin_experience_form .admin_form_section_header p {
+    font-size: 9px;
+  }
+
+  .admin_experience_form .admin_form_section_header h3 {
+    font-size: 15px;
+  }
+
+  .admin_experience_form .admin_form_group input,
+  .admin_experience_form .admin_duty_row {
+    min-height: 48px;
+  }
+
+  .admin_experience_form .admin_duty_row {
+    grid-template-columns: 34px minmax(0, 1fr) 38px;
+  }
+
+  .admin_experience_form .admin_duty_row input {
+    font-size: 13px;
+  }
+
+  .admin_experience_form .admin_add_duty {
+    grid-template-columns: 38px minmax(0, 1fr) 40px;
+  }
+
+  .admin_experience_form .admin_add_duty span:nth-child(2) {
+    padding: 0 10px;
+    font-size: 9px;
+  }
+}

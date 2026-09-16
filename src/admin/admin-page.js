@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import "../constants/styles/admin.css";
 import Adminsingle from "./admin-single";
+import ExperienceManagement from "../components/experience-management/ExperienceManagement";
 import { axiosInstance } from "../config";
 import { Context } from "../context/Context";
 import { Link } from "react-router-dom";
@@ -15,6 +16,10 @@ export default function Adminpage() {
   const handleLogout = () => {
     dispatch({ type: "LOGOUT" });
   };
+
+  /* =========================================
+     FETCH PROJECTS
+  ========================================= */
 
   const fetchHandler = async () => {
     try {
@@ -37,6 +42,21 @@ export default function Adminpage() {
   useEffect(() => {
     fetchHandler();
   }, []);
+
+  /* =========================================
+     DASHBOARD NAVIGATION
+  ========================================= */
+
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+
+    if (section) {
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
 
   return (
     <main className="admin_page">
@@ -66,6 +86,7 @@ export default function Adminpage() {
 
             <div>
               <span className="admin_user_label">SIGNED IN AS</span>
+
               <strong>{user?.username || user?.name || "ADMIN"}</strong>
             </div>
           </div>
@@ -76,26 +97,34 @@ export default function Adminpage() {
           DASHBOARD SUMMARY
       ========================================= */}
       <section className="admin_summary">
+        {/* TOTAL PROJECTS */}
         <div className="admin_summary_item">
           <span className="admin_summary_label">TOTAL PROJECTS</span>
+
           <strong className="admin_summary_number">
             {loading ? "--" : String(portfolios.length).padStart(2, "0")}
           </strong>
         </div>
 
+        {/* STATUS */}
         <div className="admin_summary_item">
           <span className="admin_summary_label">STATUS</span>
+
           <strong className="admin_summary_status">
             <span></span>
+
             {loading ? "LOADING" : error ? "ERROR" : "ONLINE"}
           </strong>
         </div>
 
+        {/* ADD PROJECT */}
         <div className="admin_summary_item admin_summary_action">
-          <a href="/para32satalaya" className="admin_add_btn">
+          <a href="/admin" className="admin_add_btn">
             <button className="admin_btn" type="button">
               <span className="admin_btn_icon">+</span>
+
               <span>ADD PROJECT</span>
+
               <span className="admin_btn_arrow">↗</span>
             </button>
           </a>
@@ -105,16 +134,19 @@ export default function Adminpage() {
       {/* =========================================
           PROJECT HEADER
       ========================================= */}
-      <section className="admin_projects_header">
+      <section id="projects" className="admin_projects_header">
         <div>
           <p>01 — PROJECT DATABASE</p>
+
           <h2>ALL PROJECTS</h2>
         </div>
 
         <span>
           {loading
             ? "FETCHING PROJECTS..."
-            : `${portfolios.length} PROJECT${portfolios.length === 1 ? "" : "S"}`}
+            : `${portfolios.length} PROJECT${
+                portfolios.length === 1 ? "" : "S"
+              }`}
         </span>
       </section>
 
@@ -125,6 +157,7 @@ export default function Adminpage() {
         {loading ? (
           <div className="admin_loading">
             <div className="admin_loading_line"></div>
+
             <span>LOADING PROJECT DATABASE...</span>
           </div>
         ) : error ? (
@@ -133,6 +166,7 @@ export default function Adminpage() {
 
             <div>
               <h3>Unable to load projects.</h3>
+
               <p>
                 Something went wrong while retrieving the portfolio database.
               </p>
@@ -167,12 +201,13 @@ export default function Adminpage() {
 
             <div>
               <h3>No projects yet.</h3>
+
               <p>
                 Your portfolio database is currently empty. Add your first
                 project to get started.
               </p>
 
-              <a href="/para32satalaya" className="admin_retry">
+              <a href="/admin" className="admin_retry">
                 CREATE FIRST PROJECT ↗
               </a>
             </div>
@@ -181,11 +216,20 @@ export default function Adminpage() {
       </section>
 
       {/* =========================================
+          EXPERIENCE MANAGEMENT
+      ========================================= */}
+      <section id="experience">
+        <ExperienceManagement />
+      </section>
+
+      {/* =========================================
           FOOTER
       ========================================= */}
       <footer className="admin_footer">
         <span>PRIESTLY PATRICK BASSEY</span>
+
         <span>ADMIN / PORTFOLIO</span>
+
         <span>✦ 2026</span>
       </footer>
 
@@ -214,9 +258,11 @@ export default function Adminpage() {
           id="offcanvastop"
           aria-labelledby="adminNavigationTitle"
         >
+          {/* OFFCANVAS HEADER */}
           <div className="admin_offcanvas_header">
             <div>
               <span className="admin_offcanvas_label">ADMIN</span>
+
               <h2 id="adminNavigationTitle">CONTROL.</h2>
             </div>
 
@@ -231,10 +277,48 @@ export default function Adminpage() {
             </button>
           </div>
 
+          {/* OFFCANVAS BODY */}
           <div className="offcanvas-body admin_offcanvas_body">
             <nav className="admin_navigation">
-              <a href="/" className="admin_nav_link">
+              {/* PROJECTS */}
+              <button
+                type="button"
+                className="admin_nav_link admin_nav_button"
+                onClick={() => scrollToSection("projects")}
+                data-bs-dismiss="offcanvas"
+              >
                 <span className="admin_nav_number">01</span>
+
+                <span className="admin_nav_icon">
+                  <i className="fa-solid fa-folder-open"></i>
+                </span>
+
+                <span className="admin_nav_text">Projects</span>
+
+                <span className="admin_nav_arrow">↓</span>
+              </button>
+
+              {/* EXPERIENCE */}
+              <button
+                type="button"
+                className="admin_nav_link admin_nav_button"
+                onClick={() => scrollToSection("experience")}
+                data-bs-dismiss="offcanvas"
+              >
+                <span className="admin_nav_number">02</span>
+
+                <span className="admin_nav_icon">
+                  <i className="fa-solid fa-briefcase"></i>
+                </span>
+
+                <span className="admin_nav_text">Experience</span>
+
+                <span className="admin_nav_arrow">↓</span>
+              </button>
+
+              {/* HOME */}
+              <a href="/" className="admin_nav_link">
+                <span className="admin_nav_number">03</span>
 
                 <span className="admin_nav_icon">
                   <i className="fa-solid fa-house-chimney"></i>
@@ -245,8 +329,9 @@ export default function Adminpage() {
                 <span className="admin_nav_arrow">↗</span>
               </a>
 
+              {/* USER PROFILE */}
               <Link to={`/userProfile/${user?._id}`} className="admin_nav_link">
-                <span className="admin_nav_number">02</span>
+                <span className="admin_nav_number">04</span>
 
                 <span className="admin_nav_icon">
                   <i className="fa-solid fa-user-tie"></i>
@@ -257,12 +342,13 @@ export default function Adminpage() {
                 <span className="admin_nav_arrow">↗</span>
               </Link>
 
+              {/* LOGOUT */}
               <button
                 type="button"
                 className="admin_nav_link admin_logout"
                 onClick={handleLogout}
               >
-                <span className="admin_nav_number">03</span>
+                <span className="admin_nav_number">05</span>
 
                 <span className="admin_nav_icon">
                   <i className="fa-solid fa-right-from-bracket"></i>
@@ -274,6 +360,7 @@ export default function Adminpage() {
               </button>
             </nav>
 
+            {/* OFFCANVAS FOOTER */}
             <div className="admin_offcanvas_bottom">
               <div className="admin_offcanvas_line"></div>
 

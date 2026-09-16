@@ -1,0 +1,600 @@
+/* =========================================================
+   EXPERIENCE MANAGEMENT
+========================================================= */
+
+.admin_experience_management {
+  width: 100%;
+  margin-top: 80px;
+}
+
+/* =========================================================
+   EXPERIENCE LIST
+========================================================= */
+
+.admin_experience_list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  border-top: 1px solid var(--admin-border, #e5e7eb);
+}
+
+/* =========================================================
+   EXPERIENCE ITEM
+========================================================= */
+
+.admin_experience_item {
+  width: 100%;
+  min-height: 112px;
+  display: grid;
+  grid-template-columns: 60px 46px 72px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 22px;
+  padding: 22px 24px;
+  background: var(--admin-surface, #ffffff);
+  border-bottom: 1px solid var(--admin-border, #e5e7eb);
+  transition:
+    background 0.25s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.admin_experience_item:hover {
+  background: var(--admin-surface-hover, #fafafa);
+}
+
+.admin_experience_item_dragging {
+  background: var(--admin-surface, #ffffff);
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.12),
+    0 4px 12px rgba(0, 0, 0, 0.06);
+  border: 1px solid var(--admin-border, #e5e7eb);
+  cursor: grabbing;
+}
+
+/* =========================================================
+   INDEX
+========================================================= */
+
+.admin_experience_index {
+  font-family: "Space Mono", monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--admin-muted, #9ca3af);
+}
+
+/* =========================================================
+   DRAG HANDLE
+========================================================= */
+
+.admin_experience_drag {
+  width: 36px;
+  height: 42px;
+  padding: 8px 9px;
+  display: grid;
+  grid-template-columns: repeat(2, 4px);
+  grid-auto-rows: 4px;
+  justify-content: center;
+  align-content: center;
+  gap: 4px;
+  border: 0;
+  background: transparent;
+  color: var(--admin-text, #111827);
+  cursor: grab;
+  touch-action: none;
+  opacity: 0.45;
+  transition:
+    opacity 0.2s ease,
+    background 0.2s ease;
+}
+
+.admin_experience_drag:hover {
+  opacity: 1;
+  background: var(--admin-light, #f3f4f6);
+}
+
+.admin_experience_drag:active {
+  cursor: grabbing;
+}
+
+.admin_experience_drag span {
+  width: 4px;
+  height: 4px;
+  display: block;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+/* =========================================================
+   COMPANY LOGO
+========================================================= */
+
+.admin_experience_logo {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--admin-light, #f3f4f6);
+  border: 1px solid var(--admin-border, #e5e7eb);
+}
+
+.admin_experience_logo img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  padding: 8px;
+}
+
+.admin_experience_logo > span {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--admin-text, #111827);
+}
+
+/* =========================================================
+   EXPERIENCE INFORMATION
+========================================================= */
+
+.admin_experience_info {
+  min-width: 0;
+}
+
+.admin_experience_heading {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 7px;
+}
+
+.admin_experience_heading h3 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--admin-text, #111827);
+}
+
+.admin_experience_type {
+  flex-shrink: 0;
+  padding: 5px 8px;
+  border: 1px solid var(--admin-border, #e5e7eb);
+  font-family: "Space Mono", monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--admin-muted-dark, #6b7280);
+}
+
+.admin_experience_meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--admin-muted-dark, #6b7280);
+}
+
+.admin_experience_meta span:first-child {
+  font-weight: 700;
+  color: var(--admin-text-secondary, #4b5563);
+}
+
+.admin_experience_duties {
+  display: inline-block;
+  margin-top: 9px;
+  font-family: "Space Mono", monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--admin-muted, #9ca3af);
+}
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.admin_experience_actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.admin_experience_edit,
+.admin_experience_delete {
+  min-height: 38px;
+  padding: 0 13px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid var(--admin-border, #e5e7eb);
+  background: transparent;
+  font-family: inherit;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: var(--admin-text, #111827);
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.admin_experience_edit:hover {
+  background: var(--admin-text, #111827);
+  border-color: var(--admin-text, #111827);
+  color: #ffffff;
+}
+
+.admin_experience_edit span {
+  font-size: 13px;
+}
+
+.admin_experience_delete {
+  color: var(--admin-danger, #dc2626);
+}
+
+.admin_experience_delete:hover {
+  background: var(--admin-danger, #dc2626);
+  border-color: var(--admin-danger, #dc2626);
+  color: #ffffff;
+}
+
+.admin_experience_delete:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* =========================================================
+   ORDER BAR
+========================================================= */
+
+.admin_experience_order_bar {
+  width: 100%;
+  margin-top: 18px;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border: 1px solid var(--admin-border, #e5e7eb);
+  background: var(--admin-surface, #ffffff);
+}
+
+.admin_experience_order_bar > div:first-child {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.admin_experience_order_indicator {
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.admin_experience_order_bar strong {
+  display: block;
+  margin-bottom: 3px;
+  font-family: "Space Mono", monospace;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--admin-text, #111827);
+}
+
+.admin_experience_order_bar small {
+  display: block;
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--admin-muted-dark, #6b7280);
+}
+
+/* =========================================================
+   SAVE ORDER
+========================================================= */
+
+.admin_save_order {
+  min-height: 44px;
+  padding: 0 17px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border: 1px solid var(--admin-text, #111827);
+  background: var(--admin-text, #111827);
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.admin_save_order:hover:not(:disabled) {
+  transform: translateY(-1px);
+  opacity: 0.88;
+}
+
+.admin_save_order:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.admin_save_order span {
+  font-size: 14px;
+}
+
+/* =========================================================
+   ADD EXPERIENCE
+========================================================= */
+
+.admin_experience_add {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 22px;
+}
+
+/* =========================================================
+   FORM MESSAGES
+========================================================= */
+
+.admin_experience_management .admin_form_message {
+  width: 100%;
+  margin-bottom: 18px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid var(--admin-border, #e5e7eb);
+  font-size: 12px;
+}
+
+.admin_experience_management .admin_form_message span:first-child {
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid currentColor;
+  font-weight: 800;
+}
+
+.admin_experience_management .admin_form_message p {
+  margin: 0;
+  flex: 1;
+}
+
+.admin_experience_management .admin_form_message button {
+  border: 0;
+  background: transparent;
+  font-family: inherit;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: inherit;
+  cursor: pointer;
+}
+
+.admin_experience_management .admin_form_error {
+  color: var(--admin-danger, #dc2626);
+}
+
+.admin_experience_management .admin_form_success {
+  color: var(--admin-success, #059669);
+}
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.admin_experience_management .admin_loading {
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+}
+
+.admin_experience_management .admin_loading_line {
+  width: 120px;
+  height: 1px;
+  position: relative;
+  overflow: hidden;
+  background: var(--admin-border, #e5e7eb);
+}
+
+.admin_experience_management .admin_loading_line::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: currentColor;
+  animation: adminExperienceLoading 1.2s ease-in-out infinite;
+}
+
+.admin_experience_management .admin_loading span {
+  font-family: "Space Mono", monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--admin-muted-dark, #6b7280);
+}
+
+@keyframes adminExperienceLoading {
+  0% {
+    left: -50%;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE — TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+  .admin_experience_item {
+    grid-template-columns: 45px 40px 62px minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .admin_experience_actions {
+    grid-column: 4;
+    justify-content: flex-start;
+    margin-top: 5px;
+  }
+
+  .admin_experience_logo {
+    width: 56px;
+    height: 56px;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+  .admin_experience_management {
+    margin-top: 55px;
+  }
+
+  .admin_experience_item {
+    min-height: 0;
+    grid-template-columns: 30px 38px 54px minmax(0, 1fr);
+    gap: 12px;
+    padding: 17px 13px;
+  }
+
+  .admin_experience_index {
+    font-size: 10px;
+  }
+
+  .admin_experience_drag {
+    width: 32px;
+    height: 36px;
+  }
+
+  .admin_experience_logo {
+    width: 54px;
+    height: 54px;
+  }
+
+  .admin_experience_heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .admin_experience_heading h3 {
+    font-size: 14px;
+  }
+
+  .admin_experience_type {
+    font-size: 8px;
+  }
+
+  .admin_experience_meta {
+    gap: 4px;
+    font-size: 10px;
+  }
+
+  .admin_experience_duties {
+    font-size: 8px;
+  }
+
+  .admin_experience_actions {
+    grid-column: 1 / -1;
+    width: 100%;
+    margin-top: 5px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .admin_experience_edit,
+  .admin_experience_delete {
+    width: 100%;
+  }
+
+  .admin_experience_order_bar {
+    align-items: stretch;
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  .admin_save_order {
+    width: 100%;
+  }
+
+  .admin_experience_add {
+    width: 100%;
+  }
+
+  .admin_experience_add .admin_add_btn {
+    width: 100%;
+  }
+
+  .admin_experience_add .admin_btn {
+    width: 100%;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE — SMALL MOBILE
+========================================================= */
+
+@media (max-width: 450px) {
+  .admin_experience_item {
+    grid-template-columns: 24px 34px 48px minmax(0, 1fr);
+    gap: 9px;
+    padding: 14px 10px;
+  }
+
+  .admin_experience_logo {
+    width: 48px;
+    height: 48px;
+  }
+
+  .admin_experience_logo img {
+    padding: 6px;
+  }
+
+  .admin_experience_heading h3 {
+    font-size: 13px;
+  }
+
+  .admin_experience_meta {
+    display: block;
+    line-height: 1.7;
+  }
+
+  .admin_experience_meta span {
+    margin-right: 4px;
+  }
+
+  .admin_experience_meta span:nth-child(even) {
+    display: none;
+  }
+}
