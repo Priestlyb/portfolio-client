@@ -1,186 +1,657 @@
 .education {
-  margin-top: 50px;
-  padding: 25px;
+  width: 100%;
+  max-width: 1100px;
+
+  margin: 0 auto;
+
+  padding: 100px 30px;
 }
 
-.edu-title {
-  width: 70%;
-  font-size: 2.2rem;
-  font-weight: 300;
-  padding-bottom: 20px;
-  margin: 50px 0;
-  letter-spacing: 5px;
-  border-bottom: #000 solid 2px;
-}
+/* =========================
+   SECTION HEADER
+========================= */
 
-.education_r {
+.education_header {
   display: flex;
-  flex-direction: row;
+  align-items: flex-start;
+
   gap: 25px;
+
+  margin-bottom: 70px;
 }
 
-.edu_skills_link {
+.education_heading {
+  min-width: 0;
+}
+
+.section_number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 42px;
+
+  flex-shrink: 0;
+
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+
+  background: rgba(251, 194, 82, 0.08);
+
+  font-size: 0.75rem;
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+
   color: var(--gold);
 }
 
-.plan-card {
-  background: #fff;
-  width: 25rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  padding-top: 10px;
-  padding-bottom: 20px;
-  border-radius: 10px;
-  border-bottom: 4px solid #000446;
-  box-shadow: 0 6px 30px rgba(207, 212, 222, 0.3);
-  font-family: "Poppins", sans-serif;
+.section_label {
+  margin: 0 0 8px;
+
+  font-size: 0.75rem;
+  font-weight: 700;
+
+  letter-spacing: 0.16em;
+
+  text-transform: uppercase;
+
+  color: var(--gold);
 }
 
-.plan-card h2 {
-  margin-bottom: 15px;
-  font-size: 27px;
-  font-weight: 600;
-}
-
-.plan-card h2 span {
-  margin-top: -4px;
-  color: #4d4d4d;
-  font-size: 12px;
-  font-weight: 400;
-}
-
-.course {
-  margin-bottom: 10px;
-}
-
-.etiquet-price {
-  position: relative;
-  background: #FBC252;
-  width: 24.46rem;
-  margin-left: -0.65rem;
-  padding: .2rem 1.2rem;
-  border-radius: 5px 0 0 5px;
-}
-
-.etiquet-price p {
+.edu-title {
   margin: 0;
-  padding-top: .4rem;
-  display: flex;
-  font-size: 1rem;
-  font-weight: 600;
-}
 
-.etiquet-price p:before {
-  content: "";
-  margin-right: 5px;
-  font-size: 15px;
-  font-weight: 300;
-}
+  font-size: clamp(2.8rem, 6vw, 5rem);
 
-.etiquet-price p:after {
-  content: "";
-  margin-left: 5px;
-  font-size: 15px;
-  font-weight: 300;
-}
+  line-height: 0.95;
 
-.etiquet-price div {
-  position: absolute;
-  bottom: -23px;
-  right: 0px;
-  width: 0;
-  height: 0;
-  border-top: 13px solid #FBC252;
-  border-bottom: 10px solid transparent;
-  border-right: 13px solid transparent;
-  z-index: -6;
-}
+  font-weight: 800;
 
-.benefits-list {
-  margin-top: 16px;
-}
+  letter-spacing: -0.06em;
 
-.benefits-list ul {
-  padding: 0;
-  font-size: 14px;
-}
-
-.benefits-list ul li {
-  color: #4d4d4d;
-  list-style: none;
-  margin-bottom: .2rem;
-  display: flex;
-  align-items: center;
-  gap: .5rem;
-}
-
-.benefits-list ul li svg {
-  width: .9rem;
-  fill: currentColor;
-}
-
-.benefits-list ul li span {
-  font-weight: 300;
-}
-
-
-/* Rate Bar */
-
-
-.skills .box {
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  margin-top: 25px;
-}
-.skills .box h4 {
-  text-transform: capitalize;
   color: var(--black);
-  font-weight: 400;
-  font-size: 1rem;
 }
-.skills .box .percent {
-      position: relative;
-      width: 100%;
-      height: 10px;
-      background: #F0ECCF;
-      overflow: hidden;
+
+.edu-title span {
+  color: var(--gold);
+}
+
+/* =========================
+   MAIN GRID
+========================= */
+
+.education_grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr);
+
+  gap: 30px;
+
+  align-items: start;
+}
+
+/* =========================
+   COLUMN HEADINGS
+========================= */
+
+.education_column,
+.skills_column {
+  min-width: 0;
+}
+
+.column_heading {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  margin-bottom: 20px;
+}
+
+.heading_index {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 28px;
+  height: 28px;
+
+  border-radius: 8px;
+
+  background: var(--gold);
+
+  font-size: 0.62rem;
+  font-weight: 800;
+
+  color: #111;
+}
+
+.column_heading h2 {
+  margin: 0;
+
+  font-size: 0.75rem;
+  font-weight: 700;
+
+  letter-spacing: 0.14em;
+
+  text-transform: uppercase;
+
+  color: var(--black);
+}
+
+/* =========================
+   EDUCATION CARD
+========================= */
+
+.education_card {
+  position: relative;
+
+  padding: 30px;
+
+  background: #fff;
+
+  border: 1px solid rgba(163, 187, 152, 0.35);
+
+  border-radius: 18px;
+
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.045);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/*
+    Subtle gold accent at the top
+*/
+
+.education_card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 4px;
+
+  background: linear-gradient(90deg, var(--gold), #a3bb98);
+}
+
+.education_card:hover {
+  transform: translateY(-5px);
+
+  border-color: rgba(163, 187, 152, 0.7);
+
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.09);
+}
+
+/* =========================
+   EDUCATION TOP
+========================= */
+
+.education_card_top {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  margin-bottom: 28px;
+}
+
+.education_icon {
+  width: 54px;
+  height: 54px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 14px;
+
+  background: var(--black);
+
+  box-shadow: 0 7px 20px rgba(0, 0, 0, 0.12);
+}
+
+.education_icon span {
+  font-size: 0.72rem;
+  font-weight: 800;
+
+  letter-spacing: 0.06em;
+
+  color: var(--gold);
+}
+
+.education_date {
+  padding: 7px 12px;
+
+  border: 1px solid rgba(251, 194, 82, 0.45);
+
+  border-radius: 999px;
+
+  background: #fff9e8;
+
+  font-size: 0.68rem;
+  font-weight: 700;
+
+  color: #8a6819;
+}
+
+/* =========================
+   EDUCATION CONTENT
+========================= */
+
+.education_level {
+  margin: 0 0 9px;
+
+  font-size: 0.7rem;
+  font-weight: 800;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+
+  color: var(--gold);
+}
+
+.education_card_body h3 {
+  margin: 0;
+
+  font-size: 1.45rem;
+  line-height: 1.25;
+
+  font-weight: 700;
+
+  letter-spacing: -0.025em;
+
+  color: var(--black);
+}
+
+.education_result {
+  display: inline-flex;
+
+  margin: 12px 0 0;
+
+  padding: 5px 9px;
+
+  border-radius: 6px;
+
+  background: #f3f7f0;
+
+  font-size: 0.74rem;
+  font-weight: 600;
+
+  color: #65785c;
+}
+
+/* =========================
+   DIVIDER
+========================= */
+
+.education_divider {
+  width: 100%;
+  height: 1px;
+
+  margin: 28px 0;
+
+  background: linear-gradient(
+    90deg,
+    rgba(163, 187, 152, 0.45),
+    rgba(163, 187, 152, 0.08)
+  );
+}
+
+/* =========================
+   HIGHLIGHT
+========================= */
+
+.education_highlight {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 14px;
+}
+
+.highlight_icon {
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border: 1px solid rgba(251, 194, 82, 0.5);
+
+  border-radius: 9px;
+
+  background: #fff9e8;
+
+  color: #c18a18;
+}
+
+.highlight_icon svg {
+  width: 17px;
+  height: 17px;
+}
+
+.highlight_content {
+  min-width: 0;
+}
+
+.education_highlight span {
+  display: block;
+
+  margin-bottom: 6px;
+
+  font-size: 0.68rem;
+  font-weight: 800;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+
+  color: #8a6819;
+}
+
+.education_highlight p {
+  margin: 0;
+
+  font-size: 0.82rem;
+
+  line-height: 1.7;
+
+  color: #666;
+}
+
+.education_highlight p strong {
+  color: var(--black);
+}
+
+.education_highlight small {
+  display: block;
+
+  margin-top: 10px;
+
+  font-size: 0.7rem;
+  font-weight: 700;
+
+  color: #8fa185;
+}
+
+/* =========================
+   SKILLS INTRO
+========================= */
+
+.skills_intro {
+  position: relative;
+
+  padding: 25px;
+
+  margin-bottom: 28px;
+
+  border: 1px solid rgba(163, 187, 152, 0.45);
+
+  border-radius: 16px;
+
+  background: linear-gradient(135deg, #f8faf5, #fffdf6);
+}
+
+.skills_intro::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 4px;
+  height: 100%;
+
+  border-radius: 16px 0 0 16px;
+
+  background: var(--gold);
+}
+
+.skills_intro p {
+  margin: 0 0 18px;
+
+  font-size: 0.9rem;
+
+  line-height: 1.75;
+
+  color: #666;
+}
+
+/* =========================
+   LINK
+========================= */
+
+.edu_skills_link {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  color: #65785c;
+
+  font-size: 0.78rem;
+  font-weight: 800;
+
+  text-decoration: none;
+
+  transition:
+    gap 0.25s ease,
+    color 0.25s ease;
+}
+
+.edu_skills_link:hover {
+  gap: 12px;
+
+  color: #b77e0d;
+}
+
+.edu_skills_link svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* =========================
+   SKILLS
+========================= */
+
+.skills {
+  display: flex;
+  flex-direction: column;
+
+  gap: 23px;
+}
+
+.skill_box {
+  width: 100%;
+}
+
+.skill_header {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  margin-bottom: 9px;
+}
+
+.skill_header h4 {
+  margin: 0;
+
+  font-size: 0.82rem;
+  font-weight: 600;
+
+  color: var(--black);
+}
+
+.skill_header span {
+  min-width: 35px;
+
+  text-align: right;
+
+  font-size: 0.7rem;
+  font-weight: 800;
+
+  color: #8fa185;
+}
+
+/* =========================
+   SKILL BAR
+========================= */
+
+.percent {
+  position: relative;
+
+  width: 100%;
+  height: 7px;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background: #f0eccf;
 }
 
 .percent div {
   position: absolute;
+
   top: 0;
   left: 0;
+
   height: 100%;
-  background: #A3BB98;
+
+  border-radius: inherit;
+
+  background: linear-gradient(90deg, #a3bb98, #7f9f78);
+
+  box-shadow: 0 2px 8px rgba(163, 187, 152, 0.3);
+
+  transition: width 1s ease;
 }
 
+/* =========================
+   TABLET
+========================= */
+
 @media screen and (max-width: 768px) {
-
   .education {
-    padding: 15px;
+    padding: 75px 20px;
   }
-  
+
+  .education_header {
+    gap: 15px;
+
+    margin-bottom: 45px;
+  }
+
+  .section_number {
+    width: 36px;
+    height: 36px;
+
+    font-size: 0.65rem;
+  }
+
   .edu-title {
-    font-size: 1.5rem;
-    margin-bottom: 10px 0;
+    font-size: clamp(2.5rem, 11vw, 4rem);
   }
 
-  .education_r {
-    flex-direction: column-reverse;
+  .education_grid {
+    grid-template-columns: 1fr;
+
+    gap: 45px;
   }
 
-  .etiquet-price {
-    width: 19.46rem;
-  }
-  
-  .edu_col:last-child {
-    width: 100%;
-    margin-left: 0px;
+  .education_card {
+    padding: 25px;
   }
 
-  .plan-card {
-    width: 20rem;
-    margin-bottom: 25px;
+  .skills_intro {
+    padding: 22px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media screen and (max-width: 480px) {
+  .education {
+    padding: 60px 15px;
+  }
+
+  .education_header {
+    margin-bottom: 35px;
+  }
+
+  .education_card {
+    padding: 20px;
+
+    border-radius: 14px;
+  }
+
+  .education_card_top {
+    margin-bottom: 22px;
+  }
+
+  .education_icon {
+    width: 46px;
+    height: 46px;
+
+    border-radius: 12px;
+  }
+
+  .education_date {
+    padding: 6px 9px;
+
+    font-size: 0.62rem;
+  }
+
+  .education_card_body h3 {
+    font-size: 1.2rem;
+  }
+
+  .education_highlight p {
+    font-size: 0.78rem;
+  }
+
+  .skills_intro {
+    padding: 18px;
+
+    border-radius: 13px;
+  }
+
+  .skills_intro p {
+    font-size: 0.82rem;
+  }
+
+  .skill_header h4 {
+    font-size: 0.78rem;
+  }
+
+  .percent {
+    height: 6px;
   }
 }

@@ -1,91 +1,184 @@
-import React from 'react'
-import './edu_skills.css'
+import React from "react";
+import "./edu_skills.css";
 
 function Eduskills() {
-    return (
-        <div className='education'>
-            <h1 className='edu-title' data-aos="fade-right" data-aos-anchor-placement="bottom-bottom">EDUCATION & SKILLS.</h1>
-            <div className='education_r'>
-                <div className='edu_col'>
+  const skills = [
+    {
+      name: "UI/UX Design",
+      level: 95,
+    },
+    {
+      name: "JavaScript Frameworks & Libraries",
+      level: 90,
+    },
+    {
+      name: "Responsive Design",
+      level: 97,
+    },
+    {
+      name: "Performance Optimization",
+      level: 93,
+    },
+    {
+      name: "Version Control",
+      level: 80,
+    },
+  ];
 
-                    {/* <div className="plan-card">
-                        <h2>Baze University, Abuja</h2>
-                        <p className='course'><strong>MSC</strong> Computer Science</p>
-                        <div className="etiquet-price">
-                            <p>2023-Present</p>
-                            <div></div>
-                        </div>
-                    </div> 
+  return (
+    <section className="education">
+      {/* Section Header */}
+      <div className="education_header">
+        <span className="section_number">06</span>
 
-                    <br /> <br />*/}
+        <div className="education_heading">
+          <p className="section_label">Background</p>
 
-                    <div className="plan-card">
-                        <h2>Gregory University, Uturu</h2>
-                        <p className='course'><strong>BSC</strong> Computer Science Second class</p>
-                        <div className="etiquet-price">
-                            <p>2017-2021</p>
-                            <div></div>
-                        </div>
-                        
-                        <div className="benefits-list">
-                            <ul>
-                                <li><svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M243.8 339.8C232.9 350.7 215.1 350.7 204.2 339.8L140.2 275.8C129.3 264.9 129.3 247.1 140.2 236.2C151.1 225.3 168.9 225.3 179.8 236.2L224 280.4L332.2 172.2C343.1 161.3 360.9 161.3 371.8 172.2C382.7 183.1 382.7 200.9 371.8 211.8L243.8 339.8zM512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM256 48C141.1 48 48 141.1 48 256C48 370.9 141.1 464 256 464C370.9 464 464 370.9 464 256C464 141.1 370.9 48 256 48z"></path>
-                                </svg><p> <strong>Co-founder & Workshop Facilitator:-</strong> Android Code Club (ACC), Gregory University Co-founded a student-led STEM club, organized workshops on Programming development, and mentored students in coding best practices.
-                                    (2018 - Present)
-                                    </p></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div className='edu_col'>
-                    <h2>My skills</h2>
-                    <p>I am always eager to learn new technologies and stay up-to-date with the latest developments in the web development industry. I'm excited to continue to develop my skills and grow my career as a Software Engineer. If you're interested in working together, please feel free to connect with me on <a href='http://linkedin.com/in/priestly-bassey-486278175' className='edu_skills_link'>[LinkedIn]</a>.</p>
-
-                    <div className='skills'>
-                        <div className="box">
-                            <h4>UI/UX Design</h4>
-                            <div className="percent">
-                                <div Style="width: 95%;" data-aos="fade-right" data-aos-delay="300" data-aos-offset="200"></div>
-                            </div>
-                        </div>
-
-                        <div className="box">
-                            <h4>JavaScript Frameworks and Libraries</h4>
-                            <div className="percent">
-                                <div Style="width: 90%;" data-aos="fade-right" data-aos-delay="300" data-aos-offset="200"></div>
-                            </div>
-                        </div>
-
-                        <div className="box">
-                            <h4>Responsive Design</h4>
-                            <div className="percent">
-                                <div Style="width: 97%;" data-aos="fade-right" data-aos-delay="300" data-aos-offset="200"></div>
-                            </div>
-                        </div>
-
-                        <div className="box">
-                            <h4>Performance Optimization</h4>
-                            <div className="percent">
-                                <div Style="width: 93%;" data-aos="fade-right" data-aos-delay="300" data-aos-offset="200"></div>
-                            </div>
-                        </div>
-
-                        <div className="box">
-                            <h4>Version Control</h4>
-                            <div className="percent">
-                                <div Style="width: 80%;" data-aos="fade-right" data-aos-delay="300" data-aos-offset="200"></div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
+          <h1
+            className="edu-title"
+            data-aos="fade-right"
+            data-aos-anchor-placement="bottom-bottom"
+          >
+            EDUCATION <span>&</span> SKILLS.
+          </h1>
         </div>
-    )
+      </div>
+
+      <div className="education_grid">
+        {/* =========================
+            EDUCATION
+        ========================= */}
+        <div className="education_column">
+          <div className="column_heading">
+            <span className="heading_index">I</span>
+            <h2>Education</h2>
+          </div>
+
+          <article
+            className="education_card"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div className="education_card_top">
+              <div className="education_icon">
+                <span>GU</span>
+              </div>
+
+              <div className="education_date">2017 — 2021</div>
+            </div>
+
+            <div className="education_card_body">
+              <p className="education_level">BSC • Computer Science</p>
+
+              <h3>Gregory University, Uturu</h3>
+
+              <p className="education_result">Second Class</p>
+            </div>
+
+            <div className="education_divider"></div>
+
+            <div className="education_highlight">
+              <div className="highlight_icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 3L14.7 8.3L20.5 9.1L16.3 13.2L17.3 19L12 16.3L6.7 19L7.7 13.2L3.5 9.1L9.3 8.3L12 3Z"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+
+              <div className="highlight_content">
+                <span>Leadership & Community</span>
+
+                <p>
+                  <strong>Co-founder & Workshop Facilitator</strong> — Android
+                  Code Club (ACC), Gregory University. Co-founded a student-led
+                  STEM club, organized programming workshops, and mentored
+                  students in coding best practices.
+                </p>
+
+                <small>2018 — Present</small>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        {/* =========================
+            SKILLS
+        ========================= */}
+        <div className="skills_column">
+          <div className="column_heading">
+            <span className="heading_index">II</span>
+            <h2>Skills</h2>
+          </div>
+
+          <div className="skills_intro" data-aos="fade-up" data-aos-delay="150">
+            <p>
+              I’m always eager to learn new technologies and stay current with
+              the latest developments in software development. I’m focused on
+              building reliable, performant, and user-friendly digital
+              experiences.
+            </p>
+
+            <a
+              href="https://linkedin.com/in/priestly-bassey-486278175"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="edu_skills_link"
+            >
+              <span>Connect on LinkedIn</span>
+
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M5 12H19M13 6L19 12L13 18"
+                  stroke="currentColor"
+                  strokeWidth="1.7"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </a>
+          </div>
+
+          <div className="skills">
+            {skills.map((skill, index) => (
+              <div
+                className="skill_box"
+                key={skill.name}
+                data-aos="fade-up"
+                data-aos-delay={200 + index * 80}
+              >
+                <div className="skill_header">
+                  <h4>{skill.name}</h4>
+
+                  <span>{skill.level}%</span>
+                </div>
+
+                <div className="percent">
+                  <div
+                    style={{
+                      width: `${skill.level}%`,
+                    }}
+                  ></div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export default Eduskills;

@@ -1,14 +1,16 @@
-import { useState, useRef } from 'react';
-import { axiosInstance } from '../../config';
-import './Register.css';
+import { useState, useRef } from "react";
+import { axiosInstance } from "../../config";
+import "./Register.css";
 
 export default function Register() {
   const usernameRef = useRef();
   const emailRef = useRef();
   const passwordRef = useRef();
+
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
-  const [showPassword, setShowPassword] = useState(true); // default to hidden
+  const [showPassword, setShowPassword] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const toggleShowPassword = () => {
     setShowPassword((prev) => !prev);
@@ -17,9 +19,12 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const username = usernameRef.current.value;
-    const email = emailRef.current.value;
+    const username = usernameRef.current.value.trim();
+    const email = emailRef.current.value.trim();
     const password = passwordRef.current.value;
+
+    setError("");
+    setSuccess(false);
 
     if (!username || !email || !password) {
       setError("All fields are required.");
@@ -27,89 +32,251 @@ export default function Register() {
     }
 
     try {
-      const res = await axiosInstance.post("/auth/register", {
-        username,
-        email,
-        password,
-      }, {
-        withCredentials: true
-      });
+      setIsSubmitting(true);
+
+      const res = await axiosInstance.post(
+        "/auth/register",
+        {
+          username,
+          email,
+          password,
+        },
+        {
+          withCredentials: true,
+        },
+      );
 
       if (res.status === 200) {
         setSuccess(true);
         setError("");
       }
     } catch (err) {
+      console.error("Registration failed:", err);
+
       if (err.response?.status === 500) {
         setError("Something went wrong. Please try again later.");
+      } else if (typeof err.response?.data === "string") {
+        setError(err.response.data);
+      } else if (err.response?.data?.message) {
+        setError(err.response.data.message);
       } else {
-        setError(err.response?.data || "An unexpected error occurred.");
+        setError("An unexpected error occurred.");
       }
+
       setSuccess(false);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
   return (
-    <div className="register">
-      <h1>Create an Account</h1>
+    <main className="register_page">
+      <div className="register_background_shape register_background_shape_one"></div>
+      <div className="register_background_shape register_background_shape_two"></div>
 
-      {error && <div className="error-message">{error}</div>}
-      {success && (
-        <div className="success-message">
-          Account created successfully. <a href="/admin">Login here</a>
-        </div>
-      )}
+      <div className="register_page_inner">
+        <header className="register_header">
+          <a href="/" className="register_brand">
+            <span className="register_brand_mark">✦</span>
+            <span>PRIESTLY PATRICK BASSEY</span>
+          </a>
 
-      <form className="registerForm" onSubmit={handleSubmit}>
-        <label htmlFor="username">Username</label>
-        <input
-          id="username"
-          type="text"
-          className="registerInput"
-          placeholder="Enter your Username..."
-          ref={usernameRef}
-        />
+          <div className="register_header_meta">
+            <span className="register_header_dot"></span>
+            <span>ACCOUNT CREATION</span>
+          </div>
+        </header>
 
-        <label htmlFor="email">Email</label>
-        <input
-          id="email"
-          type="email"
-          className="registerInput"
-          placeholder="Enter your Email..."
-          ref={emailRef}
-        />
+        <section className="register_content">
+          <div className="register_intro">
+            <div className="register_marker">
+              <span>USER</span>
+              <strong>01</strong>
+            </div>
 
-        <label htmlFor="password">Password</label>
-        <div className="password-container">
-          <input
-            id="password"
-            type={showPassword ? "text" : "password"}
-            className="registerInput"
-            placeholder="Enter your Password..."
-            ref={passwordRef}
-          />
-          <span
-            className="password-toggle-button"
-            onClick={toggleShowPassword}
-          >
-            {showPassword ? (
-              <i className="fa-regular fa-eye-slash"></i>
-            ) : (
-              <i className="fa-regular fa-eye"></i>
+            <div>
+              <p className="register_eyebrow">GET STARTED</p>
+
+              <h1 className="register_title">
+                CREATE
+                <span>ACCOUNT.</span>
+              </h1>
+
+              <p className="register_description">
+                Create your account to access the portfolio workspace and manage
+                your profile securely.
+              </p>
+            </div>
+          </div>
+
+          <div className="register_form_area">
+            <div className="register_form_header">
+              <div>
+                <span>01 — REGISTRATION</span>
+                <h2>NEW ACCOUNT</h2>
+              </div>
+
+              <span className="register_form_number">01 / 03</span>
+            </div>
+
+            {error && (
+              <div className="register_message register_message_error">
+                <span className="register_message_icon">!</span>
+
+                <div>
+                  <strong>REGISTRATION FAILED</strong>
+                  <p>{error}</p>
+                </div>
+              </div>
             )}
-          </span>
-        </div>
 
-        <button className="registerButton" type="submit">
-          Register
-        </button>
-      </form>
+            {success && (
+              <div className="register_message register_message_success">
+                <span className="register_message_icon">✓</span>
 
-      {!success && (
-        <p className="redirect-login">
-          Already have an account? <a href="/admin">Login</a>
-        </p>
-      )}
-    </div>
+                <div>
+                  <strong>ACCOUNT CREATED</strong>
+                  <p>Your account has been created successfully.</p>
+                </div>
+              </div>
+            )}
+
+            <form className="register_form" onSubmit={handleSubmit}>
+              <div className="register_field">
+                <div className="register_field_number">01</div>
+
+                <div className="register_field_content">
+                  <label htmlFor="register-username">USERNAME</label>
+
+                  <input
+                    id="register-username"
+                    type="text"
+                    name="username"
+                    className="register_input"
+                    placeholder="Choose a username"
+                    ref={usernameRef}
+                    autoComplete="username"
+                    required
+                  />
+
+                  <small>This name will be associated with your account.</small>
+                </div>
+              </div>
+
+              <div className="register_field">
+                <div className="register_field_number">02</div>
+
+                <div className="register_field_content">
+                  <label htmlFor="register-email">EMAIL ADDRESS</label>
+
+                  <input
+                    id="register-email"
+                    type="email"
+                    name="email"
+                    className="register_input"
+                    placeholder="Enter your email address"
+                    ref={emailRef}
+                    autoComplete="email"
+                    required
+                  />
+
+                  <small>Use an email address you have access to.</small>
+                </div>
+              </div>
+
+              <div className="register_field">
+                <div className="register_field_number">03</div>
+
+                <div className="register_field_content">
+                  <label htmlFor="register-password">PASSWORD</label>
+
+                  <div className="register_password_wrapper">
+                    <input
+                      id="register-password"
+                      type={showPassword ? "text" : "password"}
+                      name="password"
+                      className="register_input register_password_input"
+                      placeholder="Create a secure password"
+                      ref={passwordRef}
+                      autoComplete="new-password"
+                      required
+                    />
+
+                    <button
+                      type="button"
+                      className="register_password_toggle"
+                      onClick={toggleShowPassword}
+                      aria-label={
+                        showPassword ? "Hide password" : "Show password"
+                      }
+                      title={showPassword ? "Hide password" : "Show password"}
+                    >
+                      <i
+                        className={
+                          showPassword
+                            ? "fa-regular fa-eye-slash"
+                            : "fa-regular fa-eye"
+                        }
+                      ></i>
+                    </button>
+                  </div>
+
+                  <small>Choose a password that is difficult to guess.</small>
+                </div>
+              </div>
+
+              <div className="register_form_footer">
+                <div className="register_security_note">
+                  <span className="register_security_icon">✦</span>
+
+                  <div>
+                    <span>SECURITY</span>
+                    <p>Your account information is kept private.</p>
+                  </div>
+                </div>
+
+                <button
+                  className="register_submit"
+                  type="submit"
+                  disabled={isSubmitting || success}
+                >
+                  <span>{isSubmitting ? "CREATING..." : "CREATE ACCOUNT"}</span>
+
+                  <span className="register_submit_icon">
+                    {isSubmitting ? (
+                      <span className="register_spinner"></span>
+                    ) : (
+                      "↗"
+                    )}
+                  </span>
+                </button>
+              </div>
+            </form>
+
+            {success && (
+              <a href="/admin" className="register_success_link">
+                <span>ACCOUNT READY</span>
+                <strong>GO TO LOGIN ↗</strong>
+              </a>
+            )}
+          </div>
+        </section>
+
+        <footer className="register_footer">
+          <div>
+            <span>PRIESTLY PATRICK BASSEY</span>
+            <span className="register_footer_mark">✦</span>
+            <span>2026</span>
+          </div>
+
+          {!success && (
+            <a href="/admin" className="register_login_link">
+              <span>ALREADY REGISTERED?</span>
+              <strong>SIGN IN ↗</strong>
+            </a>
+          )}
+        </footer>
+      </div>
+    </main>
   );
 }

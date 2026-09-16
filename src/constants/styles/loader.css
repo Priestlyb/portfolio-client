@@ -2,12 +2,33 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 50px;
+  padding: 0;
+
+  /* Keep scrolling enabled */
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: visible;
+}
+
+/* Hide the browser scrollbar without disabling scrolling */
+html,
+body {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
 }
 
 /* Responsive Styles */
+
 @media screen and (max-width: 1024px) {
   .home_wrapper {
-    padding: 1em;
+    padding: 0;
   }
 }

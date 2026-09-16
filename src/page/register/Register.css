@@ -1,31 +1,913 @@
-/* Register.css */
-.register {
-    width: 100%;
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    background-color: #fff;
+/* =========================================================
+   REGISTER PAGE
+   Editorial Portfolio System
+
+   Palette:
+   Gold  #FBC252
+   Cream #F0ECCF
+   Sage  #A3BB98
+   Blue  #000446
+   Black #000000
+========================================================= */
+
+.register_page {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 42px 7vw 35px;
+  background: #ffffff;
+  color: #000446;
+  overflow-x: hidden;
+  overflow-y: visible;
+}
+
+.register_page,
+.register_page * {
+  box-sizing: border-box;
+}
+
+.register_page_inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1400px;
+  min-height: calc(100vh - 77px);
+  min-height: calc(100dvh - 77px);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =========================================================
+   BACKGROUND DECORATION
+========================================================= */
+
+.register_background_shape {
+  position: fixed;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+.register_background_shape_one {
+  width: 330px;
+  height: 330px;
+  top: -170px;
+  right: -110px;
+  background: #f0eccf;
+}
+
+.register_background_shape_two {
+  width: 210px;
+  height: 210px;
+  bottom: -90px;
+  left: -70px;
+  border: 35px solid rgba(163, 187, 152, 0.25);
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.register_header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 22px;
+  border-bottom: 1px solid rgba(0, 4, 70, 0.14);
+}
+
+.register_brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  color: #000446;
+  text-decoration: none;
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 0.17em;
+}
+
+.register_brand_mark {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fbc252;
+  color: #000446;
+  border-radius: 50%;
+  font-size: 13px;
+}
+
+.register_header_meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #64748b;
+  font-size: 7px;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+}
+
+.register_header_dot {
+  width: 6px;
+  height: 6px;
+  display: block;
+  border-radius: 50%;
+  background: #a3bb98;
+}
+
+/* =========================================================
+   MAIN CONTENT
+========================================================= */
+
+.register_content {
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(300px, 0.9fr) minmax(420px, 1.1fr);
+  gap: clamp(60px, 9vw, 150px);
+  align-items: center;
+  padding: 80px 0;
+}
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.register_intro {
+  display: grid;
+  grid-template-columns: 62px 1fr;
+  gap: 25px;
+  align-items: start;
+}
+
+.register_marker {
+  width: 62px;
+  height: 62px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  background: #fbc252;
+  border-radius: 50%;
+  color: #000446;
+}
+
+.register_marker span {
+  font-size: 7px;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+}
+
+.register_marker strong {
+  font-size: 17px;
+  line-height: 1;
+  font-weight: 900;
+}
+
+.register_eyebrow {
+  margin: 2px 0 18px;
+  color: #a3bb98;
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+}
+
+.register_title {
+  max-width: 650px;
+  margin: 0;
+  color: #000446;
+  font-size: clamp(50px, 6.8vw, 100px);
+  line-height: 0.84;
+  font-weight: 900;
+  letter-spacing: -0.07em;
+}
+
+.register_title span {
+  display: block;
+  color: #fbc252;
+}
+
+.register_description {
+  max-width: 390px;
+  margin: 30px 0 0;
+  padding-left: 18px;
+  border-left: 2px solid #a3bb98;
+  color: #64748b;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+/* =========================================================
+   FORM AREA
+========================================================= */
+
+.register_form_area {
+  width: 100%;
+  max-width: 650px;
+  margin-left: auto;
+}
+
+.register_form_header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 25px;
+  margin-bottom: 28px;
+  padding-bottom: 17px;
+  border-bottom: 1px solid rgba(0, 4, 70, 0.14);
+}
+
+.register_form_header > div span {
+  display: block;
+  margin-bottom: 8px;
+  color: #a3bb98;
+  font-size: 7px;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+}
+
+.register_form_header h2 {
+  margin: 0;
+  color: #000446;
+  font-size: clamp(22px, 3vw, 36px);
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: -0.045em;
+}
+
+.register_form_number {
+  color: #64748b;
+  font-size: 7px;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+}
+
+/* =========================================================
+   MESSAGES
+========================================================= */
+
+.register_message {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+  padding: 15px 17px;
+  border-left: 3px solid;
+}
+
+.register_message_icon {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.register_message strong {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 7px;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+}
+
+.register_message p {
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.register_message_error {
+  background: rgba(139, 30, 30, 0.055);
+  border-color: #8b1e1e;
+  color: #8b1e1e;
+}
+
+.register_message_error .register_message_icon {
+  background: #8b1e1e;
+  color: #ffffff;
+}
+
+.register_message_success {
+  background: rgba(163, 187, 152, 0.14);
+  border-color: #a3bb98;
+  color: #000446;
+}
+
+.register_message_success .register_message_icon {
+  background: #a3bb98;
+  color: #000446;
+}
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.register_form {
+  width: 100%;
+}
+
+.register_field {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 20px;
+  padding: 25px 0;
+  border-bottom: 1px solid rgba(0, 4, 70, 0.13);
+}
+
+.register_field_number {
+  padding-top: 5px;
+  color: #a3bb98;
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+}
+
+.register_field_content {
+  min-width: 0;
+}
+
+.register_field_content label {
+  display: block;
+  margin-bottom: 11px;
+  color: #000446;
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+}
+
+.register_field_content small {
+  display: block;
+  margin-top: 9px;
+  color: #94a3b8;
+  font-size: 9px;
+  line-height: 1.5;
+}
+
+.register_input {
+  width: 100%;
+  height: 48px;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid rgba(0, 4, 70, 0.22);
+  outline: none;
+  background: transparent;
+  color: #000446;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  transition: border-color 0.25s ease;
+}
+
+.register_input::placeholder {
+  color: #94a3b8;
+  font-weight: 400;
+}
+
+.register_input:hover {
+  border-color: rgba(0, 4, 70, 0.42);
+}
+
+.register_input:focus {
+  border-color: #fbc252;
+}
+
+/* =========================================================
+   PASSWORD
+========================================================= */
+
+.register_password_wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.register_password_input {
+  padding-right: 50px;
+}
+
+.register_password_toggle {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-50%);
+  border: 0;
+  background: transparent;
+  color: #64748b;
+  cursor: pointer;
+  font-size: 15px;
+  transition:
+    color 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.register_password_toggle:hover {
+  background: #f0eccf;
+  color: #000446;
+}
+
+.register_password_toggle:focus-visible {
+  outline: 2px solid #fbc252;
+  outline-offset: 2px;
+}
+
+/* =========================================================
+   FORM FOOTER
+========================================================= */
+
+.register_form_footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  padding-top: 30px;
+}
+
+.register_security_note {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.register_security_icon {
+  width: 31px;
+  height: 31px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: #f0eccf;
+  color: #000446;
+  border-radius: 50%;
+  font-size: 12px;
+}
+
+.register_security_note > div > span {
+  display: block;
+  margin-bottom: 4px;
+  color: #000446;
+  font-size: 7px;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+}
+
+.register_security_note p {
+  margin: 0;
+  color: #64748b;
+  font-size: 9px;
+}
+
+/* =========================================================
+   SUBMIT BUTTON
+========================================================= */
+
+.register_submit {
+  min-width: 205px;
+  height: 56px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 0 9px 0 20px;
+  border: 0;
+  border-radius: 0;
+  outline: none;
+  background: #000446;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.register_submit:hover:not(:disabled) {
+  background: #fbc252;
+  color: #000446;
+  transform: translateY(-2px);
+}
+
+.register_submit:focus-visible {
+  outline: 2px solid #fbc252;
+  outline-offset: 4px;
+}
+
+.register_submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.register_submit_icon {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fbc252;
+  color: #000446;
+  font-size: 16px;
+  transition: transform 0.3s ease;
+}
+
+.register_submit:hover:not(:disabled) .register_submit_icon {
+  transform: translate(2px, -2px);
+}
+
+.register_spinner {
+  width: 14px;
+  height: 14px;
+  display: block;
+  border: 2px solid rgba(0, 4, 70, 0.2);
+  border-top-color: #000446;
+  border-radius: 50%;
+  animation: registerSpin 0.7s linear infinite;
+}
+
+@keyframes registerSpin {
+  to {
+    transform: rotate(360deg);
   }
-  
-  .registerForm {
-    display: flex;
+}
+
+/* =========================================================
+   SUCCESS LINK
+========================================================= */
+
+.register_success_link {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 22px;
+  padding: 16px 0;
+  border-top: 1px solid rgba(0, 4, 70, 0.13);
+  border-bottom: 1px solid rgba(0, 4, 70, 0.13);
+  color: #000446;
+  text-decoration: none;
+  font-size: 7px;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  transition: color 0.25s ease;
+}
+
+.register_success_link span {
+  color: #a3bb98;
+}
+
+.register_success_link strong {
+  font-size: 8px;
+}
+
+.register_success_link:hover {
+  color: #fbc252;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.register_footer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(0, 4, 70, 0.14);
+}
+
+.register_footer > div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #64748b;
+  font-size: 7px;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+}
+
+.register_footer_mark {
+  color: #fbc252;
+  font-size: 13px;
+}
+
+.register_login_link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: #000446;
+  text-decoration: none;
+  font-size: 7px;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+  transition: color 0.25s ease;
+}
+
+.register_login_link span {
+  color: #94a3b8;
+}
+
+.register_login_link strong {
+  font-size: 8px;
+}
+
+.register_login_link:hover {
+  color: #fbc252;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1050px) {
+  .register_content {
+    grid-template-columns: 1fr;
+    gap: 65px;
+    align-items: start;
+    padding: 70px 0;
+  }
+
+  .register_intro {
+    max-width: 760px;
+  }
+
+  .register_form_area {
+    max-width: 760px;
+    margin-left: 87px;
+  }
+
+  .register_title {
+    font-size: clamp(52px, 8vw, 88px);
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+  .register_page {
+    padding: 25px 20px 28px;
+  }
+
+  .register_page_inner {
+    min-height: auto;
+  }
+
+  .register_header {
+    padding-bottom: 18px;
+  }
+
+  .register_brand {
+    font-size: 7px;
+    letter-spacing: 0.12em;
+  }
+
+  .register_brand_mark {
+    width: 25px;
+    height: 25px;
+    font-size: 11px;
+  }
+
+  .register_header_meta {
+    font-size: 6px;
+    letter-spacing: 0.12em;
+  }
+
+  .register_content {
+    display: block;
+    padding: 55px 0 60px;
+  }
+
+  .register_intro {
+    grid-template-columns: 48px 1fr;
+    gap: 17px;
+  }
+
+  .register_marker {
+    width: 48px;
+    height: 48px;
+  }
+
+  .register_marker span {
+    font-size: 6px;
+  }
+
+  .register_marker strong {
+    font-size: 14px;
+  }
+
+  .register_eyebrow {
+    margin-bottom: 14px;
+    font-size: 7px;
+  }
+
+  .register_title {
+    font-size: clamp(46px, 14vw, 74px);
+    letter-spacing: -0.075em;
+  }
+
+  .register_description {
+    margin-top: 25px;
+    padding-left: 13px;
+    font-size: 11px;
+  }
+
+  .register_form_area {
+    margin: 55px 0 0;
+  }
+
+  .register_form_header {
+    margin-bottom: 18px;
+  }
+
+  .register_form_header h2 {
+    font-size: 24px;
+  }
+
+  .register_form_number {
+    font-size: 6px;
+  }
+
+  .register_field {
+    grid-template-columns: 28px 1fr;
+    gap: 12px;
+    padding: 23px 0;
+  }
+
+  .register_field_number {
+    font-size: 7px;
+  }
+
+  .register_field_content label {
+    font-size: 7px;
+  }
+
+  .register_input {
+    height: 45px;
+    font-size: 12px;
+  }
+
+  .register_field_content small {
+    font-size: 8px;
+  }
+
+  .register_form_footer {
     flex-direction: column;
+    align-items: stretch;
+    gap: 25px;
+    padding-top: 25px;
   }
-  
-  .registerInput {
-    margin-bottom: 15px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+
+  .register_submit {
+    width: 100%;
   }
-  
-  .error-message {
-    color: red;
-    margin: 10px;
-    font-weight: bold;
-    background-color: #fff;
-    padding: 8px;
+
+  .register_footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
   }
-  
+
+  .register_footer > div {
+    font-size: 6px;
+  }
+
+  .register_login_link {
+    width: 100%;
+    justify-content: space-between;
+    padding-top: 15px;
+    border-top: 1px solid rgba(0, 4, 70, 0.1);
+  }
+
+  .register_success_link {
+    font-size: 6px;
+  }
+
+  .register_background_shape_one {
+    width: 220px;
+    height: 220px;
+    top: -120px;
+    right: -100px;
+  }
+
+  .register_background_shape_two {
+    width: 150px;
+    height: 150px;
+    bottom: -80px;
+    left: -70px;
+    border-width: 25px;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+  .register_page {
+    padding: 20px 16px 25px;
+  }
+
+  .register_header_meta {
+    display: none;
+  }
+
+  .register_intro {
+    grid-template-columns: 42px 1fr;
+    gap: 13px;
+  }
+
+  .register_marker {
+    width: 42px;
+    height: 42px;
+  }
+
+  .register_marker strong {
+    font-size: 13px;
+  }
+
+  .register_title {
+    font-size: clamp(41px, 14.5vw, 61px);
+  }
+
+  .register_description {
+    font-size: 10px;
+  }
+
+  .register_form_area {
+    margin-top: 45px;
+  }
+
+  .register_form_header h2 {
+    font-size: 21px;
+  }
+
+  .register_form_number {
+    display: none;
+  }
+
+  .register_message {
+    padding: 13px;
+  }
+
+  .register_message p {
+    font-size: 10px;
+  }
+
+  .register_field {
+    grid-template-columns: 24px 1fr;
+    gap: 9px;
+  }
+
+  .register_security_note p {
+    font-size: 8px;
+  }
+
+  .register_footer > div {
+    flex-wrap: wrap;
+    line-height: 1.6;
+  }
+
+  .register_success_link {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .register_input,
+  .register_password_toggle,
+  .register_submit,
+  .register_submit_icon,
+  .register_login_link,
+  .register_success_link {
+    transition: none;
+  }
+
+  .register_spinner {
+    animation: none;
+  }
+}

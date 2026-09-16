@@ -1,28 +1,352 @@
+/* =========================================================
+   ABOUT
+   Shared portfolio palette:
+   Gold  - #FBC252
+   Cream - #F0ECCF
+   Sage  - #A3BB98
+   Deep  - #000446
+   Black - #000000
+========================================================= */
+
 .about {
+  position: relative;
+
   width: 75vw;
-  display: flex;
-  color: var(--black);
-  z-index: -1;
-  justify-content: center;
-  align-items: center;
-  background-color: #F0ECCF;
-  padding: 50px;
+  max-width: 1200px;
+
+  margin: 0 auto;
+
+  padding: 80px 70px;
+
+  color: #000446;
+
+  background: #f0eccf;
+
   border-bottom-left-radius: 30%;
+
+  overflow: hidden;
+}
+
+/* Decorative accent */
+
+.about::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  right: 0;
+
+  width: 180px;
+  height: 180px;
+
+  background: #fbc252;
+
+  border-bottom-left-radius: 100%;
+
+  opacity: 0.35;
+}
+
+/* Small sage accent */
+
+.about::after {
+  content: "";
+
+  position: absolute;
+
+  right: 45px;
+  bottom: 35px;
+
+  width: 70px;
+  height: 70px;
+
+  border: 10px solid #a3bb98;
+
+  border-radius: 50%;
+
+  opacity: 0.45;
+}
+
+/* =========================================================
+   INNER
+========================================================= */
+
+.about_inner {
+  position: relative;
+
+  z-index: 1;
+
+  width: 100%;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.about_header {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 25px;
+
+  margin-bottom: 45px;
+}
+
+.about_number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 42px;
+
+  flex-shrink: 0;
+
+  border: 1px solid #fbc252;
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  color: #000446;
+
+  font-size: 0.75rem;
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+
+  box-shadow: 0 5px 18px rgba(251, 194, 82, 0.18);
+}
+
+.about_label {
+  margin: 0 0 8px;
+
+  color: #a3bb98;
+
+  font-size: 0.75rem;
+  font-weight: 700;
+
+  letter-spacing: 0.16em;
+
+  text-transform: uppercase;
 }
 
 .about-title {
+  position: relative;
+
+  display: inline-block;
+
+  margin: 0;
+
+  color: #000446;
+
+  font-size: clamp(2.8rem, 6vw, 5rem);
+
+  line-height: 0.95;
+
   font-weight: 800;
-  border-bottom: solid 5px;
-  border-bottom-right-radius: 1050%;
+
+  letter-spacing: -0.06em;
 }
 
+.about-title::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -12px;
+
+  width: 70%;
+
+  height: 5px;
+
+  background: #fbc252;
+
+  border-bottom-right-radius: 999px;
+}
+
+.about-title span {
+  color: #fbc252;
+}
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.about_content {
+  max-width: 900px;
+
+  margin-left: 67px;
+
+  padding-left: 30px;
+
+  border-left: 2px solid rgba(163, 187, 152, 0.65);
+}
+
+.about_content p {
+  margin: 0 0 20px;
+
+  color: #333852;
+
+  font-size: 1rem;
+
+  line-height: 1.85;
+}
+
+.about_content p:last-child {
+  margin-bottom: 0;
+}
+
+/* First paragraph emphasis */
+
+.about_content p:first-child {
+  color: #000446;
+
+  font-size: 1.08rem;
+
+  font-weight: 500;
+}
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.about_content {
+  transition: border-color 0.3s ease;
+}
+
+.about:hover .about_content {
+  border-color: #fbc252;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
 
 @media screen and (max-width: 768px) {
   .about {
     width: 90vw;
-    padding: 25px;
+
+    padding: 55px 30px;
+
     margin-top: 50px;
+
+    border-bottom-left-radius: 0;
+  }
+
+  .about::before {
+    width: 120px;
+    height: 120px;
+  }
+
+  .about::after {
+    right: 20px;
+    bottom: 20px;
+
+    width: 50px;
+    height: 50px;
+
+    border-width: 7px;
+  }
+
+  .about_header {
+    gap: 15px;
+
+    margin-bottom: 35px;
+  }
+
+  .about_number {
+    width: 36px;
+    height: 36px;
+
+    font-size: 0.65rem;
+  }
+
+  .about-title {
+    font-size: clamp(2.5rem, 12vw, 4rem);
+  }
+
+  .about_content {
+    margin-left: 51px;
+
+    padding-left: 22px;
+  }
+
+  .about_content p {
+    font-size: 0.92rem;
+
+    line-height: 1.75;
+  }
+
+  .about_content p:first-child {
+    font-size: 1rem;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media screen and (max-width: 480px) {
+  .about {
+    width: 100%;
+
+    padding: 50px 20px;
+
+    margin-top: 40px;
+
     border-radius: 0;
-    justify-content: left;
+  }
+
+  .about_header {
+    margin-bottom: 32px;
+  }
+
+  .about_number {
+    width: 34px;
+    height: 34px;
+  }
+
+  .about-title {
+    font-size: clamp(2.3rem, 13vw, 3.5rem);
+  }
+
+  .about-title::after {
+    bottom: -9px;
+
+    width: 60%;
+
+    height: 4px;
+  }
+
+  .about_content {
+    margin-left: 0;
+
+    padding-left: 18px;
+  }
+
+  .about_content p {
+    font-size: 0.86rem;
+
+    line-height: 1.7;
+  }
+
+  .about_content p:first-child {
+    font-size: 0.94rem;
+  }
+
+  .about::before {
+    width: 90px;
+    height: 90px;
+  }
+
+  .about::after {
+    right: 12px;
+    bottom: 15px;
+
+    width: 35px;
+    height: 35px;
+
+    border-width: 5px;
   }
 }

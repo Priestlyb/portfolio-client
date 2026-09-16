@@ -1,50 +1,440 @@
+/* =========================================================
+   PORTFOLIO — EDITORIAL PROJECT SHOWCASE
+
+   Gold  #FBC252
+   Cream #F0ECCF
+   Sage  #A3BB98
+   Deep  #000446
+   Black #000000
+========================================================= */
+
 .portfolio_section {
   width: 100%;
+  padding: 120px 7vw;
+  background: #ffffff;
+  color: #000446;
+  overflow: hidden;
 }
 
-.portfolio_update {
-  padding: 50px 0;
-}
-
-/* =========================================
-   PORTFOLIO GRID
-========================================= */
-
-.portfolio_item {
+.portfolio_inner {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 30px 20px;
-
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 30px;
-
-  box-sizing: border-box;
 }
 
-.the_protfolio_item {
-  width: 100%;
-  min-width: 0;
+/* =========================================================
+   SECTION HEADER
+========================================================= */
+
+.portfolio_heading {
+  display: grid;
+  grid-template-columns: 130px minmax(300px, 1fr) minmax(280px, 420px);
+  gap: 50px;
+  align-items: end;
+
+  padding-bottom: 85px;
+}
+
+.portfolio_heading_meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.portfolio_section_number {
+  width: 62px;
+  height: 62px;
 
   display: flex;
+  align-items: center;
   justify-content: center;
 
-  box-sizing: border-box;
+  background: #fbc252;
+  color: #000446;
+
+  border-radius: 50%;
+
+  font-family: "Roboto Mono", monospace;
+  font-size: 15px;
+  font-weight: 700;
 }
 
-/* =========================================
-   SKELETON LOADING
-========================================= */
+.portfolio_section_label {
+  font-family: "Roboto Mono", monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 
-.skeleton {
+  color: #000446;
+
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+.portfolio_heading_content {
   position: relative;
-  overflow: hidden;
-  background: #e5e7eb;
-  border-radius: 8px;
 }
 
-.skeleton::after {
+.portfolio_eyebrow {
+  margin: 0 0 18px;
+
+  font-family: "Roboto Mono", monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+
+  color: #a3bb98;
+}
+
+.portfolio_title {
+  margin: 0;
+
+  font-size: clamp(70px, 9vw, 150px);
+  line-height: 0.82;
+  letter-spacing: -0.07em;
+  font-weight: 900;
+
+  color: #000446;
+}
+
+.portfolio_title span {
+  color: #fbc252;
+}
+
+.portfolio_intro {
+  margin: 0;
+  padding-left: 25px;
+
+  border-left: 3px solid #a3bb98;
+
+  font-size: 16px;
+  line-height: 1.8;
+
+  color: #000446;
+}
+
+/* =========================================================
+   PROJECT LIST
+========================================================= */
+
+.portfolio_projects {
+  border-top: 1px solid rgba(0, 4, 70, 0.2);
+}
+
+.portfolio_project {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: 70px minmax(320px, 1fr) minmax(280px, 0.8fr);
+
+  gap: 45px;
+
+  padding: 55px 0;
+
+  border-bottom: 1px solid rgba(0, 4, 70, 0.2);
+
+  transition:
+    padding 0.35s ease,
+    background-color 0.35s ease;
+}
+
+/* Background hover effect */
+.portfolio_project::before {
+  content: "";
+
+  position: absolute;
+
+  left: -7vw;
+  right: -7vw;
+
+  top: 0;
+  bottom: 0;
+
+  background: #f0eccf;
+
+  opacity: 0;
+
+  z-index: -1;
+
+  transition: opacity 0.35s ease;
+}
+
+.portfolio_project:hover::before {
+  opacity: 0.55;
+}
+
+.portfolio_project:hover {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* =========================================================
+   PROJECT NUMBER
+========================================================= */
+
+.portfolio_project_number {
+  padding-top: 10px;
+
+  font-family: "Roboto Mono", monospace;
+  font-size: 13px;
+  font-weight: 700;
+
+  color: #a3bb98;
+}
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.portfolio_project_visual {
+  display: block;
+
+  width: 100%;
+
+  text-decoration: none;
+
+  overflow: hidden;
+}
+
+.portfolio_image_frame {
+  position: relative;
+
+  width: 100%;
+  height: 310px;
+
+  overflow: hidden;
+
+  background: #000446;
+}
+
+.portfolio_project_image {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition:
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.5s ease;
+}
+
+.portfolio_project:hover .portfolio_project_image {
+  transform: scale(1.06);
+}
+
+/* Image overlay */
+.portfolio_image_overlay {
+  position: absolute;
+
+  inset: 0;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  padding: 22px;
+
+  background: linear-gradient(to top, rgba(0, 4, 70, 0.8), rgba(0, 4, 70, 0));
+
+  opacity: 0;
+
+  transition: opacity 0.4s ease;
+}
+
+.portfolio_project:hover .portfolio_image_overlay {
+  opacity: 1;
+}
+
+.portfolio_image_overlay span:first-child {
+  padding: 9px 13px;
+
+  background: #fbc252;
+
+  color: #000446;
+
+  font-family: "Roboto Mono", monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.portfolio_overlay_arrow {
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #ffffff;
+  color: #000446;
+
+  border-radius: 50%;
+
+  font-size: 20px;
+
+  transition: transform 0.3s ease;
+}
+
+.portfolio_project:hover .portfolio_overlay_arrow {
+  transform: rotate(45deg);
+}
+
+/* =========================================================
+   PROJECT CONTENT
+========================================================= */
+
+.portfolio_project_content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  padding-top: 5px;
+}
+
+.portfolio_project_meta {
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding-bottom: 15px;
+
+  border-bottom: 1px solid rgba(0, 4, 70, 0.15);
+
+  margin-bottom: 25px;
+}
+
+.portfolio_project_meta span {
+  font-family: "Roboto Mono", monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.portfolio_project_meta span:first-child {
+  color: #a3bb98;
+}
+
+.portfolio_project_meta span:last-child {
+  color: #000446;
+}
+
+.portfolio_project_content h2 {
+  margin: 0 0 18px;
+
+  font-size: clamp(30px, 3.5vw, 54px);
+  line-height: 1;
+
+  letter-spacing: -0.045em;
+
+  font-weight: 800;
+
+  color: #000446;
+}
+
+.portfolio_project_content p {
+  max-width: 520px;
+
+  margin: 0 0 28px;
+
+  font-size: 14px;
+  line-height: 1.8;
+
+  color: #4d526f;
+}
+
+/* =========================================================
+   VIEW PROJECT LINK
+========================================================= */
+
+.portfolio_view_link {
+  display: inline-flex;
+  align-items: center;
+  gap: 13px;
+
+  padding-bottom: 7px;
+
+  border-bottom: 1px solid #000446;
+
+  color: #000446;
+
+  text-decoration: none;
+
+  font-family: "Roboto Mono", monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+
+  transition:
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.portfolio_view_arrow {
+  font-size: 17px;
+
+  transition: transform 0.3s ease;
+}
+
+.portfolio_view_link:hover {
+  color: #000000;
+  border-color: #fbc252;
+}
+
+.portfolio_view_link:hover .portfolio_view_arrow {
+  transform: translate(4px, -4px);
+}
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.portfolio_empty {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+
+  padding: 70px 0;
+
+  font-size: 15px;
+  color: #4d526f;
+}
+
+.portfolio_empty span {
+  font-family: "Roboto Mono", monospace;
+  font-size: 12px;
+  color: #a3bb98;
+}
+
+/* =========================================================
+   SKELETON
+========================================================= */
+
+.portfolio_project_loading {
+  padding: 45px 0;
+
+  border-bottom: 1px solid rgba(0, 4, 70, 0.2);
+}
+
+.portfolio_project_loading .skeleton {
+  position: relative;
+
+  overflow: hidden;
+
+  background: #f0eccf;
+
+  border-radius: 0;
+}
+
+.portfolio_project_loading .skeleton::after {
   content: "";
 
   position: absolute;
@@ -59,609 +449,479 @@
     transparent
   );
 
-  animation: shimmer 1.3s infinite;
+  animation: portfolio_shimmer 1.3s infinite;
 }
 
-@keyframes shimmer {
+@keyframes portfolio_shimmer {
   100% {
     transform: translateX(100%);
   }
 }
 
-.skeleton-image {
-  width: 100%;
-  height: 220px;
+.portfolio_project_loading .skeleton-image {
+  width: 55%;
+  height: 300px;
 }
 
-.skeleton-title {
-  width: 70%;
-  height: 24px;
+.portfolio_project_loading .skeleton-title {
+  width: 35%;
+  height: 25px;
 
   margin: 20px 0 15px;
 }
 
-.skeleton-text {
+.portfolio_project_loading .skeleton-text {
+  width: 45%;
+  height: 14px;
+
+  margin-bottom: 12px;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.portfolio_footer {
+  display: grid;
+
+  grid-template-columns: 1fr minmax(280px, 500px) auto;
+
+  gap: 40px;
+
+  align-items: center;
+
+  padding-top: 80px;
+}
+
+.portfolio_footer_line {
+  width: 100%;
+  height: 1px;
+
+  background: #fbc252;
+}
+
+.portfolio_footer p {
+  margin: 0;
+
+  font-size: 14px;
+  line-height: 1.7;
+
+  color: #4d526f;
+}
+
+.portfolio_footer_mark {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #fbc252;
+  border-radius: 50%;
+
+  color: #000446;
+
+  font-size: 18px;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media screen and (max-width: 1024px) {
+  .portfolio_section {
+    padding: 100px 6vw;
+  }
+
+  .portfolio_heading {
+    grid-template-columns: 90px 1fr;
+
+    gap: 35px;
+  }
+
+  .portfolio_intro {
+    grid-column: 2;
+
+    max-width: 600px;
+  }
+
+  .portfolio_project {
+    grid-template-columns: 60px minmax(280px, 1fr) minmax(230px, 0.8fr);
+
+    gap: 25px;
+  }
+
+  .portfolio_image_frame {
+    height: 260px;
+  }
+
+  .portfolio_project_content h2 {
+    font-size: 34px;
+  }
+
+  .portfolio_footer {
+    grid-template-columns: 1fr;
+
+    gap: 25px;
+  }
+
+  .portfolio_footer_mark {
+    display: none;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media screen and (max-width: 700px) {
+  .portfolio_section {
+    padding: 80px 22px;
+  }
+
+  .portfolio_heading {
+    display: block;
+
+    padding-bottom: 55px;
+  }
+
+  .portfolio_heading_meta {
+    flex-direction: row;
+    align-items: center;
+
+    margin-bottom: 35px;
+  }
+
+  .portfolio_section_number {
+    width: 50px;
+    height: 50px;
+  }
+
+  .portfolio_section_label {
+    writing-mode: initial;
+    transform: none;
+  }
+
+  .portfolio_eyebrow {
+    margin-bottom: 15px;
+  }
+
+  .portfolio_title {
+    font-size: clamp(64px, 20vw, 105px);
+  }
+
+  .portfolio_intro {
+    margin-top: 35px;
+
+    padding-left: 18px;
+
+    font-size: 14px;
+  }
+
+  .portfolio_project {
+    display: grid;
+
+    grid-template-columns: 42px 1fr;
+
+    gap: 15px;
+
+    padding: 40px 0;
+  }
+
+  .portfolio_project:hover {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .portfolio_project::before {
+    left: -22px;
+    right: -22px;
+  }
+
+  .portfolio_project_number {
+    font-size: 11px;
+  }
+
+  .portfolio_project_visual {
+    grid-column: 2;
+  }
+
+  .portfolio_image_frame {
+    height: 230px;
+  }
+
+  .portfolio_image_overlay {
+    opacity: 1;
+
+    padding: 15px;
+  }
+
+  .portfolio_overlay_arrow {
+    width: 38px;
+    height: 38px;
+
+    font-size: 16px;
+  }
+
+  .portfolio_project_content {
+    grid-column: 2;
+
+    padding-top: 25px;
+  }
+
+  .portfolio_project_meta {
+    margin-bottom: 20px;
+  }
+
+  .portfolio_project_content h2 {
+    font-size: 32px;
+  }
+
+  .portfolio_project_content p {
+    font-size: 14px;
+  }
+
+  .portfolio_footer {
+    padding-top: 55px;
+  }
+
+  .portfolio_footer p {
+    font-size: 14px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio_project,
+  .portfolio_project_image,
+  .portfolio_image_overlay,
+  .portfolio_overlay_arrow,
+  .portfolio_view_link,
+  .portfolio_view_arrow {
+    transition: none;
+  }
+
+  .portfolio_project_loading .skeleton::after {
+    animation: none;
+  }
+}
+
+/* =========================================================
+   PORTFOLIO SKELETON
+========================================================= */
+
+.portfolio_skeleton {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: 70px minmax(320px, 1fr) minmax(280px, 0.8fr);
+
+  gap: 45px;
+
+  padding: 55px 0;
+
+  border-bottom: 1px solid rgba(0, 4, 70, 0.2);
+}
+
+/* Base skeleton */
+
+.portfolio_skeleton .skeleton {
+  position: relative;
+
+  overflow: hidden;
+
+  background: #f0eccf;
+
+  border-radius: 2px;
+}
+
+.portfolio_skeleton .skeleton::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  transform: translateX(-100%);
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.65),
+    transparent
+  );
+
+  animation: portfolio_skeleton_shimmer 1.4s infinite;
+}
+
+@keyframes portfolio_skeleton_shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Number */
+
+.skeleton-project-number {
+  width: 30px;
+  height: 14px;
+
+  margin-top: 10px;
+}
+
+/* Image */
+
+.skeleton-project-image {
+  width: 100%;
+  height: 310px;
+}
+
+/* Content */
+
+.portfolio_skeleton_content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  padding-top: 5px;
+}
+
+/* Metadata */
+
+.skeleton-meta {
+  width: 85%;
+  height: 13px;
+
+  margin-bottom: 25px;
+}
+
+/* Project title */
+
+.skeleton-project-title {
+  width: 75%;
+  height: 48px;
+
+  margin-bottom: 22px;
+}
+
+/* Description */
+
+.skeleton-description {
   width: 100%;
   height: 14px;
 
   margin-bottom: 12px;
 }
 
-.skeleton-text.short {
+.skeleton-description.short {
   width: 75%;
+
+  margin-bottom: 28px;
 }
 
-.skeleton-button {
-  width: 150px;
-  height: 45px;
+/* View project link */
 
-  margin-top: 20px;
-
-  border-radius: 30px;
+.skeleton-link {
+  width: 125px;
+  height: 12px;
 }
 
-/* =========================================
-   PORTFOLIO CARD
-========================================= */
-
-.portfolio-card {
-  width: 100%;
-  max-width: 400px;
-  margin-bottom: 30px;
-  height: 180px;
-
-  transition: all 0.5s;
-
-  box-shadow:
-    15px 15px 30px #a3bb98,
-    -15px -15px 30px #fbc252;
-
-  text-align: center;
-
-  overflow: hidden;
-
-  border: #212121 2px solid;
-
-  border-radius: 15px;
-
-  box-sizing: border-box;
-}
-
-.portfolio-card:hover {
-  height: 100%;
-  max-width: 100%;
-
-  background: linear-gradient(
-    360deg,
-    #edededc5 60%,
-    hsla(0, 0%, 13%, 1) 70%
-  );
-}
-
-.portfolio-header {
-  height: 250px;
-}
-
-.portfolio-card .portfolio-header {
-  display: flex;
-  flex-direction: column;
-
-  background: #212121;
-
-  margin-bottom: 16px;
-}
-
-/* =========================================
-   IMAGE
-   KEEPING YOUR ORIGINAL BEHAVIOR
-========================================= */
-
-.portfolio-header img {
-  object-fit: contain;
-
-  transition: all 3s ease;
-}
-
-.portfolio_img:hover {
-  object-fit: contain;
-
-  transform: translateY(-40%);
-}
-
-.portfolio-card .portfolio-header .portfolio-title {
-  font-size: 1.1em;
-
-  letter-spacing: 0.1em;
-
-  font-weight: 500;
-
-  text-transform: uppercase;
-
-  padding: 4px 0 14px 0;
-
-  transition: all 0.5s;
-
-  color: #edededc5;
-}
-
-.portfolio-card:hover .portfolio-header {
-  clip-path: polygon(
-    0 0,
-    100% 0,
-    100% 100%,
-    0 100%
-  );
-}
-
-.portfolio-card:hover .portfolio-card .portfolio-header .portfolio-title {
-  padding: 0;
-}
-
-/* =========================================
-   PORTFOLIO CONTENT
-========================================= */
-
-.portfolio-card .portfolio-content {
-  display: block;
-
-  text-align: left;
-
-  color: #212121;
-
-  margin: 0 18px;
-}
-
-.portfolio-card .portfolio-content h4 {
-  margin-top: 10px;
-  margin-bottom: 8px;
-}
-
-.portfolio-card .portfolio-content p {
-  transition: all 0.8s;
-
-  font-size: 1em;
-
-  margin-bottom: 8px;
-}
-
-.portfolio-card .portfolio-content a {
-  cursor: pointer;
-
-  transition: all 0.5s;
-
-  font-size: 0.8rem;
-
-  font-weight: 500;
-
-  text-transform: uppercase;
-}
-
-.portfolio-card .portfolio-content .btn-link:hover {
-  border-bottom: 1px solid #1d8122;
-}
-
-/* =========================================
-   PORTFOLIO UPDATE
-========================================= */
-
-.portfolio_page {
-  margin: 0;
-
-  height: 100vh;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-}
-
-.portfolio_body {
-  width: 80%;
-  height: 95%;
-  padding: 50px 0;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-}
-
-.portfolio_page_header {
-  margin: 0;
-  padding: 0;
-
-  height: 150px;
-
-  overflow: hidden;
-
-  border-radius: 2%;
-
-  box-shadow:
-    15px 15px 30px rgba(25, 25, 25, 0.11),
-    -15px -15px 30px rgba(60, 60, 60, 0.082);
-}
-
-.portfolio_page_img {
-  object-fit: contain;
-
-  width: 100%;
-
-  background: none;
-
-  overflow: hidden;
-
-  transition: all 2s ease;
-}
-
-.portfolio_page_img:hover {
-  transform: translateY(-25%);
-}
-
-.portfolio_page_card {
-  margin-bottom: 30px;
-
-  text-transform: uppercase;
-}
-
-.left_col h1 {
-  font-weight: 800;
-
-  text-transform: uppercase;
-}
-
-.left_col h2 {
-  font-weight: 600;
-}
-
-.card_footer {
-  margin: 10px 0;
-
-  font-weight: 500;
-
-  font-style: italic;
-}
-
-.list_header {
-  font-weight: 800;
-
-  letter-spacing: 0.5rem;
-}
-
-/* =========================================
-   GO BACK ICON
-========================================= */
-
-.cta {
-  border: none;
-
-  margin-bottom: 50px;
-
-  background: none;
-}
-
-.cta a {
-  color: black;
-
-  text-decoration: none;
-}
-
-.cta span {
-  padding-bottom: 7px;
-
-  letter-spacing: 4px;
-
-  font-size: 14px;
-
-  padding-right: 15px;
-
-  text-transform: uppercase;
-}
-
-.cta svg {
-  transform: translateX(-8px);
-
-  transition: all 0.3s ease;
-}
-
-.cta:hover svg {
-  transform: translateX(0);
-}
-
-.cta:active svg {
-  transform: scale(0.9);
-}
-
-.hover-underline-animation {
-  position: relative;
-
-  color: black;
-
-  padding-bottom: 20px;
-}
-
-.hover-underline-animation:after {
-  content: "";
-
-  position: absolute;
-
-  width: 100%;
-
-  transform: scaleX(0);
-
-  height: 2px;
-
-  bottom: 0;
-  left: 0;
-
-  background-color: #000000;
-
-  transform-origin: bottom right;
-
-  transition: transform 0.25s ease-out;
-}
-
-.cta:hover .hover-underline-animation:after {
-  transform: scaleX(1);
-
-  transform-origin: bottom left;
-}
-
-/* =========================================
-   DEMO BUTTON
-========================================= */
-
-.demo_btn {
-  position: relative;
-
-  font-size: 17px;
-
-  text-transform: uppercase;
-
-  text-decoration: none;
-
-  padding: 1em 2.5em;
-
-  margin-bottom: 50px;
-
-  display: inline-block;
-
-  border-radius: 6em;
-
-  transition: all 0.2s;
-
-  border: none;
-
-  font-family: inherit;
-
-  font-weight: 500;
-
-  color: black;
-
-  margin-right: 50px;
-
-  background-color: white;
-}
-
-.demo_btn a {
-  color: #000;
-
-  text-decoration: none;
-}
-
-.demo_btn svg {
-  width: 1.2em;
-  height: 1.2em;
-
-  margin-right: 0.5em;
-}
-
-.demo_btn i {
-  margin-right: 0.5rem;
-}
-
-.demo_btn:hover {
-  transform: translateY(-3px);
-
-  box-shadow:
-    0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-.demo_btn:active {
-  transform: translateY(-1px);
-
-  box-shadow:
-    0 5px 10px rgba(0, 0, 0, 0.2);
-}
-
-.demo_btn::after {
-  content: "";
-
-  display: inline-block;
-
-  height: 100%;
-  width: 100%;
-
-  border-radius: 100px;
-
-  position: absolute;
-
-  top: 0;
-  left: 0;
-
-  z-index: -1;
-
-  transition: all 0.4s;
-
-  background-color: #fff;
-}
-
-.demo_btn:hover::after {
-  transform: scaleX(1.4) scaleY(1.6);
-
-  opacity: 0;
-}
-
-/* =========================================
-   PORTFOLIO BUTTON
-========================================= */
-
-.css_buttons {
-  text-decoration: none;
-}
-
-.cssbuttons-io-button {
-  background: #000;
-
-  color: white;
-
-  font-family: inherit;
-
-  padding-left: 1.2em;
-
-  font-size: 11px;
-
-  margin: 10px 0;
-
-  font-weight: 500;
-
-  border-radius: 0.9em;
-
-  border: none;
-
-  letter-spacing: 0.05em;
-
-  display: flex;
-
-  align-items: center;
-
-  box-shadow:
-    inset 0 0 1.6em -0.6em #000;
-
-  overflow: hidden;
-
-  position: relative;
-
-  height: 2.8em;
-
-  padding-right: 3.3em;
-}
-
-.cssbuttons-io-button .icon {
-  background: white;
-
-  margin-left: 1em;
-
-  position: absolute;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  height: 2.2em;
-  width: 2.2em;
-
-  border-radius: 0.7em;
-
-  box-shadow:
-    0.1em 0.1em 0.6em 0.2em #000;
-
-  right: 0.3em;
-
-  transition: all 0.3s;
-}
-
-.cssbuttons-io-button:hover .icon {
-  width: calc(100% - 0.6em);
-}
-
-.cssbuttons-io-button .icon svg {
-  width: 1.1em;
-
-  transition: transform 0.3s;
-
-  color: #000;
-}
-
-.cssbuttons-io-button:hover .icon svg {
-  transform: translateX(0.1em);
-}
-
-.cssbuttons-io-button:active .icon {
-  transform: scale(0.95);
-}
-
-/* =========================================
+/* =========================================================
    TABLET
-========================================= */
+========================================================= */
 
 @media screen and (max-width: 1024px) {
-  .portfolio {
-    padding: 5px;
+  .portfolio_skeleton {
+    grid-template-columns: 60px minmax(280px, 1fr) minmax(230px, 0.8fr);
 
-    margin: 0;
+    gap: 25px;
+
+    padding: 45px 0;
   }
 
-  .portfolio_item {
-    grid-template-columns: repeat(
-      2,
-      minmax(0, 1fr)
-    );
-
-    gap: 20px;
-
-    padding: 20px 15px;
+  .skeleton-project-image {
+    height: 260px;
   }
 
-  .portfolio-card {
-    width: 100%;
-
-    max-width: 100%;
-
-    height: 145px;
-  }
-
-  .portfolio_body {
-    display: flex;
-
-    flex-direction: row-reverse;
-  }
-
-  .portfolio_page {
-    margin-bottom: 50px;
-  }
-
-  .demo_btn {
-    font-size: 12px;
-
-    margin-right: 5px;
-
-    margin-bottom: 50px;
-
-    padding: 0.5em 1.5em;
+  .skeleton-project-title {
+    height: 36px;
   }
 }
 
-/* =========================================
+/* =========================================================
    MOBILE
-========================================= */
+========================================================= */
 
-@media screen and (max-width: 600px) {
-  .portfolio_item {
-    grid-template-columns: 1fr;
+@media screen and (max-width: 700px) {
+  .portfolio_skeleton {
+    display: grid;
 
-    gap: 20px;
+    grid-template-columns: 42px 1fr;
 
-    padding: 20px 15px;
+    gap: 15px;
+
+    padding: 40px 0;
   }
 
-  .the_protfolio_item {
-    width: 100%;
+  .skeleton-project-number {
+    width: 25px;
+    height: 11px;
+
+    margin-top: 8px;
   }
 
-  .portfolio-card {
-    width: 100%;
+  .skeleton-project-image {
+    grid-column: 2;
 
-    max-width: 100%;
+    width: 100%;
+    height: 230px;
+  }
+
+  .portfolio_skeleton_content {
+    grid-column: 2;
+
+    padding-top: 25px;
+  }
+
+  .skeleton-meta {
+    width: 80%;
+    height: 11px;
+
+    margin-bottom: 20px;
+  }
+
+  .skeleton-project-title {
+    width: 80%;
+    height: 32px;
+
+    margin-bottom: 20px;
+  }
+
+  .skeleton-description {
+    height: 12px;
+  }
+
+  .skeleton-description.short {
+    width: 70%;
+
+    margin-bottom: 25px;
+  }
+
+  .skeleton-link {
+    width: 110px;
+    height: 10px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio_skeleton .skeleton::after {
+    animation: none;
   }
 }

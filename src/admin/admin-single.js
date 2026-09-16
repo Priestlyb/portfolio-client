@@ -4,7 +4,6 @@ import { axiosInstance } from "../config";
 import FeedbackModal from "../components/FeedbackModal/FeedbackModal";
 
 const Adminsingle = (props) => {
-
   const {
     _id,
     project_img,
@@ -20,6 +19,8 @@ const Adminsingle = (props) => {
     type: "success",
   });
 
+  const [actionLoading, setActionLoading] = useState(false);
+
   const closeFeedback = () => {
     setFeedback({
       isOpen: false,
@@ -28,135 +29,229 @@ const Adminsingle = (props) => {
     });
   };
 
-  const deleteHandler = async () => {
-    try {
-      await axiosInstance.delete(`/portfolios/${_id}`);
+  const showFeedback = (message, type = "success") => {
+    setFeedback({
+      isOpen: true,
+      message,
+      type,
+    });
+  };
 
-      setFeedback({
-        isOpen: true,
-        message: "Portfolio permanently deleted successfully.",
-        type: "success",
-      });
+  const runAction = async (action, successMessage, errorMessage) => {
+    try {
+      setActionLoading(true);
+
+      await action();
+
+      showFeedback(successMessage, "success");
+
+      setTimeout(() => {
+        window.location.reload();
+      }, 900);
     } catch (err) {
       console.error(err);
-
-      setFeedback({
-        isOpen: true,
-        message: "Unable to delete portfolio.",
-        type: "error",
-      });
+      showFeedback(errorMessage, "error");
+      setActionLoading(false);
     }
   };
 
-  const softDeleteHandler = async () => {
-    try {
-      await axiosInstance.patch(`/portfolios/${_id}/soft-delete`);
-
-      setFeedback({
-        isOpen: true,
-        message: "Portfolio successfully hidden.",
-        type: "success",
-      });
-    } catch (err) {
-      console.error(err);
-
-      setFeedback({
-        isOpen: true,
-        message: "Unable to hide portfolio.",
-        type: "error",
-      });
-    }
+  const deleteHandler = () => {
+    runAction(
+      () => axiosInstance.delete(`/portfolios/${_id}`),
+      "Portfolio permanently deleted successfully.",
+      "Unable to delete portfolio."
+    );
   };
 
-  const restoreHandler = async () => {
-    try {
-      await axiosInstance.patch(`/portfolios/${_id}/restore`);
+  const softDeleteHandler = () => {
+    runAction(
+      () => axiosInstance.patch(`/portfolios/${_id}/soft-delete`),
+      "Portfolio successfully hidden.",
+      "Unable to hide portfolio."
+    );
+  };
 
-      setFeedback({
-        isOpen: true,
-        message: "Portfolio successfully restored.",
-        type: "success",
-      });
-    } catch (err) {
-      console.error(err);
-
-      setFeedback({
-        isOpen: true,
-        message: "Unable to restore portfolio.",
-        type: "error",
-      });
-    }
+  const restoreHandler = () => {
+    runAction(
+      () => axiosInstance.patch(`/portfolios/${_id}/restore`),
+      "Portfolio successfully restored.",
+      "Unable to restore portfolio."
+    );
   };
 
   const trimmedDescription =
-    project_description?.length > 175
-      ? project_description.substring(0, 175) + "..."
-      : project_description;
+    project_description?.length > 160
+      ? `${project_description.substring(0, 160)}...`
+      : project_description || "No project description available.";
 
   return (
-    <div className="portfolio-card">
-      <div className="portfolio-header">
-        <img src={project_img} alt="portfolio_img" className="portfolio_img" />
-      </div>
+    <>
+      <article
+        className={`admin_portfolio_card ${
+          isDeleted ? "admin_portfolio_card_deleted" : ""
+        }`}
+      >
+        {/* IMAGE */}
 
-      <div className="portfolio-content">
-        <h4>{project_location}</h4>
-        <p>{project_role}</p>
-        <p>{trimmedDescription}</p>
+        <a
+          href={`/portfolio/${_id}`}
+          className="admin_portfolio_visual"
+          aria-label={`View ${project_location} project`}
+        >
+          <img
+            src={project_img}
+            alt={`${project_location} project`}
+            className="admin_portfolio_img"
+            loading="lazy"
+          />
 
-        <a className="css_buttons" href={`/portfolio/${_id}`}>
-          <button className="cssbuttons-io-button">
-            {" "}
-            View more!
-            <div className="icon">
-              <svg
-                height="24"
-                width="24"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M0 0h24v24H0z" fill="none"></path>
-                <path
-                  d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
-                  fill="currentColor"
-                ></path>
-              </svg>
-            </div>
-          </button>
+          <div className="admin_portfolio_image_number">
+            PROJECT
+          </div>
+
+          <div className="admin_portfolio_overlay">
+            <span>VIEW PROJECT</span>
+            <span>↗</span>
+          </div>
         </a>
 
-        <div className="admin-action-buttons">
-          {isDeleted && <p className="admin-deleted-status">Soft Deleted</p>}
+        {/* MAIN INFORMATION */}
 
-          <button className="admin-update-btn">
-            <a href={`/portfolioUpdate/${_id}`}>Update</a>
-          </button>
+        <div className="admin_portfolio_content">
+          <div className="admin_portfolio_identity">
+            <div className="admin_portfolio_heading">
+              <span className="admin_portfolio_eyebrow">
+                {project_role || "DEVELOPMENT"}
+              </span>
 
-          {isDeleted ? (
-            <button onClick={restoreHandler} className="admin-restore-btn">
-              Restore
-            </button>
-          ) : (
-            <button
-              onClick={softDeleteHandler}
-              className="admin-soft-delete-btn"
+              <h3>{project_location}</h3>
+            </div>
+
+            <div
+              className={`admin_portfolio_status ${
+                isDeleted ? "is-hidden" : "is-live"
+              }`}
             >
-              Soft Delete
-            </button>
-          )}
+              <span className="admin_status_dot"></span>
+              <span>{isDeleted ? "HIDDEN" : "LIVE"}</span>
+            </div>
+          </div>
 
-          <button onClick={deleteHandler} className="admin-delete-btn">
-            Delete
-          </button>
+          <div className="admin_portfolio_details">
+            <div className="admin_detail">
+              <span>ROLE</span>
+              <strong>{project_role || "Development"}</strong>
+            </div>
+
+            <div className="admin_detail">
+              <span>VISIBILITY</span>
+              <strong>{isDeleted ? "Private" : "Public"}</strong>
+            </div>
+          </div>
+
+          <p className="admin_portfolio_description">
+            {trimmedDescription}
+          </p>
+
+          <a
+            href={`/portfolio/${_id}`}
+            className="admin_portfolio_view"
+          >
+            <span>Open project</span>
+            <span>↗</span>
+          </a>
         </div>
-      </div>
+
+        {/* MANAGEMENT */}
+
+        <aside className="admin_portfolio_actions">
+          <div className="admin_actions_top">
+            <span>MANAGE PROJECT</span>
+
+            {isDeleted && (
+              <span className="admin_deleted_badge">
+                HIDDEN
+              </span>
+            )}
+          </div>
+
+          <div className="admin_action_list">
+            <a
+              href={`/portfolioUpdate/${_id}`}
+              className="admin_action admin_action_update"
+            >
+              <span className="admin_action_index">01</span>
+
+              <span className="admin_action_label">
+                Edit project
+              </span>
+
+              <span className="admin_action_arrow">↗</span>
+            </a>
+
+            {isDeleted ? (
+              <button
+                type="button"
+                onClick={restoreHandler}
+                className="admin_action admin_action_restore"
+                disabled={actionLoading}
+              >
+                <span className="admin_action_index">02</span>
+
+                <span className="admin_action_label">
+                  {actionLoading
+                    ? "Restoring..."
+                    : "Restore project"}
+                </span>
+
+                <span className="admin_action_arrow">↗</span>
+              </button>
+            ) : (
+              <button
+                type="button"
+                onClick={softDeleteHandler}
+                className="admin_action admin_action_hide"
+                disabled={actionLoading}
+              >
+                <span className="admin_action_index">02</span>
+
+                <span className="admin_action_label">
+                  {actionLoading
+                    ? "Hiding..."
+                    : "Hide project"}
+                </span>
+
+                <span className="admin_action_arrow">↘</span>
+              </button>
+            )}
+
+            <button
+              type="button"
+              onClick={deleteHandler}
+              className="admin_action admin_action_delete"
+              disabled={actionLoading}
+            >
+              <span className="admin_action_index">03</span>
+
+              <span className="admin_action_label">
+                {actionLoading
+                  ? "Deleting..."
+                  : "Delete permanently"}
+              </span>
+
+              <span className="admin_action_arrow">×</span>
+            </button>
+          </div>
+        </aside>
+      </article>
+
       <FeedbackModal
         isOpen={feedback.isOpen}
         message={feedback.message}
         type={feedback.type}
         onClose={closeFeedback}
       />
-    </div>
+    </>
   );
 };
 

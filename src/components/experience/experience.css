@@ -1,63 +1,643 @@
+/* =========================================================
+   EXPERIENCE
+   Shared portfolio palette:
+   Gold  - #FBC252
+   Cream - #F0ECCF
+   Sage  - #A3BB98
+   Deep  - #000446
+   Black - #000000
+========================================================= */
+
 .experience {
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 100px 30px;
 }
-.experience_row {
-    display: flex;
-    flex-direction: row;
-    gap: 50px;
-    padding: 25px;
+
+/* =========================================================
+   SECTION HEADER
+========================================================= */
+
+.experience_header {
+  display: flex;
+  align-items: flex-start;
+  gap: 25px;
+  margin-bottom: 70px;
+}
+
+.section_number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 42px;
+
+  flex-shrink: 0;
+
+  border: 1px solid #fbc252;
+  border-radius: 50%;
+
+  background: #f0eccf;
+
+  color: #000446;
+
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+
+  box-shadow: 0 5px 18px rgba(251, 194, 82, 0.18);
+}
+
+.section_label {
+  margin: 0 0 8px;
+
+  color: #a3bb98;
+
+  font-size: 0.75rem;
+  font-weight: 700;
+
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.edu-title {
+  position: relative;
+
+  margin: 0;
+
+  color: #000446;
+
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  line-height: 0.95;
+
+  font-weight: 800;
+  letter-spacing: -0.06em;
+}
+
+.edu-title span {
+  color: #fbc252;
+}
+
+/* =========================================================
+   TIMELINE
+========================================================= */
+
+.experience_timeline {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 28px;
+}
+
+/* Vertical timeline */
+
+.experience_timeline::before {
+  content: "";
+
+  position: absolute;
+
+  left: 20px;
+  top: 30px;
+  bottom: 30px;
+
+  width: 2px;
+
+  background: linear-gradient(
+    to bottom,
+    #fbc252,
+    #a3bb98,
+    rgba(163, 187, 152, 0.25)
+  );
+
+  border-radius: 999px;
+}
+
+/* =========================================================
+   EXPERIENCE CARD
+========================================================= */
+
+.experience_card {
+  position: relative;
+
+  display: flex;
+
+  padding-left: 65px;
+}
+
+/* =========================================================
+   TIMELINE MARKER
+========================================================= */
+
+.timeline_marker {
+  position: absolute;
+
+  left: 10px;
+  top: 32px;
+
+  width: 21px;
+  height: 21px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #ffffff;
+
+  border: 2px solid #fbc252;
+  border-radius: 50%;
+
+  z-index: 2;
+
+  box-shadow: 0 0 0 5px rgba(251, 194, 82, 0.12);
+
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.timeline_marker span {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #000446;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+.experience_card:hover .timeline_marker {
+  border-color: #a3bb98;
+
+  box-shadow: 0 0 0 6px rgba(163, 187, 152, 0.18);
+}
+
+.experience_card:hover .timeline_marker span {
+  transform: scale(1.4);
+
+  background: #fbc252;
+}
+
+/* =========================================================
+   EXPERIENCE CONTENT
+========================================================= */
+
+.experience_content {
+  position: relative;
+
+  width: 100%;
+
+  padding: 30px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(0, 4, 70, 0.1);
+  border-radius: 18px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 8px 30px rgba(0, 4, 70, 0.045),
+    0 2px 8px rgba(163, 187, 152, 0.08);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* Gold accent at the top of every card */
+
+.experience_content::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 4px;
+
+  background: linear-gradient(90deg, #fbc252 0%, #fbc252 35%, #a3bb98 100%);
+}
+
+.experience_card:hover .experience_content {
+  transform: translateY(-4px);
+
+  border-color: rgba(163, 187, 152, 0.75);
+
+  box-shadow:
+    0 18px 45px rgba(0, 4, 70, 0.09),
+    0 5px 15px rgba(251, 194, 82, 0.1);
+}
+
+/* =========================================================
+   TOP SECTION
+========================================================= */
+
+.experience_top {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 24px;
+}
+
+/* =========================================================
+   COMPANY LOGO
+========================================================= */
+
+.company_logo_wrapper {
+  width: 72px;
+  height: 72px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  padding: 10px;
+
+  border: 1px solid rgba(20, 14, 0, 0.55);
+  border-radius: 14px;
+
+  overflow: hidden;
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.experience_card:hover .company_logo_wrapper {
+  background: #f8f5df;
+
+  border-color: #a3bb98;
+
+  transform: translateY(-2px);
+}
+
+.company_logo {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  border-radius: 8px;
+}
+
+/* =========================================================
+   JOB INFORMATION
+========================================================= */
+
+.experience_main {
+  flex: 1;
+
+  min-width: 0;
+}
+
+.experience_title_row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 20px;
 }
 
 .job-title {
-    font-size: 1.5rem;
-    text-transform: capitalize;
+  margin: 0 0 8px;
+
+  color: #000446;
+
+  font-size: 1.35rem;
+  line-height: 1.2;
+
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
-.imfi-img {
-    width: 100%;
-    padding: 10px;
-    margin: 20px 0;
+.job-sub {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 8px;
+
+  margin: 0;
+
+  color: #64748b;
+
+  font-size: 0.88rem;
+  line-height: 1.5;
 }
+
+.job-sub span:first-child {
+  color: #000446;
+
+  font-weight: 700;
+}
+
+.separator {
+  color: #a3bb98;
+}
+
+/* =========================================================
+   JOB TYPE
+========================================================= */
 
 .job_type {
-    font-size: 0.9rem;
-    padding: 10px  50px;
-    color: #000;
-    text-align: center;
-    text-transform: uppercase;
-    background-color: #F0ECCF;
+  flex-shrink: 0;
+
+  margin: 0;
+
+  padding: 7px 12px;
+
+  border: 1px solid rgba(251, 194, 82, 0.7);
+  border-radius: 999px;
+
+  background: #f0eccf;
+
+  color: #000446;
+
+  font-size: 0.68rem;
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
-.job-duty {
-    width: 100%;
-    font-size: 0.9rem;
-    padding: 10px 0;
-    color: #000;
-    text-align: left;
-    text-transform: capitalize;
+/* =========================================================
+   PERIOD
+========================================================= */
+
+.experience_period {
+  display: inline-flex;
+
+  margin-top: 15px;
+  padding: 6px 11px;
+
+  border: 1px solid rgba(163, 187, 152, 0.45);
+  border-radius: 6px;
+
+  background: rgba(163, 187, 152, 0.18);
+
+  color: #000446;
+
+  font-size: 0.72rem;
+  font-weight: 700;
 }
+
+/* =========================================================
+   DETAILS
+========================================================= */
+
+.experience_details {
+  margin-top: 28px;
+
+  padding-top: 25px;
+
+  border-top: 1px solid rgba(163, 187, 152, 0.3);
+}
+
+.experience_details h3 {
+  margin: 0 0 16px;
+
+  color: #a3bb98;
+
+  font-size: 0.7rem;
+  font-weight: 700;
+
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   DUTIES
+========================================================= */
+
+.job-duty {
+  display: flex;
+  flex-direction: column;
+
+  gap: 12px;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.job-duty li {
+  position: relative;
+
+  padding-left: 22px;
+
+  color: #4b5563;
+
+  font-size: 0.92rem;
+  line-height: 1.75;
+}
+
+.job-duty li::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 0.72em;
+
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #fbc252;
+
+  box-shadow: 0 0 0 3px rgba(251, 194, 82, 0.15);
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
 
 @media screen and (max-width: 768px) {
-    .experience {
-        gap: 25px;
-    }
+  .experience {
+    padding: 75px 20px;
+  }
 
-    .experience_row {
-        padding: 15px;
-        flex-direction: column;
-    }
+  .experience_header {
+    gap: 15px;
 
-    .imfi-img {
-        width: 50%;
-    }
+    margin-bottom: 45px;
+  }
 
-    .img_col {
-        text-align: center;
-    }
+  .section_number {
+    width: 36px;
+    height: 36px;
 
-.job-duty {
-    width: 100%;
+    font-size: 0.65rem;
+  }
+
+  .edu-title {
+    font-size: clamp(2.5rem, 12vw, 4rem);
+  }
+
+  .experience_timeline::before {
+    left: 17px;
+  }
+
+  .experience_card {
+    padding-left: 48px;
+  }
+
+  .timeline_marker {
+    left: 7px;
+  }
+
+  .experience_content {
+    padding: 22px;
+
+    border-radius: 15px;
+  }
+
+  .experience_top {
+    gap: 18px;
+  }
+
+  .company_logo_wrapper {
+    width: 60px;
+    height: 60px;
+  }
+
+  .experience_title_row {
+    flex-direction: column;
+
+    gap: 12px;
+  }
+
+  .job_type {
+    align-self: flex-start;
+  }
+
+  .job-title {
+    font-size: 1.2rem;
+  }
+
+  .job-sub {
+    font-size: 0.82rem;
+  }
+
+  .experience_details {
+    margin-top: 22px;
+
+    padding-top: 20px;
+  }
+
+  .job-duty li {
+    font-size: 0.88rem;
+    line-height: 1.7;
+  }
 }
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media screen and (max-width: 480px) {
+  .experience {
+    padding: 60px 15px;
+  }
+
+  .experience_header {
+    margin-bottom: 35px;
+  }
+
+  .experience_timeline {
+    gap: 20px;
+  }
+
+  .experience_card {
+    padding-left: 34px;
+  }
+
+  .experience_timeline::before {
+    left: 11px;
+  }
+
+  .timeline_marker {
+    left: 1px;
+    top: 25px;
+
+    width: 18px;
+    height: 18px;
+  }
+
+  .timeline_marker span {
+    width: 6px;
+    height: 6px;
+  }
+
+  .experience_content {
+    padding: 18px;
+
+    border-radius: 13px;
+  }
+
+  .experience_top {
+    align-items: flex-start;
+  }
+
+  .company_logo_wrapper {
+    width: 52px;
+    height: 52px;
+
+    padding: 7px;
+
+    border-radius: 11px;
+  }
+
+  .job-title {
+    font-size: 1.05rem;
+  }
+
+  .job-sub {
+    font-size: 0.76rem;
+  }
+
+  .job_type {
+    padding: 6px 10px;
+
+    font-size: 0.62rem;
+  }
+
+  .experience_period {
+    margin-top: 10px;
+
+    padding: 5px 9px;
+
+    font-size: 0.67rem;
+  }
+
+  .job-duty {
+    gap: 10px;
+  }
+
+  .job-duty li {
+    padding-left: 18px;
+
+    font-size: 0.82rem;
+    line-height: 1.65;
+  }
+
+  .job-duty li::before {
+    width: 5px;
+    height: 5px;
+  }
 }

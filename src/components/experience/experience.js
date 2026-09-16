@@ -1,133 +1,136 @@
 import React from "react";
 import "./experience.css";
+
 import imfi_logo from "./imfi_logo.jpg";
 import fmoh_logo from "./fmoh_logo.jpg";
 import ovena_logo from "./ovena_logo.png";
 
 function Experience() {
+  const experiences = [
+    {
+      logo: ovena_logo,
+      title: "Frontend Developer",
+      company: "Ovena Technologies",
+      location: "Remote",
+      period: "2025 — Current",
+      type: "Full Time",
+      duties: [
+        "Collaborated with senior developers and designers to build responsive, user-friendly interfaces for the Ovena food ordering and delivery platform.",
+        "Developed key features including restaurant and menu browsing, food ordering, favorites, order history, search, location-based services, and payment flows.",
+        "Integrated REST APIs and backend services to enable seamless communication between the mobile application and server-side systems.",
+        "Implemented reusable React Native components, custom hooks, and state management solutions to improve code maintainability and application performance.",
+        "Integrated authentication, payment services, location services, and third-party APIs while optimizing the application for a smooth mobile user experience.",
+      ],
+    },
+    {
+      logo: fmoh_logo,
+      title: "ICT Technician",
+      company: "Federal Ministry of Health",
+      location: "Physical",
+      period: "2021 — 2022",
+      type: "NYSC",
+      duties: [
+        "Provided direct knowledge and training on using Excel efficiently, improving staff members' skills.",
+        "Played a crucial role in the pension office, aiding in the retirement process of over 100+ staff members.",
+        "Worked closely with different departments to understand their technology needs and provide solutions.",
+        "Collaborated with network administrators (Galaxy Backbone) to ensure a stable and secure network environment.",
+      ],
+    },
+    {
+      logo: imfi_logo,
+      title: "Software Engineer",
+      company: "IMFI Academy",
+      location: "Part-Remote",
+      period: "2020",
+      type: "Internship",
+      duties: [
+        "Collaborated with senior developers and designers to implement responsive and visually appealing user interfaces.",
+        "Contributed to the creation of new features and functionalities on the frontend.",
+        "Ensured web applications were optimized for speed, performance, and accessibility.",
+        "Gained experience in agile development methodologies and sprint-based development.",
+      ],
+    },
+  ];
+
   return (
-    <div className="experience">
-      <h1
-        className="edu-title"
-        data-aos="fade-right"
-        data-aos-anchor-placement="bottom-bottom"
-      >
-        EXPERIENCE.
-      </h1>
+    <section className="experience">
+      <div className="experience_header">
+        <span className="section_number">05</span>
 
-      <div className="experience_row">
-        <div className="img_col">
-          <img className="imfi-img" src={fmoh_logo} alt="" />
-        </div>
+        <div>
+          <p className="section_label">Career</p>
 
-        <div className="">
-          <h4 className="job-title">ICT technician</h4>
-          <p className="job-sub">
-            Federal Ministry of Health | Physical | (2021-2022)
-          </p>
-
-          <ul>
-            <li>
-              Provided direct knowledge and training on using Excel efficiently,
-              improving staff members' skills.
-            </li>
-            <li>
-              Played a crucial role in the pension office, aiding in the
-              retirement process of over 100+ staff members.
-            </li>
-            <li>
-              Worked closely with different departments to understand their
-              technology needs and provide solutions.
-            </li>
-            <li>
-              Collaborated with network administrators (Galaxy Backbone) to
-              ensure a stable and secure network environment.
-            </li>
-          </ul>
-        </div>
-
-        <div className="">
-          <p className="job_type">NYSC</p>
+          <h1
+            className="edu-title"
+            data-aos="fade-right"
+            data-aos-anchor-placement="bottom-bottom"
+          >
+            EXPERIENCE<span>.</span>
+          </h1>
         </div>
       </div>
 
-      <div className="experience_row">
-        <div className="img_col">
-          <img className="imfi-img" src={imfi_logo} alt="" />
-        </div>
-        <div className="">
-          <h4 className="job-title">Software Engineer</h4>
-          <p className="job-sub">IMFI Academy | Part-Remote | (2020)</p>
+      <div className="experience_timeline">
+        {experiences.map((experience, index) => (
+          <article
+            className="experience_card"
+            key={`${experience.company}-${index}`}
+            data-aos="fade-up"
+            data-aos-delay={index * 100}
+          >
+            <div className="timeline_marker">
+              <span></span>
+            </div>
 
-          <ul>
-            <li>
-              Collaborate with senior developers and designers to implement
-              responsive and visually appealing user interfaces.
-            </li>
-            <li>
-              Contribute to the creation of new features and functionalities on
-              the frontend.{" "}
-              <a href="https://www.imfiacademy.edu.ng/">
-                https://www.imfiacademy.edu.ng/
-              </a>
-            </li>
-            <li>
-              Ensure web applications are optimized for speed, performance, and
-              accessibility.
-            </li>
-            <li>
-              Gained experience in agile development methodologies and sprints.
-            </li>
-          </ul>
-        </div>
+            <div className="experience_content">
+              <div className="experience_top">
+                <div className="company_logo_wrapper">
+                  <img
+                    className="company_logo"
+                    src={experience.logo}
+                    alt={`${experience.company} logo`}
+                  />
+                </div>
 
-        <div className="">
-          <p className="job_type">Internship</p>
-        </div>
+                <div className="experience_main">
+                  <div className="experience_title_row">
+                    <div>
+                      <h2 className="job-title">
+                        {experience.title}
+                      </h2>
+
+                      <p className="job-sub">
+                        <span>{experience.company}</span>
+                        <span className="separator">•</span>
+                        <span>{experience.location}</span>
+                      </p>
+                    </div>
+
+                    <span className="job_type">
+                      {experience.type}
+                    </span>
+                  </div>
+
+                  <div className="experience_period">
+                    {experience.period}
+                  </div>
+                </div>
+              </div>
+
+              <div className="experience_details">
+                <h3>Key Contributions</h3>
+
+                <ul className="job-duty">
+                  {experience.duties.map((duty, dutyIndex) => (
+                    <li key={dutyIndex}>{duty}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </article>
+        ))}
       </div>
-
-      <div className="experience_row">
-        <div className="img_col">
-          <img className="imfi-img" src={ovena_logo} alt="" />
-        </div>
-        <div className="">
-          <h4 className="job-title">Frontend Developer</h4>
-          <p className="job-sub">Ovena Technologies | Remote | (2025-2026)</p>
-          <ul className="job-duty">
-            {" "}
-            <li>
-              Collaborated with senior developers and designers to build
-              responsive, user-friendly interfaces for the Ovena food ordering
-              and delivery platform.
-            </li>{" "}
-            <li>
-              Developed key features including restaurant and menu browsing,
-              food ordering, favorites, order history, search, location-based
-              services, and payment flows.
-            </li>{" "}
-            <li>
-              Integrated REST APIs and backend services to enable seamless
-              communication between the mobile application and server-side
-              systems.
-            </li>{" "}
-            <li>
-              Implemented reusable React Native components, custom hooks, and
-              state management solutions to improve code maintainability and
-              application performance.
-            </li>{" "}
-            <li>
-              Integrated authentication, payment services, location services,
-              and third-party APIs while optimizing the application for a smooth
-              mobile user experience.
-            </li>{" "}
-          </ul>
-        </div>
-
-        <div className="">
-          <p className="job_type">Full Time</p>
-        </div>
-      </div>
-    </div>
+    </section>
   );
 }
 

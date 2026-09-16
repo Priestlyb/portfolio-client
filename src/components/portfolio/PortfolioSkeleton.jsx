@@ -3,16 +3,23 @@ import "./portfolio.css";
 
 const PortfolioSkeleton = () => {
   return (
-    <div className="portfolio-card skeleton-card">
-      <div className="portfolio-header">
-        <div className="skeleton skeleton-image"></div>
-      </div>
+    <div className="portfolio_skeleton">
+      {/* Project number */}
+      <div className="skeleton skeleton-project-number"></div>
 
-      <div className="portfolio-content">
-        <div className="skeleton skeleton-title"></div>
-        <div className="skeleton skeleton-text"></div>
-        <div className="skeleton skeleton-text short"></div>
-        <div className="skeleton skeleton-button"></div>
+      {/* Project image */}
+      <div className="skeleton skeleton-project-image"></div>
+
+      {/* Project information */}
+      <div className="portfolio_skeleton_content">
+        <div className="skeleton skeleton-meta"></div>
+
+        <div className="skeleton skeleton-project-title"></div>
+
+        <div className="skeleton skeleton-description"></div>
+        <div className="skeleton skeleton-description short"></div>
+
+        <div className="skeleton skeleton-link"></div>
       </div>
     </div>
   );

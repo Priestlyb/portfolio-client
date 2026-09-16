@@ -1,119 +1,958 @@
-/* =========================================
-   PORTFOLIO CONTENT
-========================================= */
+/* =========================================================
+   ADMIN PORTFOLIO
+   Editorial Project Management
+========================================================= */
 
-.portfolio-card .portfolio-content {
+.admin_portfolio_card {
+  --blue: #000446;
+  --gold: #fbc252;
+  --cream: #f0eccf;
+  --sage: #a3bb98;
+  --muted: #64748b;
+  --line: rgba(0, 4, 70, 0.12);
+  --white: #ffffff;
+
+  position: relative;
+  margin-top: 50px;
+
+  display: grid;
+  grid-template-columns: 250px minmax(0, 1fr) 250px;
+
+  width: 100%;
+  min-height: 250px;
+
+  background: var(--white);
+
+  border-top: 1px solid var(--line);
+
+  overflow: hidden;
+
+  transition:
+    background-color 0.35s ease,
+    opacity 0.35s ease;
+}
+
+.admin_portfolio_card:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.admin_portfolio_card:hover {
+  background: #fcfcf8;
+}
+
+/* =========================================================
+   DELETED
+========================================================= */
+
+.admin_portfolio_card_deleted {
+  opacity: 0.62;
+}
+
+.admin_portfolio_card_deleted:hover {
+  opacity: 1;
+}
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.admin_portfolio_visual {
+  position: relative;
+
+  width: 250px;
+  height: 250px;
+
   display: block;
-  text-align: left;
-  color: #212121;
-  margin: 0 18px;
-}
 
-.portfolio-card .portfolio-content h4 {
-  margin-top: 10px;
-  margin-bottom: 8px;
-}
+  overflow: hidden;
 
-.portfolio-card .portfolio-content p {
-  transition: all 0.8s;
-  font-size: 1em;
-  margin-bottom: 8px;
-}
+  background: var(--cream);
 
-.portfolio-card .portfolio-content a {
-  cursor: pointer;
-  transition: all 0.5s;
-  font-size: 0.8rem;
-  font-weight: 500;
-  text-transform: uppercase;
-}
-
-/* =========================================
-   ADMIN ACTION BUTTONS
-========================================= */
-
-.admin-action-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-top: 16px;
-}
-
-.admin-action-buttons button {
-  width: fit-content;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 6px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.2s ease;
-}
-
-/* =========================================
-   UPDATE
-========================================= */
-
-.admin-update-btn {
-  background-color: #a3bb98;
-}
-
-.admin-update-btn a {
-  color: #fff;
   text-decoration: none;
 }
 
-.admin-update-btn:hover {
-  color: #fff;
-  background-color: #a3bb98;
+.admin_portfolio_img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition:
+    transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
+    filter 0.4s ease;
 }
 
-/* =========================================
-   SOFT DELETE
-========================================= */
-
-.admin-soft-delete-btn {
-  color: #fff;
-  background-color: #eab308;
+.admin_portfolio_card:hover .admin_portfolio_img {
+  transform: scale(1.055);
 }
 
-.admin-soft-delete-btn:hover {
-  background-color: #ca8a04;
+/* =========================================================
+   IMAGE PROJECT LABEL
+========================================================= */
+
+.admin_portfolio_image_number {
+  position: absolute;
+
+  top: 16px;
+  left: 16px;
+
+  z-index: 2;
+
+  padding: 7px 9px;
+
+  background: var(--gold);
+
+  color: var(--blue);
+
+  font-size: 7px;
+  font-weight: 900;
+
+  letter-spacing: 0.16em;
 }
 
-/* =========================================
-   RESTORE
-========================================= */
+/* =========================================================
+   IMAGE OVERLAY
+========================================================= */
 
-.admin-restore-btn {
-  color: #fff;
-  background-color: #000;
+.admin_portfolio_overlay {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 3;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  padding: 18px;
+
+  background: linear-gradient(
+    to top,
+    rgba(0, 4, 70, 0.82) 0%,
+    rgba(0, 4, 70, 0.2) 50%,
+    transparent 75%
+  );
+
+  color: var(--white);
+
+  opacity: 0;
+
+  transition: opacity 0.35s ease;
 }
 
-.admin-restore-btn:hover {
-  background-color: #000;
+.admin_portfolio_card:hover .admin_portfolio_overlay {
+  opacity: 1;
 }
 
-/* =========================================
-   PERMANENT DELETE
-========================================= */
+.admin_portfolio_overlay span:first-child {
+  font-size: 7px;
+  font-weight: 900;
 
-.admin-delete-btn {
-  color: #fff;
-  background-color: #dc2626;
+  letter-spacing: 0.18em;
+
+  color: var(--gold);
 }
 
-.admin-delete-btn:hover {
-  background-color: #b91c1c;
+.admin_portfolio_overlay span:last-child {
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 50%;
+
+  font-size: 15px;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
 }
 
-/* =========================================
-   DELETED STATUS
-========================================= */
+.admin_portfolio_card:hover .admin_portfolio_overlay span:last-child {
+  background: var(--gold);
+  border-color: var(--gold);
 
-.admin-deleted-status {
+  color: var(--blue);
+
+  transform: translate(3px, -3px);
+}
+
+/* =========================================================
+   MAIN CONTENT
+========================================================= */
+
+.admin_portfolio_content {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 30px 35px 28px;
+}
+
+/* =========================================================
+   IDENTITY
+========================================================= */
+
+.admin_portfolio_identity {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 25px;
+
+  margin-bottom: 22px;
+}
+
+.admin_portfolio_heading {
+  min-width: 0;
+}
+
+.admin_portfolio_eyebrow {
+  margin: 0 0 9px;
+
+  color: var(--sage);
+
+  font-size: 7px;
+  font-weight: 900;
+
+  letter-spacing: 0.2em;
+
+  text-transform: uppercase;
+}
+
+.admin_portfolio_heading h3 {
+  max-width: 620px;
+
   margin: 0;
-  color: #dc2626;
+
+  color: var(--blue);
+
+  font-size: clamp(26px, 3vw, 43px);
+  line-height: 0.95;
+
+  font-weight: 900;
+
+  letter-spacing: -0.055em;
+
+  overflow-wrap: anywhere;
+}
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.admin_portfolio_status {
+  flex-shrink: 0;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  margin-top: 4px;
+
+  font-size: 7px;
+  font-weight: 900;
+
+  letter-spacing: 0.15em;
+}
+
+.admin_status_dot {
+  width: 6px;
+  height: 6px;
+
+  display: block;
+
+  border-radius: 50%;
+}
+
+.admin_portfolio_status.is-live {
+  color: var(--muted);
+}
+
+.admin_portfolio_status.is-live .admin_status_dot {
+  background: var(--sage);
+  box-shadow: 0 0 0 4px rgba(163, 187, 152, 0.18);
+}
+
+.admin_portfolio_status.is-hidden {
+  color: var(--muted);
+}
+
+.admin_portfolio_status.is-hidden .admin_status_dot {
+  background: var(--gold);
+  box-shadow: 0 0 0 4px rgba(251, 194, 82, 0.18);
+}
+
+/* =========================================================
+   DETAILS
+========================================================= */
+
+.admin_portfolio_details {
+  display: flex;
+  align-items: stretch;
+
+  width: 100%;
+
+  margin-bottom: 18px;
+
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.admin_detail {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+
+  min-width: 150px;
+
+  padding: 13px 22px 13px 0;
+}
+
+.admin_detail + .admin_detail {
+  padding-left: 22px;
+
+  border-left: 1px solid var(--line);
+}
+
+.admin_detail span {
+  color: var(--muted);
+
+  font-size: 6px;
+  font-weight: 900;
+
+  letter-spacing: 0.18em;
+}
+
+.admin_detail strong {
+  color: var(--blue);
+
+  font-size: 8px;
+  font-weight: 900;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.admin_portfolio_description {
+  max-width: 650px;
+
+  margin: 0;
+
+  color: var(--muted);
+
+  font-size: 11px;
+  line-height: 1.75;
+}
+
+/* =========================================================
+   VIEW PROJECT
+========================================================= */
+
+.admin_portfolio_view {
+  width: fit-content;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+
+  margin-top: auto;
+  padding-top: 20px;
+
+  color: var(--blue);
+
+  text-decoration: none;
+
+  font-size: 7px;
+  font-weight: 900;
+
+  letter-spacing: 0.17em;
+
+  text-transform: uppercase;
+}
+
+.admin_portfolio_view span:last-child {
+  font-size: 15px;
+
+  transition: transform 0.3s ease;
+}
+
+.admin_portfolio_view:hover span:last-child {
+  transform: translate(4px, -4px);
+}
+
+/* =========================================================
+   MANAGEMENT PANEL
+========================================================= */
+
+.admin_portfolio_actions {
+  display: flex;
+  flex-direction: column;
+
+  padding: 28px 25px;
+
+  border-left: 1px solid var(--line);
+
+  background: linear-gradient(
+    135deg,
+    rgba(240, 236, 207, 0.52),
+    rgba(240, 236, 207, 0.18)
+  );
+}
+
+/* =========================================================
+   ACTION HEADER
+========================================================= */
+
+.admin_actions_top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 10px;
+
+  margin-bottom: 14px;
+
+  color: var(--muted);
+
+  font-size: 6px;
+  font-weight: 900;
+
+  letter-spacing: 0.18em;
+}
+
+.admin_deleted_badge {
+  padding: 5px 7px;
+
+  background: var(--gold);
+
+  color: var(--blue);
+
+  font-size: 5px;
+  font-weight: 900;
+
+  letter-spacing: 0.12em;
+}
+
+/* =========================================================
+   ACTION LIST
+========================================================= */
+
+.admin_action_list {
+  display: flex;
+  flex-direction: column;
+
+  margin-top: auto;
+}
+
+.admin_action {
+  position: relative;
+
+  width: 100%;
+  min-height: 52px;
+
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr) 18px;
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 0;
+
+  border: 0;
+  border-top: 1px solid var(--line);
+
+  background: transparent;
+
+  color: var(--blue);
+
+  font-family: inherit;
+
+  text-align: left;
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition:
+    padding 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.admin_action:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.admin_action:hover {
+  padding-left: 8px;
+}
+
+/* =========================================================
+   ACTION INDEX
+========================================================= */
+
+.admin_action_index {
+  color: var(--sage);
+
+  font-size: 6px;
+  font-weight: 900;
+}
+
+/* =========================================================
+   ACTION LABEL
+========================================================= */
+
+.admin_action_label {
+  min-width: 0;
+
+  color: inherit;
+
+  font-size: 7px;
+  font-weight: 900;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* =========================================================
+   ACTION ARROW
+========================================================= */
+
+.admin_action_arrow {
+  color: inherit;
+
   font-size: 14px;
-  font-weight: 600;
+
+  text-align: center;
+
+  transition: transform 0.25s ease;
+}
+
+.admin_action:hover .admin_action_arrow {
+  transform: translate(3px, -3px);
+}
+
+/* =========================================================
+   EDIT
+========================================================= */
+
+.admin_action_update:hover {
+  background: rgba(163, 187, 152, 0.14);
+}
+
+/* =========================================================
+   RESTORE
+========================================================= */
+
+.admin_action_restore:hover {
+  background: rgba(163, 187, 152, 0.22);
+}
+
+/* =========================================================
+   HIDE
+========================================================= */
+
+.admin_action_hide:hover {
+  background: rgba(240, 236, 207, 0.75);
+}
+
+/* =========================================================
+   DELETE
+========================================================= */
+
+.admin_action_delete {
+  color: #8b1e1e;
+}
+
+.admin_action_delete .admin_action_index {
+  color: #8b1e1e;
+}
+
+.admin_action_delete:hover {
+  background: rgba(139, 30, 30, 0.07);
+}
+
+/* =========================================================
+   DISABLED
+========================================================= */
+
+.admin_action:disabled {
+  opacity: 0.45;
+
+  cursor: wait;
+
+  pointer-events: none;
+}
+
+/* =========================================================
+   LARGE TABLET
+========================================================= */
+
+@media screen and (max-width: 1150px) {
+  .admin_portfolio_card {
+    grid-template-columns: 220px minmax(0, 1fr) 210px;
+  }
+
+  .admin_portfolio_visual {
+    width: 220px;
+    height: 220px;
+  }
+
+  .admin_portfolio_content {
+    padding: 26px 25px;
+  }
+
+  .admin_portfolio_actions {
+    padding: 25px 20px;
+  }
+
+  .admin_portfolio_heading h3 {
+    font-size: 32px;
+  }
+
+  .admin_detail {
+    min-width: 120px;
+  }
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media screen and (max-width: 900px) {
+  .admin_portfolio_card {
+    grid-template-columns: 210px minmax(0, 1fr);
+  }
+
+  .admin_portfolio_visual {
+    width: 210px;
+    height: 210px;
+  }
+
+  .admin_portfolio_actions {
+    grid-column: 1 / -1;
+
+    display: block;
+
+    padding: 18px 25px;
+
+    border-top: 1px solid var(--line);
+    border-left: 0;
+  }
+
+  .admin_actions_top {
+    margin-bottom: 8px;
+  }
+
+  .admin_action_list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    margin-top: 0;
+  }
+
+  .admin_action {
+    min-height: 48px;
+
+    padding: 0 10px;
+  }
+
+  .admin_action + .admin_action {
+    border-left: 1px solid var(--line);
+  }
+
+  .admin_action:hover {
+    padding-left: 14px;
+  }
+}
+
+/* =========================================================
+   SMALL TABLET / LARGE PHONE
+========================================================= */
+
+@media screen and (max-width: 700px) {
+  .admin_portfolio_card {
+    grid-template-columns: 180px minmax(0, 1fr);
+  }
+
+  .admin_portfolio_visual {
+    width: 180px;
+    height: 180px;
+  }
+
+  .admin_portfolio_content {
+    padding: 22px 20px;
+  }
+
+  .admin_portfolio_heading h3 {
+    font-size: 27px;
+  }
+
+  .admin_portfolio_identity {
+    gap: 12px;
+    margin-bottom: 17px;
+  }
+
+  .admin_portfolio_status {
+    font-size: 6px;
+  }
+
+  .admin_portfolio_details {
+    margin-bottom: 14px;
+  }
+
+  .admin_detail {
+    min-width: 0;
+    padding: 10px 12px 10px 0;
+  }
+
+  .admin_detail + .admin_detail {
+    padding-left: 12px;
+  }
+
+  .admin_detail strong {
+    font-size: 7px;
+  }
+
+  .admin_portfolio_description {
+    font-size: 10px;
+    line-height: 1.65;
+  }
+
+  .admin_portfolio_actions {
+    padding: 16px 20px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media screen and (max-width: 600px) {
+  .admin_portfolio_card {
+    display: block;
+
+    min-height: 0;
+  }
+
+  .admin_portfolio_visual {
+    width: 100%;
+    height: min(62vw, 300px);
+
+    min-height: 210px;
+  }
+
+  .admin_portfolio_overlay {
+    opacity: 1;
+
+    padding: 16px;
+  }
+
+  .admin_portfolio_overlay span:first-child {
+    font-size: 7px;
+  }
+
+  .admin_portfolio_content {
+    padding: 25px 20px 23px;
+  }
+
+  .admin_portfolio_identity {
+    display: flex;
+
+    align-items: flex-start;
+
+    margin-bottom: 20px;
+  }
+
+  .admin_portfolio_heading h3 {
+    font-size: clamp(28px, 8vw, 40px);
+
+    line-height: 0.95;
+  }
+
+  .admin_portfolio_eyebrow {
+    margin-bottom: 8px;
+
+    font-size: 6px;
+  }
+
+  .admin_portfolio_status {
+    margin-top: 2px;
+  }
+
+  .admin_portfolio_details {
+    width: 100%;
+  }
+
+  .admin_detail {
+    flex: 1;
+
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .admin_portfolio_description {
+    max-width: none;
+
+    font-size: 11px;
+    line-height: 1.7;
+  }
+
+  .admin_portfolio_view {
+    padding-top: 22px;
+
+    font-size: 7px;
+  }
+
+  .admin_portfolio_actions {
+    padding: 18px 20px 20px;
+
+    background: #f7f5e8;
+  }
+
+  .admin_actions_top {
+    margin-bottom: 8px;
+  }
+
+  .admin_action_list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .admin_action {
+    min-height: 52px;
+
+    grid-template-columns: 28px minmax(0, 1fr) 20px;
+
+    padding: 0;
+  }
+
+  .admin_action + .admin_action {
+    border-left: 0;
+  }
+
+  .admin_action:hover {
+    padding-left: 7px;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media screen and (max-width: 420px) {
+  .admin_portfolio_visual {
+    height: 220px;
+    min-height: 220px;
+  }
+
+  .admin_portfolio_content {
+    padding: 22px 17px 21px;
+  }
+
+  .admin_portfolio_identity {
+    display: block;
+  }
+
+  .admin_portfolio_status {
+    margin-top: 12px;
+  }
+
+  .admin_portfolio_heading h3 {
+    font-size: 30px;
+  }
+
+  .admin_portfolio_details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .admin_detail {
+    padding-right: 10px;
+  }
+
+  .admin_detail + .admin_detail {
+    padding-left: 10px;
+  }
+
+  .admin_portfolio_description {
+    font-size: 10px;
+  }
+
+  .admin_portfolio_actions {
+    padding: 16px 17px 18px;
+  }
+
+  .admin_action_label {
+    font-size: 6.5px;
+  }
+}
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media screen and (max-width: 340px) {
+  .admin_portfolio_visual {
+    height: 200px;
+    min-height: 200px;
+  }
+
+  .admin_portfolio_heading h3 {
+    font-size: 27px;
+  }
+
+  .admin_portfolio_details {
+    display: block;
+  }
+
+  .admin_detail {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+
+    padding: 10px 0;
+  }
+
+  .admin_detail + .admin_detail {
+    padding-left: 0;
+
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .admin_portfolio_card,
+  .admin_portfolio_img,
+  .admin_portfolio_overlay,
+  .admin_portfolio_overlay span:last-child,
+  .admin_portfolio_view span:last-child,
+  .admin_action,
+  .admin_action_arrow {
+    transition: none;
+  }
 }

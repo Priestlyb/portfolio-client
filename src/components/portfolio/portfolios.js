@@ -21,7 +21,7 @@ const Portfolios = () => {
         console.log("API Response:", data);
         console.log("Portfolios:", data.portfolios);
 
-        setPortfolios(data.portfolios);
+        setPortfolios(data.portfolios || []);
       })
       .catch((err) => {
         console.error("Fetch Error:", err);
@@ -31,36 +31,77 @@ const Portfolios = () => {
       });
   }, []);
 
-  return (
-    <div className="portfolio_section" id="portfolios">
-      <h1
-        className="edu-title"
-        data-aos="fade-right"
-        data-aos-anchor-placement="bottom-bottom"
-      >
-        WEB DEVELOPMENT PORTFOLIO.
-      </h1>
+  const filteredPortfolios = portfolios.filter((portfolio) =>
+    search === ""
+      ? true
+      : portfolio.name?.toLowerCase().includes(search.toLowerCase()),
+  );
 
-      <div className="portfolio_item">
-        {loading
-          ? [...Array(6)].map((_, index) => (
-              <div className="the_protfolio_item" key={index}>
+  return (
+    <section className="portfolio_section" id="portfolios">
+      <div className="portfolio_inner">
+        {/* Section Header */}
+        <div className="portfolio_heading">
+          <div className="portfolio_heading_meta">
+            <span className="portfolio_section_number">03</span>
+            <span className="portfolio_section_label">Selected Work</span>
+          </div>
+
+          <div className="portfolio_heading_content">
+            <p className="portfolio_eyebrow">RECENT PROJECTS</p>
+
+            <h1 className="portfolio_title">
+              MY
+              <br />
+              <span>WORK.</span>
+            </h1>
+          </div>
+
+          <p className="portfolio_intro">
+            A selection of websites, applications, and digital products I have
+            designed and developed across different projects and technologies.
+          </p>
+        </div>
+
+        {/* Projects */}
+        <div className="portfolio_projects">
+          {loading ? (
+            [...Array(6)].map((_, index) => (
+              <div className="portfolio_project_loading" key={index}>
                 <PortfolioSkeleton />
               </div>
             ))
-          : portfolios
-              .filter((portfolio) =>
-                search === ""
-                  ? true
-                  : portfolio.name.toLowerCase().includes(search.toLowerCase()),
-              )
-              .map((portfolio) => (
-                <div className="the_protfolio_item" key={portfolio._id}>
-                  <Portfolio portfolio={portfolio} />
-                </div>
-              ))}
+          ) : filteredPortfolios.length > 0 ? (
+            filteredPortfolios.map((portfolio, index) => (
+              <Portfolio
+                portfolio={portfolio}
+                index={index}
+                key={portfolio._id}
+              />
+            ))
+          ) : (
+            <div className="portfolio_empty">
+              <span>01</span>
+              <p>No portfolio projects available yet.</p>
+            </div>
+          )}
+        </div>
+
+        {/* Bottom statement */}
+        {!loading && filteredPortfolios.length > 0 && (
+          <div className="portfolio_footer">
+            <span className="portfolio_footer_line"></span>
+
+            <p>
+              More projects, experiments, and ideas are continuously being
+              developed.
+            </p>
+
+            <span className="portfolio_footer_mark">✦</span>
+          </div>
+        )}
       </div>
-    </div>
+    </section>
   );
 };
 

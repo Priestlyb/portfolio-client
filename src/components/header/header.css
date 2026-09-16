@@ -1,124 +1,635 @@
+/* =========================================================
+   HEADER
+   Shared portfolio palette:
+   Gold  - #FBC252
+   Cream - #F0ECCF
+   Sage  - #A3BB98
+   Deep  - #000446
+   Black - #000000
+========================================================= */
+
 .header {
-    display: flex;
-    padding: 25px;
-    height: 100vh;
-    margin: 0;
-    gap: 25px;
-    color: var(--black);
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    /* EEEEEE */
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  min-height: 100vh;
+
+  margin: 0;
+  padding: 80px 8vw;
+
+  overflow: hidden;
+
+  color: #000446;
+
+  background: #ffffff;
 }
 
-.header h1 {
-    font-weight: 800;
+/* =========================================================
+   MAIN CONTENT
+========================================================= */
+
+.header_content {
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+  max-width: 1050px;
 }
 
-.header p {
-    font-family: 'Roboto Mono', monospace;
+/* =========================================================
+   INTRO
+========================================================= */
+
+.header_intro {
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  margin-bottom: 18px;
 }
 
-/* Button */
+.header_line {
+  display: block;
 
-.buttonDownload {
-    display: inline-block;
-    position: relative;
-    padding: 10px 25px;
-    background-color: var(--black);
-    color: white;
-    font-family: sans-serif;
-    text-decoration: none;
-    font-size: 0.9em;
-    text-align: center;
-    text-indent: 15px;
-    border: none;
-    border-radius: 2em;
-    font-weight: bold;
-  }
-  
-  .buttonDownload:hover {
-    background-color: var(--gold);
-    color: var(--black);
-  }
-  
-  .buttonDownload:before, .buttonDownload:after {
-    content: ' ';
-    display: block;
-    position: absolute;
-    left: 15px;
-    top: 55%;
-  }
-  
-  .buttonDownload:before {
-    width: 10px;
-    height: 2px;
-    border-style: solid;
-    border-width: 0 2px 2px;
-  }
-  
-  .buttonDownload:after {
-    width: 0;
-    height: 0;
-    margin-left: 1px;
-    margin-top: -10px;
-    border-style: solid;
-    border-width: 4px 4px 0 4px;
-    border-color: transparent;
-    border-top-color: inherit;
-    animation: downloadArrow 1.5s linear infinite;
-    animation-play-state: paused;
-  }
-  
-  .buttonDownload:hover:before {
-    border-color: #000;
-  }
-  
-  .buttonDownload:hover:after {
-    border-top-color: #000;
-    animation-play-state: running;
-  }
-  
-  @keyframes downloadArrow {
-    0% {
-      margin-top: -7px;
-      opacity: 1;
-    }
-  
-    0.001% {
-      margin-top: -15px;
-      opacity: 0.4;
-    }
-  
-    50% {
-      opacity: 1;
-    }
-  
-    100% {
-      margin-top: 0;
-      opacity: 0.4;
-    }
-  }
-  
+  width: 38px;
+  height: 3px;
 
-/*end of Button */
+  border-radius: 999px;
 
+  background: #fbc252;
+}
+
+.header_intro h4 {
+  margin: 0;
+
+  color: #a3bb98;
+
+  font-size: 0.78rem;
+  font-weight: 700;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   MAIN TITLE
+========================================================= */
+
+.header_title {
+  max-width: 1000px;
+
+  margin: 0;
+
+  color: #000446;
+
+  font-size: clamp(3.5rem, 8vw, 7.5rem);
+
+  line-height: 0.94;
+
+  font-weight: 800;
+
+  letter-spacing: -0.065em;
+}
+
+/* =========================================================
+   TYPING ROLE
+========================================================= */
+
+.header_role {
+  display: inline-flex;
+  align-items: center;
+
+  min-height: 1em;
+
+  color: #fbc252;
+
+  font-size: 0.52em;
+
+  line-height: 1.1;
+
+  letter-spacing: -0.025em;
+
+  white-space: nowrap;
+}
+
+.header_role_text {
+  color: #000446;
+}
+
+.typing_cursor {
+  display: inline-block;
+
+  width: 3px;
+  height: 0.85em;
+
+  margin-left: 7px;
+
+  border-radius: 999px;
+
+  background: #fbc252;
+
+  animation: cursorBlink 0.8s ease-in-out infinite;
+}
+
+@keyframes cursorBlink {
+  0%,
+  45% {
+    opacity: 1;
+  }
+
+  46%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.header_description {
+  max-width: 650px;
+
+  margin: 30px 0 0;
+
+  color: #4b5563;
+
+  font-family: "Roboto Mono", monospace;
+
+  font-size: 0.92rem;
+
+  line-height: 1.85;
+}
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.header_actions {
+  display: flex;
+  align-items: center;
+
+  gap: 24px;
+
+  margin-top: 35px;
+}
+
+/* =========================================================
+   CV BUTTON
+========================================================= */
+
+.download_btn {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  min-width: 190px;
+
+  padding: 13px 22px;
+
+  border: 2px solid #000446;
+  border-radius: 999px;
+
+  background: #000446;
+
+  color: #ffffff;
+
+  font-family: inherit;
+
+  font-size: 0.82rem;
+  font-weight: 700;
+
+  letter-spacing: 0.02em;
+
+  text-decoration: none;
+
+  overflow: hidden;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.download_btn::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background: #fbc252;
+
+  transform: translateY(100%);
+
+  transition: transform 0.3s ease;
+
+  z-index: 0;
+}
+
+.download_btn:hover::before {
+  transform: translateY(0);
+}
+
+.download_btn:hover {
+  color: #000000;
+
+  border-color: #fbc252;
+
+  transform: translateY(-3px);
+
+  box-shadow: 0 12px 25px rgba(251, 194, 82, 0.25);
+}
+
+.download_btn span {
+  position: relative;
+  z-index: 1;
+}
+
+.download_icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 22px;
+  height: 22px;
+
+  border-radius: 50%;
+
+  background: #fbc252;
+
+  color: #000446;
+
+  font-size: 1rem;
+
+  line-height: 1;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+.download_btn:hover .download_icon {
+  transform: translateY(2px);
+
+  background: #000446;
+
+  color: #ffffff;
+}
+
+/* =========================================================
+   ABOUT / EXPLORE LINK
+========================================================= */
+
+.header_about_link {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 10px;
+
+  color: #000446;
+
+  font-size: 0.78rem;
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+
+  text-decoration: none;
+
+  transition:
+    color 0.3s ease,
+    gap 0.3s ease;
+}
+
+.header_about_link:hover {
+  color: #a3bb98;
+
+  gap: 14px;
+}
+
+.header_about_arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 27px;
+  height: 27px;
+
+  border: 1px solid #a3bb98;
+  border-radius: 50%;
+
+  color: #000446;
+
+  font-size: 0.85rem;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.header_about_link:hover .header_about_arrow {
+  background: #a3bb98;
+
+  color: #ffffff;
+
+  transform: translateY(3px);
+}
+
+/* =========================================================
+   DECORATIVE ACCENTS
+========================================================= */
+
+.header_accent {
+  position: absolute;
+
+  pointer-events: none;
+}
+
+/* Large cream/gold shape */
+
+.header_accent_one {
+  top: -180px;
+  right: -150px;
+
+  width: 520px;
+  height: 520px;
+
+  border-radius: 50%;
+
+  background: #f0eccf;
+
+  opacity: 0.8;
+}
+
+.header_accent_one::after {
+  content: "";
+
+  position: absolute;
+
+  right: 85px;
+  bottom: 85px;
+
+  width: 190px;
+  height: 190px;
+
+  border-radius: 50%;
+
+  background: #fbc252;
+
+  opacity: 0.55;
+}
+
+/* =========================================================
+   SCROLL INDICATOR
+========================================================= */
+
+.header_scroll {
+  position: absolute;
+
+  right: 35px;
+  bottom: 45px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  transform: rotate(90deg);
+
+  transform-origin: right center;
+}
+
+.header_scroll span {
+  color: #a3bb98;
+
+  font-size: 0.62rem;
+  font-weight: 700;
+
+  letter-spacing: 0.2em;
+}
+
+.scroll_line {
+  width: 55px;
+  height: 1px;
+
+  background: #fbc252;
+}
+
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+
+@media screen and (min-width: 1400px) {
+  .header {
+    padding-left: 10vw;
+  }
+
+  .header_title {
+    font-size: clamp(4.5rem, 7vw, 8rem);
+  }
+
+  .header_description {
+    font-size: 0.95rem;
+  }
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
 
 @media screen and (max-width: 1024px) {
-    .header {
-        margin-top: 50px;
-        height: 50vh;
-    }
+  .header {
+    min-height: 75vh;
 
-    .download-button {
-        z-index: -1;
-    }
+    padding: 90px 7vw;
+  }
+
+  .header_title {
+    font-size: clamp(3.4rem, 9vw, 6rem);
+  }
+
+  .header_description {
+    max-width: 600px;
+  }
+
+  .header_accent_one {
+    top: -130px;
+    right: -160px;
+
+    width: 430px;
+    height: 430px;
+  }
+
+  .header_accent_one::after {
+    width: 150px;
+    height: 150px;
+  }
+
+  .header_scroll {
+    right: 20px;
+  }
 }
 
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media screen and (max-width: 768px) {
+  .header {
+    min-height: 80vh;
+
+    padding: 80px 25px 70px;
+
+    align-items: center;
+  }
+
+  .header_content {
+    max-width: 100%;
+  }
+
+  .header_intro {
+    gap: 10px;
+
+    margin-bottom: 15px;
+  }
+
+  .header_line {
+    width: 28px;
+    height: 2px;
+  }
+
+  .header_intro h4 {
+    font-size: 0.68rem;
+
+    letter-spacing: 0.14em;
+  }
+
+  .header_title {
+    font-size: clamp(3rem, 13vw, 5.5rem);
+
+    letter-spacing: -0.055em;
+  }
+
+  .header_role {
+    font-size: 0.48em;
+  }
+
+  .header_description {
+    max-width: 100%;
+
+    margin-top: 25px;
+
+    font-size: 0.78rem;
+
+    line-height: 1.8;
+  }
+
+  .header_actions {
+    align-items: flex-start;
+    flex-direction: column;
+
+    gap: 20px;
+
+    margin-top: 30px;
+  }
+
+  .download_btn {
+    min-width: 180px;
+
+    padding: 12px 20px;
+  }
+
+  .header_about_link {
+    font-size: 0.7rem;
+  }
+
+  .header_accent_one {
+    top: -100px;
+    right: -150px;
+
+    width: 330px;
+    height: 330px;
+  }
+
+  .header_accent_one::after {
+    right: 55px;
+    bottom: 55px;
+
+    width: 100px;
+    height: 100px;
+  }
+
+  .header_scroll {
+    display: none;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
 
 @media screen and (max-width: 400px) {
   .header {
-      margin-top: 50px;
-      height: 75vh;
+    min-height: 82vh;
+
+    padding: 70px 20px 60px;
+  }
+
+  .header_title {
+    font-size: clamp(2.65rem, 14vw, 4rem);
+  }
+
+  .header_description {
+    font-size: 0.74rem;
+  }
+
+  .header_role {
+    font-size: 0.47em;
+  }
+
+  .download_btn {
+    width: 100%;
+
+    max-width: 190px;
+  }
+
+  .header_accent_one {
+    width: 280px;
+    height: 280px;
+
+    top: -90px;
+    right: -130px;
+  }
+}
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .typing_cursor,
+  .download_btn,
+  .download_btn::before,
+  .download_icon,
+  .header_about_link,
+  .header_about_arrow {
+    animation: none;
+
+    transition: none;
   }
 }

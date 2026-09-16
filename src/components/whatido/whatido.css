@@ -1,53 +1,461 @@
-.whatido{
-  padding-top: 25px;
-}
+/* =========================================================
+   WHAT I DO — EDITORIAL SERVICES
+   Portfolio palette:
+   Gold  #FBC252
+   Cream #F0ECCF
+   Sage  #A3BB98
+   Deep  #000446
+   Black #000000
+========================================================= */
 
-.whatido_img {
-  font-size: 4rem;
-}
-
-.edu_title_row {
-  padding: 25px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-}
-
-.edu_title_col {
+.whatido {
   width: 100%;
-  height: 100%;
-  padding: 25px;
-  display: flex;
-  gap: 20px;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  background-color: var(--black);
+  padding: 120px 7vw;
+  background: #ffffff;
+  color: #000446;
+  overflow: hidden;
 }
 
-.edu_title_col:hover {
-  color: #333340;
-  background-color: #a3bb98;
+.whatido_inner {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
 }
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.whatido_heading {
+  display: grid;
+  grid-template-columns: 130px minmax(300px, 1fr) minmax(280px, 420px);
+  gap: 50px;
+  align-items: end;
+  padding-bottom: 85px;
+}
+
+.whatido_heading_meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.whatido_section_number {
+  width: 62px;
+  height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #fbc252;
+  color: #000446;
+
+  border-radius: 50%;
+
+  font-family: "Roboto Mono", monospace;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.whatido_section_label {
+  font-family: "Roboto Mono", monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+
+  color: #000446;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+.whatido_heading_content {
+  position: relative;
+}
+
+.whatido_eyebrow {
+  margin: 0 0 18px;
+
+  font-family: "Roboto Mono", monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+
+  color: #a3bb98;
+}
+
+.whatido_title {
+  margin: 0;
+
+  font-size: clamp(70px, 9vw, 150px);
+  line-height: 0.82;
+  letter-spacing: -0.07em;
+  font-weight: 900;
+
+  color: #000446;
+}
+
+.whatido_title span {
+  color: #fbc252;
+}
+
+.whatido_intro {
+  margin: 0;
+  padding-left: 25px;
+
+  border-left: 3px solid #a3bb98;
+
+  font-size: 16px;
+  line-height: 1.8;
+  color: #000446;
+}
+
+/* =========================================================
+   SERVICES
+========================================================= */
+
+.whatido_services {
+  border-top: 1px solid rgba(0, 4, 70, 0.2);
+}
+
+.whatido_service {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: 100px minmax(0, 1fr) 80px;
+  gap: 45px;
+
+  padding: 48px 0;
+
+  border-bottom: 1px solid rgba(0, 4, 70, 0.2);
+
+  transition:
+    padding 0.35s ease,
+    background-color 0.35s ease;
+}
+
+/* Gold line that appears on hover */
+.whatido_service::before {
+  content: "";
+
+  position: absolute;
+  left: -7vw;
+  right: -7vw;
+  top: 0;
+  bottom: 0;
+
+  background: #f0eccf;
+
+  opacity: 0;
+  z-index: -1;
+
+  transition: opacity 0.35s ease;
+}
+
+.whatido_service:hover::before {
+  opacity: 0.55;
+}
+
+.whatido_service:hover {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* =========================================================
+   SERVICE NUMBER
+========================================================= */
+
+.whatido_service_number {
+  padding-top: 8px;
+
+  font-family: "Roboto Mono", monospace;
+  font-size: 13px;
+  font-weight: 700;
+
+  color: #a3bb98;
+}
+
+/* =========================================================
+   SERVICE MAIN
+========================================================= */
+
+.whatido_service_main {
+  min-width: 0;
+}
+
+.whatido_service_top {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  margin-bottom: 20px;
+}
+
+.whatido_icon {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #000446;
+  color: #fbc252;
+
+  border-radius: 50%;
+
+  font-size: 14px;
+
+  transition:
+    transform 0.35s ease,
+    background-color 0.35s ease,
+    color 0.35s ease;
+}
+
+.whatido_service:hover .whatido_icon {
+  background: #fbc252;
+  color: #000446;
+  transform: rotate(-8deg) scale(1.08);
+}
+
+.whatido_service_label {
+  font-family: "Roboto Mono", monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+
+  color: #a3bb98;
+}
+
+.whatido_service h2 {
+  margin: 0 0 18px;
+
+  font-size: clamp(30px, 4vw, 58px);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  font-weight: 800;
+
+  color: #000446;
+
+  transition: color 0.3s ease;
+}
+
+.whatido_service:hover h2 {
+  color: #000000;
+}
+
+.whatido_service_description {
+  max-width: 680px;
+
+  margin: 0 0 24px;
+
+  font-size: 15px;
+  line-height: 1.8;
+
+  color: #4d526f;
+}
+
+/* =========================================================
+   TAGS
+========================================================= */
+
+.whatido_tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.whatido_tags span {
+  padding: 7px 11px;
+
+  background: #f0eccf;
+
+  border: 1px solid rgba(0, 4, 70, 0.08);
+  border-radius: 100px;
+
+  font-family: "Roboto Mono", monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+
+  color: #000446;
+
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.whatido_service:hover .whatido_tags span {
+  background: #ffffff;
+  border-color: #fbc252;
+}
+
+/* =========================================================
+   ARROW
+========================================================= */
+
+.whatido_service_arrow {
+  align-self: center;
+
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(0, 4, 70, 0.2);
+  border-radius: 50%;
+
+  font-size: 22px;
+  color: #000446;
+
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease,
+    border-color 0.35s ease,
+    transform 0.35s ease;
+}
+
+.whatido_service:hover .whatido_service_arrow {
+  background: #000446;
+  color: #fbc252;
+  border-color: #000446;
+  transform: rotate(45deg);
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
 
 @media screen and (max-width: 1024px) {
-  .edu_title_row {
-    display: flex;
-    flex-direction: column;
+  .whatido {
+    padding: 100px 6vw;
   }
 
-  .whatido_img {
-    font-size: 50px;
+  .whatido_heading {
+    grid-template-columns: 90px 1fr;
+    gap: 35px;
   }
 
-  .edu_title_col {
-    text-align: start;
-    flex-direction: column;
+  .whatido_intro {
+    grid-column: 2;
+    max-width: 600px;
   }
 
-  .edu_title_item h3 {
-    font-size: 32px;
+  .whatido_service {
+    grid-template-columns: 70px minmax(0, 1fr) 65px;
+    gap: 25px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media screen and (max-width: 700px) {
+  .whatido {
+    padding: 80px 22px;
+  }
+
+  .whatido_heading {
+    display: block;
+    padding-bottom: 55px;
+  }
+
+  .whatido_heading_meta {
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 35px;
+  }
+
+  .whatido_section_number {
+    width: 50px;
+    height: 50px;
+  }
+
+  .whatido_section_label {
+    writing-mode: initial;
+    transform: none;
+  }
+
+  .whatido_eyebrow {
+    margin-bottom: 15px;
+  }
+
+  .whatido_title {
+    font-size: clamp(64px, 20vw, 105px);
+  }
+
+  .whatido_intro {
+    margin-top: 35px;
+    padding-left: 18px;
+    font-size: 14px;
+  }
+
+  .whatido_service {
+    grid-template-columns: 45px 1fr;
+    gap: 15px;
+
+    padding: 35px 0;
+  }
+
+  .whatido_service:hover {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .whatido_service::before {
+    left: -22px;
+    right: -22px;
+  }
+
+  .whatido_service_number {
+    font-size: 11px;
+  }
+
+  .whatido_service_top {
+    margin-bottom: 16px;
+  }
+
+  .whatido_icon {
+    width: 34px;
+    height: 34px;
+    font-size: 12px;
+  }
+
+  .whatido_service h2 {
+    font-size: 31px;
+    line-height: 1.05;
+  }
+
+  .whatido_service_description {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .whatido_service_arrow {
+    display: none;
+  }
+
+  .whatido_tags span {
+    font-size: 8px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .whatido_service,
+  .whatido_icon,
+  .whatido_service_arrow,
+  .whatido_tags span,
+  .whatido_contact {
+    transition: none;
   }
 }

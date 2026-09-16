@@ -1,168 +1,702 @@
-/* General Navbar Styles */
-a {
+/* =========================================================
+   NAVBAR
+   Portfolio editorial navigation
+   Palette:
+   Gold  #FBC252
+   Cream #F0ECCF
+   Sage  #A3BB98
+   Blue  #000446
+   Black #000000
+========================================================= */
+
+.navbar_offcanvas_body {
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  scrollbar-width: none;
+}
+
+.nav_bar {
+  position: relative;
+  z-index: 1000;
+}
+
+.nav_bar a {
   text-decoration: none;
 }
 
+/* =========================================================
+   MENU BUTTON
+========================================================= */
+
 .navbar-btn {
-    z-index: 1;
-    position: fixed;
-    bottom: 90%;
-    left: 20px;
-    font-size: 1rem;
-    border-radius: 100%;
-    background: var(--black);
-    color: #D8D8D8;
+  position: fixed;
+  top: 28px;
+  left: 28px;
+  z-index: 1050;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 0;
+  border: 0;
+  background: transparent;
+
+  color: #000446;
+  cursor: pointer;
 }
+
+.navbar-btn_icon {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  background: #000446;
+  color: #ffffff;
+
+  font-size: 16px;
+
+  box-shadow: 0 8px 25px rgba(0, 4, 70, 0.16);
+
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.navbar-btn_text {
+  padding: 7px 11px;
+
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+
+  color: #000446;
+
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(0, 4, 70, 0.12);
+
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.navbar-btn:hover .navbar-btn_icon {
+  transform: rotate(8deg);
+  background: #fbc252;
+
+  color: #000446;
+
+  box-shadow: 0 12px 30px rgba(251, 194, 82, 0.28);
+}
+
+.navbar-btn:hover .navbar-btn_text {
+  background: #000446;
+  color: #ffffff;
+}
+
+/* =========================================================
+   OFFCANVAS
+========================================================= */
+
+.offcanvascustom-width {
+  width: min(430px, 88vw) !important;
+
+  background: #ffffff;
+
+  border: 0 !important;
+
+  box-shadow: 20px 0 70px rgba(0, 4, 70, 0.16);
+}
+
+.navbar_offcanvas_header {
+  position: relative;
+
+  min-height: 190px;
+
+  padding: 38px 34px 28px !important;
+
+  overflow: hidden;
+
+  background: #000446;
+  color: #ffffff;
+
+  border: 0 !important;
+}
+
+.navbar_header_shape {
+  position: absolute;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+.navbar_header_shape_one {
+  width: 230px;
+  height: 230px;
+
+  top: -145px;
+  right: -80px;
+
+  background: #fbc252;
+}
+
+.navbar_header_shape_two {
+  width: 160px;
+  height: 160px;
+
+  bottom: -105px;
+  left: -80px;
+
+  border: 1px solid rgba(240, 236, 207, 0.25);
+}
+
+/* =========================================================
+   PROFILE
+========================================================= */
+
+.navbar_profile {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  margin-top: 22px;
+}
+
+.navbar_profile_image {
+  position: relative;
+
+  width: 78px;
+  height: 78px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #f0eccf;
+
+  border: 3px solid rgba(251, 194, 82, 0.9);
+
+  overflow: hidden;
+}
+
+.navbar_profile_image::after {
+  content: "";
+
+  position: absolute;
+  inset: 4px;
+
+  border: 1px solid rgba(0, 4, 70, 0.15);
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+.navbar_profile_image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+}
+
+.navbar_profile_text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.navbar_profile_text strong {
+  font-size: 20px;
+  line-height: 1.05;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+
+  color: #ffffff;
+}
+
+/* =========================================================
+   CLOSE BUTTON
+========================================================= */
+
+.navbar_close {
+  position: absolute;
+  top: 28px;
+  right: 28px;
+
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  cursor: pointer;
+
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.navbar_close span {
+  position: absolute;
+
+  width: 15px;
+  height: 1px;
+
+  background: #ffffff;
+}
+
+.navbar_close span:first-child {
+  transform: rotate(45deg);
+}
+
+.navbar_close span:last-child {
+  transform: rotate(-45deg);
+}
+
+.navbar_close:hover {
+  transform: rotate(90deg);
+  background: #fbc252;
+}
+
+.navbar_close:hover span {
+  background: #000446;
+}
+
+/* =========================================================
+   OFFCANVAS BODY
+========================================================= */
+
+.navbar_offcanvas_body {
+  display: flex;
+  flex-direction: column;
+
+  padding: 35px 34px 25px !important;
+
+  background: #ffffff;
+}
+
+.navbar_navigation {
+  flex: 1;
+}
+
+.navbar_navigation_label {
+  margin: 0 0 18px;
+
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+
+  color: #a3bb98;
+}
+
+/* =========================================================
+   NAVIGATION LINKS
+========================================================= */
 
 .nav_bar_links {
   display: flex;
-  align-items: flex-start;
   flex-direction: column;
-  gap: 10px;
-  padding: 10px;
+
+  width: 100%;
 }
 
-.nav_bar_links a {
-  font-size: 1rem;
-  color: var(--black);
-  font-weight: 500;
-  padding: 5px 10px;
-  transition: all 0.3s ease-in-out;
+.nav-btn {
+  position: relative;
+
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: 35px 1fr 30px;
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 17px 4px;
+
+  border: 0;
+  border-bottom: 1px solid rgba(0, 4, 70, 0.1);
+
+  background: transparent;
+
+  color: #000446;
+
+  text-align: left;
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition:
+    padding 0.3s ease,
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
-.btn-close {
+.nav-btn::before {
+  content: "";
+
   position: absolute;
-  top: 20px;
-  right: 20px;
+
+  left: -34px;
+  top: 0;
+  bottom: 0;
+
+  width: 3px;
+
+  background: #fbc252;
+
+  transform: scaleY(0);
+  transform-origin: bottom;
+
+  transition: transform 0.3s ease;
 }
 
-.nav-btn:hover {
-  color: var(--gold);
+.nav-btn:hover,
+.nav-btn.active {
+  padding-left: 12px;
+
+  color: #000446;
+  background: #f0eccf;
 }
 
-.offcanvascustom-width {
-  width: 20% !important;
+.nav-btn:hover::before,
+.nav-btn.active::before {
+  transform: scaleY(1);
 }
 
-/* Display Picture */
+.nav-btn_number {
+  font-size: 10px;
+  font-weight: 700;
 
-.my-face {
-  width: 100px;
-  margin-left: 10%;
-  background-color: #f0eccf;
-  border-radius: 50%;
-  border: 1px solid #f0eccf;
+  color: #a3bb98;
 }
 
-.my-bg {
-  top: -160px;
-  left: -50px;
-  width: 250px;
-  height: 250px;
-  z-index: -1;
-  border-radius: 50%;
-  position: absolute;
-  background-color: #ffb100;
+.nav-btn_content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
 }
 
-/* Social Icon */
+.nav-btn_content i {
+  width: 18px;
 
-.social_icon {
-  color: #333340;
+  color: #000446;
+
+  font-size: 14px;
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
 }
 
-.social_icon:hover {
-  color: #fff;
+.nav-btn:hover .nav-btn_content i,
+.nav-btn.active .nav-btn_content i {
+  color: #d69b24;
+  transform: translateX(2px);
+}
+
+.nav-btn_arrow {
+  font-size: 18px;
+  font-weight: 400;
+
+  opacity: 0.3;
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.nav-btn:hover .nav-btn_arrow,
+.nav-btn.active .nav-btn_arrow {
+  opacity: 1;
+  transform: translate(3px, -3px);
+
+  color: #d69b24;
+}
+
+/* =========================================================
+   ADMIN / LOGOUT
+========================================================= */
+
+.navbar_divider {
+  width: 100%;
+  height: 1px;
+
+  margin: 20px 0 5px;
+
+  background: rgba(0, 4, 70, 0.1);
+}
+
+.nav-btn_admin {
+  margin-top: 3px;
+}
+
+.nav-btn_logout {
+  color: #6b7280;
+}
+
+.nav-btn_logout:hover {
+  color: #000446;
+}
+
+/* =========================================================
+   BOTTOM SOCIAL AREA
+========================================================= */
+
+.navbar_bottom {
+  margin-top: 30px;
+  padding-top: 22px;
+
+  border-top: 1px solid rgba(0, 4, 70, 0.12);
+}
+
+.navbar_bottom_top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 15px;
+}
+
+.navbar_bottom_label {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+
+  color: #a3bb98;
+}
+
+.navbar_bottom_mark {
+  color: #fbc252;
+
+  font-size: 18px;
 }
 
 .wrapper {
   display: flex;
-  flex-direction: row;
-  gap: 10px;
-  margin-top: 10px;
-  margin-bottom: 25px;
-  margin-left: 10px;
-}
-
-.wrapper .icon {
-  position: relative;
-  background: #fff;
-  border-radius: 50%;
-  margin: 5px;
-  width: 25px;
-  height: 25px;
-  font-size: 1rem;
-  display: flex;
-  justify-content: center;
   align-items: center;
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  gap: 9px;
 }
 
-.wrapper .tooltip {
-  position: absolute;
-  top: 0;
+.social_icon {
+  position: relative;
+
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(0, 4, 70, 0.14);
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  color: #000446;
+
   font-size: 14px;
-  background: #fff;
-  padding: 5px 8px;
-  border-radius: 5px;
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
-  opacity: 0;
-  pointer-events: none;
-  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
 }
 
-.wrapper .tooltip::before {
+.social_icon:hover {
+  background: #000446;
+  border-color: #000446;
+
+  color: #fbc252;
+
+  transform: translateY(-4px);
+}
+
+.social_icon_tooltip {
   position: absolute;
-  content: "";
-  height: 8px;
-  width: 8px;
-  background: #fff;
-  bottom: -3px;
-  left: 15%;
-  transform: translate(-50%) rotate(45deg);
-  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  left: 50%;
+  bottom: calc(100% + 10px);
+
+  padding: 5px 8px;
+
+  white-space: nowrap;
+
+  background: #000446;
+  color: #ffffff;
+
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translate(-50%, 5px);
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
 }
 
-.wrapper .icon:hover .tooltip {
-  top: -45px;
+.social_icon_tooltip::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: -4px;
+
+  width: 7px;
+  height: 7px;
+
+  background: #000446;
+
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.social_icon:hover .social_icon_tooltip {
   opacity: 1;
   visibility: visible;
-  pointer-events: auto;
+
+  transform: translate(-50%, 0);
 }
 
-.wrapper .icon:hover span,
-.wrapper .icon:hover .tooltip {
-  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+.navbar_copyright {
+  margin: 18px 0 0;
+  margin-bottom: 60px;
+
+  font-size: 9px;
+  line-height: 1.5;
+
+  color: #94a3b8;
 }
 
-.wrapper .facebook:hover,
-.wrapper .facebook:hover .tooltip,
-.wrapper .facebook:hover .tooltip::before {
-  background: #1877f2;
-  color: #fff;
-}
+/* =========================================================
+   RESPONSIVE
+========================================================= */
 
-.wrapper .github:hover,
-.wrapper .github:hover .tooltip,
-.wrapper .github:hover .tooltip::before {
-  background: var(--black);
-  color: #fff;
-}
+@media screen and (max-width: 700px) {
+  .navbar-btn {
+    top: 18px;
+    left: 18px;
+  }
 
-.wrapper .twitter:hover,
-.wrapper .twitter:hover .tooltip,
-.wrapper .twitter:hover .tooltip::before {
-  background: #1da1f2;
-  color: #fff;
-}
+  .navbar-btn_icon {
+    width: 44px;
+    height: 44px;
 
-/* Responsive Styles */
+    font-size: 15px;
+  }
 
-@media screen and (min-width: 1024px) {
+  .navbar-btn_text {
+    display: none;
+  }
 
   .offcanvascustom-width {
-    width: 50% !important;
+    width: min(390px, 88vw) !important;
+  }
+
+  .navbar_offcanvas_header {
+    min-height: 170px;
+
+    padding: 30px 25px 25px !important;
+  }
+
+  .navbar_profile {
+    gap: 14px;
+  }
+
+  .navbar_profile_image {
+    width: 68px;
+    height: 68px;
+  }
+
+  .navbar_profile_text strong {
+    font-size: 18px;
+  }
+
+  .navbar_offcanvas_body {
+    padding: 30px 25px 22px !important;
+  }
+
+  .nav-btn {
+    padding: 15px 2px;
+
+    grid-template-columns: 30px 1fr 25px;
+  }
+
+  .nav-btn::before {
+    left: -25px;
+  }
+
+  .nav-btn_content {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .offcanvascustom-width {
+    width: 92vw !important;
+  }
+
+  .navbar_close {
+    top: 20px;
+    right: 20px;
+
+    width: 36px;
+    height: 36px;
+  }
+
+  .navbar_profile_image {
+    width: 62px;
+    height: 62px;
+  }
+
+  .navbar_profile_text strong {
+    font-size: 16px;
+  }
+}
+
+/* =========================================================
+   ACCESSIBILITY / REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar-btn_icon,
+  .navbar-btn_text,
+  .navbar_close,
+  .nav-btn,
+  .nav-btn::before,
+  .nav-btn_content i,
+  .nav-btn_arrow,
+  .social_icon,
+  .social_icon_tooltip {
+    transition: none;
   }
 }

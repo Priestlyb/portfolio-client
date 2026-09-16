@@ -2,87 +2,120 @@ import React from "react";
 import "./whatido.css";
 
 function Whatido() {
+  const services = [
+    {
+      number: "I",
+      icon: "fa-solid fa-palette",
+      title: "UI/UX Design",
+      description:
+        "Designing intuitive digital interfaces with a strong focus on usability, visual hierarchy, consistency, and user experience.",
+      tags: ["Interface Design", "Prototyping", "User Experience"],
+    },
+    {
+      number: "II",
+      icon: "fa-solid fa-code",
+      title: "Web Design & Development",
+      description:
+        "Building modern, responsive websites that combine strong visual design with clean, maintainable, and scalable frontend code.",
+      tags: ["Responsive Design", "React", "Frontend"],
+    },
+    {
+      number: "III",
+      icon: "fa-solid fa-money-bill-trend-up",
+      title: "SEO Marketing",
+      description:
+        "Improving website visibility through technical optimization, structured content, metadata, performance improvements, and SEO best practices.",
+      tags: ["Technical SEO", "Optimization", "Performance"],
+    },
+    {
+      number: "IV",
+      icon: "fa-solid fa-laptop-code",
+      title: "Website Maintenance",
+      description:
+        "Keeping websites reliable, secure, and up to date through content updates, bug fixes, performance improvements, and technical support.",
+      tags: ["Updates", "Security", "Support"],
+    },
+    {
+      number: "V",
+      icon: "fa-solid fa-bug-slash",
+      title: "Testing & Debugging",
+      description:
+        "Finding and resolving issues through structured testing, debugging, and continuous improvements to application reliability.",
+      tags: ["Testing", "Debugging", "Quality"],
+    },
+    {
+      number: "VI",
+      icon: "fa-solid fa-atom",
+      title: "Backend Integration",
+      description:
+        "Connecting frontend applications to APIs, databases, authentication systems, payment services, and other backend technologies.",
+      tags: ["REST APIs", "Integration", "Backend"],
+    },
+  ];
+
   return (
-    <div className="whatido" id="services">
-      <h1
-        className="edu-title"
-        data-aos="fade-right"
-        data-aos-anchor-placement="bottom-bottom"
-      >
-        WHAT I DO?
-      </h1>
-
-      <div className="edu_title_row">
-        <div className="edu_title_col">
-          <i className="whatido_img fa-solid fa-palette"></i>
-
-          <div className="edu_title_item">
-            <h3>UI/UX Design</h3>
-            <p>
-              Creating visually appealing and user-friendly interfaces, taking
-              into account design principles and user experience.
-            </p>
+    <section className="whatido" id="services">
+      <div className="whatido_inner">
+        {/* Section heading */}
+        <div className="whatido_heading">
+          <div className="whatido_heading_meta">
+            <span className="whatido_section_number">02</span>
+            <span className="whatido_section_label">Services</span>
           </div>
+
+          <div className="whatido_heading_content">
+            <p className="whatido_eyebrow">HOW I CAN HELP</p>
+
+            <h1 className="whatido_title">
+              WHAT I
+              <br />
+              <span>DO?</span>
+            </h1>
+          </div>
+
+          <p className="whatido_intro">
+            From ideas and interfaces to functional digital products, I bring
+            together design, development, and technical problem-solving to
+            create experiences that work.
+          </p>
         </div>
 
-        <div className="edu_title_col">
-          <i className="whatido_img fa-solid fa-code"></i>
+        {/* Services */}
+        <div className="whatido_services">
+          {services.map((service) => (
+            <article className="whatido_service" key={service.number}>
+              <div className="whatido_service_number">{service.number}</div>
 
-          <div className="edu_title_item">
-            <h3>Web Design & Development</h3>
-            <p>
-              Creating visually appealing and user-friendly websites that are
-              optimized for different devices and screen sizes.
-            </p>
-          </div>
-        </div>
+              <div className="whatido_service_main">
+                <div className="whatido_service_top">
+                  <div className="whatido_icon">
+                    <i className={service.icon} aria-hidden="true"></i>
+                  </div>
 
-        <div className="edu_title_col">
-          <i className="whatido_img fa-solid fa-money-bill-trend-up"></i>
+                  <span className="whatido_service_label">SERVICE</span>
+                </div>
 
-          <div className="edu_title_item">
-            <h3>SEO Marketing</h3>
-            <p>
-              Optimizing the website for search engine by implementing
-              techniques such as meta tags, header tags, and schema markup.
-            </p>
-          </div>
-        </div>
+                <h2>{service.title}</h2>
 
-        <div className="edu_title_col">
-          <i className="whatido_img fa-solid fa-laptop-code"></i>
+                <p className="whatido_service_description">
+                  {service.description}
+                </p>
 
-          <div className="edu_title_item">
-            <h3>Website Maintenance</h3>
-            <p>
-              Helping in maintaining the website, updating the content, fixing
-              bugs, and ensuring that the website is secure.
-            </p>
-          </div>
-        </div>
+                <div className="whatido_tags">
+                  {service.tags.map((tag) => (
+                    <span key={tag}>{tag}</span>
+                  ))}
+                </div>
+              </div>
 
-        <div className="edu_title_col">
-          <i className="whatido_img fa-solid fa-bug-slash"></i>
-
-          <div className="edu_title_item">
-            <h3>Testing and Debugging</h3>
-            <p>
-              Using tools to test and debug code, ensuring that it works as
-              expected.
-            </p>
-          </div>
-        </div>
-
-        <div className="edu_title_col">
-          <i className="whatido_img fa-solid fa-atom"></i>
-
-          <div className="edu_title_item">
-            <h3>Backend Integration</h3>
-            <p>Integrating the front-end with the backend and APIs.</p>
-          </div>
+              <div className="whatido_service_arrow" aria-hidden="true">
+                ↗
+              </div>
+            </article>
+          ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

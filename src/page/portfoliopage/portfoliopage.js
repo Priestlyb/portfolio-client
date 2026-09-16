@@ -1,70 +1,249 @@
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
-import { axiosInstance } from '../../config';
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { axiosInstance } from "../../config";
+import "./portfoliopage.css";
 
 const PortfolioPage = () => {
-  const id = useParams().id;
-  const [{ portfolio }, setPortfolio] = useState({})
-  useEffect(() => {
-    axiosInstance.get(`/portfolios/${id}`).then(res => {
-      setPortfolio(res.data)
-    })
-  })
+  const { id } = useParams();
 
+  const [portfolio, setPortfolio] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    const fetchPortfolio = async () => {
+      try {
+        setLoading(true);
+        setError(false);
+
+        const res = await axiosInstance.get(`/portfolios/${id}`);
+
+        if (isMounted) {
+          setPortfolio(res.data?.portfolio || res.data);
+        }
+      } catch (err) {
+        console.error("Portfolio Fetch Error:", err);
+
+        if (isMounted) {
+          setError(true);
+        }
+      } finally {
+        if (isMounted) {
+          setLoading(false);
+        }
+      }
+    };
+
+    fetchPortfolio();
+
+    return () => {
+      isMounted = false;
+    };
+  }, [id]);
+
+  if (loading) {
+    return (
+      <main className="portfolio_detail_loading">
+        <div className="portfolio_detail_loading_inner">
+          <div className="portfolio_detail_loading_number skeleton"></div>
+
+          <div className="portfolio_detail_loading_title skeleton"></div>
+
+          <div className="portfolio_detail_loading_image skeleton"></div>
+        </div>
+      </main>
+    );
+  }
+
+  if (error || !portfolio) {
+    return (
+      <main className="portfolio_detail_error">
+        <div className="portfolio_detail_error_inner">
+          <span>404</span>
+
+          <h1>Project not found.</h1>
+
+          <p>The project you are looking for could not be loaded.</p>
+
+          <a href="/#portfolios">← Back to portfolio</a>
+        </div>
+      </main>
+    );
+  }
+
+  const {
+    _id,
+    project_location,
+    project_role,
+    project_description,
+    project_img,
+    technologies,
+    view_link,
+    github_link,
+  } = portfolio;
+
+  const technologyList = Array.isArray(technologies)
+    ? technologies
+    : technologies
+      ? technologies
+          .split(",")
+          .map((item) => item.trim())
+          .filter(Boolean)
+      : [];
 
   return (
-    <div>
-      {portfolio &&
-        <div className='portfolio_page'>
-          <div className='row portfolio_body'>
-            <div className='left_col col-lg-8'>
+    <main className="portfolio_detail">
+      <div className="portfolio_detail_inner">
+        {/* =========================================
+            TOP NAVIGATION
+        ========================================= */}
 
-              <button className="cta Go_back_icon">
-                <span className="hover-underline-animation"><a href='/#portfolios'> <i className="fa-solid fa-arrow-left-long"></i> Go Back
-                </a> </span>
-              </button>
+        <div className="portfolio_detail_top">
+          <a href="/#portfolios" className="portfolio_back">
+            <span className="portfolio_back_icon">←</span>
+            <span>Back to selected work</span>
+          </a>
 
-              <h1>{portfolio.project_location}</h1>
-              <h2>{portfolio.project_role}</h2>
+          <span className="portfolio_detail_id">
+            PROJECT /{" "}
+            {String(_id || id)
+              .slice(-4)
+              .toUpperCase()}
+          </span>
+        </div>
 
-              <div className="portfolio_page_card" Style="width: 18rem;">
-                <ul className="list-group list-group-flush">
-                  <li className="list-group-item list_header">Technologies:</li>
-                </ul>
-                <div className="card_footer">
-                  {portfolio.technologies}
-                </div>
-              </div>
-              <p>{portfolio.project_description}</p>
+        {/* =========================================
+            HERO
+        ========================================= */}
 
-              {/* Demo Btn */}
+        <header className="portfolio_detail_hero">
+          <div className="portfolio_detail_number">PROJECT</div>
 
-              <button className="demo_btn">
-                <a href={portfolio.view_link} target="blank" rel="nore
-ferrer">
-                  <i className="fa-regular fa-eye"></i> View Demo
-                </a>
-              </button>
+          <div className="portfolio_detail_heading">
+            <p className="portfolio_detail_eyebrow">
+              {project_role || "WEB DEVELOPMENT"}
+            </p>
 
-              {/* Code Btn */}
+            <h1>{project_location}</h1>
+          </div>
 
-              <button className="demo_btn">
-                <a href={portfolio.github_link} target="blank" rel="nore
-ferrer">
-                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M24 12l-5.657 5.657-1.414-1.414L21.172 12l-4.243-4.243 1.414-1.414L24 12zM2.828 12l4.243 4.243-1.414 1.414L0 12l5.657-5.657L7.07 7.757 2.828 12zm6.96 9H7.66l6.552-18h2.128L9.788 21z" fill="currentColor"></path></svg> View Code
-                </a>
-              </button>
-            </div>
+          <div className="portfolio_detail_intro">
+            <span className="portfolio_detail_dot"></span>
 
-            <div className='col-lg-4 portfolio_page_header'>
-              <img className='portfolio_page_img' src={portfolio.project_img} alt='' />
-            </div>
+            <p>
+              A closer look at the design, development, technologies, and
+              decisions behind this project.
+            </p>
+          </div>
+        </header>
 
+        {/* =========================================
+            PROJECT IMAGE
+        ========================================= */}
+
+        <div className="portfolio_detail_visual">
+          <div className="portfolio_detail_image_wrapper">
+            <img
+              src={project_img}
+              alt={`${project_location} project`}
+              className="portfolio_detail_image"
+            />
+          </div>
+
+          <div className="portfolio_detail_image_caption">
+            <span>PROJECT PREVIEW</span>
+
+            <span>{project_role || "Development"}</span>
           </div>
         </div>
-      }
-    </div>
-  )
-}
 
-export default PortfolioPage
+        {/* =========================================
+            PROJECT INFORMATION
+        ========================================= */}
+
+        <section className="portfolio_detail_information">
+          <div className="portfolio_detail_meta">
+            <div className="portfolio_meta_item">
+              <span className="portfolio_meta_label">Role</span>
+
+              <strong>{project_role || "Development"}</strong>
+            </div>
+
+            <div className="portfolio_meta_item">
+              <span className="portfolio_meta_label">Technologies</span>
+
+              <div className="portfolio_technologies">
+                {technologyList.length > 0 ? (
+                  technologyList.map((technology, index) => (
+                    <span key={`${technology}-${index}`}>{technology}</span>
+                  ))
+                ) : (
+                  <span>Various technologies</span>
+                )}
+              </div>
+            </div>
+          </div>
+
+          <div className="portfolio_detail_description">
+            <span className="portfolio_description_label">
+              ABOUT THE PROJECT
+            </span>
+
+            <div>
+              <p>{project_description}</p>
+            </div>
+          </div>
+        </section>
+
+        {/* =========================================
+            ACTIONS
+        ========================================= */}
+
+        <div className="portfolio_detail_actions">
+          {view_link && (
+            <a
+              href={view_link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="portfolio_action portfolio_action_primary"
+            >
+              <span>View live demo</span>
+              <span>↗</span>
+            </a>
+          )}
+
+          {github_link && (
+            <a
+              href={github_link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="portfolio_action portfolio_action_secondary"
+            >
+              <span>View source code</span>
+              <span>↗</span>
+            </a>
+          )}
+        </div>
+
+        {/* =========================================
+            FOOTER
+        ========================================= */}
+
+        <footer className="portfolio_detail_footer">
+          <span className="portfolio_detail_footer_line"></span>
+
+          <div>
+            <span>END OF PROJECT</span>
+            <strong>✦</strong>
+          </div>
+
+          <a href="/#portfolios">Explore more work →</a>
+        </footer>
+      </div>
+    </main>
+  );
+};
+
+export default PortfolioPage;
