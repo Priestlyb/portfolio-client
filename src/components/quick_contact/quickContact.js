@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
+import { ArrowUpRight, Sparkles } from "lucide-react";
 import "./quickContact.css";
 
 import applause from "./applause.mp4";
@@ -54,7 +55,7 @@ const QuickContact = () => {
         <span className="quick-contact-trigger_text">LET&apos;S TALK</span>
 
         <span className="quick-contact-trigger_icon">
-          <i className="fa-solid fa-arrow-up-right-from-square"></i>
+          <ArrowUpRight size={19} strokeWidth={2} aria-hidden="true" />
         </span>
       </button>
 
@@ -101,7 +102,9 @@ const QuickContact = () => {
               SOMETHING.
             </h1>
 
-            <div className="quick-contact-star">✦</div>
+            <div className="quick-contact-star" aria-hidden="true">
+              <Sparkles size={24} strokeWidth={2} />
+            </div>
           </div>
 
           {/* Intro */}
@@ -127,7 +130,9 @@ const QuickContact = () => {
                 <strong>pbassey30@gmail.com</strong>
               </div>
 
-              <span className="quick-contact-direct_arrow">↗</span>
+              <span className="quick-contact-direct_arrow">
+                <ArrowUpRight size={18} strokeWidth={2} aria-hidden="true" />
+              </span>
             </a>
 
             <a href="tel:+2348067156986" className="quick-contact-direct_item">
@@ -140,7 +145,9 @@ const QuickContact = () => {
                 <strong>+234 806 715 6986</strong>
               </div>
 
-              <span className="quick-contact-direct_arrow">↗</span>
+              <span className="quick-contact-direct_arrow">
+                <ArrowUpRight size={18} strokeWidth={2} aria-hidden="true" />
+              </span>
             </a>
           </div>
 
@@ -153,6 +160,7 @@ const QuickContact = () => {
 
             <div className="quick-contact-field">
               <span>01</span>
+
               <input
                 name="user_name"
                 type="text"
@@ -163,6 +171,7 @@ const QuickContact = () => {
 
             <div className="quick-contact-field">
               <span>02</span>
+
               <input
                 name="user_email"
                 type="email"
@@ -173,6 +182,7 @@ const QuickContact = () => {
 
             <div className="quick-contact-field">
               <span>03</span>
+
               <input
                 name="user_subject"
                 type="text"
@@ -183,6 +193,7 @@ const QuickContact = () => {
 
             <div className="quick-contact-field quick-contact-field_message">
               <span>04</span>
+
               <textarea
                 name="message"
                 placeholder="Tell me about your project..."
@@ -198,7 +209,7 @@ const QuickContact = () => {
             >
               <span>{sending ? "SENDING..." : "SEND MESSAGE"}</span>
 
-              <i className="fa-solid fa-arrow-up-right-from-square"></i>
+              <ArrowUpRight size={19} strokeWidth={2} aria-hidden="true" />
             </button>
 
             {done && (
@@ -228,7 +239,11 @@ const QuickContact = () => {
           {/* Footer */}
           <div className="quick-contact-footer">
             <span>PRIestly PATRICK BASSEY</span>
-            <span>✦</span>
+
+            <span aria-hidden="true">
+              <Sparkles size={15} strokeWidth={2} />
+            </span>
+
             <span>2026</span>
           </div>
         </div>

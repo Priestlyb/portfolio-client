@@ -1,5 +1,13 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import {
+  AlertCircle,
+  Check,
+  Plus,
+  ArrowUpRight,
+  X,
+  Sparkles,
+} from "lucide-react";
 import "../../constants/styles/admin.css";
 import { axiosInstance } from "../../config";
 
@@ -246,7 +254,9 @@ export default function EditExperience() {
       <section className="admin_projects">
         {error && !formData.title ? (
           <div className="admin_state admin_empty">
-            <span className="admin_state_number">!</span>
+            <span className="admin_state_number">
+              <AlertCircle size={20} strokeWidth={2} />
+            </span>
 
             <div>
               <h3>Unable to load experience.</h3>
@@ -258,7 +268,7 @@ export default function EditExperience() {
                 className="admin_retry"
                 onClick={() => navigate("/admin")}
               >
-                BACK TO ADMIN ↗
+                BACK TO ADMIN <ArrowUpRight size={16} strokeWidth={2} />
               </button>
             </div>
           </div>
@@ -267,7 +277,9 @@ export default function EditExperience() {
             {/* ERROR */}
             {error && (
               <div className="admin_form_message admin_form_error">
-                <span>!</span>
+                <span>
+                  <AlertCircle size={18} strokeWidth={2} />
+                </span>
                 <p>{error}</p>
               </div>
             )}
@@ -275,7 +287,9 @@ export default function EditExperience() {
             {/* SUCCESS */}
             {success && (
               <div className="admin_form_message admin_form_success">
-                <span>✓</span>
+                <span>
+                  <Check size={18} strokeWidth={2} />
+                </span>
                 <p>{success}</p>
               </div>
             )}
@@ -442,7 +456,7 @@ export default function EditExperience() {
                         onClick={() => removeDuty(index)}
                         aria-label={`Remove duty ${index + 1}`}
                       >
-                        ×
+                        <X size={18} strokeWidth={2} />
                       </button>
                     )}
                   </div>
@@ -453,9 +467,15 @@ export default function EditExperience() {
                   className="admin_add_duty"
                   onClick={addDuty}
                 >
-                  <span>+</span>
+                  <span>
+                    <Plus size={18} strokeWidth={2} />
+                  </span>
+
                   <span>ADD CONTRIBUTION</span>
-                  <span>↗</span>
+
+                  <span>
+                    <ArrowUpRight size={18} strokeWidth={2} />
+                  </span>
                 </button>
               </div>
             </div>
@@ -484,7 +504,9 @@ export default function EditExperience() {
                 ) : (
                   <>
                     <span>UPDATE EXPERIENCE</span>
-                    <span>↗</span>
+                    <span>
+                      <ArrowUpRight size={18} strokeWidth={2} />
+                    </span>
                   </>
                 )}
               </button>
@@ -497,7 +519,10 @@ export default function EditExperience() {
       <footer className="admin_footer">
         <span>PRIESTLY PATRICK BASSEY</span>
         <span>ADMIN / EXPERIENCE</span>
-        <span>✦ 2026</span>
+        <span>
+          <Sparkles size={15} strokeWidth={2} />
+          2026
+        </span>
       </footer>
     </main>
   );

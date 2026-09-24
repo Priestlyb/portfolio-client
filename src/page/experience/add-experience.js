@@ -1,5 +1,13 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import {
+  AlertCircle,
+  Check,
+  Plus,
+  ArrowUpRight,
+  X,
+  Sparkles,
+} from "lucide-react";
 import "../../constants/styles/experience.css";
 import { axiosInstance } from "../../config";
 
@@ -163,7 +171,9 @@ export default function AddExperience() {
           {/* ERROR */}
           {error && (
             <div className="admin_form_message admin_form_error">
-              <span>!</span>
+              <span>
+                <AlertCircle size={18} strokeWidth={2} />
+              </span>
               <p>{error}</p>
             </div>
           )}
@@ -171,7 +181,9 @@ export default function AddExperience() {
           {/* SUCCESS */}
           {success && (
             <div className="admin_form_message admin_form_success">
-              <span>✓</span>
+              <span>
+                <Check size={18} strokeWidth={2} />
+              </span>
               <p>{success}</p>
             </div>
           )}
@@ -338,7 +350,7 @@ export default function AddExperience() {
                       onClick={() => removeDuty(index)}
                       aria-label={`Remove duty ${index + 1}`}
                     >
-                      ×
+                      <X size={18} strokeWidth={2} />
                     </button>
                   )}
                 </div>
@@ -349,9 +361,15 @@ export default function AddExperience() {
                 className="admin_add_duty"
                 onClick={addDuty}
               >
-                <span>+</span>
+                <span>
+                  <Plus size={18} strokeWidth={2} />
+                </span>
+
                 <span>ADD CONTRIBUTION</span>
-                <span>↗</span>
+
+                <span>
+                  <ArrowUpRight size={18} strokeWidth={2} />
+                </span>
               </button>
             </div>
           </div>
@@ -380,7 +398,9 @@ export default function AddExperience() {
               ) : (
                 <>
                   <span>CREATE EXPERIENCE</span>
-                  <span>↗</span>
+                  <span>
+                    <ArrowUpRight size={18} strokeWidth={2} />
+                  </span>
                 </>
               )}
             </button>
@@ -392,7 +412,10 @@ export default function AddExperience() {
       <footer className="admin_footer">
         <span>PRIESTLY PATRICK BASSEY</span>
         <span>ADMIN / EXPERIENCE</span>
-        <span>✦ 2026</span>
+        <span>
+          <Sparkles size={15} strokeWidth={2} />
+          2026
+        </span>
       </footer>
     </main>
   );

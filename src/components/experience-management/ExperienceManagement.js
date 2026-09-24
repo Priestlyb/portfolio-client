@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { ArrowUpRight, Check, AlertCircle } from "lucide-react";
 import {
   DndContext,
   PointerSensor,
@@ -106,7 +107,8 @@ function SortableExperience({ experience, index, onDelete, deleting }) {
           to={`/admin/experience/edit/${experience._id}`}
           className="admin_experience_edit"
         >
-          EDIT <span>↗</span>
+          EDIT
+          <ArrowUpRight size={16} strokeWidth={2} aria-hidden="true" />
         </Link>
 
         <button
@@ -349,19 +351,21 @@ export default function ExperienceManagement() {
       {/* STATUS MESSAGES */}
       {error && (
         <div className="admin_form_message admin_form_error">
-          <span>!</span>
+          <AlertCircle size={18} strokeWidth={2} aria-hidden="true" />
 
           <p>{error}</p>
 
           <button type="button" onClick={fetchExperiences}>
-            TRY AGAIN ↗
+            TRY AGAIN
+            <ArrowUpRight size={16} strokeWidth={2} aria-hidden="true" />
           </button>
         </div>
       )}
 
       {success && (
         <div className="admin_form_message admin_form_success">
-          <span>✓</span>
+          <Check size={18} strokeWidth={2} aria-hidden="true" />
+
           <p>{success}</p>
         </div>
       )}
@@ -422,7 +426,7 @@ export default function ExperienceManagement() {
               ) : (
                 <>
                   SAVE ORDER
-                  <span>↗</span>
+                  <ArrowUpRight size={18} strokeWidth={2} aria-hidden="true" />
                 </>
               )}
             </button>
@@ -442,7 +446,8 @@ export default function ExperienceManagement() {
             </p>
 
             <Link to="/admin/experience/add" className="admin_retry">
-              CREATE FIRST EXPERIENCE ↗
+              CREATE FIRST EXPERIENCE
+              <ArrowUpRight size={18} strokeWidth={2} aria-hidden="true" />
             </Link>
           </div>
         </div>
@@ -454,8 +459,12 @@ export default function ExperienceManagement() {
           <Link to="/admin/experience/add" className="admin_add_btn">
             <button type="button" className="admin_btn">
               <span className="admin_btn_icon">+</span>
+
               <span>ADD EXPERIENCE</span>
-              <span className="admin_btn_arrow">↗</span>
+
+              <span className="admin_btn_arrow">
+                <ArrowUpRight size={20} strokeWidth={2} aria-hidden="true" />
+              </span>
             </button>
           </Link>
         </div>

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { ArrowUpRight, ArrowLeft, ArrowDown, Sparkles } from "lucide-react";
 import { axiosInstance } from "../../config";
 import "./portfoliopage.css";
 
@@ -75,7 +76,9 @@ const PortfolioPage = () => {
           <p>The project you are looking for could not be loaded.</p>
 
           <a href="/#portfolios">
-            <span>←</span>
+            <span>
+              <ArrowLeft size={18} strokeWidth={2} aria-hidden="true" />
+            </span>
             Back to selected work
           </a>
         </div>
@@ -114,7 +117,10 @@ const PortfolioPage = () => {
 
         <div className="portfolio_showcase_nav">
           <a href="/#portfolios" className="portfolio_showcase_back">
-            <span className="portfolio_back_circle">←</span>
+            <span className="portfolio_back_circle">
+              <ArrowLeft size={18} strokeWidth={2} aria-hidden="true" />
+            </span>
+
             <span>Selected Work</span>
           </a>
 
@@ -129,11 +135,12 @@ const PortfolioPage = () => {
         <div className="portfolio_showcase_hero_content">
           <div className="portfolio_showcase_category">
             <span className="portfolio_category_line"></span>
+
             <span>{project_role || "WEB DEVELOPMENT"}</span>
           </div>
 
           <div className="portfolio_showcase_title_row">
-            <span className="portfolio_showcase_number">0{1}</span>
+            <span className="portfolio_showcase_number">01</span>
 
             <h1>
               {project_location}
@@ -149,7 +156,9 @@ const PortfolioPage = () => {
 
             <span className="portfolio_scroll_hint">
               SCROLL TO EXPLORE
-              <span>↓</span>
+              <span>
+                <ArrowDown size={18} strokeWidth={2} aria-hidden="true" />
+              </span>
             </span>
           </div>
         </div>
@@ -180,7 +189,10 @@ const PortfolioPage = () => {
 
           <div className="portfolio_showcase_image_overlay">
             <span>SELECTED WORK</span>
-            <span>✦</span>
+
+            <span aria-hidden="true">
+              <Sparkles size={16} strokeWidth={2} />
+            </span>
           </div>
         </div>
       </section>
@@ -209,11 +221,13 @@ const PortfolioPage = () => {
           <div className="portfolio_showcase_meta">
             <div className="portfolio_showcase_meta_block">
               <span>ROLE</span>
+
               <strong>{project_role || "Development"}</strong>
             </div>
 
             <div className="portfolio_showcase_meta_block">
               <span>PROJECT TYPE</span>
+
               <strong>Digital Product</strong>
             </div>
           </div>
@@ -227,6 +241,7 @@ const PortfolioPage = () => {
       <section className="portfolio_showcase_technologies">
         <div className="portfolio_technology_heading">
           <span>03 — TECHNOLOGY</span>
+
           <h2>THE STACK.</h2>
         </div>
 
@@ -241,14 +256,20 @@ const PortfolioPage = () => {
 
                 <strong>{technology}</strong>
 
-                <span className="portfolio_technology_arrow">↗</span>
+                <span className="portfolio_technology_arrow">
+                  <ArrowUpRight size={18} strokeWidth={2} aria-hidden="true" />
+                </span>
               </div>
             ))
           ) : (
             <div className="portfolio_technology_item">
               <span>01</span>
+
               <strong>Various technologies</strong>
-              <span className="portfolio_technology_arrow">↗</span>
+
+              <span className="portfolio_technology_arrow">
+                <ArrowUpRight size={18} strokeWidth={2} aria-hidden="true" />
+              </span>
             </div>
           )}
         </div>
@@ -262,6 +283,7 @@ const PortfolioPage = () => {
         <section className="portfolio_showcase_links">
           <div className="portfolio_links_heading">
             <span>04 — EXPLORE</span>
+
             <h2>TAKE A LOOK.</h2>
           </div>
 
@@ -275,10 +297,13 @@ const PortfolioPage = () => {
               >
                 <div>
                   <span>LIVE EXPERIENCE</span>
+
                   <strong>View live project</strong>
                 </div>
 
-                <span className="portfolio_project_link_icon">↗</span>
+                <span className="portfolio_project_link_icon">
+                  <ArrowUpRight size={20} strokeWidth={2} aria-hidden="true" />
+                </span>
               </a>
             )}
 
@@ -291,10 +316,13 @@ const PortfolioPage = () => {
               >
                 <div>
                   <span>SOURCE CODE</span>
+
                   <strong>View on GitHub</strong>
                 </div>
 
-                <span className="portfolio_project_link_icon">↗</span>
+                <span className="portfolio_project_link_icon">
+                  <ArrowUpRight size={20} strokeWidth={2} aria-hidden="true" />
+                </span>
               </a>
             )}
           </div>
@@ -308,7 +336,10 @@ const PortfolioPage = () => {
       <section className="portfolio_showcase_end">
         <div className="portfolio_showcase_end_top">
           <span>END OF PROJECT</span>
-          <span>✦</span>
+
+          <span aria-hidden="true">
+            <Sparkles size={16} strokeWidth={2} />
+          </span>
         </div>
 
         <h2>
@@ -319,11 +350,15 @@ const PortfolioPage = () => {
 
         <a href="/#portfolios" className="portfolio_more_work">
           <span>Explore selected work</span>
-          <span>↗</span>
+
+          <span>
+            <ArrowUpRight size={20} strokeWidth={2} aria-hidden="true" />
+          </span>
         </a>
 
         <div className="portfolio_showcase_end_footer">
           <span>PRIESTLY PATRICK BASSEY</span>
+
           <span>2026</span>
         </div>
       </section>

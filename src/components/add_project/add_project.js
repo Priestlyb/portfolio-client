@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { ArrowLeft, ArrowUpRight, Sparkles } from "lucide-react";
 import { axiosInstance } from "../../config";
 import FeedbackModal from "../../components/FeedbackModal/FeedbackModal";
 import "./add_project.css";
@@ -98,7 +99,9 @@ const AddProject = () => {
         <header className="add_project_header">
           <div className="add_project_header_top">
             <a href="/admin" className="add_project_back">
-              <span>←</span>
+              <span>
+                <ArrowLeft size={18} strokeWidth={2} />
+              </span>
               <strong>BACK TO ADMIN</strong>
             </a>
 
@@ -137,7 +140,9 @@ const AddProject = () => {
             <h2>{inputs.project_location || "Untitled Project"}</h2>
           </div>
 
-          <span className="add_project_identity_mark">✦</span>
+          <span className="add_project_identity_mark">
+            <Sparkles size={18} strokeWidth={2} />
+          </span>
         </section>
 
         <form className="add_project_form" onSubmit={handleSubmit}>
@@ -349,7 +354,9 @@ const AddProject = () => {
           {/* Submit */}
           <div className="add_project_submit">
             <div className="add_project_security">
-              <span>✦</span>
+              <span>
+                <Sparkles size={16} strokeWidth={2} />
+              </span>
 
               <div>
                 <strong>PORTFOLIO DATABASE</strong>
@@ -365,7 +372,11 @@ const AddProject = () => {
               <span>{saving ? "CREATING PROJECT..." : "CREATE PROJECT"}</span>
 
               <span className="add_project_save_icon">
-                {saving ? <span className="add_project_spinner"></span> : "↗"}
+                {saving ? (
+                  <span className="add_project_spinner"></span>
+                ) : (
+                  <ArrowUpRight size={18} strokeWidth={2} />
+                )}
               </span>
             </button>
           </div>
@@ -375,7 +386,10 @@ const AddProject = () => {
         <footer className="add_project_footer">
           <span>PRIESTLY PATRICK BASSEY</span>
           <span>ADMIN / ADD PROJECT</span>
-          <span>✦ 2026</span>
+          <span>
+            <Sparkles size={15} strokeWidth={2} />
+            2026
+          </span>
         </footer>
       </main>
 

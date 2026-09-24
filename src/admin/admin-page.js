@@ -1,4 +1,18 @@
 import { useState, useEffect, useContext } from "react";
+import {
+  Plus,
+  ArrowUpRight,
+  AlertCircle,
+  FolderOpen,
+  Briefcase,
+  House,
+  UserRoundCog,
+  LogOut,
+  ArrowDown,
+  Menu,
+  X,
+  Sparkles,
+} from "lucide-react";
 import "../constants/styles/admin.css";
 import Adminsingle from "./admin-single";
 import ExperienceManagement from "../components/experience-management/ExperienceManagement";
@@ -121,11 +135,15 @@ export default function Adminpage() {
         <div className="admin_summary_item admin_summary_action">
           <a href="/admin" className="admin_add_btn">
             <button className="admin_btn" type="button">
-              <span className="admin_btn_icon">+</span>
+              <span className="admin_btn_icon">
+                <Plus size={18} strokeWidth={2} />
+              </span>
 
               <span>ADD PROJECT</span>
 
-              <span className="admin_btn_arrow">↗</span>
+              <span className="admin_btn_arrow">
+                <ArrowUpRight size={18} strokeWidth={2} />
+              </span>
             </button>
           </a>
         </div>
@@ -162,7 +180,9 @@ export default function Adminpage() {
           </div>
         ) : error ? (
           <div className="admin_state">
-            <span className="admin_state_number">!</span>
+            <span className="admin_state_number">
+              <AlertCircle size={22} strokeWidth={2} />
+            </span>
 
             <div>
               <h3>Unable to load projects.</h3>
@@ -176,7 +196,9 @@ export default function Adminpage() {
                 className="admin_retry"
                 onClick={fetchHandler}
               >
-                TRY AGAIN ↗
+                <span>TRY AGAIN</span>
+
+                <ArrowUpRight size={18} strokeWidth={2} />
               </button>
             </div>
           </div>
@@ -208,7 +230,9 @@ export default function Adminpage() {
               </p>
 
               <a href="/admin" className="admin_retry">
-                CREATE FIRST PROJECT ↗
+                <span>CREATE FIRST PROJECT</span>
+
+                <ArrowUpRight size={18} strokeWidth={2} />
               </a>
             </div>
           </div>
@@ -230,7 +254,10 @@ export default function Adminpage() {
 
         <span>ADMIN / PORTFOLIO</span>
 
-        <span>✦ 2026</span>
+        <span className="admin_footer_mark">
+          <Sparkles size={15} strokeWidth={2} />
+          <span>2026</span>
+        </span>
       </footer>
 
       {/* =========================================
@@ -246,7 +273,7 @@ export default function Adminpage() {
           aria-label="Open admin navigation"
         >
           <span className="admin_menu_icon">
-            <i className="fa-solid fa-bars-staggered"></i>
+            <Menu size={20} strokeWidth={2} />
           </span>
 
           <span>MENU</span>
@@ -272,7 +299,10 @@ export default function Adminpage() {
               data-bs-dismiss="offcanvas"
               aria-label="Close"
             >
-              <span></span>
+              <span>
+                <X size={20} strokeWidth={2} />
+              </span>
+
               <span></span>
             </button>
           </div>
@@ -290,12 +320,14 @@ export default function Adminpage() {
                 <span className="admin_nav_number">01</span>
 
                 <span className="admin_nav_icon">
-                  <i className="fa-solid fa-folder-open"></i>
+                  <FolderOpen size={19} strokeWidth={2} />
                 </span>
 
                 <span className="admin_nav_text">Projects</span>
 
-                <span className="admin_nav_arrow">↓</span>
+                <span className="admin_nav_arrow">
+                  <ArrowDown size={18} strokeWidth={2} />
+                </span>
               </button>
 
               {/* EXPERIENCE */}
@@ -308,12 +340,14 @@ export default function Adminpage() {
                 <span className="admin_nav_number">02</span>
 
                 <span className="admin_nav_icon">
-                  <i className="fa-solid fa-briefcase"></i>
+                  <Briefcase size={19} strokeWidth={2} />
                 </span>
 
                 <span className="admin_nav_text">Experience</span>
 
-                <span className="admin_nav_arrow">↓</span>
+                <span className="admin_nav_arrow">
+                  <ArrowDown size={18} strokeWidth={2} />
+                </span>
               </button>
 
               {/* HOME */}
@@ -321,12 +355,14 @@ export default function Adminpage() {
                 <span className="admin_nav_number">03</span>
 
                 <span className="admin_nav_icon">
-                  <i className="fa-solid fa-house-chimney"></i>
+                  <House size={19} strokeWidth={2} />
                 </span>
 
                 <span className="admin_nav_text">Home</span>
 
-                <span className="admin_nav_arrow">↗</span>
+                <span className="admin_nav_arrow">
+                  <ArrowUpRight size={18} strokeWidth={2} />
+                </span>
               </a>
 
               {/* USER PROFILE */}
@@ -334,12 +370,14 @@ export default function Adminpage() {
                 <span className="admin_nav_number">04</span>
 
                 <span className="admin_nav_icon">
-                  <i className="fa-solid fa-user-tie"></i>
+                  <UserRoundCog size={19} strokeWidth={2} />
                 </span>
 
                 <span className="admin_nav_text">User Profile</span>
 
-                <span className="admin_nav_arrow">↗</span>
+                <span className="admin_nav_arrow">
+                  <ArrowUpRight size={18} strokeWidth={2} />
+                </span>
               </Link>
 
               {/* LOGOUT */}
@@ -351,12 +389,14 @@ export default function Adminpage() {
                 <span className="admin_nav_number">05</span>
 
                 <span className="admin_nav_icon">
-                  <i className="fa-solid fa-right-from-bracket"></i>
+                  <LogOut size={19} strokeWidth={2} />
                 </span>
 
                 <span className="admin_nav_text">Logout</span>
 
-                <span className="admin_nav_arrow">↗</span>
+                <span className="admin_nav_arrow">
+                  <ArrowUpRight size={18} strokeWidth={2} />
+                </span>
               </button>
             </nav>
 
@@ -370,7 +410,9 @@ export default function Adminpage() {
                 <strong>{user?.username || user?.name || "ADMIN"}</strong>
               </div>
 
-              <div className="admin_offcanvas_mark">✦</div>
+              <div className="admin_offcanvas_mark">
+                <Sparkles size={18} strokeWidth={2} />
+              </div>
             </div>
           </div>
         </div>

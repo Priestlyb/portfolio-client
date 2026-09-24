@@ -1,4 +1,12 @@
 import { useState, useContext, useRef } from "react";
+import {
+  Eye,
+  EyeOff,
+  AlertCircle,
+  Check,
+  Sparkles,
+  ArrowUpRight,
+} from "lucide-react";
 import { Context } from "../../context/Context";
 import "./Login.css";
 import { axiosInstance } from "../../config";
@@ -69,7 +77,10 @@ export default function Login() {
       <div className="login_page_inner">
         <header className="login_header">
           <a href="/" className="login_brand">
-            <span className="login_brand_mark">✦</span>
+            <span className="login_brand_mark">
+              <Sparkles size={18} strokeWidth={2} />
+            </span>
+
             <span>PRIESTLY PATRICK BASSEY</span>
           </a>
 
@@ -113,7 +124,9 @@ export default function Login() {
 
             {error && (
               <div className="login_message login_message_error">
-                <span className="login_message_icon">!</span>
+                <span className="login_message_icon">
+                  <AlertCircle size={18} strokeWidth={2} />
+                </span>
 
                 <div>
                   <strong>ACCESS DENIED</strong>
@@ -124,7 +137,9 @@ export default function Login() {
 
             {success && (
               <div className="login_message login_message_success">
-                <span className="login_message_icon">✓</span>
+                <span className="login_message_icon">
+                  <Check size={18} strokeWidth={2} />
+                </span>
 
                 <div>
                   <strong>LOGIN SUCCESSFUL</strong>
@@ -182,13 +197,11 @@ export default function Login() {
                       }
                       title={showPassword ? "Hide password" : "Show password"}
                     >
-                      <i
-                        className={
-                          showPassword
-                            ? "fa-regular fa-eye-slash"
-                            : "fa-regular fa-eye"
-                        }
-                      ></i>
+                      {showPassword ? (
+                        <EyeOff size={18} strokeWidth={2} />
+                      ) : (
+                        <Eye size={18} strokeWidth={2} />
+                      )}
                     </button>
                   </div>
 
@@ -200,7 +213,9 @@ export default function Login() {
 
               <div className="login_form_footer">
                 <div className="login_security_note">
-                  <span className="login_security_icon">✦</span>
+                  <span className="login_security_icon">
+                    <Sparkles size={16} strokeWidth={2} />
+                  </span>
 
                   <div>
                     <span>SECURITY</span>
@@ -216,7 +231,11 @@ export default function Login() {
                   <span>{isFetching ? "AUTHENTICATING..." : "SIGN IN"}</span>
 
                   <span className="login_button_icon">
-                    {isFetching ? <span className="login_spinner"></span> : "↗"}
+                    {isFetching ? (
+                      <span className="login_spinner"></span>
+                    ) : (
+                      <ArrowUpRight size={20} strokeWidth={2} />
+                    )}
                   </span>
                 </button>
               </div>
@@ -227,13 +246,20 @@ export default function Login() {
         <footer className="login_footer">
           <div>
             <span>PRIESTLY PATRICK BASSEY</span>
-            <span className="login_footer_mark">✦</span>
+
+            <span className="login_footer_mark">
+              <Sparkles size={14} strokeWidth={2} />
+            </span>
+
             <span>2026</span>
           </div>
 
           <a href="/register" className="login_register_link">
             <span>NEW HERE?</span>
-            <strong>CREATE ACCOUNT ↗</strong>
+
+            <strong>
+              CREATE ACCOUNT <ArrowUpRight size={16} strokeWidth={2} />
+            </strong>
           </a>
         </footer>
       </div>

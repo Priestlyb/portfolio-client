@@ -1,6 +1,15 @@
 import React, { useState, useEffect } from "react";
 import "./UserProfile.css";
-import { Eye, EyeOff, ArrowUpRight, LockKeyhole } from "lucide-react";
+import {
+  Eye,
+  EyeOff,
+  ArrowUpRight,
+  LockKeyhole,
+  Sparkles,
+  Check,
+  AlertCircle,
+  LoaderCircle,
+} from "lucide-react";
 import { useParams, useNavigate } from "react-router-dom";
 import { axiosInstance } from "../../config";
 
@@ -168,7 +177,9 @@ function UserProfile() {
             </p>
           </div>
 
-          <div className="user_profile_identity_mark">✦</div>
+          <div className="user_profile_identity_mark">
+            <Sparkles size={22} strokeWidth={2} />
+          </div>
         </section>
 
         {/* =================================================
@@ -198,6 +209,7 @@ function UserProfile() {
 
             <div className="user_profile_information_item">
               <span>ACCOUNT</span>
+
               <strong className="user_profile_active">
                 <i></i>
                 ACTIVE
@@ -293,7 +305,11 @@ function UserProfile() {
                     }
                     title={showPassword ? "Hide password" : "Show password"}
                   >
-                    {showPassword ? <EyeOff size={17} /> : <Eye size={17} />}
+                    {showPassword ? (
+                      <EyeOff size={17} strokeWidth={2} />
+                    ) : (
+                      <Eye size={17} strokeWidth={2} />
+                    )}
                   </button>
                 </div>
 
@@ -304,7 +320,7 @@ function UserProfile() {
               </div>
 
               <div className="user_profile_security_icon">
-                <LockKeyhole size={17} />
+                <LockKeyhole size={17} strokeWidth={2} />
               </div>
             </div>
 
@@ -316,7 +332,13 @@ function UserProfile() {
                   message.type === "success" ? "is-success" : "is-error"
                 }`}
               >
-                <span>{message.type === "success" ? "✓" : "!"}</span>
+                <span>
+                  {message.type === "success" ? (
+                    <Check size={18} strokeWidth={2} />
+                  ) : (
+                    <AlertCircle size={18} strokeWidth={2} />
+                  )}
+                </span>
 
                 <p>{message.text}</p>
               </div>
@@ -338,7 +360,15 @@ function UserProfile() {
                 <span>{saving ? "UPDATING..." : "UPDATE PROFILE"}</span>
 
                 <span className="user_profile_submit_icon">
-                  {saving ? "..." : <ArrowUpRight size={17} />}
+                  {saving ? (
+                    <LoaderCircle
+                      size={17}
+                      strokeWidth={2}
+                      className="user_profile_spinner"
+                    />
+                  ) : (
+                    <ArrowUpRight size={17} strokeWidth={2} />
+                  )}
                 </span>
               </button>
             </div>
@@ -352,7 +382,9 @@ function UserProfile() {
         <footer className="user_profile_footer">
           <span>PRIESTLY PATRICK BASSEY</span>
 
-          <span className="user_profile_footer_mark">✦</span>
+          <span className="user_profile_footer_mark">
+            <Sparkles size={14} strokeWidth={2} />
+          </span>
 
           <span>ACCOUNT / PROFILE</span>
         </footer>

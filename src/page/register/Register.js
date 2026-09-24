@@ -1,4 +1,12 @@
 import { useState, useRef } from "react";
+import {
+  Eye,
+  EyeOff,
+  AlertCircle,
+  Check,
+  Sparkles,
+  ArrowUpRight,
+} from "lucide-react";
 import { axiosInstance } from "../../config";
 import "./Register.css";
 
@@ -77,7 +85,10 @@ export default function Register() {
       <div className="register_page_inner">
         <header className="register_header">
           <a href="/" className="register_brand">
-            <span className="register_brand_mark">✦</span>
+            <span className="register_brand_mark">
+              <Sparkles size={18} strokeWidth={2} />
+            </span>
+
             <span>PRIESTLY PATRICK BASSEY</span>
           </a>
 
@@ -121,7 +132,9 @@ export default function Register() {
 
             {error && (
               <div className="register_message register_message_error">
-                <span className="register_message_icon">!</span>
+                <span className="register_message_icon">
+                  <AlertCircle size={18} strokeWidth={2} />
+                </span>
 
                 <div>
                   <strong>REGISTRATION FAILED</strong>
@@ -132,7 +145,9 @@ export default function Register() {
 
             {success && (
               <div className="register_message register_message_success">
-                <span className="register_message_icon">✓</span>
+                <span className="register_message_icon">
+                  <Check size={18} strokeWidth={2} />
+                </span>
 
                 <div>
                   <strong>ACCOUNT CREATED</strong>
@@ -211,13 +226,11 @@ export default function Register() {
                       }
                       title={showPassword ? "Hide password" : "Show password"}
                     >
-                      <i
-                        className={
-                          showPassword
-                            ? "fa-regular fa-eye-slash"
-                            : "fa-regular fa-eye"
-                        }
-                      ></i>
+                      {showPassword ? (
+                        <EyeOff size={18} strokeWidth={2} />
+                      ) : (
+                        <Eye size={18} strokeWidth={2} />
+                      )}
                     </button>
                   </div>
 
@@ -227,7 +240,9 @@ export default function Register() {
 
               <div className="register_form_footer">
                 <div className="register_security_note">
-                  <span className="register_security_icon">✦</span>
+                  <span className="register_security_icon">
+                    <Sparkles size={16} strokeWidth={2} />
+                  </span>
 
                   <div>
                     <span>SECURITY</span>
@@ -246,7 +261,7 @@ export default function Register() {
                     {isSubmitting ? (
                       <span className="register_spinner"></span>
                     ) : (
-                      "↗"
+                      <ArrowUpRight size={20} strokeWidth={2} />
                     )}
                   </span>
                 </button>
@@ -256,7 +271,10 @@ export default function Register() {
             {success && (
               <a href="/admin" className="register_success_link">
                 <span>ACCOUNT READY</span>
-                <strong>GO TO LOGIN ↗</strong>
+
+                <strong>
+                  GO TO LOGIN <ArrowUpRight size={16} strokeWidth={2} />
+                </strong>
               </a>
             )}
           </div>
@@ -265,14 +283,21 @@ export default function Register() {
         <footer className="register_footer">
           <div>
             <span>PRIESTLY PATRICK BASSEY</span>
-            <span className="register_footer_mark">✦</span>
+
+            <span className="register_footer_mark">
+              <Sparkles size={14} strokeWidth={2} />
+            </span>
+
             <span>2026</span>
           </div>
 
           {!success && (
             <a href="/admin" className="register_login_link">
               <span>ALREADY REGISTERED?</span>
-              <strong>SIGN IN ↗</strong>
+
+              <strong>
+                SIGN IN <ArrowUpRight size={16} strokeWidth={2} />
+              </strong>
             </a>
           )}
         </footer>

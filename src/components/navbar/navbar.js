@@ -1,4 +1,18 @@
 import React, { useContext } from "react";
+import {
+  Menu,
+  House,
+  Contact,
+  FolderTree,
+  SlidersHorizontal,
+  Lock,
+  LogOut,
+  ArrowUpRight,
+  Linkedin,
+  Twitter,
+  Github,
+  Sparkles,
+} from "lucide-react";
 import dp from "./it-developer.gif";
 import { Context } from "../../context/Context";
 import "./navbar.css";
@@ -14,8 +28,7 @@ const Navbar = () => {
     const offcanvasElement = document.getElementById("offcanvastop");
 
     if (offcanvasElement && window.bootstrap) {
-      const instance =
-        window.bootstrap.Offcanvas.getInstance(offcanvasElement);
+      const instance = window.bootstrap.Offcanvas.getInstance(offcanvasElement);
 
       instance?.hide();
     }
@@ -33,8 +46,9 @@ const Navbar = () => {
         aria-label="Open navigation menu"
       >
         <span className="navbar-btn_icon">
-          <i className="fa-solid fa-bars-staggered"></i>
+          <Menu size={22} strokeWidth={2} aria-hidden="true" />
         </span>
+
         <span className="navbar-btn_text">MENU</span>
       </button>
 
@@ -77,86 +91,113 @@ const Navbar = () => {
             <p className="navbar_navigation_label">NAVIGATION</p>
 
             <nav className="nav_bar_links" aria-label="Main navigation">
-              <a
-                className="nav-btn active"
-                href="#home"
-                onClick={closeMenu}
-              >
+              {/* HOME */}
+              <a className="nav-btn active" href="#home" onClick={closeMenu}>
                 <span className="nav-btn_number">01</span>
+
                 <span className="nav-btn_content">
-                  <i className="fa-solid fa-house-chimney"></i>
+                  <House size={18} strokeWidth={2} aria-hidden="true" />
                   <span>HOME</span>
                 </span>
-                <span className="nav-btn_arrow">↗</span>
+
+                <span className="nav-btn_arrow">
+                  <ArrowUpRight size={18} strokeWidth={2} aria-hidden="true" />
+                </span>
               </a>
 
-              <a
-                className="nav-btn"
-                href="#about"
-                onClick={closeMenu}
-              >
+              {/* ABOUT */}
+              <a className="nav-btn" href="#about" onClick={closeMenu}>
                 <span className="nav-btn_number">02</span>
+
                 <span className="nav-btn_content">
-                  <i className="fa-regular fa-address-card"></i>
+                  <Contact size={18} strokeWidth={2} aria-hidden="true" />
                   <span>ABOUT</span>
                 </span>
-                <span className="nav-btn_arrow">↗</span>
+
+                <span className="nav-btn_arrow">
+                  <ArrowUpRight size={18} strokeWidth={2} aria-hidden="true" />
+                </span>
               </a>
 
-              <a
-                className="nav-btn"
-                href="#portfolios"
-                onClick={closeMenu}
-              >
+              {/* PORTFOLIO */}
+              <a className="nav-btn" href="#portfolios" onClick={closeMenu}>
                 <span className="nav-btn_number">03</span>
+
                 <span className="nav-btn_content">
-                  <i className="fa-solid fa-folder-tree"></i>
+                  <FolderTree size={18} strokeWidth={2} aria-hidden="true" />
                   <span>PORTFOLIO</span>
                 </span>
-                <span className="nav-btn_arrow">↗</span>
+
+                <span className="nav-btn_arrow">
+                  <ArrowUpRight size={18} strokeWidth={2} aria-hidden="true" />
+                </span>
               </a>
 
-              <a
-                className="nav-btn"
-                href="#services"
-                onClick={closeMenu}
-              >
+              {/* SERVICES */}
+              <a className="nav-btn" href="#services" onClick={closeMenu}>
                 <span className="nav-btn_number">04</span>
+
                 <span className="nav-btn_content">
-                  <i className="fa-solid fa-sliders"></i>
+                  <SlidersHorizontal
+                    size={18}
+                    strokeWidth={2}
+                    aria-hidden="true"
+                  />
                   <span>SERVICES</span>
                 </span>
-                <span className="nav-btn_arrow">↗</span>
+
+                <span className="nav-btn_arrow">
+                  <ArrowUpRight size={18} strokeWidth={2} aria-hidden="true" />
+                </span>
               </a>
 
+              {/* ADMIN + LOGOUT */}
               {user && (
                 <>
                   <div className="navbar_divider"></div>
 
+                  {/* ADMIN */}
                   <a
                     className="nav-btn nav-btn_admin"
                     href="/admin"
                     onClick={closeMenu}
                   >
                     <span className="nav-btn_number">05</span>
+
                     <span className="nav-btn_content">
-                      <i className="fa-solid fa-lock"></i>
+                      <Lock size={18} strokeWidth={2} aria-hidden="true" />
                       <span>ADMIN</span>
                     </span>
-                    <span className="nav-btn_arrow">↗</span>
+
+                    <span className="nav-btn_arrow">
+                      <ArrowUpRight
+                        size={18}
+                        strokeWidth={2}
+                        aria-hidden="true"
+                      />
+                    </span>
                   </a>
 
+                  {/* LOGOUT */}
                   <button
                     className="nav-btn nav-btn_logout"
                     type="button"
                     onClick={handleLogout}
                   >
                     <span className="nav-btn_number">06</span>
+
                     <span className="nav-btn_content">
-                      <i className="fa-solid fa-arrow-right-from-bracket"></i>
+                      <LogOut size={18} strokeWidth={2} aria-hidden="true" />
                       <span>LOGOUT</span>
                     </span>
-                    <span className="nav-btn_arrow">↗</span>
+
+                    <span className="nav-btn_arrow">
+                      <ArrowUpRight
+                        size={18}
+                        strokeWidth={2}
+                        aria-hidden="true"
+                      />
+                    </span>
                   </button>
                 </>
               )}
@@ -167,10 +208,14 @@ const Navbar = () => {
           <div className="navbar_bottom">
             <div className="navbar_bottom_top">
               <span className="navbar_bottom_label">LET'S CONNECT</span>
-              <span className="navbar_bottom_mark">✦</span>
+
+              <span className="navbar_bottom_mark" aria-hidden="true">
+                <Sparkles size={16} strokeWidth={2} />
+              </span>
             </div>
 
             <div className="wrapper">
+              {/* LinkedIn */}
               <a
                 href="http://linkedin.com/in/priestly-bassey-486278175"
                 className="social_icon"
@@ -179,9 +224,11 @@ const Navbar = () => {
                 aria-label="LinkedIn"
               >
                 <span className="social_icon_tooltip">LinkedIn</span>
-                <i className="fa-brands fa-linkedin-in"></i>
+
+                <Linkedin size={19} strokeWidth={2} aria-hidden="true" />
               </a>
 
+              {/* Twitter / X */}
               <a
                 href="https://twitter.com/priestlythedon"
                 className="social_icon"
@@ -190,9 +237,11 @@ const Navbar = () => {
                 aria-label="Twitter"
               >
                 <span className="social_icon_tooltip">Twitter</span>
-                <i className="fa-brands fa-x-twitter"></i>
+
+                <Twitter size={19} strokeWidth={2} aria-hidden="true" />
               </a>
 
+              {/* GitHub */}
               <a
                 href="https://github.com/Priestlyb"
                 className="social_icon"
@@ -201,7 +250,8 @@ const Navbar = () => {
                 aria-label="GitHub"
               >
                 <span className="social_icon_tooltip">GitHub</span>
-                <i className="fa-brands fa-github"></i>
+
+                <Github size={19} strokeWidth={2} aria-hidden="true" />
               </a>
             </div>
 

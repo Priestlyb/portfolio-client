@@ -1,5 +1,6 @@
 import React from "react";
 import "./whatido.css";
+import { ArrowUpRight } from "lucide-react";
 
 function Whatido() {
   const services = [
@@ -109,7 +110,7 @@ function Whatido() {
               </div>
 
               <div className="whatido_service_arrow" aria-hidden="true">
-                ↗
+                <ArrowUpRight size={22} strokeWidth={1.8} />
               </div>
             </article>
           ))}

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { axiosInstance } from "../../config";
 import "./PortfolioUpdate.css";
+import { ArrowUpRight } from "lucide-react";
 
 const PortfolioUpdate = () => {
   const navigate = useNavigate();
@@ -456,7 +457,7 @@ const PortfolioUpdate = () => {
               {saving ? (
                 <span className="portfolio_update_spinner"></span>
               ) : (
-                "↗"
+                <ArrowUpRight size={18} strokeWidth={2} />
               )}
             </span>
           </button>

@@ -1,4 +1,5 @@
 import React from "react";
+import { ArrowUpRight } from "lucide-react";
 import "./portfolio.css";
 
 const Portfolio = ({ portfolio, index = 0 }) => {
@@ -38,7 +39,10 @@ const Portfolio = ({ portfolio, index = 0 }) => {
 
           <div className="portfolio_image_overlay">
             <span>VIEW PROJECT</span>
-            <span className="portfolio_overlay_arrow">↗</span>
+
+            <span className="portfolio_overlay_arrow">
+              <ArrowUpRight size={20} strokeWidth={2} />
+            </span>
           </div>
         </div>
       </a>
@@ -56,7 +60,10 @@ const Portfolio = ({ portfolio, index = 0 }) => {
 
         <a href={`/portfolio/${_id}`} className="portfolio_view_link">
           <span>View project</span>
-          <span className="portfolio_view_arrow">↗</span>
+
+          <span className="portfolio_view_arrow">
+            <ArrowUpRight size={18} strokeWidth={2} />
+          </span>
         </a>
       </div>
     </article>

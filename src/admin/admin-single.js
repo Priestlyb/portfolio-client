@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { ArrowUpRight, ArrowDownRight, X } from "lucide-react";
 import "../constants/styles/Adminsingle.css";
 import { axiosInstance } from "../config";
 import FeedbackModal from "../components/FeedbackModal/FeedbackModal";
@@ -59,7 +60,7 @@ const Adminsingle = (props) => {
     runAction(
       () => axiosInstance.delete(`/portfolios/${_id}`),
       "Portfolio permanently deleted successfully.",
-      "Unable to delete portfolio."
+      "Unable to delete portfolio.",
     );
   };
 
@@ -67,7 +68,7 @@ const Adminsingle = (props) => {
     runAction(
       () => axiosInstance.patch(`/portfolios/${_id}/soft-delete`),
       "Portfolio successfully hidden.",
-      "Unable to hide portfolio."
+      "Unable to hide portfolio.",
     );
   };
 
@@ -75,7 +76,7 @@ const Adminsingle = (props) => {
     runAction(
       () => axiosInstance.patch(`/portfolios/${_id}/restore`),
       "Portfolio successfully restored.",
-      "Unable to restore portfolio."
+      "Unable to restore portfolio.",
     );
   };
 
@@ -105,13 +106,14 @@ const Adminsingle = (props) => {
             loading="lazy"
           />
 
-          <div className="admin_portfolio_image_number">
-            PROJECT
-          </div>
+          <div className="admin_portfolio_image_number">PROJECT</div>
 
           <div className="admin_portfolio_overlay">
             <span>VIEW PROJECT</span>
-            <span>↗</span>
+
+            <span>
+              <ArrowUpRight size={20} strokeWidth={2} />
+            </span>
           </div>
         </a>
 
@@ -133,6 +135,7 @@ const Adminsingle = (props) => {
               }`}
             >
               <span className="admin_status_dot"></span>
+
               <span>{isDeleted ? "HIDDEN" : "LIVE"}</span>
             </div>
           </div>
@@ -149,16 +152,14 @@ const Adminsingle = (props) => {
             </div>
           </div>
 
-          <p className="admin_portfolio_description">
-            {trimmedDescription}
-          </p>
+          <p className="admin_portfolio_description">{trimmedDescription}</p>
 
-          <a
-            href={`/portfolio/${_id}`}
-            className="admin_portfolio_view"
-          >
+          <a href={`/portfolio/${_id}`} className="admin_portfolio_view">
             <span>Open project</span>
-            <span>↗</span>
+
+            <span>
+              <ArrowUpRight size={18} strokeWidth={2} />
+            </span>
           </a>
         </div>
 
@@ -168,11 +169,7 @@ const Adminsingle = (props) => {
           <div className="admin_actions_top">
             <span>MANAGE PROJECT</span>
 
-            {isDeleted && (
-              <span className="admin_deleted_badge">
-                HIDDEN
-              </span>
-            )}
+            {isDeleted && <span className="admin_deleted_badge">HIDDEN</span>}
           </div>
 
           <div className="admin_action_list">
@@ -182,11 +179,11 @@ const Adminsingle = (props) => {
             >
               <span className="admin_action_index">01</span>
 
-              <span className="admin_action_label">
-                Edit project
-              </span>
+              <span className="admin_action_label">Edit project</span>
 
-              <span className="admin_action_arrow">↗</span>
+              <span className="admin_action_arrow">
+                <ArrowUpRight size={18} strokeWidth={2} />
+              </span>
             </a>
 
             {isDeleted ? (
@@ -199,12 +196,12 @@ const Adminsingle = (props) => {
                 <span className="admin_action_index">02</span>
 
                 <span className="admin_action_label">
-                  {actionLoading
-                    ? "Restoring..."
-                    : "Restore project"}
+                  {actionLoading ? "Restoring..." : "Restore project"}
                 </span>
 
-                <span className="admin_action_arrow">↗</span>
+                <span className="admin_action_arrow">
+                  <ArrowUpRight size={18} strokeWidth={2} />
+                </span>
               </button>
             ) : (
               <button
@@ -216,12 +213,12 @@ const Adminsingle = (props) => {
                 <span className="admin_action_index">02</span>
 
                 <span className="admin_action_label">
-                  {actionLoading
-                    ? "Hiding..."
-                    : "Hide project"}
+                  {actionLoading ? "Hiding..." : "Hide project"}
                 </span>
 
-                <span className="admin_action_arrow">↘</span>
+                <span className="admin_action_arrow">
+                  <ArrowDownRight size={18} strokeWidth={2} />
+                </span>
               </button>
             )}
 
@@ -234,12 +231,12 @@ const Adminsingle = (props) => {
               <span className="admin_action_index">03</span>
 
               <span className="admin_action_label">
-                {actionLoading
-                  ? "Deleting..."
-                  : "Delete permanently"}
+                {actionLoading ? "Deleting..." : "Delete permanently"}
               </span>
 
-              <span className="admin_action_arrow">×</span>
+              <span className="admin_action_arrow">
+                <X size={18} strokeWidth={2} />
+              </span>
             </button>
           </div>
         </aside>
