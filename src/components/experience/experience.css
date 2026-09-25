@@ -641,3 +641,180 @@
     height: 5px;
   }
 }
+
+/* =========================================
+   EXPERIENCE SKELETON
+========================================= */
+
+.experience_skeleton {
+  width: 100%;
+}
+
+.skeleton_card {
+  position: relative;
+}
+
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background: rgba(128, 128, 128, 0.12);
+  border-radius: 6px;
+}
+
+/* Shimmer effect */
+.skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  transform: translateX(-100%);
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.45),
+    transparent
+  );
+
+  animation: skeleton-shimmer 1.5s infinite;
+}
+
+@keyframes skeleton-shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Logo */
+.skeleton_logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+}
+
+/* Timeline marker */
+.skeleton_marker {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+/* Job title */
+.skeleton_title {
+  width: 210px;
+  height: 22px;
+  margin-bottom: 10px;
+}
+
+/* Company + location */
+.skeleton_subtitle {
+  width: 280px;
+  height: 14px;
+}
+
+/* Job type */
+.skeleton_type {
+  width: 80px;
+  height: 28px;
+  border-radius: 20px;
+}
+
+/* Period */
+.skeleton_period {
+  width: 120px;
+  height: 14px;
+  margin-top: 12px;
+}
+
+/* Key Contributions */
+.skeleton_section_title {
+  width: 145px;
+  height: 16px;
+  margin-bottom: 18px;
+}
+
+/* Duties */
+.skeleton_duties {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.skeleton_duty {
+  width: 92%;
+  height: 13px;
+}
+
+.skeleton_duty_medium {
+  width: 82%;
+}
+
+.skeleton_duty_short {
+  width: 68%;
+}
+
+/* Skeleton spacing */
+.skeleton_card + .skeleton_card {
+  margin-top: 32px;
+}
+
+/* =========================================
+   DARK MODE
+========================================= */
+
+@media (prefers-color-scheme: dark) {
+  .skeleton {
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .skeleton::after {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.08),
+      transparent
+    );
+  }
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 768px) {
+  .skeleton_logo {
+    width: 48px;
+    height: 48px;
+  }
+
+  .skeleton_title {
+    width: 160px;
+    height: 19px;
+  }
+
+  .skeleton_subtitle {
+    width: 210px;
+  }
+
+  .skeleton_type {
+    width: 65px;
+    height: 25px;
+  }
+
+  .skeleton_period {
+    width: 100px;
+  }
+
+  .skeleton_duty {
+    width: 95%;
+  }
+
+  .skeleton_duty_medium {
+    width: 85%;
+  }
+
+  .skeleton_duty_short {
+    width: 70%;
+  }
+}

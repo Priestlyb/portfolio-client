@@ -2,6 +2,59 @@ import React, { useEffect, useState } from "react";
 import "./experience.css";
 import { axiosInstance } from "../../config";
 
+function ExperienceSkeleton() {
+  return (
+    <div className="experience_timeline experience_skeleton">
+      {[1, 2, 3].map((item) => (
+        <article className="experience_card skeleton_card" key={item}>
+          {/* Timeline marker */}
+          <div className="timeline_marker">
+            <span className="skeleton skeleton_marker"></span>
+          </div>
+
+          <div className="experience_content">
+            <div className="experience_top">
+              {/* Logo */}
+              <div className="company_logo_wrapper">
+                <div className="skeleton skeleton_logo"></div>
+              </div>
+
+              <div className="experience_main">
+                <div className="experience_title_row">
+                  <div className="skeleton_info">
+                    {/* Job title */}
+                    <div className="skeleton skeleton_title"></div>
+
+                    {/* Company / location */}
+                    <div className="skeleton skeleton_subtitle"></div>
+                  </div>
+
+                  {/* Job type */}
+                  <div className="skeleton skeleton_type"></div>
+                </div>
+
+                {/* Period */}
+                <div className="skeleton skeleton_period"></div>
+              </div>
+            </div>
+
+            {/* Contributions */}
+            <div className="experience_details">
+              <div className="skeleton skeleton_section_title"></div>
+
+              <div className="skeleton_duties">
+                <div className="skeleton skeleton_duty"></div>
+                <div className="skeleton skeleton_duty skeleton_duty_short"></div>
+                <div className="skeleton skeleton_duty skeleton_duty_medium"></div>
+              </div>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  );
+}
+
 function Experience() {
   const [experiences, setExperiences] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -50,16 +103,7 @@ function Experience() {
       </div>
 
       {/* LOADING STATE */}
-      {loading && (
-        <div className="experience_state">
-          <span className="experience_state_marker">01</span>
-
-          <div>
-            <h3>Loading experience...</h3>
-            <p>Please wait while the career history is being loaded.</p>
-          </div>
-        </div>
-      )}
+      {loading && <ExperienceSkeleton />}
 
       {/* ERROR STATE */}
       {!loading && error && (
