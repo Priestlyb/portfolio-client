@@ -9,9 +9,9 @@ function Header() {
   const [delta, setDelta] = useState(300 - Math.random() * 100);
 
   const toRotate = [
-    "UI/UX Designer",
-    "WordPress Developer",
+    "Software Engineer",
     "Full-Stack Developer",
+    "React Native Developer",
   ];
 
   const period = 2000;
@@ -68,9 +68,9 @@ function Header() {
         </h1>
 
         <p className="header_description">
-          I design and develop digital experiences for customers of all sizes,
-          specializing in stylish, modern websites, web applications, and online
-          stores.
+          I build modern web and mobile products, working across frontend,
+          backend, and product architecture to turn ideas into reliable,
+          production-ready digital experiences.
         </p>
 
         <div className="header_actions">

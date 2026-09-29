@@ -6,51 +6,51 @@ function Whatido() {
   const services = [
     {
       number: "I",
-      icon: "fa-solid fa-palette",
-      title: "UI/UX Design",
+      icon: "fa-solid fa-code",
+      title: "Frontend Development",
       description:
-        "Designing intuitive digital interfaces with a strong focus on usability, visual hierarchy, consistency, and user experience.",
-      tags: ["Interface Design", "Prototyping", "User Experience"],
+        "Building responsive and interactive web applications with modern frontend technologies, clean architecture, and attention to user experience.",
+      tags: ["React", "TypeScript", "Responsive UI"],
     },
     {
       number: "II",
-      icon: "fa-solid fa-code",
-      title: "Web Design & Development",
+      icon: "fa-solid fa-mobile-screen",
+      title: "Mobile App Development",
       description:
-        "Building modern, responsive websites that combine strong visual design with clean, maintainable, and scalable frontend code.",
-      tags: ["Responsive Design", "React", "Frontend"],
+        "Developing cross-platform mobile applications with React Native and Expo, from user interfaces to APIs, authentication, payments, and device integrations.",
+      tags: ["React Native", "Expo", "Mobile Apps"],
     },
     {
       number: "III",
-      icon: "fa-solid fa-money-bill-trend-up",
-      title: "SEO Marketing",
+      icon: "fa-solid fa-server",
+      title: "Backend Development",
       description:
-        "Improving website visibility through technical optimization, structured content, metadata, performance improvements, and SEO best practices.",
-      tags: ["Technical SEO", "Optimization", "Performance"],
+        "Building reliable backend services and REST APIs that support authentication, business logic, data management, payments, and application workflows.",
+      tags: ["Node.js", "Express", "REST APIs"],
     },
     {
       number: "IV",
-      icon: "fa-solid fa-laptop-code",
-      title: "Website Maintenance",
+      icon: "fa-solid fa-plug",
+      title: "API & System Integration",
       description:
-        "Keeping websites reliable, secure, and up to date through content updates, bug fixes, performance improvements, and technical support.",
-      tags: ["Updates", "Security", "Support"],
+        "Connecting applications with APIs, payment platforms, authentication providers, cloud services, notifications, and other third-party systems.",
+      tags: ["API Integration", "Payments", "Cloud Services"],
     },
     {
       number: "V",
-      icon: "fa-solid fa-bug-slash",
-      title: "Testing & Debugging",
+      icon: "fa-solid fa-database",
+      title: "Database & Architecture",
       description:
-        "Finding and resolving issues through structured testing, debugging, and continuous improvements to application reliability.",
-      tags: ["Testing", "Debugging", "Quality"],
+        "Designing structured data models and application architectures that are maintainable, scalable, and suited to the needs of each product.",
+      tags: ["PostgreSQL", "MongoDB", "Architecture"],
     },
     {
       number: "VI",
-      icon: "fa-solid fa-atom",
-      title: "Backend Integration",
+      icon: "fa-solid fa-bug-slash",
+      title: "Testing & Debugging",
       description:
-        "Connecting frontend applications to APIs, databases, authentication systems, payment services, and other backend technologies.",
-      tags: ["REST APIs", "Integration", "Backend"],
+        "Identifying and resolving technical issues through structured debugging, testing, and continuous improvements to application reliability.",
+      tags: ["Debugging", "Testing", "Quality"],
     },
   ];
 
@@ -75,9 +75,9 @@ function Whatido() {
           </div>
 
           <p className="whatido_intro">
-            From ideas and interfaces to functional digital products, I bring
-            together design, development, and technical problem-solving to
-            create experiences that work.
+            I design and develop reliable digital products across web, mobile,
+            and backend systems, combining thoughtful interfaces with solid
+            engineering.
           </p>
         </div>
 

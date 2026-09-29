@@ -19,25 +19,26 @@ function Aboutus() {
 
         <div className="about_content">
           <p>
-            As a skilled Software Engineer with years of self-development
-            experience, I specialize in building responsive, user-friendly
-            applications and websites using technologies such as HTML, CSS,
-            JavaScript, React, TypeScript, Node.js, MongoDB, and Firebase.
+            I’m a Software Engineer focused on building modern web and mobile
+            applications that solve real-world problems. I work across the
+            stack, from creating intuitive user interfaces and mobile
+            experiences to developing APIs, backend services, databases, and
+            integrations.
           </p>
 
           <p>
-            My portfolio showcases a range of projects that demonstrate my
-            approach to frontend development, application architecture, API
-            integration, and creating intuitive digital experiences. I focus on
-            writing maintainable code while building products that are
-            functional, visually polished, and enjoyable to use.
+            My work spans React, React Native, TypeScript, Node.js, Express,
+            MongoDB, PostgreSQL, and modern cloud services. I enjoy turning
+            ideas into production-ready applications with a strong focus on
+            clean code, maintainable architecture, and thoughtful user
+            experiences.
           </p>
 
           <p>
-            I also have a strong understanding of modern web development
-            practices, including responsive design, performance optimization,
-            accessibility, and SEO. I continuously develop my skills and explore
-            new technologies to build better digital products.
+            I’m particularly interested in full-stack development, mobile
+            applications, and practical applications of AI. I continuously
+            improve my engineering skills and explore new technologies to build
+            reliable, scalable digital products.
           </p>
         </div>
       </div>
