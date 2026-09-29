@@ -4,24 +4,24 @@ import "./edu_skills.css";
 function Eduskills() {
   const skills = [
     {
-      name: "UI/UX Design",
+      name: "JavaScript / TypeScript",
       level: 95,
     },
     {
-      name: "JavaScript Frameworks & Libraries",
+      name: "React / React Native",
+      level: 92,
+    },
+    {
+      name: "Node.js / Express",
       level: 90,
     },
     {
-      name: "Responsive Design",
-      level: 97,
+      name: "REST APIs & Backend Development",
+      level: 90,
     },
     {
-      name: "Performance Optimization",
-      level: 93,
-    },
-    {
-      name: "Version Control",
-      level: 80,
+      name: "MongoDB / PostgreSQL",
+      level: 88,
     },
   ];
 
@@ -100,11 +100,12 @@ function Eduskills() {
                 <p>
                   <strong>Co-founder & Workshop Facilitator</strong> — Android
                   Code Club (ACC), Gregory University. Co-founded a student-led
-                  STEM club, organized programming workshops, and mentored
-                  students in coding best practices.
+                  STEM community, organized programming workshops, facilitated
+                  technical learning sessions, and mentored students in coding
+                  and software development practices.
                 </p>
 
-                <small>2018 — Present</small>
+                <small>2018 — 2021</small>
               </div>
             </div>
           </article>
@@ -121,10 +122,11 @@ function Eduskills() {
 
           <div className="skills_intro" data-aos="fade-up" data-aos-delay="150">
             <p>
-              I’m always eager to learn new technologies and stay current with
-              the latest developments in software development. I’m focused on
-              building reliable, performant, and user-friendly digital
-              experiences.
+              I build modern web and mobile applications across the stack,
+              combining strong frontend development with backend engineering,
+              API integration, and database design. I’m continuously expanding
+              my technical expertise while focusing on clean, maintainable,
+              scalable, and user-focused software.
             </p>
 
             <a
