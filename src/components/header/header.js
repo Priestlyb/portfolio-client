@@ -9,8 +9,8 @@ function Header() {
   const [delta, setDelta] = useState(300 - Math.random() * 100);
 
   const toRotate = [
-    "Software Engineer",
-    "Full-Stack Developer",
+    "UI/UX Designer",
+    "Frontend Developer",
     "React Native Developer",
   ];
 
