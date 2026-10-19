@@ -1,6 +1,7 @@
 /* =========================================================
    NAVBAR
    Portfolio editorial navigation
+
    Palette:
    Gold  #FBC252
    Cream #F0ECCF
@@ -13,6 +14,10 @@
   overflow-y: auto !important;
   overflow-x: hidden !important;
   scrollbar-width: none;
+}
+
+.navbar_offcanvas_body::-webkit-scrollbar {
+  display: none;
 }
 
 .nav_bar {
@@ -44,6 +49,8 @@
 
   color: #000446;
   cursor: pointer;
+
+  transition: color 0.3s ease;
 }
 
 .navbar-btn_icon {
@@ -54,17 +61,18 @@
   align-items: center;
   justify-content: center;
 
+  flex-shrink: 0;
+
   border-radius: 50%;
   background: #000446;
   color: #ffffff;
-
-  font-size: 16px;
 
   box-shadow: 0 8px 25px rgba(0, 4, 70, 0.16);
 
   transition:
     transform 0.3s ease,
     background-color 0.3s ease,
+    color 0.3s ease,
     box-shadow 0.3s ease;
 }
 
@@ -82,21 +90,30 @@
 
   transition:
     color 0.3s ease,
-    background-color 0.3s ease;
+    background-color 0.3s ease,
+    border-color 0.3s ease;
 }
 
-.navbar-btn:hover .navbar-btn_icon {
+.navbar-btn:hover .navbar-btn_icon,
+.navbar-btn[aria-expanded="true"] .navbar-btn_icon {
   transform: rotate(8deg);
   background: #fbc252;
-
   color: #000446;
 
   box-shadow: 0 12px 30px rgba(251, 194, 82, 0.28);
 }
 
-.navbar-btn:hover .navbar-btn_text {
+.navbar-btn:hover .navbar-btn_text,
+.navbar-btn[aria-expanded="true"] .navbar-btn_text {
   background: #000446;
+  border-color: #000446;
   color: #ffffff;
+}
+
+.navbar-btn:focus-visible,
+.navbar_close:focus-visible {
+  outline: 3px solid #fbc252;
+  outline-offset: 5px;
 }
 
 /* =========================================================
@@ -130,9 +147,7 @@
 
 .navbar_header_shape {
   position: absolute;
-
   border-radius: 50%;
-
   pointer-events: none;
 }
 
@@ -186,7 +201,6 @@
   border-radius: 50%;
 
   background: #f0eccf;
-
   border: 3px solid rgba(251, 194, 82, 0.9);
 
   overflow: hidden;
@@ -209,7 +223,6 @@
   height: 100%;
 
   object-fit: cover;
-
   display: block;
 }
 
@@ -236,6 +249,7 @@
   position: absolute;
   top: 28px;
   right: 28px;
+  z-index: 3;
 
   width: 40px;
   height: 40px;
@@ -253,7 +267,8 @@
 
   transition:
     transform 0.3s ease,
-    background-color 0.3s ease;
+    background-color 0.3s ease,
+    border-color 0.3s ease;
 }
 
 .navbar_close span {
@@ -263,6 +278,8 @@
   height: 1px;
 
   background: #ffffff;
+
+  transition: background-color 0.3s ease;
 }
 
 .navbar_close span:first-child {
@@ -276,6 +293,7 @@
 .navbar_close:hover {
   transform: rotate(90deg);
   background: #fbc252;
+  border-color: #fbc252;
 }
 
 .navbar_close:hover span {
@@ -322,11 +340,12 @@
 
 .nav-btn {
   position: relative;
+  isolation: isolate;
 
   width: 100%;
 
   display: grid;
-  grid-template-columns: 35px 1fr 30px;
+  grid-template-columns: 35px minmax(0, 1fr) 30px;
   align-items: center;
 
   gap: 12px;
@@ -340,6 +359,7 @@
 
   color: #000446;
 
+  font-family: inherit;
   text-align: left;
   text-decoration: none;
 
@@ -348,8 +368,11 @@
   transition:
     padding 0.3s ease,
     background-color 0.3s ease,
-    color 0.3s ease;
+    color 0.3s ease,
+    border-color 0.3s ease;
 }
+
+/* Gold active indicator */
 
 .nav-btn::before {
   content: "";
@@ -370,12 +393,15 @@
   transition: transform 0.3s ease;
 }
 
+/* Hover and selected states */
+
 .nav-btn:hover,
 .nav-btn.active {
   padding-left: 12px;
 
   color: #000446;
   background: #f0eccf;
+  border-bottom-color: rgba(0, 4, 70, 0.16);
 }
 
 .nav-btn:hover::before,
@@ -383,58 +409,103 @@
   transform: scaleY(1);
 }
 
+/* Active indicator stays visible when the item is selected */
+
+.nav-btn.active::before {
+  background: #fbc252;
+  transform: scaleY(1);
+  transform-origin: center;
+}
+
+/* Navigation number */
+
 .nav-btn_number {
   font-size: 10px;
   font-weight: 700;
 
   color: #a3bb98;
+
+  transition: color 0.3s ease;
 }
 
+.nav-btn.active .nav-btn_number {
+  color: #000446;
+}
+
+/* Navigation icon and label */
+
 .nav-btn_content {
+  min-width: 0;
+
   display: flex;
   align-items: center;
   gap: 12px;
 
+  color: inherit;
+
   font-size: 13px;
   font-weight: 800;
   letter-spacing: 0.12em;
+
+  transition: color 0.3s ease;
 }
 
-.nav-btn_content i {
+.nav-btn_content svg {
   width: 18px;
+  height: 18px;
+
+  flex-shrink: 0;
 
   color: #000446;
-
-  font-size: 14px;
 
   transition:
     color 0.3s ease,
     transform 0.3s ease;
 }
 
-.nav-btn:hover .nav-btn_content i,
-.nav-btn.active .nav-btn_content i {
+.nav-btn:hover .nav-btn_content svg,
+.nav-btn.active .nav-btn_content svg {
   color: #d69b24;
   transform: translateX(2px);
 }
 
+/* Navigation arrow */
+
 .nav-btn_arrow {
-  font-size: 18px;
-  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #000446;
 
   opacity: 0.3;
 
   transition:
     opacity 0.3s ease,
-    transform 0.3s ease;
+    transform 0.3s ease,
+    color 0.3s ease;
+}
+
+.nav-btn_arrow svg {
+  width: 18px;
+  height: 18px;
 }
 
 .nav-btn:hover .nav-btn_arrow,
 .nav-btn.active .nav-btn_arrow {
   opacity: 1;
+
   transform: translate(3px, -3px);
 
   color: #d69b24;
+}
+
+/* Keyboard accessibility */
+
+.nav-btn:focus-visible {
+  outline: 2px solid #d69b24;
+  outline-offset: -2px;
+  background: #f0eccf;
 }
 
 /* =========================================================
@@ -458,8 +529,17 @@
   color: #6b7280;
 }
 
-.nav-btn_logout:hover {
+.nav-btn_logout .nav-btn_content svg {
+  color: #6b7280;
+}
+
+.nav-btn_logout:hover,
+.nav-btn_logout:focus-visible {
   color: #000446;
+}
+
+.nav-btn_logout:hover .nav-btn_content svg {
+  color: #d69b24;
 }
 
 /* =========================================================
@@ -491,8 +571,6 @@
 
 .navbar_bottom_mark {
   color: #fbc252;
-
-  font-size: 18px;
 }
 
 .wrapper {
@@ -519,13 +597,16 @@
 
   color: #000446;
 
-  font-size: 14px;
-
   transition:
     color 0.3s ease,
     background-color 0.3s ease,
     border-color 0.3s ease,
     transform 0.3s ease;
+}
+
+.social_icon > svg {
+  width: 19px;
+  height: 19px;
 }
 
 .social_icon:hover {
@@ -535,6 +616,11 @@
   color: #fbc252;
 
   transform: translateY(-4px);
+}
+
+.social_icon:focus-visible {
+  outline: 2px solid #d69b24;
+  outline-offset: 3px;
 }
 
 .social_icon_tooltip {
@@ -561,7 +647,8 @@
 
   transition:
     opacity 0.2s ease,
-    transform 0.2s ease;
+    transform 0.2s ease,
+    visibility 0.2s ease;
 }
 
 .social_icon_tooltip::after {
@@ -580,7 +667,8 @@
   transform: translateX(-50%) rotate(45deg);
 }
 
-.social_icon:hover .social_icon_tooltip {
+.social_icon:hover .social_icon_tooltip,
+.social_icon:focus-visible .social_icon_tooltip {
   opacity: 1;
   visibility: visible;
 
@@ -588,8 +676,7 @@
 }
 
 .navbar_copyright {
-  margin: 18px 0 0;
-  margin-bottom: 60px;
+  margin: 18px 0 60px;
 
   font-size: 9px;
   line-height: 1.5;
@@ -610,8 +697,6 @@
   .navbar-btn_icon {
     width: 44px;
     height: 44px;
-
-    font-size: 15px;
   }
 
   .navbar-btn_text {
@@ -648,14 +733,20 @@
   .nav-btn {
     padding: 15px 2px;
 
-    grid-template-columns: 30px 1fr 25px;
+    grid-template-columns: 30px minmax(0, 1fr) 25px;
   }
 
   .nav-btn::before {
     left: -25px;
   }
 
+  .nav-btn:hover,
+  .nav-btn.active {
+    padding-left: 10px;
+  }
+
   .nav-btn_content {
+    gap: 10px;
     font-size: 12px;
   }
 }
@@ -691,12 +782,15 @@
   .navbar-btn_icon,
   .navbar-btn_text,
   .navbar_close,
+  .navbar_close span,
   .nav-btn,
   .nav-btn::before,
-  .nav-btn_content i,
+  .nav-btn_number,
+  .nav-btn_content,
+  .nav-btn_content svg,
   .nav-btn_arrow,
   .social_icon,
   .social_icon_tooltip {
-    transition: none;
+    transition: none !important;
   }
 }

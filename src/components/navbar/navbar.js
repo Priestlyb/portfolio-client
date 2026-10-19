@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   Menu,
   House,
@@ -13,25 +13,106 @@ import {
   Github,
   Sparkles,
 } from "lucide-react";
+
 import dp from "./it-developer.gif";
 import { Context } from "../../context/Context";
 import "./navbar.css";
 
+const NAVIGATION_ITEMS = [
+  { id: "home", label: "HOME", href: "#home", number: "01", Icon: House },
+  { id: "about", label: "ABOUT", href: "#about", number: "02", Icon: Contact },
+  {
+    id: "portfolios",
+    label: "PORTFOLIO",
+    href: "#portfolios",
+    number: "03",
+    Icon: FolderTree,
+  },
+  {
+    id: "services",
+    label: "SERVICES",
+    href: "#services",
+    number: "04",
+    Icon: SlidersHorizontal,
+  },
+];
+
 const Navbar = () => {
   const { user, dispatch } = useContext(Context);
 
-  const handleLogout = () => {
-    dispatch({ type: "LOGOUT" });
+  const getActiveItem = () => {
+    const hash = window.location.hash.replace("#", "").toLowerCase();
+
+    return NAVIGATION_ITEMS.some((item) => item.id === hash) ? hash : "home";
   };
+
+  const [activeItem, setActiveItem] = useState(getActiveItem);
+
+  // Keep the active navigation item synchronized with the URL.
+  useEffect(() => {
+    const syncActiveItem = () => {
+      setActiveItem(getActiveItem());
+    };
+
+    window.addEventListener("hashchange", syncActiveItem);
+
+    return () => {
+      window.removeEventListener("hashchange", syncActiveItem);
+    };
+  }, []);
 
   const closeMenu = () => {
     const offcanvasElement = document.getElementById("offcanvastop");
 
-    if (offcanvasElement && window.bootstrap) {
+    if (offcanvasElement && window.bootstrap?.Offcanvas) {
       const instance = window.bootstrap.Offcanvas.getInstance(offcanvasElement);
 
       instance?.hide();
     }
+  };
+
+  const handleNavigation = (id) => {
+    setActiveItem(id);
+    closeMenu();
+  };
+
+  const handleLogout = () => {
+    dispatch({ type: "LOGOUT" });
+    closeMenu();
+  };
+
+  const renderNavigationLink = ({
+    id,
+    label,
+    href,
+    number,
+    Icon,
+    admin = false,
+  }) => {
+    const isActive = activeItem === id;
+
+    return (
+      <a
+        key={id}
+        className={`nav-btn${isActive ? " active" : ""}${
+          admin ? " nav-btn_admin" : ""
+        }`}
+        href={href}
+        onClick={() => handleNavigation(id)}
+        aria-current={isActive ? "location" : undefined}
+      >
+        <span className="nav-btn_number">{number}</span>
+
+        <span className="nav-btn_content">
+          <Icon size={18} strokeWidth={2} aria-hidden="true" />
+          <span>{label}</span>
+        </span>
+
+        <span className="nav-btn_arrow">
+          <ArrowUpRight size={18} strokeWidth={2} aria-hidden="true" />
+        </span>
+      </a>
+    );
   };
 
   return (
@@ -61,8 +142,8 @@ const Navbar = () => {
       >
         {/* Header */}
         <div className="offcanvas-header navbar_offcanvas_header">
-          <div className="navbar_header_shape navbar_header_shape_one"></div>
-          <div className="navbar_header_shape navbar_header_shape_two"></div>
+          <div className="navbar_header_shape navbar_header_shape_one" />
+          <div className="navbar_header_shape navbar_header_shape_two" />
 
           <div className="navbar_profile">
             <div className="navbar_profile_image">
@@ -80,8 +161,8 @@ const Navbar = () => {
             data-bs-dismiss="offcanvas"
             aria-label="Close navigation"
           >
-            <span></span>
-            <span></span>
+            <span />
+            <span />
           </button>
         </div>
 
@@ -91,94 +172,22 @@ const Navbar = () => {
             <p className="navbar_navigation_label">NAVIGATION</p>
 
             <nav className="nav_bar_links" aria-label="Main navigation">
-              {/* HOME */}
-              <a className="nav-btn active" href="#home" onClick={closeMenu}>
-                <span className="nav-btn_number">01</span>
+              {NAVIGATION_ITEMS.map((item) => renderNavigationLink(item))}
 
-                <span className="nav-btn_content">
-                  <House size={18} strokeWidth={2} aria-hidden="true" />
-                  <span>HOME</span>
-                </span>
-
-                <span className="nav-btn_arrow">
-                  <ArrowUpRight size={18} strokeWidth={2} aria-hidden="true" />
-                </span>
-              </a>
-
-              {/* ABOUT */}
-              <a className="nav-btn" href="#about" onClick={closeMenu}>
-                <span className="nav-btn_number">02</span>
-
-                <span className="nav-btn_content">
-                  <Contact size={18} strokeWidth={2} aria-hidden="true" />
-                  <span>ABOUT</span>
-                </span>
-
-                <span className="nav-btn_arrow">
-                  <ArrowUpRight size={18} strokeWidth={2} aria-hidden="true" />
-                </span>
-              </a>
-
-              {/* PORTFOLIO */}
-              <a className="nav-btn" href="#portfolios" onClick={closeMenu}>
-                <span className="nav-btn_number">03</span>
-
-                <span className="nav-btn_content">
-                  <FolderTree size={18} strokeWidth={2} aria-hidden="true" />
-                  <span>PORTFOLIO</span>
-                </span>
-
-                <span className="nav-btn_arrow">
-                  <ArrowUpRight size={18} strokeWidth={2} aria-hidden="true" />
-                </span>
-              </a>
-
-              {/* SERVICES */}
-              <a className="nav-btn" href="#services" onClick={closeMenu}>
-                <span className="nav-btn_number">04</span>
-
-                <span className="nav-btn_content">
-                  <SlidersHorizontal
-                    size={18}
-                    strokeWidth={2}
-                    aria-hidden="true"
-                  />
-                  <span>SERVICES</span>
-                </span>
-
-                <span className="nav-btn_arrow">
-                  <ArrowUpRight size={18} strokeWidth={2} aria-hidden="true" />
-                </span>
-              </a>
-
-              {/* ADMIN + LOGOUT */}
+              {/* Admin and Logout */}
               {user && (
                 <>
-                  <div className="navbar_divider"></div>
+                  <div className="navbar_divider" />
 
-                  {/* ADMIN */}
-                  <a
-                    className="nav-btn nav-btn_admin"
-                    href="/admin"
-                    onClick={closeMenu}
-                  >
-                    <span className="nav-btn_number">05</span>
+                  {renderNavigationLink({
+                    id: "admin",
+                    label: "ADMIN",
+                    href: "/admin",
+                    number: "05",
+                    Icon: Lock,
+                    admin: true,
+                  })}
 
-                    <span className="nav-btn_content">
-                      <Lock size={18} strokeWidth={2} aria-hidden="true" />
-                      <span>ADMIN</span>
-                    </span>
-
-                    <span className="nav-btn_arrow">
-                      <ArrowUpRight
-                        size={18}
-                        strokeWidth={2}
-                        aria-hidden="true"
-                      />
-                    </span>
-                  </a>
-
-                  {/* LOGOUT */}
                   <button
                     className="nav-btn nav-btn_logout"
                     type="button"
@@ -217,14 +226,13 @@ const Navbar = () => {
             <div className="wrapper">
               {/* LinkedIn */}
               <a
-                href="http://linkedin.com/in/priestly-bassey-486278175"
+                href="https://linkedin.com/in/priestly-bassey-486278175"
                 className="social_icon"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
               >
                 <span className="social_icon_tooltip">LinkedIn</span>
-
                 <Linkedin size={19} strokeWidth={2} aria-hidden="true" />
               </a>
 
@@ -237,7 +245,6 @@ const Navbar = () => {
                 aria-label="Twitter"
               >
                 <span className="social_icon_tooltip">Twitter</span>
-
                 <Twitter size={19} strokeWidth={2} aria-hidden="true" />
               </a>
 
@@ -250,7 +257,6 @@ const Navbar = () => {
                 aria-label="GitHub"
               >
                 <span className="social_icon_tooltip">GitHub</span>
-
                 <Github size={19} strokeWidth={2} aria-hidden="true" />
               </a>
             </div>
