@@ -42,7 +42,7 @@ function App() {
 
         <Route path="/register" element={<Register />} />
 
-        <Route path="/portfolioUpdate/:id" element={<PortfolioUpdate />} />
+        <Route path="/update/:id/portfolio" element={<PortfolioUpdate />} />
 
         <Route path="/portfolios" element={<Portfolios />} />
 
@@ -59,7 +59,7 @@ function App() {
         ========================================= */}
 
         <Route
-          path="/admin"
+          path="/admin/project/add"
           element={user ? <AddProject /> : <Login />}
           exact
         />

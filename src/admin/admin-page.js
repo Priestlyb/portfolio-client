@@ -133,7 +133,7 @@ export default function Adminpage() {
 
         {/* ADD PROJECT */}
         <div className="admin_summary_item admin_summary_action">
-          <a href="/admin" className="admin_add_btn">
+          <a href="/admin/project/add" className="admin_add_btn">
             <button className="admin_btn" type="button">
               <span className="admin_btn_icon">
                 <Plus size={18} strokeWidth={2} />

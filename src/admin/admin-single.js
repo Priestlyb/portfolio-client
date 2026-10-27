@@ -174,7 +174,7 @@ const Adminsingle = (props) => {
 
           <div className="admin_action_list">
             <a
-              href={`/portfolioUpdate/${_id}`}
+              href={`/update/${_id}/portfolio`}
               className="admin_action admin_action_update"
             >
               <span className="admin_action_index">01</span>
