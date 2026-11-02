@@ -63,7 +63,6 @@
 .admin_header {
   position: relative;
   z-index: 1;
-
   max-width: 1400px;
   margin: 0 auto;
 
@@ -85,7 +84,6 @@
 .admin_section_marker {
   width: 62px;
   height: 62px;
-
   flex-shrink: 0;
 
   display: flex;
@@ -98,7 +96,6 @@
   font-size: 8px;
   font-weight: 900;
   letter-spacing: 0.1em;
-
   color: var(--admin-blue);
 }
 
@@ -108,9 +105,7 @@
 
 .admin_eyebrow {
   margin: 0 0 14px;
-
   color: var(--admin-sage);
-
   font-size: 9px;
   font-weight: 900;
   letter-spacing: 0.22em;
@@ -118,14 +113,12 @@
 
 .admin_title {
   margin: 0;
-
   max-width: 900px;
 
   font-size: clamp(48px, 7vw, 105px);
   line-height: 0.82;
   font-weight: 900;
   letter-spacing: -0.065em;
-
   color: var(--admin-blue);
 }
 
@@ -142,41 +135,33 @@
   display: flex;
   align-items: center;
   gap: 12px;
-
   padding-bottom: 7px;
 }
 
 .admin_user_dot {
   width: 9px;
   height: 9px;
-
   background: var(--admin-sage);
   border-radius: 50%;
-
   box-shadow: 0 0 0 5px rgba(163, 187, 152, 0.16);
-
   animation: adminPulse 2s ease-in-out infinite;
 }
 
 .admin_user_label {
   display: block;
-
   margin-bottom: 4px;
 
   font-size: 7px;
   font-weight: 900;
   letter-spacing: 0.18em;
-
   color: var(--admin-muted);
 }
 
 .admin_user strong {
   display: block;
-
   font-size: 10px;
   font-weight: 900;
   letter-spacing: 0.08em;
-
   color: var(--admin-blue);
   text-transform: uppercase;
 }
@@ -214,7 +199,6 @@
   justify-content: center;
 
   padding: 25px 30px;
-
   border-right: 1px solid var(--admin-border);
 }
 
@@ -230,21 +214,17 @@
 
 .admin_summary_label {
   margin-bottom: 10px;
-
   font-size: 8px;
   font-weight: 900;
   letter-spacing: 0.18em;
-
   color: var(--admin-muted);
 }
 
 .admin_summary_number {
   font-size: 44px;
   line-height: 1;
-
   font-weight: 900;
   letter-spacing: -0.05em;
-
   color: var(--admin-blue);
 }
 
@@ -261,9 +241,7 @@
 .admin_summary_status span {
   width: 7px;
   height: 7px;
-
   display: block;
-
   background: var(--admin-sage);
   border-radius: 50%;
 }
@@ -279,7 +257,6 @@
 
 .admin_btn {
   position: relative;
-
   min-width: 190px;
   height: 58px;
 
@@ -327,14 +304,12 @@
 
 .admin_btn_arrow {
   font-size: 15px;
-
   transition: transform 0.3s ease;
 }
 
 .admin_btn:hover {
   background: var(--admin-gold);
   color: var(--admin-blue);
-
   transform: translateY(-3px);
 }
 
@@ -353,7 +328,6 @@
 .admin_projects_header {
   max-width: 1400px;
   margin: 0 auto;
-
   padding: 75px 0 25px;
 
   display: flex;
@@ -364,17 +338,14 @@
 
 .admin_projects_header p {
   margin: 0 0 8px;
-
   font-size: 8px;
   font-weight: 900;
   letter-spacing: 0.18em;
-
   color: var(--admin-sage);
 }
 
 .admin_projects_header h2 {
   margin: 0;
-
   font-size: clamp(28px, 4vw, 52px);
   line-height: 0.95;
   font-weight: 900;
@@ -383,11 +354,9 @@
 
 .admin_projects_header > span {
   padding-bottom: 5px;
-
   font-size: 8px;
   font-weight: 900;
   letter-spacing: 0.14em;
-
   color: var(--admin-muted);
 }
 
@@ -402,47 +371,141 @@
 
 .portfolio_item {
   width: 100%;
-
   border-top: 1px solid var(--admin-border);
 }
+
+/*
+  Two-column layout:
+  1. Compact controls column
+  2. Existing Adminsingle content
+*/
 
 .admin_project_wrapper {
   position: relative;
 
   display: grid;
-  grid-template-columns: 55px 1fr;
-  gap: 25px;
+  grid-template-columns: 65px minmax(0, 1fr);
+  align-items: stretch;
+  gap: 15px;
 
   padding: 0;
-
   border-bottom: 1px solid var(--admin-border);
 
-  transition: background-color 0.3s ease;
+  transition: background-color 0.2s ease;
 }
 
 .admin_project_wrapper:hover {
-  background: rgba(240, 236, 207, 0.35);
+  background: rgba(240, 236, 207, 0.2);
+}
+
+.admin_project_controls {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 8px;
+
+  padding: 32px 0 0 15px;
 }
 
 .admin_project_index {
-  padding-top: 35px;
-  padding-left: 25px;
+  min-width: 18px;
+  padding: 0;
 
   font-size: 9px;
   font-weight: 900;
   letter-spacing: 0.12em;
-
   color: var(--admin-sage);
 }
 
-/*
-   Adminsingle may already have its own styles.
-   These rules help keep it visually integrated
-   without forcing a new card layout.
-*/
+.admin_project_content {
+  min-width: 0;
+}
 
 .admin_project_wrapper > *:last-child {
   min-width: 0;
+}
+
+/* =========================================
+   PORTFOLIO REORDER HANDLE
+========================================= */
+
+.admin_reorder_handle {
+  width: 28px;
+  height: 30px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #a0a0a0;
+
+  cursor: grab;
+  touch-action: none;
+
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.admin_reorder_handle:hover {
+  color: var(--admin-blue);
+}
+
+.admin_reorder_handle:active {
+  cursor: grabbing;
+}
+
+.admin_reorder_handle:focus-visible {
+  outline: 2px solid var(--admin-gold);
+  outline-offset: 3px;
+}
+
+.admin_reorder_handle:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.admin_project_dragging {
+  background: rgba(240, 236, 207, 0.35);
+  box-shadow: 0 8px 25px rgba(0, 4, 70, 0.08);
+}
+
+.admin_project_dragging .admin_reorder_handle {
+  color: var(--admin-blue);
+}
+
+/* Hidden projects */
+
+.admin_deleted_projects {
+  margin-top: 55px;
+  padding-top: 30px;
+  border-top: 1px solid var(--admin-border);
+}
+
+.admin_deleted_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.admin_deleted_header h3 {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.admin_deleted_header span {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--admin-muted);
 }
 
 /* =========================================
@@ -456,7 +519,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
   gap: 18px;
 
   border-top: 1px solid var(--admin-border);
@@ -466,25 +528,19 @@
 .admin_loading_line {
   width: 90px;
   height: 2px;
-
   position: relative;
   overflow: hidden;
-
   background: var(--admin-cream);
 }
 
 .admin_loading_line::after {
   content: "";
-
   position: absolute;
   top: 0;
   left: -50%;
-
   width: 50%;
   height: 100%;
-
   background: var(--admin-gold);
-
   animation: adminLoading 1.2s ease-in-out infinite;
 }
 
@@ -492,7 +548,6 @@
   font-size: 8px;
   font-weight: 900;
   letter-spacing: 0.18em;
-
   color: var(--admin-muted);
 }
 
@@ -515,7 +570,6 @@
 
   display: flex;
   align-items: center;
-
   gap: 30px;
 
   padding: 50px;
@@ -529,7 +583,6 @@
 .admin_state_number {
   width: 60px;
   height: 60px;
-
   flex-shrink: 0;
 
   display: flex;
@@ -545,7 +598,6 @@
 
 .admin_state h3 {
   margin: 0 0 8px;
-
   font-size: 25px;
   font-weight: 900;
   letter-spacing: -0.03em;
@@ -553,11 +605,9 @@
 
 .admin_state p {
   max-width: 480px;
-
   margin: 0 0 22px;
 
   color: var(--admin-muted);
-
   font-size: 13px;
   line-height: 1.7;
 }
@@ -566,11 +616,11 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 10px;
 
   padding: 12px 17px;
 
   border: 1px solid var(--admin-blue);
-
   background: var(--admin-blue);
   color: white;
 
@@ -600,7 +650,6 @@
 .admin_footer {
   max-width: 1400px;
   margin: 70px auto 0;
-
   padding-top: 20px;
 
   display: flex;
@@ -612,12 +661,17 @@
   font-size: 7px;
   font-weight: 900;
   letter-spacing: 0.15em;
-
   color: var(--admin-muted);
 }
 
 .admin_footer span:first-child {
   color: var(--admin-blue);
+}
+
+.admin_footer_mark {
+  display: flex;
+  align-items: center;
+  gap: 7px;
 }
 
 /* =========================================
@@ -628,7 +682,6 @@
   position: fixed;
   left: 28px;
   bottom: 28px;
-
   z-index: 1050;
 }
 
@@ -677,11 +730,8 @@
   justify-content: center;
 
   border-radius: 50%;
-
   background: var(--admin-blue);
   color: white;
-
-  font-size: 14px;
 }
 
 /* =========================================
@@ -693,11 +743,9 @@
   max-width: 100vw;
 
   background: var(--admin-blue);
-
   color: white;
 
   border: 0 !important;
-
   overflow: hidden;
 }
 
@@ -711,13 +759,11 @@
   padding: 35px 35px 30px;
 
   position: relative;
-
   overflow: hidden;
 }
 
 .admin_offcanvas_header::before {
   content: "";
-
   position: absolute;
   right: -100px;
   top: -130px;
@@ -726,13 +772,11 @@
   height: 270px;
 
   border-radius: 50%;
-
   background: var(--admin-gold);
 }
 
 .admin_offcanvas_header::after {
   content: "";
-
   position: absolute;
   right: 30px;
   top: 55px;
@@ -741,17 +785,14 @@
   height: 70px;
 
   border-radius: 50%;
-
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .admin_offcanvas_label {
   display: block;
-
   margin-bottom: 7px;
 
   color: var(--admin-sage);
-
   font-size: 8px;
   font-weight: 900;
   letter-spacing: 0.2em;
@@ -784,16 +825,13 @@
   border-radius: 50%;
 
   background: transparent;
-
   cursor: pointer;
 }
 
 .admin_close span {
   position: absolute;
-
   width: 15px;
   height: 1px;
-
   background: white;
 }
 
@@ -851,9 +889,7 @@
   color: white;
 
   text-decoration: none;
-
   font-family: inherit;
-
   cursor: pointer;
 
   transition:
@@ -863,7 +899,6 @@
 
 .admin_nav_link:hover {
   padding: 0 12px;
-
   background: rgba(240, 236, 207, 0.1);
 }
 
@@ -871,12 +906,10 @@
   font-size: 7px;
   font-weight: 900;
   letter-spacing: 0.1em;
-
   color: var(--admin-sage);
 }
 
 .admin_nav_icon {
-  font-size: 13px;
   color: var(--admin-gold);
 }
 
@@ -884,13 +917,10 @@
   font-size: 11px;
   font-weight: 900;
   letter-spacing: 0.05em;
-
   text-transform: uppercase;
 }
 
 .admin_nav_arrow {
-  font-size: 16px;
-
   transition: transform 0.3s ease;
 }
 
@@ -910,9 +940,7 @@
 .admin_offcanvas_line {
   width: 100%;
   height: 1px;
-
   margin-bottom: 25px;
-
   background: rgba(255, 255, 255, 0.14);
 }
 
@@ -926,7 +954,6 @@
   font-size: 7px;
   font-weight: 900;
   letter-spacing: 0.18em;
-
   color: var(--admin-sage);
 }
 
@@ -934,15 +961,11 @@
   font-size: 10px;
   font-weight: 900;
   letter-spacing: 0.08em;
-
   color: white;
 }
 
 .admin_offcanvas_mark {
   margin-top: 30px;
-
-  font-size: 24px;
-
   color: var(--admin-gold);
 }
 
@@ -973,22 +996,15 @@
 
   .admin_summary_action {
     grid-column: 1 / -1;
-
     min-height: auto;
-
     align-items: flex-start;
 
     padding: 20px 0;
-
     border-top: 1px solid var(--admin-border);
   }
 
   .admin_btn {
     width: 100%;
-  }
-
-  .admin_project_wrapper {
-    grid-template-columns: 45px 1fr;
   }
 
   .admin_projects_header {
@@ -1012,7 +1028,6 @@
 
   .admin_header {
     display: block;
-
     padding-bottom: 35px;
   }
 
@@ -1023,13 +1038,11 @@
   .admin_section_marker {
     width: 45px;
     height: 45px;
-
     font-size: 7px;
   }
 
   .admin_eyebrow {
     margin-bottom: 10px;
-
     font-size: 7px;
   }
 
@@ -1069,15 +1082,12 @@
 
   .admin_summary_action {
     grid-column: 1 / -1;
-
     padding: 15px 0;
-
     border-top: 1px solid var(--admin-border);
   }
 
   .admin_projects_header {
     display: block;
-
     padding-top: 45px;
   }
 
@@ -1087,26 +1097,32 @@
 
   .admin_projects_header > span {
     display: block;
-
     margin-top: 12px;
   }
 
   .admin_project_wrapper {
-    grid-template-columns: 30px 1fr;
-    gap: 10px;
+    grid-template-columns: 52px minmax(0, 1fr);
+    gap: 8px;
+  }
+
+  .admin_project_controls {
+    gap: 3px;
+    padding: 25px 0 0 2px;
   }
 
   .admin_project_index {
-    padding-top: 25px;
-
+    min-width: 15px;
     font-size: 7px;
+  }
+
+  .admin_reorder_handle {
+    width: 25px;
+    height: 30px;
   }
 
   .admin_state {
     min-height: 250px;
-
     padding: 30px 20px;
-
     gap: 20px;
   }
 
@@ -1125,7 +1141,6 @@
 
   .admin_footer {
     margin-top: 50px;
-
     flex-wrap: wrap;
   }
 
@@ -1153,7 +1168,6 @@
 
   .admin_offcanvas_header {
     min-height: 130px;
-
     padding: 28px 25px;
   }
 
@@ -1163,13 +1177,11 @@
 
   .admin_offcanvas_body {
     height: calc(100dvh - 130px);
-
     padding: 15px 25px 25px !important;
   }
 
   .admin_nav_link {
     min-height: 68px;
-
     grid-template-columns: 25px 30px 1fr auto;
   }
 }
@@ -1213,6 +1225,20 @@
     font-size: 32px;
   }
 
+  .admin_project_wrapper {
+    grid-template-columns: 45px minmax(0, 1fr);
+    gap: 5px;
+  }
+
+  .admin_project_controls {
+    gap: 2px;
+    padding-left: 0;
+  }
+
+  .admin_reorder_handle {
+    width: 23px;
+  }
+
   .admin_state {
     display: block;
   }
@@ -1244,7 +1270,8 @@
   .admin_btn_arrow,
   .admin_menu_trigger,
   .admin_nav_link,
-  .admin_nav_arrow {
+  .admin_nav_arrow,
+  .admin_reorder_handle {
     transition: none;
   }
 }

@@ -12,7 +12,28 @@ import {
   Menu,
   X,
   Sparkles,
+  GripVertical,
 } from "lucide-react";
+
+import {
+  DndContext,
+  closestCenter,
+  PointerSensor,
+  KeyboardSensor,
+  useSensor,
+  useSensors,
+} from "@dnd-kit/core";
+
+import {
+  arrayMove,
+  SortableContext,
+  useSortable,
+  verticalListSortingStrategy,
+  sortableKeyboardCoordinates,
+} from "@dnd-kit/sortable";
+
+import { CSS } from "@dnd-kit/utilities";
+
 import "../constants/styles/admin.css";
 import Adminsingle from "./admin-single";
 import ExperienceManagement from "../components/experience-management/ExperienceManagement";
@@ -20,12 +41,93 @@ import { axiosInstance } from "../config";
 import { Context } from "../context/Context";
 import { Link } from "react-router-dom";
 
+/* =========================================
+   SORTABLE PORTFOLIO ITEM
+========================================= */
+
+function SortablePortfolioItem({ portfolio, index, disabled }) {
+  const {
+    attributes,
+    listeners,
+    setNodeRef,
+    transform,
+    transition,
+    isDragging,
+  } = useSortable({
+    id: portfolio._id,
+    disabled,
+  });
+
+  const style = {
+    transform: CSS.Transform.toString(transform),
+    transition,
+    opacity: isDragging ? 0.85 : 1,
+    zIndex: isDragging ? 10 : 1,
+  };
+
+  return (
+    <div
+      ref={setNodeRef}
+      style={style}
+      className={`admin_project_wrapper ${
+        isDragging ? "admin_project_dragging" : ""
+      }`}
+    >
+      <div className="admin_project_controls">
+        <span className="admin_project_index">
+          {String(index + 1).padStart(2, "0")}
+        </span>
+
+        <button
+          type="button"
+          className="admin_reorder_handle"
+          {...attributes}
+          {...listeners}
+          disabled={disabled}
+          aria-label={`Reorder ${portfolio.project_role}`}
+          title="Drag to reorder"
+        >
+          <GripVertical size={17} strokeWidth={2} />
+        </button>
+      </div>
+
+      <div className="admin_project_content">
+        <Adminsingle portfolio={portfolio} />
+      </div>
+    </div>
+  );
+}
+
+/* =========================================
+   ADMIN DASHBOARD
+========================================= */
+
 export default function Adminpage() {
   const [portfolios, setPortfolios] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const [isSavingOrder, setIsSavingOrder] = useState(false);
 
   const { user, dispatch } = useContext(Context);
+
+  /* =========================================
+     DRAG AND DROP SENSORS
+  ========================================= */
+
+  const sensors = useSensors(
+    useSensor(PointerSensor, {
+      activationConstraint: {
+        distance: 8,
+      },
+    }),
+    useSensor(KeyboardSensor, {
+      coordinateGetter: sortableKeyboardCoordinates,
+    }),
+  );
+
+  /* =========================================
+     LOGOUT
+  ========================================= */
 
   const handleLogout = () => {
     dispatch({ type: "LOGOUT" });
@@ -58,6 +160,89 @@ export default function Adminpage() {
   }, []);
 
   /* =========================================
+     SEPARATE ACTIVE AND DELETED PROJECTS
+  ========================================= */
+
+  const activePortfolios = portfolios.filter(
+    (portfolio) => !portfolio.isDeleted,
+  );
+
+  const deletedPortfolios = portfolios.filter(
+    (portfolio) => portfolio.isDeleted,
+  );
+
+  /* =========================================
+     HANDLE PROJECT REORDER
+  ========================================= */
+
+  const handleDragEnd = async ({ active, over }) => {
+    if (!over || active.id === over.id || isSavingOrder) {
+      return;
+    }
+
+    const currentActivePortfolios = portfolios.filter(
+      (portfolio) => !portfolio.isDeleted,
+    );
+
+    const currentDeletedPortfolios = portfolios.filter(
+      (portfolio) => portfolio.isDeleted,
+    );
+
+    const oldIndex = currentActivePortfolios.findIndex(
+      (portfolio) => portfolio._id === active.id,
+    );
+
+    const newIndex = currentActivePortfolios.findIndex(
+      (portfolio) => portfolio._id === over.id,
+    );
+
+    if (oldIndex === -1 || newIndex === -1) {
+      return;
+    }
+
+    const previousPortfolios = [...portfolios];
+
+    const reorderedPortfolios = arrayMove(
+      currentActivePortfolios,
+      oldIndex,
+      newIndex,
+    );
+
+    // Optimistically update the displayed order.
+    setPortfolios([...reorderedPortfolios, ...currentDeletedPortfolios]);
+
+    setIsSavingOrder(true);
+
+    try {
+      const portfolioIds = reorderedPortfolios.map(
+        (portfolio) => portfolio._id,
+      );
+
+      const res = await axiosInstance.patch(
+        "/portfolios/reorder",
+        { portfolioIds },
+        { withCredentials: true },
+      );
+
+      const updatedPortfolios = res.data?.portfolios;
+
+      if (Array.isArray(updatedPortfolios)) {
+        setPortfolios([...updatedPortfolios, ...currentDeletedPortfolios]);
+      }
+    } catch (err) {
+      console.error(
+        "Failed to save portfolio order:",
+        err.response?.data || err,
+      );
+
+      // Restore the original order if saving fails.
+      setPortfolios(previousPortfolios);
+    } finally {
+      setIsSavingOrder(false);
+    }
+  };
+
+  /* =========================================
      DASHBOARD NAVIGATION
   ========================================= */
 
@@ -72,11 +257,14 @@ export default function Adminpage() {
     }
   };
 
+  /* =========================================
+     RENDER
+  ========================================= */
+
   return (
     <main className="admin_page">
-      {/* =========================================
-          TOP BAR
-      ========================================= */}
+      {/* TOP BAR */}
+
       <header className="admin_header">
         <div className="admin_header_left">
           <div className="admin_section_marker">
@@ -107,11 +295,9 @@ export default function Adminpage() {
         </div>
       </header>
 
-      {/* =========================================
-          DASHBOARD SUMMARY
-      ========================================= */}
+      {/* DASHBOARD SUMMARY */}
+
       <section className="admin_summary">
-        {/* TOTAL PROJECTS */}
         <div className="admin_summary_item">
           <span className="admin_summary_label">TOTAL PROJECTS</span>
 
@@ -120,18 +306,15 @@ export default function Adminpage() {
           </strong>
         </div>
 
-        {/* STATUS */}
         <div className="admin_summary_item">
           <span className="admin_summary_label">STATUS</span>
 
           <strong className="admin_summary_status">
             <span></span>
-
             {loading ? "LOADING" : error ? "ERROR" : "ONLINE"}
           </strong>
         </div>
 
-        {/* ADD PROJECT */}
         <div className="admin_summary_item admin_summary_action">
           <a href="/admin/project/add" className="admin_add_btn">
             <button className="admin_btn" type="button">
@@ -149,13 +332,11 @@ export default function Adminpage() {
         </div>
       </section>
 
-      {/* =========================================
-          PROJECT HEADER
-      ========================================= */}
+      {/* PROJECT HEADER */}
+
       <section id="projects" className="admin_projects_header">
         <div>
           <p>01 — PROJECT DATABASE</p>
-
           <h2>ALL PROJECTS</h2>
         </div>
 
@@ -168,14 +349,12 @@ export default function Adminpage() {
         </span>
       </section>
 
-      {/* =========================================
-          PROJECTS
-      ========================================= */}
+      {/* PROJECTS */}
+
       <section className="admin_projects">
         {loading ? (
           <div className="admin_loading">
             <div className="admin_loading_line"></div>
-
             <span>LOADING PROJECT DATABASE...</span>
           </div>
         ) : error ? (
@@ -197,26 +376,69 @@ export default function Adminpage() {
                 onClick={fetchHandler}
               >
                 <span>TRY AGAIN</span>
-
                 <ArrowUpRight size={18} strokeWidth={2} />
               </button>
             </div>
           </div>
         ) : portfolios.length > 0 ? (
-          <div className="portfolio_item">
-            {portfolios.map((portfolio, index) => (
-              <div
-                className="admin_project_wrapper"
-                key={portfolio._id || index}
+          <>
+            {/* ACTIVE PROJECTS */}
+
+            {activePortfolios.length > 0 && (
+              <DndContext
+                sensors={sensors}
+                collisionDetection={closestCenter}
+                onDragEnd={handleDragEnd}
               >
-                <div className="admin_project_index">
-                  {String(index + 1).padStart(2, "0")}
+                <SortableContext
+                  items={activePortfolios.map((portfolio) => portfolio._id)}
+                  strategy={verticalListSortingStrategy}
+                >
+                  <div className="portfolio_item">
+                    {activePortfolios.map((portfolio, index) => (
+                      <SortablePortfolioItem
+                        key={portfolio._id}
+                        portfolio={portfolio}
+                        index={index}
+                        disabled={isSavingOrder}
+                      />
+                    ))}
+                  </div>
+                </SortableContext>
+              </DndContext>
+            )}
+
+            {/* HIDDEN PROJECTS */}
+
+            {deletedPortfolios.length > 0 && (
+              <div className="admin_deleted_projects">
+                <div className="admin_deleted_header">
+                  <h3>HIDDEN PROJECTS</h3>
+
+                  <span>{deletedPortfolios.length} DELETED</span>
                 </div>
 
-                <Adminsingle portfolio={portfolio} />
+                <div className="portfolio_item">
+                  {deletedPortfolios.map((portfolio, index) => (
+                    <div
+                      className="admin_project_wrapper admin_project_hidden"
+                      key={portfolio._id}
+                    >
+                      <div className="admin_project_controls">
+                        <span className="admin_project_index">
+                          {String(index + 1).padStart(2, "0")}
+                        </span>
+                      </div>
+
+                      <div className="admin_project_content">
+                        <Adminsingle portfolio={portfolio} />
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
-            ))}
-          </div>
+            )}
+          </>
         ) : (
           <div className="admin_state admin_empty">
             <span className="admin_state_number">00</span>
@@ -231,7 +453,6 @@ export default function Adminpage() {
 
               <a href="/admin" className="admin_retry">
                 <span>CREATE FIRST PROJECT</span>
-
                 <ArrowUpRight size={18} strokeWidth={2} />
               </a>
             </div>
@@ -239,19 +460,16 @@ export default function Adminpage() {
         )}
       </section>
 
-      {/* =========================================
-          EXPERIENCE MANAGEMENT
-      ========================================= */}
+      {/* EXPERIENCE MANAGEMENT */}
+
       <section id="experience">
         <ExperienceManagement />
       </section>
 
-      {/* =========================================
-          FOOTER
-      ========================================= */}
+      {/* FOOTER */}
+
       <footer className="admin_footer">
         <span>PRIESTLY PATRICK BASSEY</span>
-
         <span>ADMIN / PORTFOLIO</span>
 
         <span className="admin_footer_mark">
@@ -260,9 +478,8 @@ export default function Adminpage() {
         </span>
       </footer>
 
-      {/* =========================================
-          ADMIN NAVIGATION
-      ========================================= */}
+      {/* ADMIN NAVIGATION */}
+
       <div className="admin_nav_bar">
         <button
           className="admin_menu_trigger"
@@ -286,10 +503,10 @@ export default function Adminpage() {
           aria-labelledby="adminNavigationTitle"
         >
           {/* OFFCANVAS HEADER */}
+
           <div className="admin_offcanvas_header">
             <div>
               <span className="admin_offcanvas_label">ADMIN</span>
-
               <h2 id="adminNavigationTitle">CONTROL.</h2>
             </div>
 
@@ -308,9 +525,11 @@ export default function Adminpage() {
           </div>
 
           {/* OFFCANVAS BODY */}
+
           <div className="offcanvas-body admin_offcanvas_body">
             <nav className="admin_navigation">
               {/* PROJECTS */}
+
               <button
                 type="button"
                 className="admin_nav_link admin_nav_button"
@@ -331,6 +550,7 @@ export default function Adminpage() {
               </button>
 
               {/* EXPERIENCE */}
+
               <button
                 type="button"
                 className="admin_nav_link admin_nav_button"
@@ -351,6 +571,7 @@ export default function Adminpage() {
               </button>
 
               {/* HOME */}
+
               <a href="/" className="admin_nav_link">
                 <span className="admin_nav_number">03</span>
 
@@ -366,6 +587,7 @@ export default function Adminpage() {
               </a>
 
               {/* USER PROFILE */}
+
               <Link to={`/userProfile/${user?._id}`} className="admin_nav_link">
                 <span className="admin_nav_number">04</span>
 
@@ -381,6 +603,7 @@ export default function Adminpage() {
               </Link>
 
               {/* LOGOUT */}
+
               <button
                 type="button"
                 className="admin_nav_link admin_logout"
@@ -401,6 +624,7 @@ export default function Adminpage() {
             </nav>
 
             {/* OFFCANVAS FOOTER */}
+
             <div className="admin_offcanvas_bottom">
               <div className="admin_offcanvas_line"></div>
 
