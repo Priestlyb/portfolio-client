@@ -11,11 +11,15 @@ import {
   Linkedin,
   Twitter,
   Github,
+  Instagram,
+  Globe,
   Sparkles,
 } from "lucide-react";
 
 import dp from "./it-developer.gif";
 import { Context } from "../../context/Context";
+import { useProfile } from "../../context/ProfileContext";
+
 import "./navbar.css";
 
 const NAVIGATION_ITEMS = [
@@ -37,8 +41,58 @@ const NAVIGATION_ITEMS = [
   },
 ];
 
+const SOCIAL_LINKS = [
+  {
+    key: "linkedin",
+    label: "LinkedIn",
+    Icon: Linkedin,
+  },
+  {
+    key: "twitter",
+    label: "Twitter",
+    Icon: Twitter,
+  },
+  {
+    key: "github",
+    label: "GitHub",
+    Icon: Github,
+  },
+  {
+    key: "instagram",
+    label: "Instagram",
+    Icon: Instagram,
+  },
+  {
+    key: "website",
+    label: "Website",
+    Icon: Globe,
+  },
+];
+
 const Navbar = () => {
   const { user, dispatch } = useContext(Context);
+  const { profile } = useProfile();
+
+  // =========================================
+  // PROFILE DATA
+  // =========================================
+
+  const fullName =
+    profile?.fullName ||
+    [profile?.firstName, profile?.lastName].filter(Boolean).join(" ") ||
+    "Priestly Patrick Bassey";
+
+  const displayName =
+    [profile?.firstName, profile?.lastName].filter(Boolean).join(" ") ||
+    fullName;
+
+  const profileImage = profile?.profileImage?.url || dp;
+
+  const socialLinks = profile?.socialLinks || {};
+
+  // =========================================
+  // NAVIGATION STATE
+  // =========================================
 
   const getActiveItem = () => {
     const hash = window.location.hash.replace("#", "").toLowerCase();
@@ -61,6 +115,10 @@ const Navbar = () => {
     };
   }, []);
 
+  // =========================================
+  // OFFCANVAS MENU
+  // =========================================
+
   const closeMenu = () => {
     const offcanvasElement = document.getElementById("offcanvastop");
 
@@ -76,10 +134,18 @@ const Navbar = () => {
     closeMenu();
   };
 
+  // =========================================
+  // LOGOUT
+  // =========================================
+
   const handleLogout = () => {
     dispatch({ type: "LOGOUT" });
     closeMenu();
   };
+
+  // =========================================
+  // NAVIGATION LINK
+  // =========================================
 
   const renderNavigationLink = ({
     id,
@@ -115,6 +181,10 @@ const Navbar = () => {
     );
   };
 
+  // =========================================
+  // RENDER
+  // =========================================
+
   return (
     <div className="nav_bar">
       {/* Menu Trigger */}
@@ -147,11 +217,18 @@ const Navbar = () => {
 
           <div className="navbar_profile">
             <div className="navbar_profile_image">
-              <img src={dp} alt="Priestly Patrick Bassey" />
+              <img
+                src={profileImage}
+                alt={fullName}
+                onError={(event) => {
+                  event.currentTarget.onerror = null;
+                  event.currentTarget.src = dp;
+                }}
+              />
             </div>
 
             <div className="navbar_profile_text">
-              <strong>Priestly Bassey</strong>
+              <strong>{displayName}</strong>
             </div>
           </div>
 
@@ -224,45 +301,30 @@ const Navbar = () => {
             </div>
 
             <div className="wrapper">
-              {/* LinkedIn */}
-              <a
-                href="https://linkedin.com/in/priestly-bassey-486278175"
-                className="social_icon"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-              >
-                <span className="social_icon_tooltip">LinkedIn</span>
-                <Linkedin size={19} strokeWidth={2} aria-hidden="true" />
-              </a>
+              {SOCIAL_LINKS.map(({ key, label, Icon }) => {
+                const url = socialLinks[key];
 
-              {/* Twitter / X */}
-              <a
-                href="https://twitter.com/priestlythedon"
-                className="social_icon"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Twitter"
-              >
-                <span className="social_icon_tooltip">Twitter</span>
-                <Twitter size={19} strokeWidth={2} aria-hidden="true" />
-              </a>
+                if (!url) return null;
 
-              {/* GitHub */}
-              <a
-                href="https://github.com/Priestlyb"
-                className="social_icon"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub"
-              >
-                <span className="social_icon_tooltip">GitHub</span>
-                <Github size={19} strokeWidth={2} aria-hidden="true" />
-              </a>
+                return (
+                  <a
+                    key={key}
+                    href={url}
+                    className="social_icon"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                  >
+                    <span className="social_icon_tooltip">{label}</span>
+
+                    <Icon size={19} strokeWidth={2} aria-hidden="true" />
+                  </a>
+                );
+              })}
             </div>
 
             <p className="navbar_copyright">
-              © {new Date().getFullYear()} Priestly Patrick Bassey
+              © {new Date().getFullYear()} {fullName}
             </p>
           </div>
         </div>

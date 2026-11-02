@@ -314,7 +314,7 @@ export default function ExperienceManagement() {
       <section className="admin_experience_management">
         <div className="admin_projects_header">
           <div>
-            <p>02 — EXPERIENCE DATABASE</p>
+            <p>04 — EXPERIENCE DATABASE</p>
             <h2>EXPERIENCE MANAGEMENT</h2>
           </div>
 

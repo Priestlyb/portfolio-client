@@ -9,33 +9,37 @@ import Whatido from "./whatido/whatido";
 import QuickContact from "./quick_contact/quickContact";
 import Portfolios from "./portfolio/portfolios";
 
+import { ProfileProvider } from "../context/ProfileContext";
+
 import "../constants/styles/loader.css";
 
 function Homepage() {
   return (
-    <div className="home_wrapper">
-      {/* 01 — Introduction */}
-      <Header />
+    <ProfileProvider>
+      <div className="home_wrapper">
+        {/* 01 — Introduction */}
+        <Header />
 
-      {/* 02 — Who I am */}
-      <Aboutus />
+        {/* 02 — Who I am */}
+        <Aboutus />
 
-      {/* 03 — What I do */}
-      <Whatido />
+        {/* 03 — What I do */}
+        <Whatido />
 
-      {/* 04 — Selected work */}
-      <Portfolios />
+        {/* 04 — Selected work */}
+        <Portfolios />
 
-      {/* 05 — Professional experience */}
-      <Experience />
+        {/* 05 — Professional experience */}
+        <Experience />
 
-      {/* 06 — Education & skills */}
-      <Eduskills />
+        {/* 06 — Education & skills */}
+        <Eduskills />
 
-      {/* Global navigation / contact */}
-      <QuickContact />
-      <Navbar />
-    </div>
+        {/* Global navigation / contact */}
+        <QuickContact />
+        <Navbar />
+      </div>
+    </ProfileProvider>
   );
 }
 

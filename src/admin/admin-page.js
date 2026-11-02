@@ -37,6 +37,7 @@ import { CSS } from "@dnd-kit/utilities";
 import "../constants/styles/admin.css";
 import Adminsingle from "./admin-single";
 import ExperienceManagement from "../components/experience-management/ExperienceManagement";
+import ProfileManagement from "../components/profile-management/ProfileManagement";
 import { axiosInstance } from "../config";
 import { Context } from "../context/Context";
 import { Link } from "react-router-dom";
@@ -295,6 +296,12 @@ export default function Adminpage() {
         </div>
       </header>
 
+      {/* PROFILE MANAGEMENT */}
+
+      <section id="profile">
+        <ProfileManagement />
+      </section>
+
       {/* DASHBOARD SUMMARY */}
 
       <section className="admin_summary">
@@ -336,7 +343,7 @@ export default function Adminpage() {
 
       <section id="projects" className="admin_projects_header">
         <div>
-          <p>01 — PROJECT DATABASE</p>
+          <p>03 — PROJECT DATABASE</p>
           <h2>ALL PROJECTS</h2>
         </div>
 
@@ -528,6 +535,59 @@ export default function Adminpage() {
 
           <div className="offcanvas-body admin_offcanvas_body">
             <nav className="admin_navigation">
+              {/* HOME */}
+
+              <a href="/" className="admin_nav_link">
+                <span className="admin_nav_number">03</span>
+
+                <span className="admin_nav_icon">
+                  <House size={19} strokeWidth={2} />
+                </span>
+
+                <span className="admin_nav_text">Home</span>
+
+                <span className="admin_nav_arrow">
+                  <ArrowUpRight size={18} strokeWidth={2} />
+                </span>
+              </a>
+
+              {/* USER PROFILE */}
+
+              <Link to={`/userProfile/${user?._id}`} className="admin_nav_link">
+                <span className="admin_nav_number">04</span>
+
+                <span className="admin_nav_icon">
+                  <UserRoundCog size={19} strokeWidth={2} />
+                </span>
+
+                <span className="admin_nav_text">User Profile</span>
+
+                <span className="admin_nav_arrow">
+                  <ArrowUpRight size={18} strokeWidth={2} />
+                </span>
+              </Link>
+
+              {/* PROFILE MANAGEMENT */}
+
+              <button
+                type="button"
+                className="admin_nav_link admin_nav_button"
+                onClick={() => scrollToSection("profile")}
+                data-bs-dismiss="offcanvas"
+              >
+                <span className="admin_nav_number">02</span>
+
+                <span className="admin_nav_icon">
+                  <UserRoundCog size={19} strokeWidth={2} />
+                </span>
+
+                <span className="admin_nav_text">Profile Management</span>
+
+                <span className="admin_nav_arrow">
+                  <ArrowDown size={18} strokeWidth={2} />
+                </span>
+              </button>
+
               {/* PROJECTS */}
 
               <button
@@ -569,38 +629,6 @@ export default function Adminpage() {
                   <ArrowDown size={18} strokeWidth={2} />
                 </span>
               </button>
-
-              {/* HOME */}
-
-              <a href="/" className="admin_nav_link">
-                <span className="admin_nav_number">03</span>
-
-                <span className="admin_nav_icon">
-                  <House size={19} strokeWidth={2} />
-                </span>
-
-                <span className="admin_nav_text">Home</span>
-
-                <span className="admin_nav_arrow">
-                  <ArrowUpRight size={18} strokeWidth={2} />
-                </span>
-              </a>
-
-              {/* USER PROFILE */}
-
-              <Link to={`/userProfile/${user?._id}`} className="admin_nav_link">
-                <span className="admin_nav_number">04</span>
-
-                <span className="admin_nav_icon">
-                  <UserRoundCog size={19} strokeWidth={2} />
-                </span>
-
-                <span className="admin_nav_text">User Profile</span>
-
-                <span className="admin_nav_arrow">
-                  <ArrowUpRight size={18} strokeWidth={2} />
-                </span>
-              </Link>
 
               {/* LOGOUT */}
 
