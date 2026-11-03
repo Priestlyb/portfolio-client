@@ -4,7 +4,7 @@ import "./about_us.css";
 import { useProfile } from "../../context/ProfileContext";
 
 function Aboutus() {
-  const { profile, loading } = useProfile();
+  const { profile } = useProfile();
 
   // Default content displayed until the profile loads
   const defaultAbout = {
